@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to build the wheel file &mdash; github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reproduce experiments - egs" href="../tutorials/training/egs.html" />
+    <link rel="prev" title="Install on macOS" href="install_on_macos.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">DELTA - A DEep learning Language Technology plAtform</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Installation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pick_installation.html">Pick a installation way for yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_from_source.html">Install from the source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using_docker.html">Installation using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_setup.html">Manual Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_on_macos.html">Install on macOS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to build the wheel file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#intro">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prepare">Prepare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-to-build">Start to build</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#macos">MacOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#upload">Upload</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/egs.html">Reproduce experiments - egs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/speech_features.html">Speech Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/text_class_pip_example.html">A Text Classification Usage Example for pip users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/text_class_source_example.html">A Text Classification Usage Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/asr_example.html">ASR Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/emotion-specch-cls.html">Emotion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/emotion-specch-cls.html#data-description">data description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/emotion-specch-cls.html#other">other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/kws-cls.html">KWS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/deployment/dpl.html">Deployment scripts - dpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/deployment/deltann.html">DELTA-NN architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/deltann_compile.html">DELTA-NN compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/model_optimization.html">Model Optimization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/contributing.html">Contributing Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Released model</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../released_models.html">Released Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Version</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html#release-version">Release Version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">DELTA - A DEep learning Language Technology plAtform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../released_models.html">Released Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html#release-version">Release Version</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>How to build the wheel file</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/installation/wheel_build.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-build-the-wheel-file">
+<h1>How to build the wheel file<a class="headerlink" href="#how-to-build-the-wheel-file" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="intro">
+<h2>Intro<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h2>
+<p>In order to provide users a simpler way to install <code class="docutils literal notranslate"><span class="pre">Delta</span></code>, we need to
+build the Wheel file <code class="docutils literal notranslate"><span class="pre">.whl</span></code> and upload this wheel file to Pypi's
+website. Once we uploaded the wheel file, all that users need to do is
+typing <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">delta-nlp</span></code>.</p>
+<p><strong>Notice</strong>: installation by pip only supports NLP tasks now. If you need the
+full version of the Delta (with speech tasks), you should install the
+platform from source.</p>
+</div>
+<div class="section" id="prepare">
+<h2>Prepare<a class="headerlink" href="#prepare" title="Permalink to this headline">¶</a></h2>
+<p>For linux wheel building, you will need the docker image:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker pull tensorflow/tensorflow:custom-op-ubuntu16
+</pre></div>
+</div>
+<p>Before build the wheel file, you need to install the <code class="docutils literal notranslate"><span class="pre">DELTA</span></code> before. Run the Makefile script for NLP version.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> tools <span class="o">&amp;&amp;</span> make nlp
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-to-build">
+<h2>Start to build<a class="headerlink" href="#start-to-build" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="macos">
+<h3>MacOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash ./tools/install/build_pip_pkg.sh
+</pre></div>
+</div>
+<p>The generated wheel will be under <code class="docutils literal notranslate"><span class="pre">dist</span></code> like
+<code class="docutils literal notranslate"><span class="pre">delta_nlp-{version}-cp36-cp36m-macosx_10_7_x86_64.whl</span></code></p>
+</div>
+<div class="section" id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<p>Wheel building in linux is more complicated. You need to run a docker</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --name delta_pip_tf2_u16 -it -v <span class="nv">$PWD</span>:/delta  tensorflow/tensorflow:custom-op-ubuntu16 /bin/bash
+</pre></div>
+</div>
+<p>In the docker environment, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash ./tools/install/build_pip_pkg.sh
+</pre></div>
+</div>
+<p>The generated wheel will be under <code class="docutils literal notranslate"><span class="pre">dist</span></code> like
+<code class="docutils literal notranslate"><span class="pre">delta_nlp-{version}-cp36-cp36m-linux_x86_64.whl</span></code></p>
+<p>Repair the wheel file for multiple linux platform support:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>auditwheel repair dist/xxx.whl
+</pre></div>
+</div>
+<p>The final wheel will be under <code class="docutils literal notranslate"><span class="pre">wheelhouse</span></code> like
+<code class="docutils literal notranslate"><span class="pre">delta_nlp-{version}-cp36-cp36m-manylinux1_x86_64.whl</span></code>.</p>
+</div>
+</div>
+<div class="section" id="upload">
+<h2>Upload<a class="headerlink" href="#upload" title="Permalink to this headline">¶</a></h2>
+<p>After building the wheel file, upload these files to Pypi:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">twine</span> <span class="n">upload</span> <span class="n">xxx</span><span class="o">.</span><span class="n">whl</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tutorials/training/egs.html" class="btn btn-neutral float-right" title="Reproduce experiments - egs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install_on_macos.html" class="btn btn-neutral float-left" title="Install on macOS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Hui Zhang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

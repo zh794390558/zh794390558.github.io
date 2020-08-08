@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Speech Features &mdash; github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="A Text Classification Usage Example for pip users" href="text_class_pip_example.html" />
+    <link rel="prev" title="Reproduce experiments - egs" href="egs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">DELTA - A DEep learning Language Technology plAtform</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/pick_installation.html">Pick a installation way for yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/install_from_source.html">Install from the source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/using_docker.html">Installation using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/manual_setup.html">Manual Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/install_on_macos.html">Install on macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/wheel_build.html">How to build the wheel file</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="egs.html">Reproduce experiments - egs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Speech Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#goal">Goal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#procedure">Procedure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-style">Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#existing-ops">Existing Ops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comparsion-with-kaldi">Comparsion with KALDI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="text_class_pip_example.html">A Text Classification Usage Example for pip users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text_class_source_example.html">A Text Classification Usage Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/asr_example.html">ASR Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/emotion-specch-cls.html">Emotion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/emotion-specch-cls.html#data-description">data description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/emotion-specch-cls.html#other">other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/kws-cls.html">KWS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/dpl.html">Deployment scripts - dpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/deltann.html">DELTA-NN architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/deltann_compile.html">DELTA-NN compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/model_optimization.html">Model Optimization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/contributing.html">Contributing Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Released model</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../released_models.html">Released Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Version</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version.html#release-version">Release Version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">DELTA - A DEep learning Language Technology plAtform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../released_models.html">Released Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version.html#release-version">Release Version</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Speech Features</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/tutorials/training/speech_features.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="speech-features">
+<h1>Speech Features<a class="headerlink" href="#speech-features" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goal">
+<h2>Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<p>Add custom speech feature extraction ops, and compare the extracted features with kaldi's.</p>
+</div>
+<div class="section" id="procedure">
+<h2>Procedure<a class="headerlink" href="#procedure" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Create custom C++ op, <strong>'xxx.h'</strong> and <strong>'xxx.cc'</strong></p>
+<p>Files should be stored in <strong>delta/layers/ops/kernels/</strong>, details can refer to existing files, e.g., pitch.cc / pitch.h</p>
+</li>
+<li><p>Implement the kernel for the op, <strong>'xxx_op.cc'</strong></p>
+<p>Files should be stored in <strong>delta/layers/ops/kernels/</strong>, details can be found in <a class="reference external" href="https://www.tensorflow.org/guide/extend/op">Tensorflow Guild: Adding a New Op</a></p>
+</li>
+<li><p>Define the op's interface, <strong>'x_ops.cc'</strong></p>
+<p>Files should be stored in <strong>delta/layers/ops/kernels/</strong>, details in above link</p>
+</li>
+<li><p>Compile by using <strong>'delta/layers/ops/Makefile'</strong></p></li>
+<li><p>Register op in <strong>'delta/layers/ops/py_x_ops.py'</strong></p></li>
+<li><p>Unit-test <strong>'xxx_op_test.py'</strong></p></li>
+</ol>
+</div>
+<div class="section" id="code-style">
+<h2>Code Style<a class="headerlink" href="#code-style" title="Permalink to this headline">¶</a></h2>
+<p><strong>C++</strong> code: using <strong>clang-format</strong> and <strong>cpplint</strong> for formatting and checking</p>
+<p><strong>Python</strong> code: using <strong>yapf</strong> and <strong>pylint</strong> for formatting and checking</p>
+<p>Please follow <a class="reference external" href="https://git.xiaojukeji.com/speech-nlu/nlu-ml/blob/dev/docs/development/contributing">Contributing Guide</a></p>
+</div>
+<div class="section" id="existing-ops">
+<h2>Existing Ops<a class="headerlink" href="#existing-ops" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Pitch</p></li>
+<li><p>Frame power</p></li>
+<li><p>Zero-cross rate</p></li>
+<li><p>Power spectrum (PS) / log PS</p></li>
+<li><p>Cepstrum / MFCC</p></li>
+<li><p>Perceptual Linear Prediction (PLP)</p></li>
+<li><p>Analysis filter bank (AFB)<br /><em>Currently support window_length = 30ms and frame_length = 10ms for perfect reconstruction.</em></p></li>
+<li><p>Synthesis filter bank (SFB)</p></li>
+</ul>
+<p>The specific interfaces of feature functions are shown below：
+<img alt="Speech Features" src="../../_images/speech_features.png" /></p>
+</div>
+<div class="section" id="comparsion-with-kaldi">
+<h2>Comparsion with KALDI<a class="headerlink" href="#comparsion-with-kaldi" title="Permalink to this headline">¶</a></h2>
+<p>Extracted features are compared to existing KALDI features.</p>
+<ol>
+<li><p>Pitch</p>
+<p><img alt="Pitch" src="../../_images/pitch_compare.png" /></p>
+</li>
+<li><p>Log power spectrum</p>
+<p><img alt="Log power spectrum" src="../../_images/log_spectrum_compare.png" /></p>
+</li>
+<li><p>Cepstrum / MFCC</p>
+<p><img alt="Cepstrum / MFCC" src="../../_images/mfcc_compare.png" /></p>
+</li>
+<li><p>PLP</p>
+<p><img alt="PLP" src="../../_images/plp_compare.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://practicalcryptography.com/miscellaneous/machine-learning/intuitive-guide-discrete-fourier-transform/">An Intuitive Discrete Fourier Transform Tutorial</a></p></li>
+<li><p><a class="reference external" href="http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/">Mel Frequency Cepstral Coefficient (MFCC) tutorial</a></p></li>
+<li><p><a class="reference external" href="http://practicalcryptography.com/miscellaneous/machine-learning/tutorial-cepstrum-and-lpccs/">A Tutorial on Cepstrum and LPCCs</a></p></li>
+<li><p><a class="reference external" href="https://haythamfayek.com/2016/04/21/speech-processing-for-machine-learning.html">Speech Processing for Machine Learning: Filter banks, Mel-Frequency Cepstral Coefficients (MFCCs) and What's In-Between</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="text_class_pip_example.html" class="btn btn-neutral float-right" title="A Text Classification Usage Example for pip users" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="egs.html" class="btn btn-neutral float-left" title="Reproduce experiments - egs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Hui Zhang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

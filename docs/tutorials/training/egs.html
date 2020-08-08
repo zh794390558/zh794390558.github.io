@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reproduce experiments - egs &mdash; github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Speech Features" href="speech_features.html" />
+    <link rel="prev" title="How to build the wheel file" href="../../installation/wheel_build.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">DELTA - A DEep learning Language Technology plAtform</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/pick_installation.html">Pick a installation way for yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/install_from_source.html">Install from the source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/using_docker.html">Installation using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/manual_setup.html">Manual Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/install_on_macos.html">Install on macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/wheel_build.html">How to build the wheel file</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reproduce experiments - egs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#an-egs-example">An Egs Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-the-data-set">Prepare the Data Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run">Run</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="speech_features.html">Speech Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text_class_pip_example.html">A Text Classification Usage Example for pip users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text_class_source_example.html">A Text Classification Usage Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/asr_example.html">ASR Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/emotion-specch-cls.html">Emotion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/emotion-specch-cls.html#data-description">data description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/emotion-specch-cls.html#other">other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/kws-cls.html">KWS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/dpl.html">Deployment scripts - dpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/deltann.html">DELTA-NN architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/deltann_compile.html">DELTA-NN compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/model_optimization.html">Model Optimization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/contributing.html">Contributing Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Released model</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../released_models.html">Released Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Version</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version.html#release-version">Release Version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">DELTA - A DEep learning Language Technology plAtform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../released_models.html">Released Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version.html#release-version">Release Version</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Reproduce experiments - egs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/tutorials/training/egs.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="reproduce-experiments-egs">
+<h1>Reproduce experiments - egs<a class="headerlink" href="#reproduce-experiments-egs" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">egs</span></code> director is data-oriented for <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">prepration</span></code> and model <code class="docutils literal notranslate"><span class="pre">training</span></code>, <code class="docutils literal notranslate"><span class="pre">evaluation</span></code> and <code class="docutils literal notranslate"><span class="pre">infering</span></code>.</p>
+<p>Sppech and NLP task are orgnized by <code class="docutils literal notranslate"><span class="pre">egs</span></code>, e.g. ASR, speaker verfication, NLP.</p>
+<div class="section" id="an-egs-example">
+<h2>An Egs Example<a class="headerlink" href="#an-egs-example" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, we demonstrate an emotion recognition task with an open source dataset: <code class="docutils literal notranslate"><span class="pre">IEMOCAP</span></code>. All other task is same to this.</p>
+<p>A complete process contains following steps:</p>
+<ul class="simple">
+<li><p>Download the <code class="docutils literal notranslate"><span class="pre">IEMOCAP</span></code> corpus.</p></li>
+<li><p>Run egs/iemocap/emo/v1/run.sh script</p></li>
+</ul>
+<p>Before doing any these steps, please make sure that <code class="docutils literal notranslate"><span class="pre">delta</span></code> has been successfully installed.</p>
+<p>Every time you re-open a terminal, don't forget:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">env</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<div class="section" id="prepare-the-data-set">
+<h3>Prepare the Data Set<a class="headerlink" href="#prepare-the-data-set" title="Permalink to this headline">¶</a></h3>
+<p>Download <code class="docutils literal notranslate"><span class="pre">IEMOCAP</span></code> from https://sail.usc.edu/iemocap/index.html</p>
+</div>
+<div class="section" id="run">
+<h3>Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
+<p>First:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pushd</span> <span class="n">egs</span><span class="o">/</span><span class="n">iemocap</span><span class="o">/</span><span class="n">emo</span><span class="o">/</span><span class="n">v1</span>
+</pre></div>
+</div>
+<p>Then run <code class="docutils literal notranslate"><span class="pre">run.sh</span></code> script</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">run</span><span class="o">.</span><span class="n">sh</span> <span class="o">--</span><span class="n">iemocap_root</span><span class="o">=&lt;/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">iemocap</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>For other task, e.g. <code class="docutils literal notranslate"><span class="pre">ASR</span></code>, <code class="docutils literal notranslate"><span class="pre">Speaker</span></code>, the main script is <code class="docutils literal notranslate"><span class="pre">run_delta.sh</span></code>, but default main root is <code class="docutils literal notranslate"><span class="pre">run.sh</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="speech_features.html" class="btn btn-neutral float-right" title="Speech Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../installation/wheel_build.html" class="btn btn-neutral float-left" title="How to build the wheel file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Hui Zhang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

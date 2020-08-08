@@ -1,0 +1,5 @@
+sphinx
+sphinx_rtd_theme
+recommonmark>=0.5.0
+sphinx-autobuild
+sphinx-markdown-tables

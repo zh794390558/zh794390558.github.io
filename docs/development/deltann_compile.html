@@ -1,0 +1,565 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DELTA-NN compile &mdash; github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Adding Tensorflow Op" href="adding_op.html" />
+    <link rel="prev" title="Develop with Docker" href="docker.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">DELTA - A DEep learning Language Technology plAtform</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/pick_installation.html">Pick a installation way for yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install_from_source.html">Install from the source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/using_docker.html">Installation using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/manual_setup.html">Manual Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install_on_macos.html">Install on macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/wheel_build.html">How to build the wheel file</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/egs.html">Reproduce experiments - egs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/speech_features.html">Speech Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/text_class_pip_example.html">A Text Classification Usage Example for pip users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/text_class_source_example.html">A Text Classification Usage Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/asr_example.html">ASR Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/emotion-specch-cls.html">Emotion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/emotion-specch-cls.html#data-description">data description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/emotion-specch-cls.html#other">other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/kws-cls.html">KWS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/deployment/dpl.html">Deployment scripts - dpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/deployment/deltann.html">DELTA-NN architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Develop with Docker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DELTA-NN compile</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tensorflow-c">Tensorflow C++</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cpu-only">CPU-only</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu-support">GPU support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tensoflow-tensorrt-support">Tensoflow TensorRT support</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tensorflow-lite">Tensorflow Lite</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#build-tensorflow-lite-for-arm">Build tensorflow lite for arm.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-tensorflow-lite-for-ios">Build TensorFlow lite for iOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tailor-tensorflow-lite-library">Tailor tensorflow lite library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tensorflow-seving">Tensorflow Seving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-in-docker-using-on-bare-metal">Build in docker, using on bare metal</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_optimization.html">Model Optimization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Released model</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../released_models.html">Released Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Version</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html#release-version">Release Version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">DELTA - A DEep learning Language Technology plAtform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../released_models.html">Released Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html#release-version">Release Version</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>DELTA-NN compile</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/development/deltann_compile.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="delta-nn-compile">
+<h1>DELTA-NN compile<a class="headerlink" href="#delta-nn-compile" title="Permalink to this headline">¶</a></h1>
+<p>Deltann support tensorflow， tensorflow lite，and tensorflow serving.</p>
+<div class="section" id="tensorflow-c">
+<h2>Tensorflow C++<a class="headerlink" href="#tensorflow-c" title="Permalink to this headline">¶</a></h2>
+<p>Build tensorflow for Linux :</p>
+<ol class="simple">
+<li><p>Install under deltann docker.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">tools</span><span class="o">/</span> <span class="o">&amp;&amp;</span> <span class="o">./</span><span class="n">install</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">deltann</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Config tensorflow build</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">tools</span><span class="o">/</span><span class="n">tensorflow</span>
+</pre></div>
+</div>
+<p>Configure your system build by running the ./configure,</p>
+<ol class="simple">
+<li><p>Build tensoflow library</p></li>
+</ol>
+<div class="section" id="cpu-only">
+<h3>CPU-only<a class="headerlink" href="#cpu-only" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bazel</span> <span class="n">build</span> <span class="o">-</span><span class="n">c</span> <span class="n">opt</span> <span class="o">--</span><span class="n">verbose_failures</span> <span class="o">//</span><span class="n">tensorflow</span><span class="p">:</span><span class="n">libtensorflow_cc</span><span class="o">.</span><span class="n">so</span>
+</pre></div>
+</div>
+<p>mkl support</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bazel</span> <span class="n">build</span> <span class="o">-</span><span class="n">c</span> <span class="n">opt</span> <span class="o">--</span><span class="n">config</span><span class="o">=</span><span class="n">mkl</span> <span class="o">--</span><span class="n">verbose_failures</span> <span class="o">//</span><span class="n">tensorflow</span><span class="p">:</span><span class="n">libtensorflow_cc</span><span class="o">.</span><span class="n">so</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gpu-support">
+<h3>GPU support<a class="headerlink" href="#gpu-support" title="Permalink to this headline">¶</a></h3>
+<p>Configure your system build by running the ./configure.</p>
+<p>For GPU support, set cuda=Y during configuration and specify the versions of CUDA and cuDNN.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Do you wish to build TensorFlow with CUDA support? [y/N]: y
+CUDA support will be enabled for TensorFlow.
+
+Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 9.0]: 10
+
+
+Please specify the location where CUDA 10.0 toolkit is installed. Refer to README.md for more details. [Default is /usr/local/cuda]:
+
+
+Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 7]:
+
+
+Please specify the location where cuDNN 7 library is installed. Refer to README.md for more details. [Default is /usr/local/cuda]:
+</pre></div>
+</div>
+<p>Build</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bazel</span> <span class="n">build</span> <span class="o">-</span><span class="n">c</span> <span class="n">opt</span> <span class="o">--</span><span class="n">config</span><span class="o">=</span><span class="n">cuda</span> <span class="o">--</span><span class="n">verbose_failures</span> <span class="o">//</span><span class="n">tensorflow</span><span class="p">:</span><span class="n">libtensorflow_cc</span><span class="o">.</span><span class="n">so</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tensoflow-tensorrt-support">
+<h3>Tensoflow TensorRT support<a class="headerlink" href="#tensoflow-tensorrt-support" title="Permalink to this headline">¶</a></h3>
+<p>Configure your system build by running the ./configure.
+For TensorRT support, set Y during configuration and specify the versions of CUDA,  cuDNN, TensorRT, NCCL.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Do you wish to build TensorFlow with CUDA support? [y/N]: y
+CUDA support will be enabled for TensorFlow.
+
+Please specify the CUDA SDK version you want to use. [Leave empty to default to CUDA 9.0]: 10
+
+
+Please specify the location where CUDA 10.0 toolkit is installed. Refer to README.md for more details. [Default is /usr/local/cuda]:
+
+
+Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 7]:
+
+
+Please specify the location where cuDNN 7 library is installed. Refer to README.md for more details. [Default is /usr/local/cuda]:
+
+
+Do you wish to build TensorFlow with TensorRT support? [y/N]: y
+TensorRT support will be enabled for TensorFlow.
+
+Please specify the location where TensorRT is installed. [Default is /usr/lib/x86_64-linux-gnu]:
+
+
+Please specify the NCCL version you want to use. If NCCL 2.2 is not installed, then you can use version 1.3 that can be fetched automatically but it may have worse performance with multiple GPUs. [Default is 2.2]: 2.3
+
+
+Please specify the location where NCCL 2 library is installed. Refer to README.md for more details. [Default is /usr/local/cuda]:
+</pre></div>
+</div>
+<p>set environmental variable</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">TF_NEED_TENSORRT</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Edit &quot;tensorflow/BUILD&quot;, add the following code to tf_cc_shared_object of the file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;//tensorflow/contrib/tensorrt:trt_engine_op_kernel&quot;</span><span class="p">,</span>
+<span class="s2">&quot;//tensorflow/contrib/tensorrt:trt_engine_op_op_lib&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;/</span><span class="se">\&quot;</span><span class="s1">\/\/tensorflow\/cc:cc_ops</span><span class="se">\&quot;</span><span class="s1">,/a</span><span class="se">\&quot;</span><span class="s1">\/\/tensorflow\/contrib\/tensorrt:trt_engine_op_kernel</span><span class="se">\&quot;</span><span class="s1">,</span><span class="se">\n\&quot;</span><span class="s1">\/\/tensorflow\/contrib\/tensorrt:trt_engine_op_op_lib</span><span class="se">\&quot;</span><span class="s1">,&#39;</span> <span class="n">tensorflow</span><span class="o">/</span><span class="n">BUILD</span>
+</pre></div>
+</div>
+<p>Build</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bazel</span> <span class="n">build</span> <span class="o">--</span><span class="n">config</span><span class="o">=</span><span class="n">opt</span> <span class="o">--</span><span class="n">config</span><span class="o">=</span><span class="n">cuda</span>  <span class="o">//</span><span class="n">tensorflow</span><span class="p">:</span><span class="n">libtensorflow_cc</span><span class="o">.</span><span class="n">so</span> \
+<span class="o">--</span><span class="n">action_env</span><span class="o">=</span><span class="s2">&quot;LD_LIBRARY_PATH=$</span><span class="si">{LD_LIBRARY_PATH}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Build deltann</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">delta</span><span class="o">/</span><span class="n">deltann</span> <span class="o">&amp;&amp;</span> <span class="o">./</span><span class="n">build</span><span class="o">.</span><span class="n">sh</span> <span class="n">linux</span> <span class="n">x86_64</span> <span class="n">tf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tensorflow-lite">
+<h2>Tensorflow Lite<a class="headerlink" href="#tensorflow-lite" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="build-tensorflow-lite-for-arm">
+<h3>Build tensorflow lite for arm.<a class="headerlink" href="#build-tensorflow-lite-for-arm" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Config ndk
+Edit &quot;tensorflow/WORKSPACE&quot;. Add the following code to the end of the file.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">android_ndk_repository</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;androidndk&quot;</span><span class="p">,</span>
+    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/ndk/path/android-ndk-r16b&quot;</span><span class="p">,</span>
+    <span class="n">api_level</span><span class="o">=</span><span class="mi">21</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Build tensoflow library</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#armv7</span>
+<span class="n">bazel</span> <span class="n">build</span> <span class="o">-</span><span class="n">c</span> <span class="n">opt</span> <span class="o">--</span><span class="n">cxxopt</span><span class="o">=--</span><span class="n">std</span><span class="o">=</span><span class="n">c</span><span class="o">++</span><span class="mi">11</span> \
+    <span class="o">--</span><span class="n">config</span><span class="o">=</span><span class="n">android_arm</span> <span class="o">//</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">lite</span><span class="o">/</span><span class="n">experimental</span><span class="o">/</span><span class="n">c</span><span class="p">:</span><span class="n">libtensorflowlite_c</span><span class="o">.</span><span class="n">so</span>
+
+<span class="c1">#arm64</span>
+<span class="n">bazel</span> <span class="n">build</span> <span class="o">-</span><span class="n">c</span> <span class="n">opt</span> <span class="o">--</span><span class="n">cxxopt</span><span class="o">=--</span><span class="n">std</span><span class="o">=</span><span class="n">c</span><span class="o">++</span><span class="mi">11</span> \
+    <span class="o">--</span><span class="n">config</span><span class="o">=</span><span class="n">android_arm64</span> <span class="o">//</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">lite</span><span class="o">/</span><span class="n">experimental</span><span class="o">/</span><span class="n">c</span><span class="p">:</span><span class="n">libtensorflowlite_c</span><span class="o">.</span><span class="n">so</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Build deltann</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">delta</span><span class="o">/</span><span class="n">deltann</span> <span class="o">&amp;&amp;</span> <span class="o">./</span><span class="n">build</span><span class="o">.</span><span class="n">sh</span> <span class="n">android</span> <span class="n">arm</span> <span class="n">tflite</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-tensorflow-lite-for-ios">
+<h3>Build TensorFlow lite for iOS<a class="headerlink" href="#build-tensorflow-lite-for-ios" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>You need to run a shell script to download the dependencies you need:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tensorflow</span><span class="o">/</span><span class="n">lite</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">make</span><span class="o">/</span><span class="n">download_dependencies</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Build the library for all five supported architectures on iOS:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tensorflow</span><span class="o">/</span><span class="n">lite</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">make</span><span class="o">/</span><span class="n">build_ios_universal_lib</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>The resulting library is in tensorflow/lite/tools/make/gen/lib/libtensorflow-lite.a.</p>
+<ol class="simple">
+<li><p>Build deltann</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">delta</span><span class="o">/</span><span class="n">deltann</span> <span class="o">&amp;&amp;</span> <span class="o">./</span><span class="n">build</span><span class="o">.</span><span class="n">sh</span> <span class="n">ios</span> <span class="n">arm</span> <span class="n">tflite</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tailor-tensorflow-lite-library">
+<h3>Tailor tensorflow lite library<a class="headerlink" href="#tailor-tensorflow-lite-library" title="Permalink to this headline">¶</a></h3>
+<p>There isn't an automatic way of doing this. You can edit tensorflow/lite/kernels/register.cc and tensorflow/lite/kernels/BUILD, delete some ops that you don't require.</p>
+<p>Eg：delete lstm op if you don't require.</p>
+<p>tensorflow/lite/kernels/register.cc：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="n">a</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">lite</span><span class="o">/</span><span class="n">kernels</span><span class="o">/</span><span class="n">register</span><span class="o">.</span><span class="n">cc</span>
+<span class="o">+++</span> <span class="n">b</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">lite</span><span class="o">/</span><span class="n">kernels</span><span class="o">/</span><span class="n">register</span><span class="o">.</span><span class="n">cc</span>
+<span class="o">@@</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span><span class="mi">7</span> <span class="o">+</span><span class="mi">60</span><span class="p">,</span><span class="mi">6</span> <span class="o">@@</span> <span class="n">TfLiteRegistration</span><span class="o">*</span> <span class="n">Register_BATCH_TO_SPACE_ND</span><span class="p">();</span>
+ <span class="n">TfLiteRegistration</span><span class="o">*</span> <span class="n">Register_MUL</span><span class="p">();</span>
+ <span class="n">TfLiteRegistration</span><span class="o">*</span> <span class="n">Register_L2_NORMALIZATION</span><span class="p">();</span>
+ <span class="n">TfLiteRegistration</span><span class="o">*</span> <span class="n">Register_LOCAL_RESPONSE_NORMALIZATION</span><span class="p">();</span>
+ <span class="o">-</span><span class="n">TfLiteRegistration</span><span class="o">*</span> <span class="n">Register_LSTM</span><span class="p">();</span>
+ <span class="n">TfLiteRegistration</span><span class="o">*</span> <span class="n">Register_BIDIRECTIONAL_SEQUENCE_LSTM</span><span class="p">();</span>
+ <span class="n">TfLiteRegistration</span><span class="o">*</span> <span class="n">Register_UNIDIRECTIONAL_SEQUENCE_LSTM</span><span class="p">();</span>
+ <span class="n">TfLiteRegistration</span><span class="o">*</span> <span class="n">Register_PAD</span><span class="p">();</span>
+<span class="o">@@</span> <span class="o">-</span><span class="mi">184</span><span class="p">,</span><span class="mi">7</span> <span class="o">+</span><span class="mi">183</span><span class="p">,</span><span class="mi">6</span> <span class="o">@@</span> <span class="n">BuiltinOpResolver</span><span class="p">::</span><span class="n">BuiltinOpResolver</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">AddBuiltin</span><span class="p">(</span><span class="n">BuiltinOperator_L2_NORMALIZATION</span><span class="p">,</span> <span class="n">Register_L2_NORMALIZATION</span><span class="p">());</span>
+   <span class="n">AddBuiltin</span><span class="p">(</span><span class="n">BuiltinOperator_LOCAL_RESPONSE_NORMALIZATION</span><span class="p">,</span>
+              <span class="n">Register_LOCAL_RESPONSE_NORMALIZATION</span><span class="p">());</span>
+<span class="o">-</span>  <span class="n">AddBuiltin</span><span class="p">(</span><span class="n">BuiltinOperator_LSTM</span><span class="p">,</span> <span class="n">Register_LSTM</span><span class="p">(),</span> <span class="o">/*</span> <span class="n">min_version</span> <span class="o">*/</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="o">/*</span> <span class="n">max_version</span> <span class="o">*/</span> <span class="mi">2</span><span class="p">);</span>
+   <span class="n">AddBuiltin</span><span class="p">(</span><span class="n">BuiltinOperator_BIDIRECTIONAL_SEQUENCE_LSTM</span><span class="p">,</span>
+   <span class="n">Register_BIDIRECTIONAL_SEQUENCE_LSTM</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>tensorflow/lite/kernels/BUILD：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="n">a</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">lite</span><span class="o">/</span><span class="n">kernels</span><span class="o">/</span><span class="n">BUILD</span>
+<span class="o">+++</span> <span class="n">b</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">lite</span><span class="o">/</span><span class="n">kernels</span><span class="o">/</span><span class="n">BUILD</span>
+<span class="o">@@</span> <span class="o">-</span><span class="mi">190</span><span class="p">,</span><span class="mi">7</span> <span class="o">+</span><span class="mi">190</span><span class="p">,</span><span class="mi">6</span> <span class="o">@@</span> <span class="n">cc_library</span><span class="p">(</span>
+         <span class="s2">&quot;local_response_norm.cc&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;logical.cc&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;lsh_projection.cc&quot;</span><span class="p">,</span>
+<span class="o">-</span>        <span class="s2">&quot;lstm.cc&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;maximum_minimum.cc&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;mfcc.cc&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;mul.cc&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tensorflow-seving">
+<h2>Tensorflow Seving<a class="headerlink" href="#tensorflow-seving" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Download tensorflow serving</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">serving</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">serving</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Build tensorflow serving</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bazel</span> <span class="n">build</span> <span class="o">//</span><span class="n">tensorflow_serving</span><span class="o">/</span><span class="n">model_servers</span><span class="p">:</span><span class="n">tensorflow_model_server</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Build deltann</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">delta</span><span class="o">/</span><span class="n">deltann</span> <span class="o">&amp;&amp;</span> <span class="o">./</span><span class="n">build</span><span class="o">.</span><span class="n">sh</span> <span class="n">linux</span> <span class="n">x86_64</span> <span class="n">tfserving</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-in-docker-using-on-bare-metal">
+<h2>Build in docker, using on bare metal<a class="headerlink" href="#build-in-docker-using-on-bare-metal" title="Permalink to this headline">¶</a></h2>
+<p>When link with <code class="docutils literal notranslate"><span class="pre">libx_ops.so</span></code>, <code class="docutils literal notranslate"><span class="pre">libdeltann.so</span></code> and <code class="docutils literal notranslate"><span class="pre">libtensorflow_cc.so</span></code>, <code class="docutils literal notranslate"><span class="pre">libtensorflow_framework.so</span></code>,
+mabe has problems as below:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/lib/deltann/lib/tensorflow/libtensorflow_cc.so: undefined reference to `std::_V2::error_category::equivalent(std::error_code const&amp;, int) const@GLIBCXX_3.4.21&#39;
+./lib/deltann/lib/tensorflow/libtensorflow_cc.so: undefined reference to `std::random_device::_M_init(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;)@GLIBCXX_3.4.21&#39;
+./lib/deltann/lib/deltann/libdeltann.so: undefined reference to `std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::basic_string(char const*, std::allocator&lt;char&gt; const&amp;)@GLIBCXX_3.4.21&#39;
+./lib/deltann/lib/deltann/libdeltann.so: undefined reference to `std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::_M_data() const@GLIBCXX_3.4.21&#39;
+./lib/deltann/lib/deltann/libdeltann.so: undefined reference to `std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;::append(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;)@GLIBCXX_3.4.21&#39;
+./lib/deltann/lib/custom_ops/libx_ops.so: undefined reference to `std::out_of_range::out_of_range(char const*)@GLIBCXX_3.4.21&#39;
+./lib/deltann/lib/custom_ops/libx_ops.so: undefined reference to `VTT for std::__cxx11::basic_ostringstream&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;@GLIBCXX_3.4.21&#39;
+...
+./lib/deltann/lib/custom_ops/libx_ops.so: undefined reference to `powf@GLIBC_2.27&#39;
+./lib/deltann/lib/tensorflow/libtensorflow_cc.so: undefined reference to `expf@GLIBC_2.27&#39;
+./lib/deltann/lib/tensorflow/libtensorflow_cc.so: undefined reference to `lgammaf@GLIBC_2.23&#39;
+./lib/deltann/lib/custom_ops/libx_ops.so: undefined reference to `logf@GLIBC_2.27&#39;
+./lib/deltann/lib/tensorflow/libtensorflow_cc.so: undefined reference to `lgamma@GLIBC_2.23&#39;
+</pre></div>
+</div>
+<p>You need copy below librares from docker, and link with these.
+For <a class="reference external" href="https://www.gnu.org/software/libc/">glibc</a> library are from https://www.gnu.org/software/libc.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    │   ├── glibc
+    │   │   ├── ld-2.27.so
+    │   │   ├── libc-2.27.so
+    │   │   ├── libc.a
+    │   │   ├── libc_nonshared.a
+    │   │   ├── libc.so
+    │   │   ├── libld-2.27.so
+    │   │   ├── libm-2.27.so
+    │   │   ├── libpthread-2.17.so
+    │   │   ├── libpthread-2.27.so
+    │   │   ├── libstdc++.so -&gt; libstdc++.so.6
+    │   │   ├── libstdc++.so.6 -&gt; libstdc++.so.6.0.24
+    │   │   └── libstdc++.so.6.0.24
+</pre></div>
+</div>
+<div class="highlight-makefile notranslate"><div class="highlight"><pre><span></span><span class="nv">DELTANN_DIR</span><span class="o">=</span>./lib/deltann
+<span class="nv">DELTANNINC</span> <span class="o">=</span> <span class="k">$(</span>DELTANN_DIR<span class="k">)</span>/include
+<span class="nv">DELTANNLIB</span> <span class="o">=</span> -Wl,--start-group <span class="se">\</span>
+             -L<span class="k">$(</span>DELTANN_DIR<span class="k">)</span>/lib/custom_ops -lx_ops <span class="se">\</span>
+             -L<span class="k">$(</span>DELTANN_DIR<span class="k">)</span>/lib/deltann -ldeltann <span class="se">\</span>
+             -L<span class="k">$(</span>DELTANN_DIR<span class="k">)</span>/lib/tensorflow -ltensorflow_cc -ltensorflow_framework <span class="se">\</span>
+             -L<span class="k">$(</span>DELTANN_DIR<span class="k">)</span>/lib/glibc -lstdc++ -lm-2.27 -lld-2.27 -lpthread-2.27<span class="se">\</span>
+             -Wl,--end-group <span class="k">$(</span>DELTANN_DIR<span class="k">)</span>/lib/glibc/libc_nonshared.a
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="adding_op.html" class="btn btn-neutral float-right" title="Adding Tensorflow Op" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="docker.html" class="btn btn-neutral float-left" title="Develop with Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Hui Zhang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

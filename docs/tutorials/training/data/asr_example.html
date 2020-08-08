@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ASR Data &mdash; github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Emotion" href="emotion-specch-cls.html" />
+    <link rel="prev" title="A Text Classification Usage Example" href="../text_class_source_example.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">DELTA - A DEep learning Language Technology plAtform</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/pick_installation.html">Pick a installation way for yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/install_from_source.html">Install from the source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/using_docker.html">Installation using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/manual_setup.html">Manual Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/install_on_macos.html">Install on macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/wheel_build.html">How to build the wheel file</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../egs.html">Reproduce experiments - egs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech_features.html">Speech Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text_class_pip_example.html">A Text Classification Usage Example for pip users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text_class_source_example.html">A Text Classification Usage Example</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ASR Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-descripition">Data descripition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-training">Model training</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="emotion-specch-cls.html">Emotion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emotion-specch-cls.html#data-description">data description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emotion-specch-cls.html#other">other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kws-cls.html">KWS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../deployment/dpl.html">Deployment scripts - dpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../deployment/deltann.html">DELTA-NN architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/deltann_compile.html">DELTA-NN compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/model_optimization.html">Model Optimization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/contributing.html">Contributing Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Released model</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../released_models.html">Released Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Version</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../version.html#release-version">Release Version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">DELTA - A DEep learning Language Technology plAtform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../released_models.html">Released Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../version.html#release-version">Release Version</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>ASR Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/tutorials/training/data/asr_example.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="asr-data">
+<h1>ASR Data<a class="headerlink" href="#asr-data" title="Permalink to this headline">¶</a></h1>
+<p>This tutorials discusses how to deal with automatic speech recognition(ASR) tasks on the basis of DELTA.</p>
+<div class="section" id="data-descripition">
+<h2>Data descripition<a class="headerlink" href="#data-descripition" title="Permalink to this headline">¶</a></h2>
+<p>For data preparing, you can refer to directory:'egs/hkust/asr/v1'.
+By simply using <code class="docutils literal notranslate"><span class="pre">./run.sh</span></code>, an open source dataset, HKUST, can be quickly downloaded and reformated like below:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>uttID: {
+   &quot;input&quot;: [
+      {
+        &quot;feat&quot;: the file and the position while the feats of current utterance is sorted
+        &quot;name&quot;: &quot;input1&quot;
+        &quot;shape&quot; : [
+            number_frames
+            dimension_feats
+        ]
+      }
+   ],
+   &quot;output&quot;: [
+       {
+           &quot;name&quot;: &quot;target&quot;,
+           &quot;shape&quot;: [
+               number_words
+               number_classes
+           ],
+           &quot;text&quot;:
+           &quot;token&quot;:
+           &quot;tokenid&quot;:
+       }
+   ],
+   &quot;utt2spk&quot;: speaker index
+}
+</pre></div>
+</div>
+<p>It should be noted that num_classes = size_vocabulary + 2,  where size_vocabulary is the size of the vocabulary. The zero value and the largest value (num_classes - 1) is reserved for the blank and sos/eos label respectively.
+For Example, the vocabulary is consist of 3 different labels [a, b, c]. Then, num_classes = 5 and the labels indexing is {blank:0, a:1, b:2, c:3, sos/eos:4}</p>
+</div>
+<div class="section" id="model-training">
+<h2>Model training<a class="headerlink" href="#model-training" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>For ASR tasks, a default config file is written in <code class="docutils literal notranslate"><span class="pre">conf/asr-ctc.yml</span></code>.
+Two different CTC-based model, <code class="docutils literal notranslate"><span class="pre">CTCAsrModel</span></code> and <code class="docutils literal notranslate"><span class="pre">CTC5BlstmAsrModel</span></code>, are supported in DELTA. The details of them can be seen in <code class="docutils literal notranslate"><span class="pre">delta/models/asr_model.py</span></code>.</p></li>
+<li><p>After setting the config file, the following script can be executed to train a ASR model:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 delta/main.py --config egs/hkust/asr/v1/conf/asr-ctc.yml --cmd train_and_eval 
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Same as the Espnet, the class index of blank label is set to be 0 in AsrSeqTask. However, the default blank label used in Tensorflow.nn.ctc_loss is num_classes - 1.
+To solve this problem, the <code class="docutils literal notranslate"><span class="pre">ctc_data_transform</span></code> interface is supported in <code class="docutils literal notranslate"><span class="pre">delta/utils/loss/loss_utils.py</span></code>.
+For logits generated by the ASR model, this interfance moves the blank_label cloumn to the end of it.
+For input labels, this interface changes the value of blank_label elements to num_classes - 1, and the value of other labels whose class index is greater than blank_label is reduced by 1.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">delta/utils/decode/tf_ctc.py</span></code>, two different methods, <code class="docutils literal notranslate"><span class="pre">ctc_greedy_decode</span></code> and <code class="docutils literal notranslate"><span class="pre">ctc_beam_search_decode</span></code>, are supported to perform greedy and beam search decoding on the logits respectively.
+In this stage, the mismatch between the blank label index in input logits and num_classes - 1 could also occur. Thus, we provide the <code class="docutils literal notranslate"><span class="pre">ctc_decode_blankid_to_last</span></code> method to address this issue.
+Specially, in order to eliminate the effect of the change of blank label index, the <code class="docutils literal notranslate"><span class="pre">ctc_decode_last_to_blankid</span></code> should be applied on the decode result which removing repeated labels and blank symbols to adjust the index of blank label back.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="emotion-specch-cls.html" class="btn btn-neutral float-right" title="Emotion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../text_class_source_example.html" class="btn btn-neutral float-left" title="A Text Classification Usage Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Hui Zhang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

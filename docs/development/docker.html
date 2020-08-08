@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Develop with Docker &mdash; github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="DELTA-NN compile" href="deltann_compile.html" />
+    <link rel="prev" title="DELTA-NN architecture" href="../tutorials/deployment/deltann.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">DELTA - A DEep learning Language Technology plAtform</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/pick_installation.html">Pick a installation way for yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install_from_source.html">Install from the source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/using_docker.html">Installation using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/manual_setup.html">Manual Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install_on_macos.html">Install on macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/wheel_build.html">How to build the wheel file</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/egs.html">Reproduce experiments - egs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/speech_features.html">Speech Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/text_class_pip_example.html">A Text Classification Usage Example for pip users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/text_class_source_example.html">A Text Classification Usage Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/asr_example.html">ASR Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/emotion-specch-cls.html">Emotion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/emotion-specch-cls.html#data-description">data description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/emotion-specch-cls.html#other">other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/kws-cls.html">KWS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/deployment/dpl.html">Deployment scripts - dpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/deployment/deltann.html">DELTA-NN architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Develop with Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-docker">Install Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development-with-docker">Development with Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tags">Tags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#build-images">Build Images</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#build-ci-image">Build CI Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-delta-image">Build DELTA Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-deltann-image">Build DELTANN Image</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deltann_compile.html">DELTA-NN compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_optimization.html">Model Optimization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Released model</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../released_models.html">Released Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Version</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html#release-version">Release Version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">DELTA - A DEep learning Language Technology plAtform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../released_models.html">Released Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html#release-version">Release Version</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Develop with Docker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/development/docker.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="develop-with-docker">
+<h1>Develop with Docker<a class="headerlink" href="#develop-with-docker" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-docker">
+<h2>Install Docker<a class="headerlink" href="#install-docker" title="Permalink to this headline">¶</a></h2>
+<p>Make sure <code class="docutils literal notranslate"><span class="pre">docker</span></code> has been installed. You can refer to the <a class="reference external" href="https://docs.docker.com/install/">official tutorial</a>.</p>
+</div>
+<div class="section" id="development-with-docker">
+<h2>Development with Docker<a class="headerlink" href="#development-with-docker" title="Permalink to this headline">¶</a></h2>
+<p>You can build DETLA or DETLANN locally as <a class="reference external" href="#build-images">Build Images</a>,
+or using pre-build images as belows:</p>
+<p>All avaible image tags list in <a class="reference external" href="https://cloud.docker.com/repository/docker/zh794390558/delta/tags">here</a>,
+please choose one as needed.</p>
+<p>If we choose <code class="docutils literal notranslate"><span class="pre">delta-cpu-py3</span></code>, then download the image as below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker pull zh794390558/delta:delta-cpu-py3
+</pre></div>
+</div>
+<p>After the image downloaded, create a container:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/detla <span class="o">&amp;&amp;</span> docker run -it -v <span class="nv">$PWD</span>:/delta zh794390558/delta:delta-cpu-py3 /bin/bash
+</pre></div>
+</div>
+<p>then develop as usual.</p>
+<p>We recommend using a power machine to develop DELTANN, since it needs to compile
+<code class="docutils literal notranslate"><span class="pre">Tensorflow</span></code> which is time-consuming.</p>
+<div class="section" id="tags">
+<h3>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
+<p>Please go to <a class="reference external" href="https://hub.docker.com/r/zh794390558/delta/tags">this</a> to see the valid docker images tags.</p>
+</div>
+</div>
+<div class="section" id="build-images">
+<h2>Build Images<a class="headerlink" href="#build-images" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="build-ci-image">
+<h3>Build CI Image<a class="headerlink" href="#build-ci-image" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pushd</span> docker <span class="o">&amp;&amp;</span> bash build.sh ci cpu build <span class="o">&amp;&amp;</span> <span class="nb">popd</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-delta-image">
+<h3>Build DELTA Image<a class="headerlink" href="#build-delta-image" title="Permalink to this headline">¶</a></h3>
+<p>For building cpu image:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pushd</span> docker <span class="o">&amp;&amp;</span> bash build.sh delta cpu build <span class="o">&amp;&amp;</span> <span class="nb">popd</span>
+</pre></div>
+</div>
+<p>for building gpu image</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pushd</span> docker <span class="o">&amp;&amp;</span> bash build.sh delta gpu build <span class="o">&amp;&amp;</span> <span class="nb">popd</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-deltann-image">
+<h3>Build DELTANN Image<a class="headerlink" href="#build-deltann-image" title="Permalink to this headline">¶</a></h3>
+<p>For building cpu image:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pushd</span> docker <span class="o">&amp;&amp;</span> bash build.sh deltann cpu build <span class="o">&amp;&amp;</span> <span class="nb">popd</span>
+</pre></div>
+</div>
+<p>for building gpu image</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pushd</span> docker <span class="o">&amp;&amp;</span> bash build.sh deltann gpu build <span class="o">&amp;&amp;</span> <span class="nb">popd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="deltann_compile.html" class="btn btn-neutral float-right" title="DELTA-NN compile" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tutorials/deployment/deltann.html" class="btn btn-neutral float-left" title="DELTA-NN architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Hui Zhang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

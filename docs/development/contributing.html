@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Contributing Guide &mdash; github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Released Models" href="../released_models.html" />
+    <link rel="prev" title="Model Optimization" href="model_optimization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">DELTA - A DEep learning Language Technology plAtform</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/pick_installation.html">Pick a installation way for yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install_from_source.html">Install from the source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/using_docker.html">Installation using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/manual_setup.html">Manual Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install_on_macos.html">Install on macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/wheel_build.html">How to build the wheel file</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/egs.html">Reproduce experiments - egs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/speech_features.html">Speech Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/text_class_pip_example.html">A Text Classification Usage Example for pip users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/text_class_source_example.html">A Text Classification Usage Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/asr_example.html">ASR Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/emotion-specch-cls.html">Emotion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/emotion-specch-cls.html#data-description">data description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/emotion-specch-cls.html#other">other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/data/kws-cls.html">KWS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/deployment/dpl.html">Deployment scripts - dpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/deployment/deltann.html">DELTA-NN architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deltann_compile.html">DELTA-NN compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model_optimization.html">Model Optimization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#name-style">Name style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-style">Python style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#c-style">C++ style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#c-macro">C++ macro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#golang-style">Golang style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logging-guideline">Logging guideline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unit-test">Unit test</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Released model</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../released_models.html">Released Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Version</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html#release-version">Release Version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">DELTA - A DEep learning Language Technology plAtform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../released_models.html">Released Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version.html#release-version">Release Version</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Contributing Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/development/contributing.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="contributing-guide">
+<h1>Contributing Guide<a class="headerlink" href="#contributing-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>The source file should contain a license header. See the existing files as the example.</p>
+</div>
+<div class="section" id="name-style">
+<h2>Name style<a class="headerlink" href="#name-style" title="Permalink to this headline">¶</a></h2>
+<p>All name in python and cpp using <a class="reference external" href="https://en.wikipedia.org/wiki/Snake_case">snake case style</a>, except for <code class="docutils literal notranslate"><span class="pre">op</span></code> for <code class="docutils literal notranslate"><span class="pre">Tensorflow</span></code>.
+For Golang, using Camel-Case for <code class="docutils literal notranslate"><span class="pre">variable</span> <span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">interface</span></code>.</p>
+</div>
+<div class="section" id="python-style">
+<h2>Python style<a class="headerlink" href="#python-style" title="Permalink to this headline">¶</a></h2>
+<p>Changes to Python code should conform the <a class="reference external" href="https://chromium.googlesource.com/chromium/src/+/master/styleguide/python/python">Chromium Python Style Guide</a>.<br />You can use <a class="reference external" href="https://github.com/google/yapf">yapf</a> to check the style.<br />The style configuration is <code class="docutils literal notranslate"><span class="pre">.style.yapf</span></code>.<br />You can using <code class="docutils literal notranslate"><span class="pre">tools/format.sh</span></code> tool to format code.</p>
+</div>
+<div class="section" id="c-style">
+<h2>C++ style<a class="headerlink" href="#c-style" title="Permalink to this headline">¶</a></h2>
+<p>Changes to C++ code should conform to <a class="reference external" href="https://github.com/google/styleguide">Google C++ Style Guide</a>.<br />You can use <a class="reference external" href="https://github.com/google/styleguide/tree/gh-pages/cpplint">cpplint</a> to check the style and use <a class="reference external" href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a> to format the code.<br />The style configuration is <code class="docutils literal notranslate"><span class="pre">.clang-format</span></code>.<br />You can using <code class="docutils literal notranslate"><span class="pre">tools/format.sh</span></code> tool to format code.</p>
+</div>
+<div class="section" id="c-macro">
+<h2>C++ macro<a class="headerlink" href="#c-macro" title="Permalink to this headline">¶</a></h2>
+<p>C++ macros should start with <code class="docutils literal notranslate"><span class="pre">DELTA_</span></code>, except for most common ones like <code class="docutils literal notranslate"><span class="pre">LOG</span></code> and <code class="docutils literal notranslate"><span class="pre">VLOG</span></code>.</p>
+</div>
+<div class="section" id="golang-style">
+<h2>Golang style<a class="headerlink" href="#golang-style" title="Permalink to this headline">¶</a></h2>
+<p>For Golang styple, please see docs below:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://golang.org/doc/code.html">How to Write Go Code</a></p></li>
+<li><p><a class="reference external" href="https://golang.org/doc/effective_go.html#interface-names">Effective Go</a></p></li>
+<li><p><a class="reference external" href="https://github.com/golang/go/wiki/CodeReviewComments">Go Code Review Comments</a></p></li>
+<li><p><a class="reference external" href="https://juejin.im/post/5c16f16c5188252dcb30ff42">Golang Style in Chinese</a></p></li>
+</ul>
+<p>Before commit golang code, plase using <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">fmt</span></code> and <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">vec</span></code> to format and lint code.</p>
+</div>
+<div class="section" id="logging-guideline">
+<h2>Logging guideline<a class="headerlink" href="#logging-guideline" title="Permalink to this headline">¶</a></h2>
+<p>For <code class="docutils literal notranslate"><span class="pre">python</span></code> using <a class="reference external" href="https://github.com/abseil/abseil-py">abseil-py</a>, <a class="reference external" href="https://abseil.io/docs/python/">more info</a>.</p>
+<p>For C++ using <a class="reference external" href="https://github.com/abseil/abseil-cpp">abseil-cpp</a>, <a class="reference external" href="https://abseil.io/docs/cpp/">more info</a>.</p>
+<p>For Golang using <a class="reference external" href="https://github.com/golang/glog">glog</a>.</p>
+</div>
+<div class="section" id="unit-test">
+<h2>Unit test<a class="headerlink" href="#unit-test" title="Permalink to this headline">¶</a></h2>
+<p>For <code class="docutils literal notranslate"><span class="pre">python</span></code> using <code class="docutils literal notranslate"><span class="pre">tf.test.TestCase</span></code>, and the entrypoint for python unittest is <code class="docutils literal notranslate"><span class="pre">tools/test/python_test.sh</span></code>.</p>
+<p>For C++ using <a class="reference external" href="https://github.com/google/googletest">googletest</a>, and the entrypoint for C++ unittest is <code class="docutils literal notranslate"><span class="pre">tools/test/cpp_test.sh</span></code>.</p>
+<p>For Golang using <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">test</span></code> for unittest.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../released_models.html" class="btn btn-neutral float-right" title="Released Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="model_optimization.html" class="btn btn-neutral float-left" title="Model Optimization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Hui Zhang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

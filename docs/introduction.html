@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DELTA - A DEep learning Language Technology plAtform &mdash; github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pick a installation way for yourself" href="installation/pick_installation.html" />
+    <link rel="prev" title="Welcome to DELTA&#39;s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DELTA - A DEep learning Language Technology plAtform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-delta">What is DELTA?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-can-delta-do">What can DELTA do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation/pick_installation.html">Pick a installation way for yourself</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/install_from_source.html">Install from the source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/using_docker.html">Installation using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/manual_setup.html">Manual Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/install_on_macos.html">Install on macOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/wheel_build.html">How to build the wheel file</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/training/egs.html">Reproduce experiments - egs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/training/speech_features.html">Speech Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/training/text_class_pip_example.html">A Text Classification Usage Example for pip users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/training/text_class_source_example.html">A Text Classification Usage Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/training/data/asr_example.html">ASR Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/training/data/emotion-specch-cls.html">Emotion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/training/data/emotion-specch-cls.html#data-description">data description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/training/data/emotion-specch-cls.html#other">other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/training/data/kws-cls.html">KWS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/deployment/dpl.html">Deployment scripts - dpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/deployment/deltann.html">DELTA-NN architecture</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/deltann_compile.html">DELTA-NN compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/model_optimization.html">Model Optimization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development/contributing.html">Contributing Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Released model</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="released_models.html">Released Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Version</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version.html#release-version">Release Version</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DELTA - A DEep learning Language Technology plAtform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-delta">What is DELTA?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-can-delta-do">What can DELTA do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="released_models.html">Released Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version.html#release-version">Release Version</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>DELTA - A DEep learning Language Technology plAtform</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/introduction.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="delta-a-deep-learning-language-technology-platform">
+<h1>DELTA - A DEep learning Language Technology plAtform<a class="headerlink" href="#delta-a-deep-learning-language-technology-platform" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-delta">
+<h2>What is DELTA?<a class="headerlink" href="#what-is-delta" title="Permalink to this headline">¶</a></h2>
+<p><strong>DELTA</strong> is a deep learning based end-to-end <strong>natural language and speech processing</strong> platform.
+DELTA aims to provide easy and fast experiences for using, deploying, and developing natural language processing and speech models for both academia and industry use cases. DELTA is mainly implemented using TensorFlow and Python 3.</p>
+<p>For details of DELTA, please refer to this <a class="reference external" href="https://arxiv.org/abs/1908.01853">paper</a>.</p>
+</div>
+<div class="section" id="what-can-delta-do">
+<h2>What can DELTA do?<a class="headerlink" href="#what-can-delta-do" title="Permalink to this headline">¶</a></h2>
+<p>DELTA has been used for developing several state-of-the-art algorithms for publications and delivering real production to serve millions of users.
+It helps you to train, develop, and deploy NLP and/or speech models, featuring:</p>
+<ul class="simple">
+<li><p>Easy-to-use</p>
+<ul>
+<li><p>One command to train NLP and speech models, including:</p>
+<ul>
+<li><p>NLP: text classification, named entity recognition, question and answering, text summarization, etc</p></li>
+<li><p>Speech: speech recognition, speaker verification, emotion recognition, etc</p></li>
+</ul>
+</li>
+<li><p>Use configuration files to easily tune parameters and network structures</p></li>
+</ul>
+</li>
+<li><p>Easy-to-deploy</p>
+<ul>
+<li><p>What you see in training is what you get in serving: all data processing and features extraction are integrated into a model graph</p></li>
+<li><p>Uniform I/O interfaces and no changes for new models</p></li>
+</ul>
+</li>
+<li><p>Easy-to-develop</p>
+<ul>
+<li><p>Easily build state-of-the-art models using modularized components</p></li>
+<li><p>All modules are reliable and fully-tested</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>Please cite this <a class="reference external" href="https://arxiv.org/abs/1908.01853">paper</a> when referencing DELTA.</p>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@ARTICLE</span><span class="p">{</span><span class="nl">delta</span><span class="p">,</span>
+       <span class="na">author</span> <span class="p">=</span> <span class="s">{{Han}, Kun and {Chen}, Junwen and {Zhang}, Hui and {Xu}, Haiyang and</span>
+<span class="s">         {Peng}, Yiping and {Wang}, Yun and {Ding}, Ning and {Deng}, Hui and</span>
+<span class="s">         {Gao}, Yonghu and {Guo}, Tingwei and {Zhang}, Yi and {He}, Yahao and</span>
+<span class="s">         {Ma}, Baochang and {Zhou}, Yulong and {Zhang}, Kangli and {Liu}, Chao and</span>
+<span class="s">         {Lyu}, Ying and {Wang}, Chenxi and {Gong}, Cheng and {Wang}, Yunbo and</span>
+<span class="s">         {Zou}, Wei and {Song}, Hui and {Li}, Xiangang}</span><span class="p">,</span>
+       <span class="na">title</span> <span class="p">=</span> <span class="s">&quot;{DELTA: A DEep learning based Language Technology plAtform}&quot;</span><span class="p">,</span>
+       <span class="na">journal</span> <span class="p">=</span> <span class="s">{arXiv e-prints}</span><span class="p">,</span>
+       <span class="na">year</span> <span class="p">=</span> <span class="s">&quot;2019&quot;</span><span class="p">,</span>
+       <span class="na">url</span> <span class="p">=</span> <span class="s">{https://arxiv.org/abs/1908.01853}</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation/pick_installation.html" class="btn btn-neutral float-right" title="Pick a installation way for yourself" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to DELTA&#39;s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Hui Zhang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
