@@ -52,6 +52,7 @@ Welcome to Hui Zhang's homepage!
    development/serving
    development/tensorrt
    development/model_optimization
+   development/contributing
    development/version
 
 
