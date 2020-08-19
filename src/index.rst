@@ -15,31 +15,10 @@ Welcome to Hui Zhang's homepage!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Installation
-   :name: sec-install
-
-   installation/pick_installation
-   installation/install_from_source
-   installation/using_docker
-   installation/manual_setup
-   installation/install_on_macos
-   installation/wheel_build
-
-
-.. toctree::
-   :maxdepth: 1
    :caption: Tutorials 
    :name: sec-tutorials
 
-   tutorials/training/egs
    tutorials/training/speech_features
-   tutorials/training/text_class_pip_example
-   tutorials/training/text_class_source_example
-   tutorials/training/data/asr_example
-   tutorials/training/data/emotion-specch-cls
-   tutorials/training/data/kws-cls
-   tutorials/deployment/dpl
-   tutorials/deployment/deltann
  
 .. toctree::
    :maxdepth: 1
@@ -54,6 +33,13 @@ Welcome to Hui Zhang's homepage!
    development/model_optimization
    development/contributing
    development/version
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Coding 
+   :name: sec-coding
+ 
+   coding/algorithm.md
 
 
 Indices and tables
