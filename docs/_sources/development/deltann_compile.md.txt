@@ -1,4 +1,4 @@
-# DELTA-NN compile
+# Tensorflow compile
 
 Deltann support tensorflow， tensorflow lite，and tensorflow serving.
 

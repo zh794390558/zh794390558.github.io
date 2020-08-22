@@ -7,17 +7,20 @@
 | xxx | xxx  | xxxx |
 
 ### Extraction
+
 |  Name  | Organization | Year |
 |  ----  | ----  | ---- |
 | Wavesplit: End-to-End Speech Separation by Speaker Clustering | Google Research, Brain Team  | 2020 |
 | SpEx: Multi-Scale Time Domain Speaker Extraction Network | National University of Singapore  | 2020 |
 
 ### Music
+
 |  Name  | Organization | Year |
 |  ----  | ----  | ---- |
 | Music Source Separation in the Waveform Domain | Facebook  | 2019 |
 
 ### BSS
+
 |  Name  | Organization | Year |
 |  ----  | ----  | ---- |
 | DUAL-PATH RNN: EFFICIENT LONG SEQUENCE MODELING FOR TIME-DOMAIN SINGLE-CHANNEL SPEECH SEPARATION | Columbia University  | 2020 |
@@ -26,6 +29,7 @@
 
 
 ## Frequency Domain
+
 |  Name  | Organization | Year |
 |  ----  | ----  | ---- |
 | xxx | xxx  | xxxx |
