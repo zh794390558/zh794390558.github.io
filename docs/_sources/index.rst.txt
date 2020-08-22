@@ -15,11 +15,29 @@ Welcome to Hui Zhang's homepage!
 
 .. toctree::
    :maxdepth: 1
+   :caption: Speech 
+   :name: sec-speech
+
+   papers/asr/edit-distance-papers/README
+   papers/tts/README
+   papers/tts/TTS-papers/README
+   papers/spk/README
+   papers/separation/README
+
+.. toctree::
+   :maxdepth: 1
    :caption: Tutorials 
    :name: sec-tutorials
 
    tutorials/training/speech_features
  
+.. toctree::
+   :maxdepth: 1
+   :caption: Coding 
+   :name: sec-coding
+ 
+   coding/algorithm.md
+
 .. toctree::
    :maxdepth: 1
    :caption: Developer guide
@@ -33,13 +51,6 @@ Welcome to Hui Zhang's homepage!
    development/model_optimization
    development/contributing
    development/version
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Coding 
-   :name: sec-coding
- 
-   coding/algorithm.md
 
 
 Indices and tables

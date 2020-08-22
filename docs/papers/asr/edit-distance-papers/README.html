@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ASR Edit-distance as objective function &mdash; zh794390558.github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="TTS" href="../../tts/README.html" />
+    <link rel="prev" title="Hui Zhang" href="../../../introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> zh794390558.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Hui Zhang</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Speech</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ASR Edit-distance as objective function</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#problems">Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#solutions">Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tts/README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spk/README.html">Speaker Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../separation/README.html">Speech Separation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/training/speech_features.html">Speech Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../coding/algorithm.html">Algorithm</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/deltann_compile.html">DELTA-NN compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/model_optimization.html">Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/version.html#release-version">Release Version</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">zh794390558.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>ASR Edit-distance as objective function</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/papers/asr/edit-distance-papers/README.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="asr-edit-distance-as-objective-function">
+<h1>ASR Edit-distance as objective function<a class="headerlink" href="#asr-edit-distance-as-objective-function" title="Permalink to this headline">¶</a></h1>
+<p>There are several research fields in which the <a class="reference external" href="https://en.wikipedia.org/wiki/Edit_distance">edit-distance</a> chosen as the objective function. For example, in Automatic Speech Recognition (ASR) the main metric of the quality of models is <a class="reference external" href="https://en.wikipedia.org/wiki/Word_error_rate">Word Error Rate</a> (WER).</p>
+<div class="section" id="problems">
+<h2>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">¶</a></h2>
+<p>Unfortunately, directly optimize the edit-distance function is difficult. Therefore, in most cases, approaches based on a proxy function, like a cross-entropy. On the other hand, in the context of the sequence learning task this leads to several problems <a class="reference external" href="https://arxiv.org/pdf/1606.02960.pdf">[1]</a>:</p>
+<ol class="simple">
+<li><p><em>Exposure Bias</em>: the model is never exposed to its own errors during training, and so the inferred histories at test-time do not resemble the gold training histories.</p></li>
+<li><p><em>Loss Evaluation Mismatch</em>: training uses a word-level loss, while at test-time we target improving sequence-level evaluation metrics</p></li>
+<li><p><em>Label Bias</em>: since word probabilities at each time-step are locally normalized, guaranteeing that successors of incorrect histories receive the same mass as do the successors of the true history.</p></li>
+</ol>
+</div>
+<div class="section" id="solutions">
+<h2>Solutions<a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<p>The following table summarizes the works that attempts to solve the mentioned problems. There are much more detailed overview of works, for example <a class="reference external" href="https://arxiv.org/pdf/1805.09461.pdf">[2]</a>, but this list includes only works that use the edit-distance explicitly or implicitly. Moreover, most of these works formalize the sequence prediction task as an action-taking problem in Reinforcement Learning.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Year</th>
+<th align="center">Task</th>
+<th>Reward level</th>
+<th>Algorithms, Models</th>
+<th>Affiliation</th>
+<th>Authors, Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">2019</td>
+<td align="center">ASR</td>
+<td>Sentence</td>
+<td>Neural Architecture Search, REINFORCE, CTC</td>
+<td>KPMG Nigeria, OAU</td>
+<td><a href="https://arxiv.org/abs/1912.05946">Baruwa et al.</a></td>
+</tr>
+<tr>
+<td align="center">2019</td>
+<td align="center">ASR</td>
+<td>Sentence</td>
+<td>Normalized MWER</td>
+<td>Amazon</td>
+<td><a href="https://arxiv.org/abs/1912.03363">Gandhe, Rastrow</a></td>
+</tr>
+<tr>
+<td align="center">2019</td>
+<td align="center">ASR</td>
+<td>Token</td>
+<td>MBR, RNN-T</td>
+<td>Tencent, USA</td>
+<td><a href="https://arxiv.org/abs/1911.12487">Weng et al.</a></td>
+</tr>
+<tr>
+<td align="center">2019</td>
+<td align="center">ASR</td>
+<td>Token</td>
+<td>ECTC-DOCD</td>
+<td>China</td>
+<td><a href="https://www.isca-speech.org/archive/Interspeech_2019/pdfs/1212.pdf">Yi, Wang, Xu</a></td>
+</tr>
+<tr>
+<td align="center">2019</td>
+<td align="center">ASR</td>
+<td>Sentence</td>
+<td>MWER, RNN-T, LAS</td>
+<td>Google</td>
+<td><a href="https://arxiv.org/abs/1908.10992">Sainath, Pang et al</a></td>
+</tr>
+<tr>
+<td align="center">2019</td>
+<td align="center">MT</td>
+<td>Token</td>
+<td>Reinforce-NAT, Non-Autoregressive Transformer</td>
+<td>China, Tencent</td>
+<td><a href="https://arxiv.org/abs/1906.09444">Shao, Feng et al.</a></td>
+</tr>
+<tr>
+<td align="center">2019</td>
+<td align="center">MT, TS, APE</td>
+<td>Token</td>
+<td>Levenshtein Transformer, imitation learning</td>
+<td>Facebook, New York</td>
+<td><a href="https://arxiv.org/abs/1905.11006">Gu, Wang, Zhao</a></td>
+</tr>
+<tr>
+<td align="center">2018</td>
+<td align="center">ASR</td>
+<td>Token</td>
+<td>MBR, softmax margin, PAPB, S2S</td>
+<td>Brno, JHU, MERL</td>
+<td><a href="https://arxiv.org/abs/1811.02770">Baskar et al.</a></td>
+</tr>
+<tr>
+<td align="center">2018</td>
+<td align="center">ASR</td>
+<td>Token</td>
+<td>OCD, S2S</td>
+<td>Google Brain</td>
+<td><a href="https://arxiv.org/abs/1810.01398">Sabour, Chan, Norouzi</a></td>
+</tr>
+<tr>
+<td align="center">2018</td>
+<td align="center">ASR</td>
+<td>Token</td>
+<td>REINFORCE, S2S</td>
+<td>Nara, RIKEN</td>
+<td><a href="https://ahcweb01.naist.jp/papers/journal/2019/201906_IEEE_andros-tj_1/201906_IEEE_andros-tj_1.paper.pdf">Tjandra et al.</a></td>
+</tr>
+<tr>
+<td align="center">2018</td>
+<td align="center">TS</td>
+<td>Sentence</td>
+<td>Alternating Actor-Critic</td>
+<td>Hong Kong, Tencent</td>
+<td><a href="https://arxiv.org/abs/1803.11070">Li, Bing, Lam</a></td>
+</tr>
+<tr>
+<td align="center">2018</td>
+<td align="center">ASR</td>
+<td>Sentence</td>
+<td>REINFORCE, PPO, Reward shaping</td>
+<td>Tokyo</td>
+<td><a href="http://www.apsipa.org/proceedings/2018/pdfs/0001934.pdf">Peng, Shibata, Shinozaki</a></td>
+</tr>
+<tr>
+<td align="center">2017</td>
+<td align="center">ASR</td>
+<td>Sentence</td>
+<td>REINFORCE, Self-critic</td>
+<td>Salesforce</td>
+<td><a href="https://arxiv.org/abs/1712.07101">Zhou, Xiong, Socher</a></td>
+</tr>
+<tr>
+<td align="center">2017</td>
+<td align="center">ASR</td>
+<td>Sentence</td>
+<td>MWER, LAS, Sampling, N-best</td>
+<td>Google</td>
+<td><a href="https://arxiv.org/abs/1712.01818">Prabhavalkar et al.</a></td>
+</tr>
+<tr>
+<td align="center">2017</td>
+<td align="center">ASR</td>
+<td>Sentence</td>
+<td>Expected Loss, RNA</td>
+<td>Google</td>
+<td><a href="https://pdfs.semanticscholar.org/7703/a2c5468ecbee5b62c048339a03358ed5fe19.pdf">Sak et al.</a></td>
+</tr>
+<tr>
+<td align="center">2017</td>
+<td align="center">MT</td>
+<td>Sentence</td>
+<td>Actor-Critic, Critic-aware</td>
+<td>Hong Kong, New York</td>
+<td><a href="https://arxiv.org/abs/1702.02429">Gu, Cho, Li</a></td>
+</tr>
+<tr>
+<td align="center">2016</td>
+<td align="center">ASR</td>
+<td>Sentence</td>
+<td>Reward Augmented ML</td>
+<td>Google Brain</td>
+<td><a href="https://arxiv.org/abs/1609.00150">Norouzi et al.</a></td>
+</tr>
+<tr>
+<td align="center">2016</td>
+<td align="center">MT</td>
+<td>Token</td>
+<td>Actor-Critic</td>
+<td>Montreal, McGill</td>
+<td><a href="https://arxiv.org/abs/1607.07086">Bahdanau et al.</a></td>
+</tr>
+<tr>
+<td align="center">2015</td>
+<td align="center">MT</td>
+<td>Sentence</td>
+<td>MIXER</td>
+<td>Facebook</td>
+<td><a href="https://arxiv.org/abs/1511.06732">Ranzato et al.</a></td>
+</tr>
+<tr>
+<td align="center">2015</td>
+<td align="center">ASR</td>
+<td>Token</td>
+<td>Task Loss Estimation</td>
+<td>Montreal, Wrocław</td>
+<td><a href="https://arxiv.org/abs/1511.06456">Bahdanau et al.</a></td>
+</tr>
+<tr>
+<td align="center">2014</td>
+<td align="center">ASR</td>
+<td>Sentence</td>
+<td>Expected Loss, CTC</td>
+<td>DeepMind, Toronto</td>
+<td><a href="http://proceedings.mlr.press/v32/graves14.pdf">Graves, Jaitly</a></td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/1606.02960">Sequence-to-Sequence Learning as Beam-Search Optimization</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1805.09461">Deep Reinforcement Learning for Sequence-to-Sequence Models</a></p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../tts/README.html" class="btn btn-neutral float-right" title="TTS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../../introduction.html" class="btn btn-neutral float-left" title="Hui Zhang" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Hui Zhang
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
