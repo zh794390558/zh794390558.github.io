@@ -14,6 +14,13 @@
 | Analysis of Score Normalization in Multilingual Speaker Recognition | Brno University  | 2017 |
 
 
+## From Waveform
+
+|  Name  | Organization | Year |
+|  ----  | ----  | ---- |
+| Speaker Recognition from Raw Waveform with SincNet | Bengio  | 2018 |
+
+
 ## Other
 
 |  Name  | Organization | Year |
