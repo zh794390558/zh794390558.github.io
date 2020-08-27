@@ -1,6 +1,6 @@
-# Coding
+# Coding Tutorials
 
-## Vertion Control
+## Version Control
 
 * [An interactive git visualization to challenge and educate!](https://github.com/pcottle/learnGitBranching.git)
 
