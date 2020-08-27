@@ -36,7 +36,8 @@ Welcome to Hui Zhang's homepage!
    :caption: Coding 
    :name: sec-coding
  
-   coding/algorithm.md
+   coding/algorithm
+   coding/tools
 
 .. toctree::
    :maxdepth: 1
