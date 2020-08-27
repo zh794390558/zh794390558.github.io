@@ -18,11 +18,12 @@ Welcome to Hui Zhang's homepage!
    :caption: Speech 
    :name: sec-speech
 
-   papers/asr/edit-distance-papers/README
-   papers/tts/README
-   papers/tts/TTS-papers/README
-   papers/spk/README
-   papers/separation/README
+   speech/asr/edit-distance-papers/README
+   speech/tts/README
+   speech/tts/dataset
+   speech/tts/TTS-papers/README
+   speech/spk/README
+   speech/separation/README
 
 .. toctree::
    :maxdepth: 1

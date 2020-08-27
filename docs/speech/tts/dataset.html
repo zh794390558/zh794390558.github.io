@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Speech Separation &mdash; zh794390558.github.io 1.0 documentation</title>
+  <title>TTS Corpus &mdash; zh794390558.github.io 1.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Speech Features" href="../../tutorials/training/speech_features.html" />
-    <link rel="prev" title="Speaker Recognition" href="../spk/README.html" /> 
+    <link rel="next" title="TTS papers" href="TTS-papers/README.html" />
+    <link rel="prev" title="TTS" href="README.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,19 +89,11 @@
 <p class="caption"><span class="caption-text">Speech</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">TTS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TTS Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TTS-papers/README.html">TTS papers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Speech Separation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#time-domain">Time Domain</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#extraction">Extraction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#music">Music</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bss">BSS</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#frequency-domain">Frequency Domain</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul>
@@ -168,13 +160,13 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Speech Separation</li>
+      <li>TTS Corpus</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/papers/separation/README.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/speech/tts/dataset.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -187,114 +179,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="speech-separation">
-<h1>Speech Separation<a class="headerlink" href="#speech-separation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="time-domain">
-<h2>Time Domain<a class="headerlink" href="#time-domain" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="tts-corpus">
+<h1>TTS Corpus<a class="headerlink" href="#tts-corpus" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="docutils">
 <thead>
 <tr>
-<th>Name</th>
-<th>Organization</th>
-<th>Year</th>
+<th>Corpus</th>
+<th>Length</th>
+<th>LANG</th>
+<th>URL</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>xxx</td>
-<td>xxx</td>
-<td>xxxx</td>
-</tr>
-</tbody>
-</table><div class="section" id="extraction">
-<h3>Extraction<a class="headerlink" href="#extraction" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="docutils">
-<thead>
-<tr>
-<th>Name</th>
-<th>Organization</th>
-<th>Year</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Wavesplit: End-to-End Speech Separation by Speaker Clustering</td>
-<td>Google Research, Brain Team</td>
-<td>2020</td>
+<td>LJSpeech</td>
+<td>24H</td>
+<td>En</td>
+<td>https://keithito.com/LJ-Speech-Dataset/</td>
 </tr>
 <tr>
-<td>SpEx: Multi-Scale Time Domain Speaker Extraction Network</td>
-<td>National University of Singapore</td>
-<td>2020</td>
+<td>VCTK</td>
+<td>109 SPK, 400 UTTS/SPK</td>
+<td>En</td>
+<td>http://homepages.inf.ed.ac.uk/jyamagis/page3/page58/page58.html</td>
+</tr>
+<tr>
+<td>CSMSC</td>
+<td>12H</td>
+<td>ZN</td>
+<td>https://www.data-baker.com/open_source.html</td>
+</tr>
+<tr>
+<td>VCC2020</td>
+<td>...</td>
+<td>...</td>
+<td>http://www.vc-challenge.org/</td>
 </tr>
 </tbody>
 </table></div>
-<div class="section" id="music">
-<h3>Music<a class="headerlink" href="#music" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="docutils">
-<thead>
-<tr>
-<th>Name</th>
-<th>Organization</th>
-<th>Year</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Music Source Separation in the Waveform Domain</td>
-<td>Facebook</td>
-<td>2019</td>
-</tr>
-</tbody>
-</table></div>
-<div class="section" id="bss">
-<h3>BSS<a class="headerlink" href="#bss" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="docutils">
-<thead>
-<tr>
-<th>Name</th>
-<th>Organization</th>
-<th>Year</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DUAL-PATH RNN: EFFICIENT LONG SEQUENCE MODELING FOR TIME-DOMAIN SINGLE-CHANNEL SPEECH SEPARATION</td>
-<td>Columbia University</td>
-<td>2020</td>
-</tr>
-<tr>
-<td>Conv-TasNet: Surpassing Ideal Time-Frequency Magnitude Masking for Speech Separation</td>
-<td>Columbia University</td>
-<td>2019</td>
-</tr>
-<tr>
-<td>TASNET: TIME-DOMAIN AUDIO SEPARATION NETWORK FOR REAL-TIME, SINGLE-CHANNEL SPEECH SEPARATION</td>
-<td>Columbia University</td>
-<td>2018</td>
-</tr>
-</tbody>
-</table></div>
-</div>
-<div class="section" id="frequency-domain">
-<h2>Frequency Domain<a class="headerlink" href="#frequency-domain" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<thead>
-<tr>
-<th>Name</th>
-<th>Organization</th>
-<th>Year</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>xxx</td>
-<td>xxx</td>
-<td>xxxx</td>
-</tr>
-</tbody>
-</table></div>
-</div>
 
 
            </div>
@@ -304,10 +226,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../tutorials/training/speech_features.html" class="btn btn-neutral float-right" title="Speech Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="TTS-papers/README.html" class="btn btn-neutral float-right" title="TTS papers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../spk/README.html" class="btn btn-neutral float-left" title="Speaker Recognition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="README.html" class="btn btn-neutral float-left" title="TTS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
