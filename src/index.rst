@@ -31,12 +31,12 @@ Welcome to Hui Zhang's homepage!
    :name: sec-tutorials
 
    tutorials/training/speech_features
- 
+
 .. toctree::
    :maxdepth: 1
    :caption: Coding 
    :name: sec-coding
- 
+
    coding/algorithm
    coding/tutorials
 
@@ -44,7 +44,8 @@ Welcome to Hui Zhang's homepage!
    :maxdepth: 1
    :caption: Developer guide
    :name: sec-devel
-  
+
+   development/tfrt
    development/docker
    development/deltann_compile
    development/adding_op
