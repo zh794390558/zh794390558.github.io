@@ -7,3 +7,9 @@
 ## Refs
 
 * [fucking-algorithm](https://github.com/labuladong/fucking-algorithm.git)
+
+
+## High Light
+* DP table 是⾃底向上求解，递归解法是⾃顶向下求解
+* 动态规划算法的时间复杂度就是⼦问题个
+数 × 函数本⾝的复杂度。

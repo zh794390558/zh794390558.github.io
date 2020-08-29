@@ -89,6 +89,7 @@
 <p class="caption"><span class="caption-text">Speech</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../speech/asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/decode/wfst.html">WFST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../speech/tts/README.html">TTS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../speech/tts/dataset.html">TTS Corpus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../speech/tts/TTS-papers/README.html">TTS papers</a></li>
@@ -110,6 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#design">Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tutorial">Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ir">IR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bef-executor-binary-executor-format-bef-files">BEF Executor - &quot;Binary Executor Format&quot; (BEF) Files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Develop with Docker</a></li>
@@ -187,7 +189,6 @@
             
   <div class="section" id="tfrt-a-new-tensorflow-runtime">
 <h1><a class="reference external" href="https://github.com/tensorflow/runtime">TFRT: A New TensorFlow Runtime </a><a class="headerlink" href="#tfrt-a-new-tensorflow-runtime" title="Permalink to this headline">¶</a></h1>
-<p>BEF Executor -- &quot;Binary Executor Format&quot; (BEF) Files</p>
 <div class="section" id="design">
 <h2>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -205,6 +206,22 @@
 <h2>IR<a class="headerlink" href="#ir" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.tensorflow.org/mlir">MLIR</a></p></li>
+</ul>
+</div>
+<div class="section" id="bef-executor-binary-executor-format-bef-files">
+<h2>BEF Executor - &quot;Binary Executor Format&quot; (BEF) Files<a class="headerlink" href="#bef-executor-binary-executor-format-bef-files" title="Permalink to this headline">¶</a></h2>
+<p>Executor features:</p>
+<ul class="simple">
+<li><p>Lock-free: atomics instead of mutexes</p></li>
+<li><p>Non-blocking: defer dependent work with AsyncValue::AndThen</p></li>
+<li><p>Supports “non-strict” execution: may run a kernel when some of its inputs are available
+-- Good for efficiently forwarding unavailable inputs to outputs</p></li>
+</ul>
+<p>Key concepts:</p>
+<ul class="simple">
+<li><p>BEF: dataflow graph</p></li>
+<li><p>Kernel: dataflow node</p></li>
+<li><p>AsyncValue: dataflow edge</p></li>
 </ul>
 </div>
 </div>

@@ -19,11 +19,13 @@ Welcome to Hui Zhang's homepage!
    :name: sec-speech
 
    speech/asr/edit-distance-papers/README
+   speech/decode/wfst
    speech/tts/README
    speech/tts/dataset
    speech/tts/TTS-papers/README
    speech/spk/README
    speech/separation/README
+   speech/io/README
 
 .. toctree::
    :maxdepth: 1

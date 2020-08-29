@@ -20,3 +20,9 @@
 
 ## Golang
 * [A golang ebook intro how to build a web with golang](https://github.com/astaxie/build-web-application-with-golang.git)
+
+
+## Jupyter
+* [converting Python calculations into rendered latex](https://github.com/connorferster/handcalcs.git)
+* [c++ in jupyter](https://github.com/prabhuomkar/pytorch-cpp/blob/master/notebooks/tensor_slicing.ipynb)
+* [cling]()
