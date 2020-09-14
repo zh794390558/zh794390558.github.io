@@ -62,3 +62,102 @@ scl enable devtoolset-7 bash
 or
 . /opt/rh/devtoolset-7/enable 
 ```
+
+## NFS Mount
+* https://www.howtoforge.com/tutorial/setting-up-an-nfs-server-and-client-on-centos-7/
+
+### Install
+- server
+```bash
+yum -y install nfs-utils
+```
+Then enable and start the nfs server service.  
+```bash
+systemctl enable nfs-server.service
+systemctl start nfs-server.service
+```
+
+- client
+```bash
+yum install nfs-utils
+```
+
+### Exporting Directories on the Server
+- server
+```bash
+vi /etc/exports
+```
+```text
+/home           192.168.1.101(rw,sync,no_root_squash,no_subtree_check)
+/var/nfs        192.168.1.101(rw,sync,no_subtree_check)
+/home/zh        *(rw,async,no_root_squash,all_squash,anonuid=6084,anongid=6084)
+```
+
+(The no_root_squash option makes that /home will be accessed as root.)
+Whenever we modify /etc/exports, we must run:
+```bash
+exportfs -a
+```
+afterwards, to make the changes effective.
+
+
+### Mounting the NFS Shares on the Client
+
+show mountable points on `192.168.1.101`
+```bash
+showmount -e 192.168.1.101
+```
+
+- client
+First we create the directories where we want to mount the NFS shares, e.g.:
+```bash
+mkdir -p /mnt/nfs/home
+mkdir -p /mnt/nfs/var/nfs
+```
+Afterwards, we can mount them as follows:
+```bash
+mount 192.168.1.100:/home /mnt/nfs/home
+mount 192.168.1.100:/var/nfs /mnt/nfs/var/nfs
+```
+
+
+## Nginx
+- file server
+```
+vi /etc/nginx/nginx.conf
+```
+
+```text
+   autoindex on;# 显示目录
+    autoindex_exact_size on;# 显示文件大小
+    autoindex_localtime on;# 显示文件时间
+    server {
+        listen       8011 default_server;
+        server_name  fileserver;
+        root          /home/name;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        location / { 
+        }   
+
+        error_page 404 /404.html;
+            location = /40x.html {
+        }   
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }   
+    }   
+```
+
+support play `wav`:
+
+```
+ vi /etc/nginx/mime.types
+```
+add 
+```
+audio/x-wav                                      wav;
+```
