@@ -95,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../speech/tts/TTS-papers/README.html">TTS papers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../speech/spk/README.html">Speaker Recognition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../speech/separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/io/README.html">Speech I/O</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul>
@@ -110,6 +111,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#session">Session</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#golang">Golang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#jupyter">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#centos-7-gcc-update">CentOS 7 gcc update</a></li>
 </ul>
 </li>
 </ul>
@@ -227,7 +230,45 @@
 <h2>Jupyter<a class="headerlink" href="#jupyter" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/connorferster/handcalcs.git">converting Python calculations into rendered latex</a></p></li>
+<li><p><a class="reference external" href="https://github.com/prabhuomkar/pytorch-cpp/blob/master/notebooks/tensor_slicing.ipynb">c++ in jupyter</a></p></li>
+<li><p><a class="reference external" href="#">cling</a></p></li>
 </ul>
+</div>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Disabling Bytecode (.pyc) Files</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PYTHONDONTWRITEBYTECODE</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="centos-7-gcc-update">
+<h2>CentOS 7 gcc update<a class="headerlink" href="#centos-7-gcc-update" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>https://linuxize.com/post/how-to-install-gcc-compiler-on-centos-7/</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Software</span> <span class="pre">Collections</span></code>, also known as <code class="docutils literal notranslate"><span class="pre">SCL</span></code> is a community project that allows you to build, install, and use multiple versions of software on the same system, without affecting system default packages.
+By enabling Software Collections, you gain access to the newer versions of programming languages and services which are not available in the core repositories.</p>
+<p>The SCL repositories provide a package named Developer Toolset, which includes newer versions of the GNU Compiler Collection, and other development and debugging tools.</p>
+<p>First, install the CentOS SCL release file. It is part of the CentOS extras repository and can be installed by running the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo yum install centos-release-scl
+</pre></div>
+</div>
+<p>Currently, the following Developer Toolset collections are available:</p>
+<ul class="simple">
+<li><p>Developer Toolset 7</p></li>
+<li><p>Developer Toolset 6</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo yum install devtoolset-7
+</pre></div>
+</div>
+<p>To access GCC version 7, you need to launch a new shell instance using the Software Collection scl tool:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scl <span class="nb">enable</span> devtoolset-7 bash
+or
+. /opt/rh/devtoolset-7/enable 
+</pre></div>
+</div>
 </div>
 </div>
 

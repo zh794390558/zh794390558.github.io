@@ -95,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../speech/tts/TTS-papers/README.html">TTS papers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../speech/spk/README.html">Speaker Recognition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../speech/separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/io/README.html">Speech I/O</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul>
@@ -200,11 +201,45 @@
 </div>
 <div class="section" id="high-light">
 <h2>High Light<a class="headerlink" href="#high-light" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
+<ul>
 <li><p>DP table 是⾃底向上求解，递归解法是⾃顶向下求解</p></li>
-<li><p>动态规划算法的时间复杂度就是⼦问题个
-数 × 函数本⾝的复杂度。</p></li>
+<li><p>动态规划算法的时间复杂度就是[⼦问题个数 × 函数本⾝的复杂度]。</p></li>
+<li><p>其实回溯算法和动态规划的本质都是穷举，只不过动态规划存在「重叠⼦问题」可以优化，⽽回溯算法不存在⽽已。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n&amp;(n-1)</span></code>作⽤是消除数字 n 的⼆进制表⽰中的最后⼀个1。</p></li>
+<li><p>⼀个数如果是 2 的指数，那么它的⼆进制表⽰⼀定只含有⼀个 1</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="nf">isPowerOfTwo</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="k">return</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>判断两个数是否异号</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">f</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span> <span class="o">^</span> <span class="n">y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">f</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span> <span class="o">^</span> <span class="n">y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// false</span>
+</pre></div>
+</div>
+</li>
+<li><p>利⽤或操作 | 和空格将英⽂字符转换为⼩写</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="sc">&#39;a&#39;</span> <span class="o">|</span> <span class="sc">&#39; &#39;</span><span class="p">)</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span>
+<span class="p">(</span><span class="sc">&#39;A&#39;</span> <span class="o">|</span> <span class="sc">&#39; &#39;</span><span class="p">)</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>利⽤与操作 &amp; 和下划线将英⽂字符转换为⼤写</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="sc">&#39;b&#39;</span> <span class="o">&amp;</span> <span class="sc">&#39;_&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="sc">&#39;B&#39;</span>
+<span class="p">(</span><span class="sc">&#39;B&#39;</span> <span class="o">&amp;</span> <span class="sc">&#39;_&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="sc">&#39;B&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>利⽤异或操作 ^ 和空格进⾏英⽂字符⼤⼩写互换</p></li>
 </ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="sc">&#39;d&#39;</span> <span class="o">^</span> <span class="sc">&#39; &#39;</span><span class="p">)</span> <span class="o">=</span> <span class="sc">&#39;D&#39;</span>
+<span class="p">(</span><span class="sc">&#39;D&#39;</span> <span class="o">^</span> <span class="sc">&#39; &#39;</span><span class="p">)</span> <span class="o">=</span> <span class="sc">&#39;d&#39;</span>
+</pre></div>
+</div>
 </div>
 </div>
 
