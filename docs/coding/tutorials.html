@@ -113,6 +113,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#jupyter">Jupyter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#python">Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#centos-7-gcc-update">CentOS 7 gcc update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nfs-mount">NFS Mount</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exporting-directories-on-the-server">Exporting Directories on the Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mounting-the-nfs-shares-on-the-client">Mounting the NFS Shares on the Client</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#nginx">Nginx</a></li>
 </ul>
 </li>
 </ul>
@@ -267,6 +274,113 @@ By enabling Software Collections, you gain access to the newer versions of progr
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scl <span class="nb">enable</span> devtoolset-7 bash
 or
 . /opt/rh/devtoolset-7/enable 
+</pre></div>
+</div>
+</div>
+<div class="section" id="nfs-mount">
+<h2>NFS Mount<a class="headerlink" href="#nfs-mount" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>https://www.howtoforge.com/tutorial/setting-up-an-nfs-server-and-client-on-centos-7/</p></li>
+</ul>
+<div class="section" id="install">
+<h3>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>server</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum -y install nfs-utils
+</pre></div>
+</div>
+<p>Then enable and start the nfs server service.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl <span class="nb">enable</span> nfs-server.service
+systemctl start nfs-server.service
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>client</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install nfs-utils
+</pre></div>
+</div>
+</div>
+<div class="section" id="exporting-directories-on-the-server">
+<h3>Exporting Directories on the Server<a class="headerlink" href="#exporting-directories-on-the-server" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>server</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vi /etc/exports
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/home           192.168.1.101(rw,sync,no_root_squash,no_subtree_check)
+/var/nfs        192.168.1.101(rw,sync,no_subtree_check)
+/home/zh        *(rw,async,no_root_squash,all_squash,anonuid=6084,anongid=6084)
+</pre></div>
+</div>
+<p>(The no_root_squash option makes that /home will be accessed as root.)
+Whenever we modify /etc/exports, we must run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>exportfs -a
+</pre></div>
+</div>
+<p>afterwards, to make the changes effective.</p>
+</div>
+<div class="section" id="mounting-the-nfs-shares-on-the-client">
+<h3>Mounting the NFS Shares on the Client<a class="headerlink" href="#mounting-the-nfs-shares-on-the-client" title="Permalink to this headline">¶</a></h3>
+<p>show mountable points on <code class="docutils literal notranslate"><span class="pre">192.168.1.101</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>showmount -e <span class="m">192</span>.168.1.101
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>client
+First we create the directories where we want to mount the NFS shares, e.g.:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p /mnt/nfs/home
+mkdir -p /mnt/nfs/var/nfs
+</pre></div>
+</div>
+<p>Afterwards, we can mount them as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mount <span class="m">192</span>.168.1.100:/home /mnt/nfs/home
+mount <span class="m">192</span>.168.1.100:/var/nfs /mnt/nfs/var/nfs
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="nginx">
+<h2>Nginx<a class="headerlink" href="#nginx" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>file server</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">nginx</span><span class="o">.</span><span class="n">conf</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>   autoindex on;# 显示目录
+    autoindex_exact_size on;# 显示文件大小
+    autoindex_localtime on;# 显示文件时间
+    server {
+        listen       8011 default_server;
+        server_name  fileserver;
+        root          /home/name;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        location / { 
+        }   
+
+        error_page 404 /404.html;
+            location = /40x.html {
+        }   
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }   
+    }   
+</pre></div>
+</div>
+<p>support play <code class="docutils literal notranslate"><span class="pre">wav</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">mime</span><span class="o">.</span><span class="n">types</span>
+</pre></div>
+</div>
+<p>add</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">audio</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">wav</span>                                      <span class="n">wav</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
