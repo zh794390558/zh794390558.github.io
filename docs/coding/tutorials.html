@@ -351,13 +351,14 @@ mount <span class="m">192</span>.168.1.100:/var/nfs /mnt/nfs/var/nfs
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">nginx</span><span class="o">.</span><span class="n">conf</span>
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>   autoindex on;# 显示目录
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    autoindex on;# 显示目录
     autoindex_exact_size on;# 显示文件大小
     autoindex_localtime on;# 显示文件时间
     server {
         listen       8011 default_server;
         server_name  fileserver;
-        root          /home/name;
+        root         /home/name;
+        charset      UTF-8;#enable charset HTTP-header
 
         # Load configuration files for the default server block.
         include /etc/nginx/default.d/*.conf;
@@ -375,12 +376,19 @@ mount <span class="m">192</span>.168.1.100:/var/nfs /mnt/nfs/var/nfs
     }   
 </pre></div>
 </div>
-<p>support play <code class="docutils literal notranslate"><span class="pre">wav</span></code>:</p>
+<ul class="simple">
+<li><p>support play <code class="docutils literal notranslate"><span class="pre">wav</span></code> and read multitype raw file as <code class="docutils literal notranslate"><span class="pre">text/plain</span></code></p></li>
+</ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">mime</span><span class="o">.</span><span class="n">types</span>
 </pre></div>
 </div>
-<p>add</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">audio</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">wav</span>                                      <span class="n">wav</span><span class="p">;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">types</span> <span class="p">{</span>
+ 		  <span class="c1">#mime type :  file suffix</span>
+			<span class="o">...</span>
+			<span class="n">audio</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">wav</span>                                      <span class="n">wav</span><span class="p">;</span>
+			<span class="o">...</span>
+			<span class="n">text</span><span class="o">/</span><span class="n">plain</span>																		   <span class="n">txt</span> <span class="n">log</span> <span class="n">csv</span> <span class="n">tsv</span> <span class="n">yaml</span> <span class="n">yml</span> <span class="n">trn</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>

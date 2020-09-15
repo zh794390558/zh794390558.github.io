@@ -36,7 +36,7 @@ export PYTHONDONTWRITEBYTECODE=1
 
 ## CentOS 7 gcc update
 * https://linuxize.com/post/how-to-install-gcc-compiler-on-centos-7/
- 
+
 `Software Collections`, also known as `SCL` is a community project that allows you to build, install, and use multiple versions of software on the same system, without affecting system default packages.
 By enabling Software Collections, you gain access to the newer versions of programming languages and services which are not available in the core repositories.
 
@@ -128,13 +128,14 @@ vi /etc/nginx/nginx.conf
 ```
 
 ```text
-   autoindex on;# 显示目录
+    autoindex on;# 显示目录
     autoindex_exact_size on;# 显示文件大小
     autoindex_localtime on;# 显示文件时间
     server {
         listen       8011 default_server;
         server_name  fileserver;
-        root          /home/name;
+        root         /home/name;
+        charset      UTF-8;#enable charset HTTP-header
 
         # Load configuration files for the default server block.
         include /etc/nginx/default.d/*.conf;
@@ -152,12 +153,18 @@ vi /etc/nginx/nginx.conf
     }   
 ```
 
-support play `wav`:
+* support play `wav` and read multitype raw file as `text/plain`
 
 ```
  vi /etc/nginx/mime.types
 ```
-add 
 ```
-audio/x-wav                                      wav;
+types {
+ 		  #mime type :  file suffix
+			...
+			audio/x-wav                                      wav;
+			...
+			text/plain																		   txt log csv tsv yaml yml trn;
+}
 ```
+

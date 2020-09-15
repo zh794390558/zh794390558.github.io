@@ -3,8 +3,17 @@
 * [Read First](https://github.com/labuladong/fucking-algorithm/blob/master/%E7%AE%97%E6%B3%95%E6%80%9D%E7%BB%B4%E7%B3%BB%E5%88%97/%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E7%9A%84%E9%AB%98%E6%95%88%E6%96%B9%E6%B3%95.md)
 * [dp thinking frame](https://github.com/labuladong/fucking-algorithm/blob/master/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B3%BB%E5%88%97/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%AF%A6%E8%A7%A3%E8%BF%9B%E9%98%B6.md)
 * [backtrack thiking frame](https://github.com/labuladong/fucking-algorithm/blob/master/%E7%AE%97%E6%B3%95%E6%80%9D%E7%BB%B4%E7%B3%BB%E5%88%97/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3%E4%BF%AE%E8%AE%A2%E7%89%88.md)
-* [graph/dynamic-programing algorithm](https://iq.opengenus.org/)
-* [graph algorithm](https://www.geeksforgeeks.org/topological-sorting-indegree-based-solution/?ref=lbp)
+
+
+## Dynamic Programming
+* https://iq.opengenus.org/tag/dynamic-programming/
+* https://www.geeksforgeeks.org/dynamic-programming/
+
+
+## Graph
+* https://iq.opengenus.org/tag/graph-algorithm/
+* https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/
+* https://www.geeksforgeeks.org/topological-sorting-indegree-based-solution/?ref=lbp
 
 
 ## Refs
