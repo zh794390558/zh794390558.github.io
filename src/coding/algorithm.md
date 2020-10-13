@@ -4,6 +4,8 @@
 * [dp thinking frame](https://github.com/labuladong/fucking-algorithm/blob/master/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B3%BB%E5%88%97/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%AF%A6%E8%A7%A3%E8%BF%9B%E9%98%B6.md)
 * [backtrack thiking frame](https://github.com/labuladong/fucking-algorithm/blob/master/%E7%AE%97%E6%B3%95%E6%80%9D%E7%BB%B4%E7%B3%BB%E5%88%97/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3%E4%BF%AE%E8%AE%A2%E7%89%88.md)
 
+## Data Structure
+* https://www.bilibili.com/video/BV1nE411R7sM?from=search&seid=16769163313077745083
 
 ## Dynamic Programming
 * https://iq.opengenus.org/tag/dynamic-programming/
@@ -14,6 +16,16 @@
 * https://iq.opengenus.org/tag/graph-algorithm/
 * https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/
 * https://www.geeksforgeeks.org/topological-sorting-indegree-based-solution/?ref=lbp
+
+* https://www.bilibili.com/video/av96408783/
+| Shortest Path (SP) Algorithms | BFS | Dijkstra's | Bellman Ford | Floyd Warshall |
+| --- | --- | --- | --- | --- |
+| Complexity | O(V+E) | O((V+E)logV) | O(VE) | O(V^3) |
+| Recommended graph size | Large | Large/Medium | Medium/Small | Small |
+| Good for AP(all pair)SP? | Only works on unweighted graphs | Ok | Bad | Yes |
+| Can detect negative cycles? | No | No | Yes | Yes |
+| SP on graph with weighted edges | Incorrect SP answer | Best algorithm | Works | Bad in general |
+| SP on graph with unweighted edges | Best algorithm | Ok | Bad | Bad in genral |
 
 
 ## Refs
