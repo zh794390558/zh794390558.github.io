@@ -107,7 +107,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#dynamic-programming">Dynamic Programming</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#graph">Graph</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#refs">Refs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#high-light">High Light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#highlight">Highlight</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bitwise">Bitwise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#array">Array</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Coding Tutorials</a></li>
@@ -216,12 +220,57 @@
 <li><p><a class="reference external" href="https://github.com/labuladong/fucking-algorithm.git">fucking-algorithm</a></p></li>
 </ul>
 </div>
-<div class="section" id="high-light">
-<h2>High Light<a class="headerlink" href="#high-light" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="highlight">
+<h2>Highlight<a class="headerlink" href="#highlight" title="Permalink to this headline">¶</a></h2>
+<p>###Recursion</p>
 <ul>
+<li><p>链表是树的子结构，递归便利模式与树类似；树是图的子结构，图的便利模式与树相似；</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">traverse</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span><span class="p">){</span>	
+		<span class="c1">//线序遍历</span>
+	  <span class="n">traverse</span><span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">);</span>
+	  <span class="c1">//后续遍历，回溯</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">traverse</span><span class="p">(</span><span class="n">Tree</span> <span class="o">*</span><span class="n">root</span><span class="p">){</span>
+		<span class="c1">//先序遍历</span>
+		<span class="n">traverse</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+		<span class="c1">//中序遍历</span>
+		<span class="n">traverse</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+		<span class="c1">//后续遍历，回溯</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">traverse</span><span class="p">(</span><span class="n">Graph</span> <span class="o">*</span><span class="n">node</span><span class="p">){</span>
+		<span class="c1">//先序遍历</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">node</span><span class="p">.</span><span class="n">childrens</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">traverse</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">child</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="c1">//后续遍历，回溯</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>递归时间复杂度 = 解决每个子问题需要的时间 x 子问题总数</p></li>
+<li><p><strong>从 原问题展开子问题进行求解的方式叫自顶向下</strong></p></li>
+</ul>
+<p>###DP</p>
+<ul class="simple">
 <li><p>DP table 是⾃底向上求解，递归解法是⾃顶向下求解</p></li>
+<li><p>采用备忘录的方式来存子问题的解以避免大量的重复计算(剪枝)</p></li>
 <li><p>动态规划算法的时间复杂度就是[⼦问题个数 × 函数本⾝的复杂度]。</p></li>
 <li><p>其实回溯算法和动态规划的本质都是穷举，只不过动态规划存在「重叠⼦问题」可以优化，⽽回溯算法不存在⽽已。</p></li>
+<li><p>最优子结构，状态转移方程，重叠子问题就是动态规划的三要素，这其中定义子问题的状态与写出状态转移方程是解决动态规划最为关键的步骤，状态转移方程如果定义好了，解决动态规划就基本不是问题了。</p></li>
+<li><p>求解动态规划基本思路如下（解题四步曲）</p>
+<ul>
+<li><p>判断是否可用递归来解，可以的话进入步骤 2</p></li>
+<li><p>分析在递归的过程中是否存在大量的重复子问题</p></li>
+<li><p>采用备忘录的方式来存子问题的解以避免大量的重复计算（剪枝）</p></li>
+<li><p>改用自底向上的方式来递推，即动态规划</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="bitwise">
+<h3>Bitwise<a class="headerlink" href="#bitwise" title="Permalink to this headline">¶</a></h3>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">n&amp;(n-1)</span></code>作⽤是消除数字 n 的⼆进制表⽰中的最后⼀个1。</p></li>
 <li><p>⼀个数如果是 2 的指数，那么它的⼆进制表⽰⼀定只含有⼀个 1</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="nf">isPowerOfTwo</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
@@ -256,6 +305,173 @@
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="sc">&#39;d&#39;</span> <span class="o">^</span> <span class="sc">&#39; &#39;</span><span class="p">)</span> <span class="o">=</span> <span class="sc">&#39;D&#39;</span>
 <span class="p">(</span><span class="sc">&#39;D&#39;</span> <span class="o">^</span> <span class="sc">&#39; &#39;</span><span class="p">)</span> <span class="o">=</span> <span class="sc">&#39;d&#39;</span>
 </pre></div>
+</div>
+<p>###DFS&amp;BFS</p>
+<ul>
+<li><p>深度优先遍历:</p>
+<p>主要思路是从图中一个未访问的顶点 V 开始，沿着一条路一直走到底，然后从这条路尽头的节点回退到上一个节点，再从另一条路开始走到底...，不断递归重复此过程，直到所有的顶点都遍历完成，它的特点是不撞南墙不回头，先走完一条路，再换一条路继续走。</p>
+</li>
+<li><p>DFS 一般是解决连通性问题，而 BFS 一般是解决最短路径问题</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">//DFS</span>
+<span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">){</span>
+	 <span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+	 <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+	 <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+	     <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+	     <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+	     <span class="n">process</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+	     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">.</span><span class="n">adjs</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+	     			<span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">adj</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+	     <span class="p">}</span>
+	 <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//BFS</span>
+<span class="kt">void</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">i</span><span class="p">){</span>
+	 <span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+	 <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+	 <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">()){</span>
+	     <span class="k">auto</span> <span class="n">t</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+	     <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+	     <span class="n">process</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+	     <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">.</span><span class="n">adjs</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+	     			<span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">adj</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+	     <span class="p">}</span>
+	 <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>树的前序遍历,实际上不管是前序遍历，还是中序遍历，亦或是后序遍历，都属于深度优先遍历。</p></li>
+<li><p>深度优先遍历用的是栈，而广度优先遍历要用队列来实现</p></li>
+<li><p>连通性问题可以用DFS,BFS, 并查集解决
+为了找到连通块的个数，一个简单的方法就是使用深度优先搜索，从每个节点开始，我们使用一个大小为 N 的 visited 数组（M 大小为 N×N），这样 visited[i] 表示第 i 个元素是否被深度优先搜索访问过。    我们首先选择一个节点，访问任一相邻的节点。然后再访问这一节点的任一相邻节点。这样不断遍历到没有未访问的相邻节点时，回溯到之前的节点进行访问。    连通块就是可以从任意起点到达的所有节点。因此，连通块的个数，我们从每个未被访问的节点开始深搜，每开始一次搜索就增加 count计数器一次。</p></li>
+<li><p>树是图的一种特例（连通无环的图就是树）。图的DFS/BFS和树的原理其实也是一样，只不过图和树两者的表示形式不同而已。</p></li>
+</ul>
+<p>###Union&amp;Find</p>
+<ul>
+<li><p>并查集模板：</p>
+<p>并查集，在一些有N个元素的<a class="reference external" href="https://baike.baidu.com/item/%E9%9B%86%E5%90%88/2908117">集合</a>应用问题中，我们通常是在开始时让每个元素构成一个单元素的集合，然后按一定顺序将属于同一组的元素所在的集合合并，其间要反复查找一个元素在哪个集合中。</p>
+<p>并查集是一种树型的数据结构，用于处理一些不相交<a class="reference external" href="https://baike.baidu.com/item/%E9%9B%86%E5%90%88/2908117">集合</a>（<em>Disjoint</em> <em>Sets</em>）的合并及查询问题。常常在使用中以森林来表示。</p>
+<ul class="simple">
+<li><p>合并（Union）：把两个不相交的集合合并为一个集合</p></li>
+<li><p>查询（Find）：查询两个元素是否在同一个集合中</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">UnionFindSet</span><span class="p">:</span>
+	<span class="k">def</span> <span class="nf">UnionFindSet</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+		<span class="n">parents</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.</span><span class="o">..</span><span class="n">n</span><span class="p">]</span> <span class="c1"># 记录每个元素的parent即根节点 先将它们的父节点设为自己</span>
+		<span class="n">ranks</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.</span><span class="o">..</span><span class="mi">0</span><span class="p">]</span>    <span class="c1"># 记录节点的rank值</span>
+	
+    <span class="c1"># 如下图 递归版本 路径压缩(Path Compression)</span>
+    <span class="c1"># 如果当前的x不是其父节点，就找到当前x的父节点的根节点(find(parents[x])) 并将这个值赋值给x的父节点</span>
+	<span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+		<span class="k">if</span> <span class="p">(</span> <span class="n">x</span> <span class="o">!=</span><span class="n">parents</span><span class="p">[</span><span class="n">x</span><span class="p">]):</span> <span class="c1"># 注意这里的if</span>
+			<span class="n">parents</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">parents</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+		<span class="k">return</span> <span class="n">parents</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+
+	<span class="c1"># 如下图 根据Rank来合并(Union by Rank)</span>
+	<span class="k">def</span> <span class="nf">union</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+		<span class="n">rootX</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 找到x的根节点rootX</span>
+		<span class="n">rootY</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1"># 找到y的根节点rootY</span>
+        <span class="c1">#取rank值小的那个挂到大的那个节点下面，此时两个根节点的rank值并没有发生变化，还是原来的值</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">ranks</span><span class="p">[</span><span class="n">rootX</span><span class="p">]</span><span class="o">&gt;</span><span class="n">ranks</span><span class="p">[</span><span class="n">rootY</span><span class="p">]):</span> <span class="n">parents</span><span class="p">[</span><span class="n">rootY</span><span class="p">]</span> <span class="o">=</span> <span class="n">rootX</span> 
+		<span class="k">if</span><span class="p">(</span><span class="n">ranks</span><span class="p">[</span><span class="n">rootX</span><span class="p">]</span><span class="o">&lt;</span><span class="n">ranks</span><span class="p">[</span><span class="n">rootY</span><span class="p">]):</span> <span class="n">parents</span><span class="p">[</span><span class="n">rootX</span><span class="p">]</span> <span class="o">=</span> <span class="n">rootY</span>
+        <span class="c1"># 当两个rank值相等时，随便选择一个根节点挂到另外一个跟节点上，但是被挂的那个根节点的rank值需要+1    </span>
+		<span class="k">if</span><span class="p">(</span><span class="n">ranks</span><span class="p">[</span><span class="n">rootX</span><span class="p">]</span> <span class="o">==</span> <span class="n">ranks</span><span class="p">[</span><span class="n">rootY</span><span class="p">]</span> <span class="p">):</span>
+			<span class="n">parents</span><span class="p">[</span><span class="n">rootY</span><span class="p">]</span> <span class="o">=</span> <span class="n">rootX</span>
+			<span class="n">ranks</span><span class="p">[</span><span class="n">rootY</span><span class="p">]</span><span class="o">++</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="array">
+<h3>Array<a class="headerlink" href="#array" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>数组中间位置的删时间复杂度是O(n)，所以删一定要将该数置换到数组结尾再删除。</p></li>
+</ul>
+<p>###Binary Heap</p>
+<ul>
+<li><p>二叉堆（Binary Heap）没什么神秘，性质比二叉搜索树 BST 还简单。其主要操作就两个，sink（下沉）和 swim（上浮），用以维护二叉堆的性质。其主要应用有两个，首先是一种排序方法「堆排序」，第二是一种很有用的数据结构「优先级队列」。</p>
+<p>二叉堆其实就是一种特殊的二叉树（完全二叉树），只不过存储在数组里。一般的链表二叉树，我们操作节点的指针，而在数组里，我们把数组索引作为指针：</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 父节点的索引</span>
+<span class="kt">int</span> <span class="nf">parent</span><span class="p">(</span><span class="kt">int</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">root</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 左孩子的索引</span>
+<span class="kt">int</span> <span class="nf">left</span><span class="p">(</span><span class="kt">int</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">root</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 右孩子的索引</span>
+<span class="kt">int</span> <span class="nf">right</span><span class="p">(</span><span class="kt">int</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">root</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>注意数组的第一个索引 0 空着不用</strong>.</p>
+<p>二叉堆还分为最大堆和最小堆。**最大堆的性质是：每个节点都大于等于它的两个子节点。**类似的，<strong>最小堆的性质是：每个节点都小于等于它的子节点</strong>。</p>
+<p>对于最大堆，会破坏堆性质的有有两种情况：</p>
+<p>如果某个节点 A 比它的子节点（中的一个）小，那么 A 就不配做父节点，应该下去，下面那个更大的节点上来做父节点，这就是对 A 进行 <strong>下沉</strong>。</p>
+<p>如果某个节点 A 比它的父节点大，那么 A 不应该做子节点，应该把父节点换下来，自己去做父节点，这就是对 A 的 <strong>上浮</strong>。</p>
+<p>insert, delete操作只会在堆底和堆顶进行，显然堆底的「错位」元素需要上浮，堆顶的「错位」元素需要下沉。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kt">void</span> <span class="nf">swim</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 如果浮到堆顶，就不能再上浮了</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">k</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">less</span><span class="p">(</span><span class="n">parent</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">k</span><span class="p">))</span> <span class="p">{</span>
+        <span class="c1">// 如果第 k 个元素比上层大</span>
+        <span class="c1">// 将 k 换上去</span>
+        <span class="n">exch</span><span class="p">(</span><span class="n">parent</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">k</span><span class="p">);</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">parent</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>下沉比上浮略微复杂一点，因为上浮某个节点 A，只需要 A 和其父节点比较大小即可；但是下沉某个节点 A，需要 A 和其两个子节点比较大小，如果 A 不是最大的就需要调整位置，要把较大的那个子节点和 A 交换。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kt">void</span> <span class="nf">sink</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 如果沉到堆底，就沉不下去了</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">left</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 先假设左边节点较大</span>
+        <span class="kt">int</span> <span class="n">older</span> <span class="o">=</span> <span class="n">left</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
+        <span class="c1">// 如果右边节点存在，比一下大小</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">right</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">N</span> <span class="o">&amp;&amp;</span> <span class="n">less</span><span class="p">(</span><span class="n">older</span><span class="p">,</span> <span class="n">right</span><span class="p">(</span><span class="n">k</span><span class="p">)))</span>
+            <span class="n">older</span> <span class="o">=</span> <span class="n">right</span><span class="p">(</span><span class="n">k</span><span class="p">);</span>
+        <span class="c1">// 结点 k 比俩孩子都大，就不必下沉了</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">less</span><span class="p">(</span><span class="n">older</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span> <span class="k">break</span><span class="p">;</span>
+        <span class="c1">// 否则，不符合最大堆的结构，下沉 k 结点</span>
+        <span class="n">exch</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">older</span><span class="p">);</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">older</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">insert</span></code> 方法先把要插入的元素添加到堆底的最后，然后让其上浮到正确位置。</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">insert</span><span class="p">(</span><span class="n">Key</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">N</span><span class="o">++</span><span class="p">;</span>
+    <span class="c1">// 先把新元素加到最后</span>
+    <span class="n">pq</span><span class="o">[</span><span class="n">N</span><span class="o">]</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
+    <span class="c1">// 然后让它上浮到正确的位置</span>
+    <span class="n">swim</span><span class="p">(</span><span class="n">N</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">delMax</span></code> 方法先把堆顶元素 A 和堆底最后的元素 B 对调，然后删除 A，最后让 B 下沉到正确位置。</strong></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Key</span> <span class="nf">delMax</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 最大堆的堆顶就是最大元素</span>
+    <span class="n">Key</span> <span class="n">max</span> <span class="o">=</span> <span class="n">pq</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+    <span class="c1">// 把这个最大元素换到最后，删除之</span>
+    <span class="n">exch</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
+    <span class="n">pq</span><span class="o">[</span><span class="n">N</span><span class="o">]</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="n">N</span><span class="o">--</span><span class="p">;</span>
+    <span class="c1">// 让 pq[1] 下沉到正确位置</span>
+    <span class="n">sink</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">max</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>二叉堆就是一种完全二叉树，所以适合存储在数组中，而且二叉堆拥有一些特殊性质。</p>
+<p>二叉堆的操作很简单，主要就是上浮和下沉，来维护堆的性质（堆有序），核心代码也就十行。</p>
+<p>优先级队列是基于二叉堆实现的，主要操作是插入和删除。插入是先插到最后，然后上浮到正确位置；删除是调换位置后再删除，然后下沉到正确位置。核心代码也就十行。</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
