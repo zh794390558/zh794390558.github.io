@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>WFST &mdash; zh794390558.github.io 1.0 documentation</title>
+  <title>语言模型评价指标Perplexity &mdash; zh794390558.github.io 1.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="TTS" href="../tts/README.html" />
-    <link rel="prev" title="ASR Edit-distance as objective function" href="../asr/edit-distance-papers/README.html" /> 
+    <link rel="next" title="Speech I/O" href="../io/README.html" />
+    <link rel="prev" title="Speech Separation" href="../separation/README.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,17 +89,13 @@
 <p class="caption"><span class="caption-text">Speech</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">WFST</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#python-wrapper">Python Wrapper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#decoder">Decoder</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/wfst.html">WFST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tts/dataset.html">TTS Corpus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>语言模型评价指标Perplexity</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../io/README.html">Speech I/O</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tutorials</span></p>
@@ -172,13 +168,13 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>WFST</li>
+      <li><strong>语言模型评价指标Perplexity</strong></li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/speech/decode/wfst.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/speech/lm/ppl.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -191,20 +187,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="wfst">
-<h1>WFST<a class="headerlink" href="#wfst" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="python-wrapper">
-<h2>Python Wrapper<a class="headerlink" href="#python-wrapper" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>https://github.com/jpuigcerver/openfst-python.git</p></li>
-</ul>
+  <div class="section" id="perplexity">
+<h1><strong>语言模型评价指标Perplexity</strong><a class="headerlink" href="#perplexity" title="Permalink to this headline">¶</a></h1>
+<p>语言模型（Language Model，LM），给出一句话的前k个词，希望它可以预测第k+1个词是什么，即给出一个第k+1个词可能出现的概率的分布p(xk+1|x1,x2,...,xk)。</p>
+<p>在报告里听到用PPL衡量语言模型收敛情况，于是从公式角度来理解一下该指标的意义。</p>
+<p>##Perplexity定义
+PPL是用在自然语言处理领域（NLP）中，衡量语言模型好坏的指标。它主要是根据每个词来估计一句话出现的概率，并用句子长度作normalize，公式为:</p>
+<p><img alt="ppl" src="speech/lm/src/_static/ppl1.png" /></p>
+<p>S代表sentence，N是句子长度，p(wi)是第i个词的概率。第一个词就是 p(w1|w0)，而w0是START，表示句子的起始，是个占位符。</p>
+<p>这个式子可以这样理解，PPL越小，p(wi)则越大，一句我们期望的sentence出现的概率就越高。</p>
+<p>还有人说，Perplexity可以认为是average branch factor（平均分支系数），即预测下一个词时可以有多少种选择。别人在作报告时说模型的PPL下降到90，可以直观地理解为，在模型生成一句话时下一个词有90个合理选择，可选词数越少，我们大致认为模型越准确。这样也能解释，为什么PPL越小，模型越好。</p>
+<p>##Perplexity另一种表达</p>
+<p><img alt="ppl2" src="speech/lm/src/_static/ppl2.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ppl</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">CE</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="decoder">
-<h2>Decoder<a class="headerlink" href="#decoder" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>https://github.com/athena-team/athena-decoder.git</p></li>
-</ul>
-</div>
+<p>好像在讲到unigram时，常常用到PPL的这种形式，从表达式上看和前面的意义是一样的，只不过wi不再是单个词，它表示第i个bigram或其他单位量。</p>
+<p>Perplexity的影响因素
+这些是听报告了解的：</p>
+<ol class="simple">
+<li><p>训练数据集越大，PPL会下降得更低，1billion dataset和10万dataset训练效果是很不一样的；</p></li>
+<li><p>数据中的标点会对模型的PPL产生很大影响，一个句号能让PPL波动几十，标点的预测总是不稳定；</p></li>
+<li><p>预测语句中的“的，了”等词也对PPL有很大影响，可能“我借你的书”比“我借你书”的指标值小几十，但从语义上分析有没有这些停用词并不能完全代表句子生成的好坏。</p></li>
+</ol>
+<p>所以，语言模型评估时我们可以用perplexity大致估计训练效果，作出判断和分析，但它不是完全意义上的标准，具体问题还是要具体分析。</p>
 </div>
 
 
@@ -215,10 +221,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../tts/README.html" class="btn btn-neutral float-right" title="TTS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../io/README.html" class="btn btn-neutral float-right" title="Speech I/O" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../asr/edit-distance-papers/README.html" class="btn btn-neutral float-left" title="ASR Edit-distance as objective function" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../separation/README.html" class="btn btn-neutral float-left" title="Speech Separation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -25,6 +25,7 @@ Welcome to Hui Zhang's homepage!
    speech/tts/TTS-papers/README
    speech/spk/README
    speech/separation/README
+   speech/lm/ppl
    speech/io/README
 
 .. toctree::
