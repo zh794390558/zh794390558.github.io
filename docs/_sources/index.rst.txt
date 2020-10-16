@@ -57,6 +57,12 @@ Welcome to Hui Zhang's homepage!
    development/contributing
    development/version
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Production 
+   :name: sec-product
+
+   product/product_value.md
 
 Indices and tables
 ==================
