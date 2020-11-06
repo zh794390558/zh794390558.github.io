@@ -57,6 +57,7 @@ Welcome to Hui Zhang's homepage!
    development/model_optimization
    development/contributing
    development/version
+   development/hpc
 
 .. toctree::
    :maxdepth: 1
