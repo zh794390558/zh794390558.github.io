@@ -42,6 +42,7 @@ Welcome to Hui Zhang's homepage!
 
    coding/algorithm
    coding/tutorials
+   coding/cpp
 
 .. toctree::
    :maxdepth: 1
