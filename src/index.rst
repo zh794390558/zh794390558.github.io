@@ -59,6 +59,7 @@ Welcome to Hui Zhang's homepage!
    development/contributing
    development/version
    development/hpc
+   development/linux
 
 .. toctree::
    :maxdepth: 1
