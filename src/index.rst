@@ -60,6 +60,7 @@ Welcome to Hui Zhang's homepage!
    development/version
    development/hpc
    development/linux
+   development/ffmpeg
 
 .. toctree::
    :maxdepth: 1
