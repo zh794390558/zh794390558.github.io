@@ -21,23 +21,20 @@ Welcome to Hui Zhang's homepage!
    speech/asr/chinese_syllable.md
    speech/asr/alignment
    speech/asr/edit-distance-papers/README
-   speech/decode/wfst
    speech/decode/decoding
    speech/lm/ppl
    speech/lm/ngram_lm
-   speech/punc/crf
-   speech/asr/asr_text_backend
+   speech/tts/README
+   speech/tts/speech_synthesis
+   speech/tts/TTS-papers/README
+   speech/text_process/crf
+   speech/text_process/asr_text_backend
+   speech/text_process/tts_text_frontend
    speech/vad/vad
    speech/spk/README
    speech/separation/README
-   speech/tts/README
-   speech/tts/dataset
-   speech/tts/speech_synthesis
-   speech/tts/tts_text_frontend
-   speech/tts/TTS-papers/README
    speech/io/README
    speech/io/praat_textgrid
-   speech/dataset
 
 .. toctree::
    :maxdepth: 1
@@ -83,6 +80,15 @@ Welcome to Hui Zhang's homepage!
    :name: sec-product
 
    product/product_value.md
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Dataset 
+   :name: sec-dataset
+
+   dataset
+
+
 
 Indices and tables
 ==================

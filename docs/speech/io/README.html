@@ -42,7 +42,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Praat and TextGrid" href="praat_textgrid.html" />
-    <link rel="prev" title="TTS papers" href="../tts/TTS-papers/README.html" /> 
+    <link rel="prev" title="Speech Separation" href="../separation/README.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,31 +96,25 @@
 <li class="toctree-l1"><a class="reference internal" href="../asr/chinese_syllable.html">chinese syllable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../asr/alignment.html">Alignment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../decode/wfst.html">WFST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../decode/decoding.html">Decoding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../punc/crf.html">CRF(Conditional Random Fields)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../asr/asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text_process/crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text_process/asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text_process/tts_text_frontend.html">Text Front End</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vad/vad.html">VAD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/dataset.html">TTS Corpus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/speech_synthesis.html">Speech Synthesis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/tts_text_frontend.html">Text Front End</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Speech I/O</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#read-write">Read/Write</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#python">python</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cpp">cpp</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#read-write">Read/Write</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#resample">Resample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#effect">Effect</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="praat_textgrid.html">Praat and TextGrid</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dataset.html">Dataset</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul>
@@ -159,6 +153,10 @@
 <p class="caption"><span class="caption-text">Production</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dataset</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataset.html">Dataset</a></li>
 </ul>
 
             
@@ -230,19 +228,10 @@
 <h1>Speech I/O<a class="headerlink" href="#speech-i-o" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="read-write">
 <h2>Read/Write<a class="headerlink" href="#read-write" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="python">
-<h3>python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/bastibe/SoundFile">SouldFile</a></p></li>
-<li><p><a class="reference external" href="https://github.com/librosa/librosa.git">librosa</a></p></li>
-</ul>
-</div>
-<div class="section" id="cpp">
-<h3>cpp<a class="headerlink" href="#cpp" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="http://www.mega-nerd.com/libsndfile/">libsndfile</a></p></li>
-</ul>
-</div>
+<p>|        |                                                              |
+| ------ | ------------------------------------------------------------ |
+| Python | <a class="reference external" href="https://github.com/bastibe/SoundFile">SouldFile</a> <a class="reference external" href="https://github.com/librosa/librosa.git">librosa</a> |
+| Cpp    | <a class="reference external" href="http://www.mega-nerd.com/libsndfile/">libsndfile</a>           |</p>
 </div>
 <div class="section" id="resample">
 <h2>Resample<a class="headerlink" href="#resample" title="Permalink to this headline">¶</a></h2>
@@ -269,6 +258,12 @@
 <li><p><a class="reference external" href="https://github.com/tensorflow/io">tfio</a></p></li>
 </ul>
 </div>
+<div class="section" id="effect">
+<h2>Effect<a class="headerlink" href="#effect" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/pseeth/soxbindings">Soxbinding</a></p></li>
+</ul>
+</div>
 </div>
 
 
@@ -278,7 +273,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="praat_textgrid.html" class="btn btn-neutral float-right" title="Praat and TextGrid" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../tts/TTS-papers/README.html" class="btn btn-neutral float-left" title="TTS papers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../separation/README.html" class="btn btn-neutral float-left" title="Speech Separation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

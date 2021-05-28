@@ -41,7 +41,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Dataset" href="../dataset.html" />
+    <link rel="next" title="Speech Features" href="../../tutorials/training/speech_features.html" />
     <link rel="prev" title="Speech I/O" href="README.html" /> 
 </head>
 
@@ -96,20 +96,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../asr/chinese_syllable.html">chinese syllable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../asr/alignment.html">Alignment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../decode/wfst.html">WFST</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../decode/decoding.html">Decoding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../punc/crf.html">CRF(Conditional Random Fields)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../asr/asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text_process/crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text_process/asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text_process/tts_text_frontend.html">Text Front End</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vad/vad.html">VAD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/dataset.html">TTS Corpus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/speech_synthesis.html">Speech Synthesis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/tts_text_frontend.html">Text Front End</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Speech I/O</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Praat and TextGrid</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#praat">Praat</a></li>
@@ -122,7 +120,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../dataset.html">Dataset</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul>
@@ -161,6 +158,10 @@
 <p class="caption"><span class="caption-text">Production</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dataset</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataset.html">Dataset</a></li>
 </ul>
 
             
@@ -237,7 +238,7 @@
 <div class="section" id="praat">
 <h2>Praat<a class="headerlink" href="#praat" title="Permalink to this headline">¶</a></h2>
 <p><strong>Praat语音学软件</strong>，原名<strong>Praat: doing phonetics by computer</strong>，通常简称<strong>Praat</strong>，是一款<a class="reference external" href="https://zh.wikipedia.org/wiki/%E8%B7%A8%E5%B9%B3%E5%8F%B0">跨平台</a>的多功能<a class="reference external" href="https://zh.wikipedia.org/wiki/%E8%AF%AD%E9%9F%B3%E5%AD%A6">语音学</a>专业<a class="reference external" href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6">软件</a>，主要用于对<a class="reference external" href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%97%E5%8C%96">数字化</a>的<a class="reference external" href="https://zh.wikipedia.org/wiki/%E8%AF%AD%E9%9F%B3">语音</a><a class="reference external" href="https://zh.wikipedia.org/wiki/%E4%BF%A1%E5%8F%B7">信号</a>进行<a class="reference external" href="https://zh.wikipedia.org/w/index.php?title=%E8%AF%AD%E9%9F%B3%E5%88%86%E6%9E%90&amp;action=edit&amp;redlink=1">分析</a>、标注、<a class="reference external" href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86">处理</a>及<a class="reference external" href="https://zh.wikipedia.org/wiki/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90">合成</a>等实验，同时生成各种<a class="reference external" href="https://zh.wikipedia.org/w/index.php?title=%E8%AF%AD%E5%9B%BE&amp;action=edit&amp;redlink=1">语图</a>和文字报表。</p>
-<img src="../images/Praat-output-showing-forced-alignment-for-Mae-hen-wlad-fy-nhadau-the-first-line-of-the.png" width=650></div>
+<img src="../../_static/Praat-output-showing-forced-alignment-for-Mae-hen-wlad-fy-nhadau-the-first-line-of-the.png" width=650></div>
 <div class="section" id="textgrid">
 <h2>TextGrid<a class="headerlink" href="#textgrid" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
@@ -457,7 +458,7 @@ MLF('xxx.mlf')
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../dataset.html" class="btn btn-neutral float-right" title="Dataset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../tutorials/training/speech_features.html" class="btn btn-neutral float-right" title="Speech Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="README.html" class="btn btn-neutral float-left" title="Speech I/O" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
