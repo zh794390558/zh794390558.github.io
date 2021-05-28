@@ -9,9 +9,7 @@
 
 
 
-<img src="../images/Praat-output-showing-forced-alignment-for-Mae-hen-wlad-fy-nhadau-the-first-line-of-the.png" width=650>
-
-
+<img src="../../_static/Praat-output-showing-forced-alignment-for-Mae-hen-wlad-fy-nhadau-the-first-line-of-the.png" width=650>
 
 ## TextGrid
 
@@ -86,7 +84,7 @@ pip3 install textgrid
            Interval(1361.89250, 1362.01250, R),
            Interval(1362.01250, 1362.13250, AY1),
            Interval(1362.13250, 1362.16250, T),
-
+   
    ...
            ]
        )

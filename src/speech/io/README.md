@@ -1,12 +1,10 @@
 # Speech I/O
 
 ## Read/Write
-### python
-* [SouldFile](https://github.com/bastibe/SoundFile)
-* [librosa](https://github.com/librosa/librosa.git)
-
-### cpp
-* [libsndfile](http://www.mega-nerd.com/libsndfile/)
+|        |                                                              |
+| ------ | ------------------------------------------------------------ |
+| Python | [SouldFile](https://github.com/bastibe/SoundFile) [librosa](https://github.com/librosa/librosa.git) |
+| Cpp    | [libsndfile](http://www.mega-nerd.com/libsndfile/)           |
 
 
 ## Resample
@@ -21,3 +19,8 @@
   - https://github.com/xiph/speexdsp/blob/master/libspeexdsp/testresample2.c 
   - https://github.com/tensorflow/io/blob/f1eb3cc871023e8bb76a56a6eca5f06420eabead/tensorflow_io/core/kernels/audio_kernels.cc#L220
 * [tfio](https://github.com/tensorflow/io)
+
+## Effect
+
+* [Soxbinding](https://github.com/pseeth/soxbindings)
+
