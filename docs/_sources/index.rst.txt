@@ -18,15 +18,26 @@ Welcome to Hui Zhang's homepage!
    :caption: Speech 
    :name: sec-speech
 
+   speech/asr/chinese_syllable.md
+   speech/asr/alignment
    speech/asr/edit-distance-papers/README
    speech/decode/wfst
-   speech/tts/README
-   speech/tts/dataset
-   speech/tts/TTS-papers/README
+   speech/decode/decoding
+   speech/lm/ppl
+   speech/lm/ngram_lm
+   speech/punc/crf
+   speech/asr/asr_text_backend
+   speech/vad/vad
    speech/spk/README
    speech/separation/README
-   speech/lm/ppl
+   speech/tts/README
+   speech/tts/dataset
+   speech/tts/speech_synthesis
+   speech/tts/tts_text_frontend
+   speech/tts/TTS-papers/README
    speech/io/README
+   speech/io/praat_textgrid
+   speech/dataset
 
 .. toctree::
    :maxdepth: 1
@@ -42,6 +53,10 @@ Welcome to Hui Zhang's homepage!
 
    coding/algorithm
    coding/tutorials
+   coding/cpp
+   coding/eigen
+   coding/linear_algebra
+
 
 .. toctree::
    :maxdepth: 1
@@ -57,6 +72,10 @@ Welcome to Hui Zhang's homepage!
    development/model_optimization
    development/contributing
    development/version
+   development/hpc
+   development/linux
+   development/ffmpeg
+   development/tools
 
 .. toctree::
    :maxdepth: 1

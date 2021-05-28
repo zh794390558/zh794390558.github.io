@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Praat and TextGrid &mdash; zh794390558.github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Dataset" href="../dataset.html" />
+    <link rel="prev" title="Speech I/O" href="README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> zh794390558.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Hui Zhang</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Speech</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../asr/chinese_syllable.html">chinese syllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/wfst.html">WFST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/decoding.html">Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../punc/crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vad/vad.html">VAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/dataset.html">TTS Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/tts_text_frontend.html">Text Front End</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Speech I/O</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Praat and TextGrid</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#praat">Praat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#textgrid">TextGrid</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">TextGrid文件结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">使用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dataset.html">Dataset</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/training/speech_features.html">Speech Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/algorithm.html">Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/tutorials.html">Coding Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cpp.html">library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html">Eigen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id11">矩阵和向量的运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#array">Array类和元素级操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id27">块操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id32">高级初始化方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id37">归约、迭代器和广播</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#map">原生缓存的接口：Map类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/linear_algebra.html">线性代数</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tfrt.html">TFRT: A New TensorFlow Runtime </a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/deltann_compile.html">Tensorflow compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/model_optimization.html">Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/hpc.html">HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/ffmpeg.html">FFPMEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tools.html">Useful Tools</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">zh794390558.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Praat and TextGrid</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/speech/io/praat_textgrid.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="praat-and-textgrid">
+<h1>Praat and TextGrid<a class="headerlink" href="#praat-and-textgrid" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.fon.hum.uva.nl/praat/"><strong>Praat: doing phonetics by computer</strong></a></p></li>
+<li><p><a class="reference external" href="https://github.com/kylebgorman/textgrid">TextGrid</a></p></li>
+</ul>
+<div class="section" id="praat">
+<h2>Praat<a class="headerlink" href="#praat" title="Permalink to this headline">¶</a></h2>
+<p><strong>Praat语音学软件</strong>，原名<strong>Praat: doing phonetics by computer</strong>，通常简称<strong>Praat</strong>，是一款<a class="reference external" href="https://zh.wikipedia.org/wiki/%E8%B7%A8%E5%B9%B3%E5%8F%B0">跨平台</a>的多功能<a class="reference external" href="https://zh.wikipedia.org/wiki/%E8%AF%AD%E9%9F%B3%E5%AD%A6">语音学</a>专业<a class="reference external" href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6">软件</a>，主要用于对<a class="reference external" href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%97%E5%8C%96">数字化</a>的<a class="reference external" href="https://zh.wikipedia.org/wiki/%E8%AF%AD%E9%9F%B3">语音</a><a class="reference external" href="https://zh.wikipedia.org/wiki/%E4%BF%A1%E5%8F%B7">信号</a>进行<a class="reference external" href="https://zh.wikipedia.org/w/index.php?title=%E8%AF%AD%E9%9F%B3%E5%88%86%E6%9E%90&amp;action=edit&amp;redlink=1">分析</a>、标注、<a class="reference external" href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86">处理</a>及<a class="reference external" href="https://zh.wikipedia.org/wiki/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90">合成</a>等实验，同时生成各种<a class="reference external" href="https://zh.wikipedia.org/w/index.php?title=%E8%AF%AD%E5%9B%BE&amp;action=edit&amp;redlink=1">语图</a>和文字报表。</p>
+<img src="../images/Praat-output-showing-forced-alignment-for-Mae-hen-wlad-fy-nhadau-the-first-line-of-the.png" width=650></div>
+<div class="section" id="textgrid">
+<h2>TextGrid<a class="headerlink" href="#textgrid" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>TextGrid文件结构<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>第一行是固定的:File type = &quot;ooTextFile&quot;
+第二行也是固定的:Object class = &quot;TextGrid&quot;
+空一行
+xmin = xxxx.xxxx  # 表示开始时间
+xmax = xxxx.xxxx  # 表示结束时间
+tiers? &lt;exists&gt;  # 这一行固定
+size = 4  # 表示这个文件有几个item, item也叫tiers, 可以翻译为&#39;层&#39;, 这个值是几,就表示有几个item
+item []:
+    item [1]:
+        class = &quot;IntervalTier&quot;
+        name = &quot;phone&quot;
+        xmin = 1358.8925
+        xmax = 1422.5525
+        intervals: size = 104
+        intervals [1]:
+            xmin = 1358.8925
+            xmax = 1361.8925
+            text = &quot;sil&quot;
+        intervals [2]:
+            xmin = 1361.8925
+            xmax = 1362.0125
+            text = &quot;R&quot;
+        intervals [3]:
+            ...
+        intervals [104]:
+            xmin = 1422.2325
+            xmax = 1422.5525
+            text = &quot;sil&quot;
+    item [2]:
+        class = &quot;IntervalTier&quot;
+        name = &quot;word&quot;
+        xmin = 1358.8925
+        xmax = 1422.5525
+        intervals: size = 3
+        intervals [1]:
+            xmin = 1358.8925
+            xmax = 1361.8925
+            text = &quot;sp&quot;
+</pre></div>
+</div>
+<p>textgrid 文件中的 size 的值是几就表示有几个 item， 每个 item 下面包含 class, name, xmin, xmax, intervals 的键值对，item 中的 intervals: size 是几就表示这个 item 中有几个 intervals，每个 intervals 有 xmin, xmax, text 三个键值参数。所有 item 中的 xmax - xmin 的值是一样的。</p>
+</div>
+<div class="section" id="id2">
+<h3>安装<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">textgrid</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>使用<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p>读一个textgrid文件</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">textgrid</span>
+<span class="n">tg</span> <span class="o">=</span> <span class="n">textgrid</span><span class="o">.</span><span class="n">TextGrid</span><span class="p">()</span>
+<span class="n">tg</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;file.TextGrid&#39;</span><span class="p">)</span>  <span class="c1"># &#39;file.TextGrid&#39; 是文件名</span>
+</pre></div>
+</div>
+<p>tg.tiers属性:
+会把文件中的所有item打印出来, print(tg.tiers) 的结果如下:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[IntervalTier(
+    phone, [
+        Interval(1358.89250, 1361.89250, sil),
+        Interval(1361.89250, 1362.01250, R),
+        Interval(1362.01250, 1362.13250, AY1),
+        Interval(1362.13250, 1362.16250, T),
+
+...
+        ]
+    )
+]
+</pre></div>
+</div>
+<p>此外, tg.tiers[0] 表示第一个 IntervalTier, 支持继续用中括号取序列, '.'来取属性.
+比如:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>tg.tiers[0][0].mark   --&gt;    &#39;sil&#39;
+tg.tiers[0].name    --&gt;     &#39;phone&#39;
+tg.tiers[0][0].minTime  --&gt;   1358.8925
+tg.tiers[0].intervals  --&gt;   [Interval(1358.89250, 1361.89250, sil), ..., Interval(1422.23250, 1422.55250, sil)]
+tg.tiers[0].maxTime  --&gt; 1422.55250
+</pre></div>
+</div>
+<p>TextGrid 模块中包含四种对象</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PointTier 可以理解为标记（点）的集合
+IntervalTier 可以理解为时长（区间）的集合
+Point    可以理解为标记
+Interval  可以理解为时长
+</pre></div>
+</div>
+</li>
+<li><p>textgrid库中的对象
+<strong>IntervalTier</strong> 对象:
+方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">add</span><span class="p">(</span><span class="n">minTime</span><span class="p">,</span> <span class="n">maxTime</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span> <span class="n">添加一个标记</span><span class="p">,</span><span class="n">需要同时传入起止时间</span><span class="p">,</span> <span class="n">和mark的名字</span><span class="o">.</span>
+<span class="n">addInterval</span><span class="p">(</span><span class="n">interval</span><span class="p">):</span> <span class="n">添加一个Interval对象</span><span class="p">,</span> <span class="n">该Interval对象中已经封装了起止时间</span><span class="o">.</span>
+<span class="n">remove</span><span class="p">(</span><span class="n">minTime</span><span class="p">,</span> <span class="n">maxTime</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span> <span class="n">删除一个Interval</span>
+<span class="n">removeInterval</span><span class="p">(</span><span class="n">interval</span><span class="p">):</span> <span class="n">删除一个Interval</span>
+<span class="n">indexContaining</span><span class="p">(</span><span class="n">time</span><span class="p">):</span> <span class="n">传入时间或Point对象</span><span class="p">,</span> <span class="n">返回包含该时间的Interval对象的下标</span>
+<span class="n">例如</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">tg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">indexContaining</span><span class="p">(</span><span class="mi">1362</span><span class="p">))</span>   <span class="o">--&gt;</span> <span class="mi">1</span>
+  <span class="n">表示tg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">中包含1362时间点的是</span> <span class="n">下标为1的</span> <span class="n">Interval</span> <span class="n">对象</span>
+  <span class="n">intervalContaining</span><span class="p">():</span> <span class="n">传入时间或Point对象</span><span class="p">,</span> <span class="n">返回包含该时间的Interval对象</span>
+<span class="n">例如</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">tg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">intervalContaining</span><span class="p">(</span><span class="mi">1362</span><span class="p">))</span>  <span class="o">--&gt;</span>  <span class="n">Interval</span><span class="p">(</span><span class="mf">1361.89250</span><span class="p">,</span> <span class="mf">1362.01250</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+<span class="n">read</span><span class="p">(</span><span class="n">f</span><span class="p">):</span> <span class="n">f是文件对象</span><span class="p">,</span> <span class="n">读一个TextGrid文件</span>
+<span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="p">):</span> <span class="n">f是文件对象</span><span class="p">,</span> <span class="n">写一个TextGrid文件</span>
+<span class="n">fromFile</span><span class="p">(</span><span class="n">f_path</span><span class="p">):</span> <span class="n">f_path是文件路径</span><span class="p">,</span> <span class="n">从一个文件读</span>
+<span class="n">bounds</span><span class="p">():</span>  <span class="n">返回一个元组</span><span class="p">,</span> <span class="p">(</span><span class="n">minTime</span><span class="p">,</span> <span class="n">maxTime</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>属性</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">intervals</span>  <span class="o">--&gt;</span> <span class="n">返回所有的</span> <span class="n">interval</span> <span class="n">的列表</span>
+<span class="n">maxTime</span>   <span class="o">--&gt;</span>  <span class="n">返回</span> <span class="n">number</span><span class="p">(</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">)</span><span class="n">类型</span><span class="p">,</span> <span class="n">表示结束时间</span>
+<span class="n">minTime</span>  <span class="o">--&gt;</span>  <span class="n">返回</span> <span class="n">number</span><span class="p">(</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">)</span><span class="n">类型</span><span class="p">,</span> <span class="n">表示开始时间</span>
+<span class="n">name</span>     <span class="o">--&gt;</span>  <span class="n">返回字符串</span>
+<span class="n">strict</span>  <span class="o">--</span> <span class="o">&gt;</span> <span class="n">返回bool值</span><span class="p">,</span> <span class="n">表示是否严格TextGrid格式</span>
+</pre></div>
+</div>
+<p>​</p>
+<p><strong>PointTier</strong> 对象:
+方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">add</span><span class="p">(</span><span class="n">minTime</span><span class="p">,</span> <span class="n">maxTime</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span> <span class="n">添加一个标记</span><span class="p">,</span><span class="n">需要同时传入起止时间</span><span class="p">,</span> <span class="n">和mark的名字</span><span class="o">.</span>
+<span class="n">addPoint</span><span class="p">(</span><span class="n">point</span><span class="p">):</span> <span class="n">添加一个Point对象</span><span class="p">,</span> <span class="n">该Point对象中已经封装了起止时间</span><span class="o">.</span>
+<span class="n">remove</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span> <span class="n">删除一个</span> <span class="n">point</span><span class="p">,</span> <span class="n">传入时间和mark</span>
+<span class="n">removePoint</span><span class="p">(</span><span class="n">point</span><span class="p">):</span> <span class="n">删除一个</span> <span class="n">point</span><span class="p">,</span> <span class="n">传入point对象</span>
+<span class="n">read</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>  <span class="n">读</span><span class="p">,</span> <span class="n">f是文件对象</span>
+<span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="p">):</span> <span class="n">写</span><span class="p">,</span> <span class="n">f是文件对象</span>
+<span class="n">fromFile</span><span class="p">(</span><span class="n">f_path</span><span class="p">):</span> <span class="n">f_path是文件路径</span><span class="p">,</span> <span class="n">从一个文件读</span>
+<span class="n">bounds</span><span class="p">():</span>  <span class="n">返回一个元组</span><span class="p">,</span> <span class="p">(</span><span class="n">minTime</span><span class="p">,</span> <span class="n">maxTime</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>属性</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">points</span>  <span class="n">返回所有的</span> <span class="n">point</span> <span class="n">的列表</span>
+<span class="n">maxTime</span> <span class="n">和IntervalTier一样</span><span class="p">,</span> <span class="n">返回结束时间</span>
+<span class="n">minTime</span> <span class="n">和IntervalTier一样</span><span class="p">,</span> <span class="n">返回开始时间</span>
+<span class="n">name</span>    <span class="n">返回name</span>
+</pre></div>
+</div>
+<p><strong>Point</strong> 对象:
+支持比较大小, 支持加减运算
+属性:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mark</span><span class="p">:</span>
+<span class="n">time</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>​</p>
+<p><strong>Interval</strong> 对象:
+支持比较大小, 支持加减运算
+支持 in, not in 的运算
+方法:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">duration</span><span class="p">():</span> <span class="n">返回number</span> <span class="n">类型</span><span class="p">,</span> <span class="n">表示这个Interval的持续时间</span>
+<span class="n">bounds</span><span class="p">():</span> <span class="o">--&gt;</span>   <span class="n">返回元组</span><span class="p">,</span> <span class="p">(</span><span class="n">minTime</span><span class="p">,</span> <span class="n">maxTime</span><span class="p">)</span>
+<span class="n">overlaps</span><span class="p">(</span><span class="n">Interval</span><span class="p">):</span>  <span class="o">--&gt;</span> <span class="n">返回bool值</span><span class="p">,</span> <span class="n">判断本Interval的时间和传入的的Interval的时间是否重叠</span><span class="p">,</span> <span class="n">是返回True</span>
+</pre></div>
+</div>
+<p>属性:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mark</span>
+<span class="n">maxTime</span>
+<span class="n">minTime</span>
+<span class="n">strick</span><span class="p">:</span>  <span class="o">--&gt;</span> <span class="n">返回bool值</span><span class="p">,</span> <span class="n">判断格式是否严格的TextGrid格式</span>
+</pre></div>
+</div>
+<p><strong>TextGrid</strong> 对象:
+支持列表的取值,复制, 迭代, 求长度, append, extend, pop方法
+方法:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">getFirst</span><span class="p">(</span><span class="n">tierName</span><span class="p">)</span>  <span class="n">返回第一个名字为tierName的tier</span>
+<span class="n">getList</span><span class="p">(</span><span class="n">tierName</span><span class="p">)</span>   <span class="n">返回名字为tierName的tier的列表</span>
+<span class="n">getNames</span><span class="p">()</span>          <span class="n">返回所有tier的名字的列表</span>
+<span class="n">append</span><span class="p">(</span><span class="n">tier</span><span class="p">)</span>        <span class="n">添加一个tier作为其中的元素</span>
+<span class="n">extend</span><span class="p">(</span><span class="n">tiers</span><span class="p">)</span>       <span class="n">添加多个tier作为其中的元素</span>
+<span class="n">pop</span><span class="p">(</span><span class="n">tier</span><span class="p">)</span>           <span class="n">删除一个tier</span>
+<span class="n">read</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>             <span class="n">f是文件对象</span>
+<span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>            <span class="n">f是文件对象</span>
+<span class="n">fromFile</span><span class="p">(</span><span class="n">f_path</span><span class="p">)</span>    <span class="n">f_path是文件路径</span>
+</pre></div>
+</div>
+<p>属性：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">maxTime</span>
+<span class="n">minTime</span>
+<span class="n">name</span>
+<span class="n">strict</span>
+<span class="n">tiers</span>               <span class="n">返回所有tiers的列表</span>
+</pre></div>
+</div>
+<p><strong>MLF</strong> 对象
+MLF('xxx.mlf')
+'xxx.mlf'为mlf格式的文件,
+读取hvite-o sm生成的htk.mlf文件并将其转换为 TextGrid的列表
+方法:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="n">f是文件对象</span>
+<span class="n">write</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="n">prefix是写出路径的前缀</span><span class="p">,</span><span class="n">可选</span>
+</pre></div>
+</div>
+<p>属性:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grids</span><span class="p">:</span>  <span class="o">--&gt;</span> <span class="n">返回读取的grids的列表</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>https://zh.wikipedia.org/wiki/Praat%E8%AF%AD%E9%9F%B3%E5%AD%A6%E8%BD%AF%E4%BB%B6</p></li>
+<li><p>https://blog.csdn.net/duxin_csdn/article/details/88966295</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../dataset.html" class="btn btn-neutral float-right" title="Dataset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="README.html" class="btn btn-neutral float-left" title="Speech I/O" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Hui Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

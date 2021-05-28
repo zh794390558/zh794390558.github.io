@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>ASR Text Backend &mdash; zh794390558.github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="VAD" href="../vad/vad.html" />
+    <link rel="prev" title="CRF(Conditional Random Fields)" href="../punc/crf.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> zh794390558.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Hui Zhang</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Speech</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="chinese_syllable.html">chinese syllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/wfst.html">WFST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/decoding.html">Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../punc/crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ASR Text Backend</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#text-corrector">Text Corrector</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#question">Question</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solution">Solution</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">规则的解决思路</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">深度模型的解决思路</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">规则检测方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">错误检测</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">错误纠正</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">思考</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#add-punctuation">Add Punctuation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#text-filter">Text Filter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../vad/vad.html">VAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/dataset.html">TTS Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/tts_text_frontend.html">Text Front End</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/README.html">Speech I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/praat_textgrid.html">Praat and TextGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataset.html">Dataset</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/training/speech_features.html">Speech Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/algorithm.html">Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/tutorials.html">Coding Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cpp.html">library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html">Eigen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id11">矩阵和向量的运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#array">Array类和元素级操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id27">块操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id32">高级初始化方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id37">归约、迭代器和广播</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#map">原生缓存的接口：Map类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/linear_algebra.html">线性代数</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tfrt.html">TFRT: A New TensorFlow Runtime </a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/deltann_compile.html">Tensorflow compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/model_optimization.html">Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/hpc.html">HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/ffmpeg.html">FFPMEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tools.html">Useful Tools</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">zh794390558.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>ASR Text Backend</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/speech/asr/asr_text_backend.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="asr-text-backend">
+<h1>ASR Text Backend<a class="headerlink" href="#asr-text-backend" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>[Text Segmentation](text_front_end#text segmentation)</p></li>
+<li><p>Text Corrector</p></li>
+<li><p>Add Punctuation</p></li>
+<li><p>Text Filter</p></li>
+</ol>
+<div class="section" id="text-corrector">
+<h2>Text Corrector<a class="headerlink" href="#text-corrector" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/shibing624/pycorrector">pycorrector</a>
+本项目重点解决其中的谐音、混淆音、形似字错误、中文拼音全拼、语法错误带来的纠错任务。PS：<a class="reference external" href="https://zhuanlan.zhihu.com/p/138981644">网友源码解读</a></p></li>
+<li><p>DeepCorrection <a class="reference external" href="https://praneethbedapudi.medium.com/deepcorrection-1-sentence-segmentation-of-unpunctuated-text-a1dbc0db4e98">1</a> <a class="reference external" href="https://praneethbedapudi.medium.com/deepcorrection2-automatic-punctuation-restoration-ac4a837d92d9">2</a> <a class="reference external" href="https://praneethbedapudi.medium.com/deepcorrection-3-spell-correction-and-simple-grammar-correction-d033a52bc11d">3</a>  <a class="reference external" href="https://praneethbedapudi.medium.com/deepsegment-2-0-multilingual-text-segmentation-with-vector-alignment-fd76ce62194f">4</a></p></li>
+</ul>
+<div class="section" id="question">
+<h3>Question<a class="headerlink" href="#question" title="Permalink to this headline">¶</a></h3>
+<p>中文文本纠错任务，常见错误类型包括：</p>
+<ul class="simple">
+<li><p>谐音字词，如 配副眼睛-配副眼镜</p></li>
+<li><p>混淆音字词，如 流浪织女-牛郎织女</p></li>
+<li><p>字词顺序颠倒，如 伍迪艾伦-艾伦伍迪</p></li>
+<li><p>字词补全，如 爱有天意-假如爱有天意</p></li>
+<li><p>形似字错误，如 高梁-高粱</p></li>
+<li><p>中文拼音全拼，如 xingfu-幸福</p></li>
+<li><p>中文拼音缩写，如 sz-深圳</p></li>
+<li><p>语法错误，如 想象难以-难以想象</p></li>
+</ul>
+<p>当然，针对不同业务场景，这些问题并不一定全部存在。</p>
+<p>比如输入法中需要处理前四种，搜索引擎需要处理所有类型，语音识别后文本纠错只需要处理前两种， 其中'形似字错误'主要针对五笔或者笔画手写输入等。</p>
+</div>
+<div class="section" id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>规则的解决思路<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>中文纠错分为两步走，第一步是错误检测，第二步是错误纠正；</p></li>
+<li><p>错误检测部分先通过结巴中文分词器切词，由于句子中含有错别字，所以切词结果往往会有切分错误的情况，这样从字粒度和词粒度两方面检测错误， 整合这两种粒度的疑似错误结果，形成疑似错误位置候选集；</p></li>
+<li><p>错误纠正部分，是遍历所有的疑似错误位置，并使用音似、形似词典替换错误位置的词，然后通过语言模型计算句子困惑度，对所有候选集结果比较并排序，得到最优纠正词。</p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h4>深度模型的解决思路<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>端到端的深度模型可以避免人工提取特征，减少人工工作量，RNN序列模型对文本任务拟合能力强，rnn_attention在英文文本纠错比赛中取得第一名成绩，证明应用效果不错；</p></li>
+<li><p>CRF会计算全局最优输出节点的条件概率，对句子中特定错误类型的检测，会根据整句话判定该错误，阿里参赛2016中文语法纠错任务并取得第一名，证明应用效果不错；</p></li>
+<li><p>Seq2Seq模型是使用Encoder-Decoder结构解决序列转换问题，目前在序列转换任务中（如机器翻译、对话生成、文本摘要、图像描述）使用最广泛、效果最好的模型之一；</p></li>
+<li><p>BERT/ELECTRA/ERNIE/MacBERT等预训练模型强大的语言表征能力，对NLP界带来翻天覆地的改变，海量的训练数据拟合的语言模型效果无与伦比，基于其MASK掩码的特征，可以简单改造预训练模型用于纠错，加上fine-tune，效果轻松达到最优。</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>规则检测方法<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>kenlm：kenlm统计语言模型工具，规则方法，语言模型纠错，利用混淆集，扩展性强</p></li>
+</ul>
+<div class="section" id="id4">
+<h4>错误检测<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>字粒度：语言模型困惑度（ppl）检测某字的似然概率值低于句子文本平均值，则判定该字是疑似错别字的概率大。</p></li>
+<li><p>词粒度：切词后不在词典中的词是疑似错词的概率大。</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h4>错误纠正<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>通过错误检测定位所有疑似错误后，取所有疑似错字的音似、形似候选词，</p></li>
+<li><p>使用候选词替换，基于语言模型得到类似翻译模型的候选排序结果，得到最优纠正词。</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h4>思考<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>现在的处理手段，在词粒度的错误召回还不错，但错误纠正的准确率还有待提高，更多优质的纠错集及纠错词库会有提升。</p></li>
+<li><p>另外，现在的文本错误不再局限于字词粒度上的拼写错误，需要提高中文语法错误检测（CGED, Chinese Grammar Error Diagnosis）及纠正能力。</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>https://github.com/shibing624/pycorrector</p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/mingzai624/article/details/82390382">基于文法模型的中文纠错系统</a></p></li>
+<li><p><a class="reference external" href="http://norvig.com/spell-correct.html">Norvig’s spelling corrector</a></p></li>
+<li><p><a class="reference external" href="http://www.aclweb.org/anthology/W/W14/W14-6835.pdf">Chinese Spelling Error Detection and Correction Based on Language Model, Pronunciation, and Shape[Yu, 2013]</a></p></li>
+<li><p><a class="reference external" href="http://www.aclweb.org/anthology/O/O13/O13-1005.pdf">Chinese Spelling Checker Based on Statistical Machine Translation[Chiu, 2013]</a></p></li>
+<li><p><a class="reference external" href="http://aclweb.org/anthology/W14-6822">Chinese Word Spelling Correction Based on Rule Induction[yeh, 2014]</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/pdf/1603.09727.pdf">Neural Language Correction with Character-Based Attention[Ziang Xie, 2016]</a></p></li>
+<li><p><a class="reference external" href="http://www.anthology.aclweb.org/W/W14/W14-6827.pdf">Chinese Spelling Check System Based on Tri-gram Model[Qiang Huang, 2014]</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1812.02303">Neural Abstractive Text Summarization with Sequence-to-Sequence Models[Tian Shi, 2018]</a></p></li>
+<li><p><a class="reference external" href="https://github.com/shibing624/pycorrector/blob/master/docs/%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E8%87%AA%E5%8A%A8%E6%A0%A1%E5%AF%B9%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0.pdf">基于深度学习的中文文本自动校对研究与实现[杨宗霖, 2019]</a></p></li>
+<li><p><a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-319-99501-4_36">A Sequence to Sequence Learning for Chinese Grammatical Error Correction[Hongkai Ren, 2018]</a></p></li>
+<li><p><a class="reference external" href="https://openreview.net/pdf?id=r1xMH1BtvB">ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/2004.13922">Revisiting Pre-trained Models for Chinese Natural Language Processing</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="add-punctuation">
+<h2>Add Punctuation<a class="headerlink" href="#add-punctuation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>DeepCorrection <a class="reference external" href="https://praneethbedapudi.medium.com/deepcorrection-1-sentence-segmentation-of-unpunctuated-text-a1dbc0db4e98">1</a> <a class="reference external" href="https://praneethbedapudi.medium.com/deepcorrection2-automatic-punctuation-restoration-ac4a837d92d9">2</a> <a class="reference external" href="https://praneethbedapudi.medium.com/deepcorrection-3-spell-correction-and-simple-grammar-correction-d033a52bc11d">3</a>  <a class="reference external" href="https://praneethbedapudi.medium.com/deepsegment-2-0-multilingual-text-segmentation-with-vector-alignment-fd76ce62194f">4</a></p></li>
+</ul>
+</div>
+<div class="section" id="text-filter">
+<h2>Text Filter<a class="headerlink" href="#text-filter" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>敏感词（黄暴、涉政、违法违禁等）</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../vad/vad.html" class="btn btn-neutral float-right" title="VAD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../punc/crf.html" class="btn btn-neutral float-left" title="CRF(Conditional Random Fields)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Hui Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

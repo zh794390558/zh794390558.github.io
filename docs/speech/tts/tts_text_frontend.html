@@ -1,0 +1,481 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Text Front End &mdash; zh794390558.github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TTS papers" href="TTS-papers/README.html" />
+    <link rel="prev" title="Speech Synthesis" href="speech_synthesis.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> zh794390558.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Hui Zhang</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Speech</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../asr/chinese_syllable.html">chinese syllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/wfst.html">WFST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/decoding.html">Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../punc/crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vad/vad.html">VAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset.html">TTS Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Text Front End</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#text-segmentation">Text Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#text-normalization">Text Normalization(文本正则)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lexicon-normalization">Lexicon Normalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tokenization">Tokenization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stop-words">Stop Words</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tools">tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#word-segmentation">Word Segmentation(分词)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mmseg">MMSEG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cscanner">CScanner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#part-of-speech">Part of Speech(词性预测)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#g2p">G2P(注音)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prosody">Prosody(韵律预测)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#polyphone">Polyphone(多音字)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linguistic-features">Linguistic Features(语言学特征)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">基于神经网络的前端文本分析模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/README.html">Speech I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/praat_textgrid.html">Praat and TextGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataset.html">Dataset</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/training/speech_features.html">Speech Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/algorithm.html">Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/tutorials.html">Coding Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cpp.html">library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html">Eigen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id11">矩阵和向量的运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#array">Array类和元素级操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id27">块操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id32">高级初始化方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id37">归约、迭代器和广播</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#map">原生缓存的接口：Map类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/linear_algebra.html">线性代数</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tfrt.html">TFRT: A New TensorFlow Runtime </a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/deltann_compile.html">Tensorflow compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/model_optimization.html">Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/hpc.html">HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/ffmpeg.html">FFPMEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tools.html">Useful Tools</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">zh794390558.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Text Front End</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/speech/tts/tts_text_frontend.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="text-front-end">
+<h1>Text Front End<a class="headerlink" href="#text-front-end" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="text-segmentation">
+<h2>Text Segmentation<a class="headerlink" href="#text-segmentation" title="Permalink to this headline">¶</a></h2>
+<p>There are various libraries including some of the most popular ones like NLTK, Spacy, Stanford CoreNLP that that provide excellent, easy to use functions for sentence segmentation.</p>
+<ul class="simple">
+<li><p>https://github.com/bminixhofer/nnsplit</p></li>
+<li><p><a class="reference external" href="https://github.com/notAI-tech/deepsegment">DeepSegment</a>  <a class="reference external" href="http://bpraneeth.com/projects/deepsegment">blog</a> <a class="reference external" href="https://praneethbedapudi.medium.com/deepcorrection-1-sentence-segmentation-of-unpunctuated-text-a1dbc0db4e98">1</a> <a class="reference external" href="https://praneethbedapudi.medium.com/deepcorrection2-automatic-punctuation-restoration-ac4a837d92d9">2</a> <a class="reference external" href="https://praneethbedapudi.medium.com/deepcorrection-3-spell-correction-and-simple-grammar-correction-d033a52bc11d">3</a>  <a class="reference external" href="https://praneethbedapudi.medium.com/deepsegment-2-0-multilingual-text-segmentation-with-vector-alignment-fd76ce62194f">4</a></p></li>
+</ul>
+</div>
+<div class="section" id="text-normalization">
+<h2>Text Normalization(文本正则)<a class="headerlink" href="#text-normalization" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>basic preprocessing steps</strong> that occur in English NLP, including data cleaning, stemming/lemmatization, tokenization and stop words.  <strong>not all of these steps are necessary for Chinese text data!</strong></p>
+<div class="section" id="lexicon-normalization">
+<h3>Lexicon Normalization<a class="headerlink" href="#lexicon-normalization" title="Permalink to this headline">¶</a></h3>
+<p>There’s a concept similar to stems in this language, and they’re called Radicals. <strong>Radicals are basically the building blocks of Chinese characters.</strong> All Chinese characters are made up of a finite number of components which are put together in different orders and combinations. Radicals are usually the leftmost part of the character. There are around 200 radicals in Chinese, and they are used to index and categorize characters.</p>
+<p>Therefore, procedures like stemming and lemmatization are not useful for Chinese text data because seperating the radicals would <strong>change the word’s meaning entirely</strong>.</p>
+</div>
+<div class="section" id="tokenization">
+<h3>Tokenization<a class="headerlink" href="#tokenization" title="Permalink to this headline">¶</a></h3>
+<p><strong>Tokenizing breaks up text data into shorter pre-set strings</strong>, which help build context and meaning for the machine learning model.</p>
+<p>These “tags” label the part of speech. There are 24 part of speech tags and 4 proper name category labels in the <code class="docutils literal notranslate"><span class="pre">**jieba**</span></code> package’s existing dictionary.</p>
+<img src="../images/jieba_tags.png" width=650></div>
+<div class="section" id="stop-words">
+<h3>Stop Words<a class="headerlink" href="#stop-words" title="Permalink to this headline">¶</a></h3>
+<p>In NLP, <strong>stop words are “meaningless” words</strong> that make the data too noisy or ambiguous.</p>
+<p>Instead of manually removing them, you could import the <code class="docutils literal notranslate"><span class="pre">**stopwordsiso**</span></code> package for a full list of Chinese stop words. More information can be found <a class="reference external" href="https://pypi.org/project/stopwordsiso/">here</a>. And with this, we can easily create code to filter out any stop words in large text data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install stopwordsiso
+import stopwordsiso
+from stopwordsiso import stopwords
+stopwords([&quot;zh&quot;])  # Chinese
+</pre></div>
+</div>
+<p>文本正则化 文本正则化主要是讲非标准词(NSW)进行转化，比如：</p>
+<ol class="simple">
+<li><p>数字、电话号码:  10086 -&gt; 一千零八十六/幺零零八六</p></li>
+<li><p>时间，比分:  23:20 -&gt; 二十三点二十分/二十三比二十</p></li>
+<li><p>分数、小数、百分比:  3/4 -&gt; 四分之三，3.24 -&gt; 三点一四， 15% -&gt; 百分之十五</p></li>
+<li><p>符号、单位:  ￥ -&gt; 元， kg -&gt; 千克</p></li>
+<li><p>网址、文件后缀:  www. -&gt; 三W点</p></li>
+</ol>
+<p>其他转换：</p>
+<ol class="simple">
+<li><p>简体和繁体转换：中国语言 -&gt; 中國語言</p></li>
+<li><p>半角和全角准换：,  -&gt; ，</p></li>
+</ol>
+</div>
+<div class="section" id="tools">
+<h3>tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>https://github.com/google/re2</p></li>
+<li><p>https://github.com/speechio/chinese_text_normalization</p></li>
+<li><p><a class="reference external" href="https://github.com/NoahDrisort/vinorm">vinorm</a> <a class="reference external" href="https://github.com/NoahDrisort/vinorm_cpp_version">cpp_verion</a></p>
+<p>Python package for text normalization, use for frontend of Text-to-speech Reseach</p>
+</li>
+<li><p>https://github.com/candlewill/CNTN</p>
+<p>This is a ChiNese Text Normalization (CNTN) tool for Text-to-speech system, which is based on <a class="reference external" href="https://github.com/google/sparrowhawk">sparrowhawk</a>.</p>
+</li>
+<li><p><a class="reference external" href="https://github.com/berniey/hanziconv">Simplified and Traditional Chinese Characters converter</a></p></li>
+<li><p><a class="reference external" href="https://zh.wikipedia.org/wiki/%E5%85%A8%E5%BD%A2%E5%92%8C%E5%8D%8A%E5%BD%A2">Halfwidth and Fullwidth</a></p></li>
+<li><p>https://github.com/BYVoid/OpenCC</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="word-segmentation">
+<h2>Word Segmentation(分词)<a class="headerlink" href="#word-segmentation" title="Permalink to this headline">¶</a></h2>
+<p>分词之所以重要可以通过这个例子来说明:<br />广州市长隆马戏欢迎你 -&gt; 广州市 长隆 马戏 欢迎你<br />如果没有分词错误会导致句意完全不正确:<br />广州 市长 隆马戏 欢迎你</p>
+<p>分词常用方法分为最大前向匹配(基于字典)和基于CRF的分词方法。用CRF的方法相当于是把这个任务转换成了序列标注，相比于基于字典的方法好处是对于歧义或者未登录词有较强的识别能力，缺点是不能快速fix bug，并且性能略低于词典。</p>
+<p>中文分词的常见工具:</p>
+<ul class="simple">
+<li><p>https://github.com/lancopku/PKUSeg-python</p></li>
+<li><p>https://github.com/thunlp/THULAC-Python</p></li>
+<li><p>https://github.com/fxsjy/jieba</p></li>
+<li><p>CRF++</p></li>
+<li><p>https://github.com/isnowfy/snownlp</p></li>
+</ul>
+<div class="section" id="mmseg">
+<h3>MMSEG<a class="headerlink" href="#mmseg" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://technology.chtsai.org/mmseg/">MMSEG: A Word Identification System for Mandarin Chinese Text Based on Two Variants of the Maximum Matching Algorithm</a></p></li>
+<li><p><a class="reference external" href="https://www.cnblogs.com/en-heng/p/5872308.html"><code class="docutils literal notranslate"><span class="pre">中文分词</span></code>简单高效的MMSeg</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/daniel_ustc/article/details/50488040">mmseg分词算法及实现</a></p></li>
+<li><p><a class="reference external" href="https://www.jianshu.com/p/e4ae8d194487">Mmseg算法</a></p></li>
+<li><p><a class="reference external" href="http://www.isnowfy.com/introduction-to-chinese-segmentation/">浅谈中文分词</a></p></li>
+<li><p><a class="reference external" href="https://github.com/pluskid/pymmseg-cpp.git">pymmseg-cpp</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ustcdane/mmseg">ustcdane/mmseg</a></p></li>
+<li><p><a class="reference external" href="https://github.com/jkom-cloud/mmseg">jkom-cloud/mmseg</a></p></li>
+</ul>
+</div>
+<div class="section" id="cscanner">
+<h3>CScanner<a class="headerlink" href="#cscanner" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://technology.chtsai.org/cscanner/">CScanner - A Chinese Lexical Scanner</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="part-of-speech">
+<h2>Part of Speech(词性预测)<a class="headerlink" href="#part-of-speech" title="Permalink to this headline">¶</a></h2>
+<p>词性解释</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">/</span><span class="n">名词</span> <span class="n">np</span><span class="o">/</span><span class="n">人名</span> <span class="n">ns</span><span class="o">/</span><span class="n">地名</span> <span class="n">ni</span><span class="o">/</span><span class="n">机构名</span> <span class="n">nz</span><span class="o">/</span><span class="n">其它专名</span>
+<span class="n">m</span><span class="o">/</span><span class="n">数词</span> <span class="n">q</span><span class="o">/</span><span class="n">量词</span> <span class="n">mq</span><span class="o">/</span><span class="n">数量词</span> <span class="n">t</span><span class="o">/</span><span class="n">时间词</span> <span class="n">f</span><span class="o">/</span><span class="n">方位词</span> <span class="n">s</span><span class="o">/</span><span class="n">处所词</span>
+<span class="n">v</span><span class="o">/</span><span class="n">动词</span> <span class="n">a</span><span class="o">/</span><span class="n">形容词</span> <span class="n">d</span><span class="o">/</span><span class="n">副词</span> <span class="n">h</span><span class="o">/</span><span class="n">前接成分</span> <span class="n">k</span><span class="o">/</span><span class="n">后接成分</span>
+<span class="n">i</span><span class="o">/</span><span class="n">习语</span> <span class="n">j</span><span class="o">/</span><span class="n">简称</span> <span class="n">r</span><span class="o">/</span><span class="n">代词</span> <span class="n">c</span><span class="o">/</span><span class="n">连词</span> <span class="n">p</span><span class="o">/</span><span class="n">介词</span> <span class="n">u</span><span class="o">/</span><span class="n">助词</span> <span class="n">y</span><span class="o">/</span><span class="n">语气助词</span>
+<span class="n">e</span><span class="o">/</span><span class="n">叹词</span> <span class="n">o</span><span class="o">/</span><span class="n">拟声词</span> <span class="n">g</span><span class="o">/</span><span class="n">语素</span> <span class="n">w</span><span class="o">/</span><span class="n">标点</span> <span class="n">x</span><span class="o">/</span><span class="n">其它</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="g2p">
+<h2>G2P(注音)<a class="headerlink" href="#g2p" title="Permalink to this headline">¶</a></h2>
+<p>注音是需要将词转换成对应的发音，对于中文是将其转换成拼音，比如 绿色-&gt;(lv4 se4) 这里的数字表示声调。</p>
+<p>传统方法是使用字典，但是对于未登录词就很难解决。基于模型的方法是使用 <a class="reference external" href="https://github.com/AdolfVonKleist/Phonetisaurus">Phonetisaurus</a>。 论文可以参考 - WFST-based Grapheme-to-Phoneme Conversion: Open Source Tools for Alignment, Model-Building and Decoding</p>
+<p>当然这个问题也可以看做是序列标注用CRF或者基于神经网络的模型都可以做。 基于神经网络工具:</p>
+<ul class="simple">
+<li><p>https://github.com/kakaobrain/g2pM</p></li>
+<li><p>https://github.com/Kyubyong/g2p</p></li>
+</ul>
+</div>
+<div class="section" id="prosody">
+<h2>Prosody(韵律预测)<a class="headerlink" href="#prosody" title="Permalink to this headline">¶</a></h2>
+<p>ToBI(an abbreviation of tones and break indices) is a set of conventions for transcribing and annotating the prosody of speech. 中文主要关注break。</p>
+<p>韵律等级结构:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">音素</span> <span class="o">-&gt;</span> <span class="n">音节</span> <span class="o">-&gt;</span> <span class="n">韵律词</span><span class="p">(</span><span class="n">Prosody</span> <span class="n">Word</span><span class="p">,</span> <span class="n">PW</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">韵律短语</span><span class="p">(</span><span class="n">prosody</span> <span class="n">phrase</span><span class="p">,</span> <span class="n">PPH</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">语调短句</span><span class="p">(</span><span class="n">intonational</span> <span class="n">phrase</span><span class="p">,</span> <span class="n">IPH</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">子句子</span> <span class="o">-&gt;</span> <span class="n">主句子</span> <span class="o">-&gt;</span> <span class="n">段落</span> <span class="o">-&gt;</span> <span class="n">篇章</span>  
+<span class="n">LP</span> <span class="o">-&gt;</span> <span class="n">LO</span> <span class="o">-&gt;</span> <span class="n">L1</span><span class="p">(</span><span class="c1">#1) -&gt; L2(#2) -&gt; L3(#3) -&gt; L4(#4) -&gt; L5 -&gt; L6 -&gt; L7  </span>
+</pre></div>
+</div>
+<p>主要关注 PW, PPH, IPH</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th></th>
+<th>停顿时长</th>
+<th>前后音高特征</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>韵律词边界</td>
+<td>不停顿或从听感上察觉不到停顿</td>
+<td>无</td>
+</tr>
+<tr>
+<td>韵律短语边界</td>
+<td>可以感知停顿，但无明显的静音段</td>
+<td>音高不下倾或稍下倾，韵末不可做句末</td>
+</tr>
+<tr>
+<td>语调短语边界</td>
+<td>有较长停顿</td>
+<td>音高下倾比较完全，韵末可以作为句末</td>
+</tr>
+</tbody>
+</table><p>常用方法使用的是级联CRF，首先预测如果是PW，再继续预测是否是PPH，再预测是否是IPH</p>
+<img src="../images/prosody.jpeg" width=450><p>论文: 2015 .Ding Et al. - Automatic Prosody Prediction For Chinese Speech Synthesis Using BLSTM-RNN and Embedding Features</p>
+</div>
+<div class="section" id="polyphone">
+<h2>Polyphone(多音字)<a class="headerlink" href="#polyphone" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="linguistic-features">
+<h2>Linguistic Features(语言学特征)<a class="headerlink" href="#linguistic-features" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="id1">
+<h2>基于神经网络的前端文本分析模型<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>最近这两年基本都是基于 BERT，所以这里记录一下相关的论文:</p>
+<ul class="simple">
+<li><p>g2p: 2019. Sevinj Et al. Transformer based Grapheme-to-Phoneme Conversion</p></li>
+<li><p>分词: 2019 huang Et al. - Toward Fast and Accurate Neural Chinese Word Segmentation with Multi-Criteria Learning</p></li>
+<li><p>韵律: 2020 Zhang Et al. - Chinese Prosodic Structure Prediction Based on a Pretrained Language Representation Model</p></li>
+</ul>
+<p>除此之外，BLSTM + CRF 也比较主流。</p>
+</div>
+<div class="section" id="id2">
+<h2>总结<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>总结一下，文本分析各个模块的方法:</p>
+<p>TN: 基于规则的方法</p>
+<p>分词: 字典/CRF/BLSTM+CRF/BERT</p>
+<p>注音: ngram/CRF/BLSTM/seq2seq</p>
+<p>韵律: CRF/BLSTM + CRF/ BERT</p>
+<p>考虑到分词，注音，韵律都是基于序列标注任务，所以理论上来说可以通过一个模型搞定。</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://slyne.github.io/%E5%85%AC%E5%BC%80%E8%AF%BE/2020/10/03/TTS1/">Text Front End</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/chinese-natural-language-pre-processing-an-introduction-995d16c2705f">Chinese Natural Language (Pre)processing: An Introduction</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/beginners-guide-to-sentiment-analysis-for-simplified-chinese-using-snownlp-ce88a8407efb">Beginner’s Guide to Sentiment Analysis for Simplified Chinese using SnowNLP</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="TTS-papers/README.html" class="btn btn-neutral float-right" title="TTS papers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="speech_synthesis.html" class="btn btn-neutral float-left" title="Speech Synthesis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Hui Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

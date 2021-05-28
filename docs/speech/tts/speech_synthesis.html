@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Speech Synthesis &mdash; zh794390558.github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Text Front End" href="tts_text_frontend.html" />
+    <link rel="prev" title="TTS Corpus" href="dataset.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> zh794390558.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Hui Zhang</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Speech</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../asr/chinese_syllable.html">chinese syllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/wfst.html">WFST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/decoding.html">Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../punc/crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vad/vad.html">VAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset.html">TTS Corpus</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Speech Synthesis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">推荐书籍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">语音合成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">文本分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">语音合成方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">高阶话题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">语音合成评估</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">语音合成数据集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">非端到端的语音合</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">声学特征</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hmm">基于HMM的统计参数语音合成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nn">基于 NN 的参数语音合成</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">风格化和个性化语音合成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tts_text_frontend.html">Text Front End</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/README.html">Speech I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/praat_textgrid.html">Praat and TextGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataset.html">Dataset</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/training/speech_features.html">Speech Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/algorithm.html">Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/tutorials.html">Coding Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cpp.html">library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html">Eigen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id11">矩阵和向量的运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#array">Array类和元素级操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id27">块操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id32">高级初始化方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id37">归约、迭代器和广播</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#map">原生缓存的接口：Map类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/linear_algebra.html">线性代数</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tfrt.html">TFRT: A New TensorFlow Runtime </a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/deltann_compile.html">Tensorflow compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/model_optimization.html">Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/hpc.html">HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/ffmpeg.html">FFPMEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tools.html">Useful Tools</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">zh794390558.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Speech Synthesis</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/speech/tts/speech_synthesis.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="speech-synthesis">
+<h1>Speech Synthesis<a class="headerlink" href="#speech-synthesis" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="http://speech.zone/courses/speech-synthesis">爱丁堡大学公开课</a></p></li>
+<li></li>
+</ul>
+<div class="section" id="id1">
+<h2>推荐书籍<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Daniel Jurafsky and James H. Martin, Speech and language processing: An introduction to natural language processing, computational linguistics, and speech recognition. 这本书之前在学习语音识别的时候也经常翻阅。 推荐阅读章节: Ch 7 &amp; Ch 8 (都读过啦~)</p></li>
+<li><p>Xuedong Huang, Alex Aceoro, Hsiao-Wuen Hon, Spoken Language Processing: A guide to theory, algorithm, and system development, Prentice Hall, 2011 这本书的三位作者都是大佬，本书推荐阅读 Ch2, Ch5, Ch6, Part IV: Text-to-Speech Systems. 学习一下基础知识点，如信号处理等</p></li>
+<li><p>Paul Taylor, Text-to-Speech Synthesis, Cambridege University Press, 2009. 比较系统地讲述了神经网络之前的语音合成系统。</p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>语音合成<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>现代语音合成主要包含文本分析和语音合成</p>
+<div class="section" id="id3">
+<h3>文本分析<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>文本分析主要分为</p>
+<ul class="simple">
+<li><p><strong>断句</strong> : 怎么判断一句句子结束了，单纯用句号来切分并不靠谱，比如 ‘B.C.’, ‘Dr.J.M.’,’。。。’</p></li>
+<li><p><strong>文本归一化</strong> : 根据上下文消除一些词的读法，常见有数字的读法，”In 1950, he went to” -&gt; “nineteen fifty”, “There are 1950 sheep.” =&gt; “one thousand and fifty”, “The code number is 1950” -&gt; “one nine five zero”.</p></li>
+<li><p><strong>分词</strong> : 将句子分成一个个的词，对于中文这种没有空格作为天然分隔符的语言是需要分词单元的。</p></li>
+<li><p><strong>词性分析</strong> : 将分好的词中的每个词进行标注，”动词，名词，形容词，…”</p></li>
+<li><p><strong>注音</strong> : 有些词的读音在不同上下文中发音是不一样的，比如 ‘live’ -&gt; /l ih v/ or /l ay v/ 中文中也有多音字的现象，所以需要进行标注。</p></li>
+<li><p><strong>韵律分析</strong> : 声调，重读，韵律边界</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>语音合成方法<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p><strong>波形拼接</strong> : 将各种语音单元拼接起来，需要考虑目标代价(目标语音单元和候选的语音单元匹配度)和连接代价(相邻语音单元之间的流畅度)</p>
+<p><strong>基于轨迹指导的拼接合成</strong></p>
+<p><strong>统计参数合成</strong> : 帧级建模包括时长模型(音素序列-&gt;帧级文本特征)和声学模型(帧级文本特征-&gt;帧级语音输出)。主要方法是基于HMM 的 SPSS (Statistical Parametric Speech Synthesis), 可以用的工具包 HTS。</p>
+<p><strong>神经网络合成方法</strong> : 目前许多商用场景下已经部署了基于神经网络的语音合成模型。目前基于神经网络的方法还不是纯端到端的，分为两个部分，输入文本类信息(音素，时长等)经过神经网络得到输出特征(LF0, UV, 谱特征, bap), 接着将这些特征放到声码器(vocoder) 中得到对应的语音波形。主流方法是 Tactron, Tactron2, 注意力机制，Transformer。正在朝着基于序列到序列的语音合成，纯端到端的语音合成方向发展。</p>
+<p><strong>声码器</strong>的总结如下:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th><strong>模型类型</strong></th>
+<th><strong>模型</strong></th>
+<th><strong>合成语音质量</strong></th>
+<th><strong>效率</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AR</td>
+<td>WaveNet</td>
+<td>非常好</td>
+<td>非常差</td>
+</tr>
+<tr>
+<td>AR</td>
+<td>WaveRNN</td>
+<td>非常好</td>
+<td>中等</td>
+</tr>
+<tr>
+<td>AR</td>
+<td>Multiband WaveRNN</td>
+<td>非常好</td>
+<td>中等</td>
+</tr>
+<tr>
+<td>AR</td>
+<td>LPCNET</td>
+<td>非常好</td>
+<td>挺好的</td>
+</tr>
+<tr>
+<td>Non-AR</td>
+<td>Parallel WaveNet</td>
+<td>非常好</td>
+<td>还不错</td>
+</tr>
+<tr>
+<td>Non-AR</td>
+<td>WaveGlow</td>
+<td>非常好</td>
+<td>还不错</td>
+</tr>
+<tr>
+<td>Non-AR</td>
+<td>FlowWaveNet</td>
+<td>非常好</td>
+<td>还不错</td>
+</tr>
+<tr>
+<td>GAN</td>
+<td>ParallelWaveGAN</td>
+<td>非常好</td>
+<td>挺好的</td>
+</tr>
+<tr>
+<td>GAN</td>
+<td>MelGAN</td>
+<td>挺好的</td>
+<td>非常好</td>
+</tr>
+<tr>
+<td>GAN</td>
+<td>MB-MelGAN</td>
+<td>非常好</td>
+<td>非常非常好</td>
+</tr>
+</tbody>
+</table><p>从上面表格中可以看到基于神经网络的声码器效果都挺好的，主要需要优化的就是生成的速度。出现了利用GAN的声码器之后，推理速度也极大的提高了。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>高阶话题<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>基于注意力机制的序列要序列的模型框架稳定性问题: 长句、连读、丢字、漏字、重复</p></li>
+<li><p>小样本学习(few shots &amp; one shot)</p></li>
+<li><p>情感/表现力/可控性(句子内部细粒度控制，风格建模)</p></li>
+<li><p>纯端到端</p></li>
+<li><p>抗噪</p></li>
+<li><p>语音转换</p></li>
+<li><p>歌唱合成</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>语音合成评估<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>文本分析模块可以有比较客观的指标：precision, recall, fscore 之类的。</p>
+<p>生成的语音质量评估方法有：和参考样例之间的距离度量(DTW),  谱包络(MCD),  F0轮廓，V/UV Error， 时长 (Duration RMSE)。</p>
+<p>主观指标包括 MOS，CMOS,  AB Best,  MUSHRA。</p>
+</div>
+<div class="section" id="id7">
+<h2>语音合成数据集<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>数据质量非常重要</p>
+<p>中文: 标贝DB-1，女性说话，1万句，10.3小时</p>
+<p>英文: VCTK, LJSpeech, LibriSpeech, LibriTTS</p>
+</div>
+<div class="section" id="id8">
+<h2>非端到端的语音合<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>目前非端到端的语音合成算法有两种，</p>
+<p>1)<strong>参数语音合成方法</strong>，其中<em>声学模型</em>包括基于隐马尔可夫(HMM)的统计参数语音合成和基于神经网络(NN)的统计参数语音合成，而<em>声码器</em>包括基于源-滤波器的声码器和基于NN的声码器</p>
+<ol class="simple">
+<li><p><strong>单元拼接语音合成方法</strong> 简单地理解是有一个很大的语音库包含了许多词/音素的发音，用一些方法将各个单元拼接起来。</p></li>
+</ol>
+<div class="section" id="id9">
+<h3>声学特征<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>传统声学模型这里的声学特征主要包括 MGC-梅尔生成倒谱, MCEP-梅尔倒谱, LSP-线谱对，这些普参数加上激励参数如基频F0，就是需要拟合的声学特征。而我们的音频通常都是一个个的采样点，谱参数+激励参数是可以还原到音频采样点的。</p>
+<p>常用的工具：Straight, World, SPTK, <a class="reference external" href="http://hts.sp.nitech.ac.jp/">HTS</a>, <a class="reference external" href="https://github.com/r9y9/pysptk">Pysptk</a>。</p>
+</div>
+<div class="section" id="hmm">
+<h3>基于HMM的统计参数语音合成<a class="headerlink" href="#hmm" title="Permalink to this headline">¶</a></h3>
+<p>HMM 应用到 TTS 这里和 ASR 还是有些区别的。主要参考的论文是 <a class="reference external" href="https://www.researchgate.net/publication/265398553_An_Introduction_to_HMM-Based_Speech_Synthesis">An Introduction to HMM-Based Speech Synthesis</a>:</p>
+</div>
+<div class="section" id="nn">
+<h3>基于 NN 的参数语音合成<a class="headerlink" href="#nn" title="Permalink to this headline">¶</a></h3>
+<p>基于 NN 的参数语音合成主要依赖时长模型和声学模型。</p>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>风格化和个性化语音合成<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>风格化和个性化语音合成，难点有三个方面:</p>
+<ul class="simple">
+<li><p>风格化: 需要合成丰富且可控的语音，包括语速、停顿、重音、情感等。</p></li>
+<li><p>个性化: 要求我们利用多说话人建模技术及说话人自适应技术，在少量录音室或非录音室数据的条件下，为某一新说话人定制语音合成模型。</p></li>
+<li><p>迁移学习: 在只有一种语言的训练数据集下让说话人说另一种语言或者让说话人学习另一说话人的风格。迁移学习使我们能够利用额外的数据进行知识迁移，进而完成一些特定任务。</p></li>
+</ul>
+<p>建模和评估比较困难、数据集标注成本高，标注人员对风格问题容易产生分歧、模型缺乏控制合成语音风格的能力。</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>https://slyne.github.io/%E5%85%AC%E5%BC%80%E8%AF%BE/2020/09/26/TTS/</p></li>
+<li><p>https://slyne.github.io/%E5%85%AC%E5%BC%80%E8%AF%BE/2020/10/25/TTS2/</p></li>
+<li><p>https://slyne.github.io/%E5%85%AC%E5%BC%80%E8%AF%BE/2020/12/04/TTS6/</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tts_text_frontend.html" class="btn btn-neutral float-right" title="Text Front End" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dataset.html" class="btn btn-neutral float-left" title="TTS Corpus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Hui Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
