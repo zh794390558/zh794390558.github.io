@@ -51,8 +51,11 @@ Welcome to Hui Zhang's homepage!
    coding/algorithm
    coding/tutorials
    coding/cpp
-   coding/eigen
    coding/linear_algebra
+   coding/eigen
+   coding/cuda
+   coding/hpc
+   coding/aot/python_to_cpp
 
 
 .. toctree::
@@ -69,7 +72,6 @@ Welcome to Hui Zhang's homepage!
    development/model_optimization
    development/contributing
    development/version
-   development/hpc
    development/linux
    development/ffmpeg
    development/tools
