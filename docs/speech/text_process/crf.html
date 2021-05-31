@@ -225,29 +225,34 @@
             
   <div class="section" id="crf-conditional-random-fields">
 <h1>CRF(<a class="reference external" href="http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/">Conditional Random Fields</a>)<a class="headerlink" href="#crf-conditional-random-fields" title="Permalink to this headline">¶</a></h1>
+<p><em>CRFs is a generalization of any undirected graph structure, such as sequences, trees, or a weird graph. In this post I’ll focus on sequences structures by conditioning only on previous transitions, which is known as Linear Chain CRF. For the rest of this post I’ll use the acronym CRF intermittently between a general CRF and its linear chain structure.</em></p>
+<ul class="simple">
+<li><p>http://www.cs.columbia.edu/~mcollins/</p></li>
+<li><p><a class="reference external" href="http://www.cs.columbia.edu/~mcollins/lm-spring2013.pdf">Language Modeling</a></p></li>
+<li><p><a class="reference external" href="http://www.cs.columbia.edu/~mcollins/hmms-spring2013.pdf">Tagging Problems, and Hidden Markov Models</a></p></li>
+<li><p><a class="reference external" href="http://www.cs.columbia.edu/~mcollins/crf.pdf">log-Linear Modles, MEMMs, and CRFs</a></p></li>
+<li><p><a class="reference external" href="http://www.cs.columbia.edu/~mcollins/fb.pdf">The Forward-Backward Algorithm</a></p></li>
+<li><p><a class="reference external" href="http://www.cs.columbia.edu/~mcollins/em.pdf">The EM Algorithm</a></p></li>
+</ul>
 <div class="section" id="repos">
 <h2>Repos<a class="headerlink" href="#repos" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>https://github.com/kmkurn/pytorch-crf</p></li>
-<li><p>https://github.com/allenai/allennlp</p></li>
+<ul>
 <li><p>https://github.com/mtreviso/linear-chain-crf</p></li>
+<li><p>https://github.com/kmkurn/pytorch-crf</p></li>
+<li><p>https://github.com/allenai/allennlp</p>
+<p>viterbi 解码时可以对 transition矩阵中不可达的跳转做约束，来提升解码准确率。</p>
+</li>
 </ul>
 </div>
 <div class="section" id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://medium.com/ml2vec/overview-of-conditional-random-fields-68a2a20fa541">Overview of Conditional Random Fields</a></p></li>
-<li><p><a class="reference external" href="http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/">Introduction to Conditional Random Fields</a>]</p></li>
+<li><p><a class="reference external" href="http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/">Introduction to Conditional Random Fields</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Viterbi_algorithm">Viterbi algorithm</a></p></li>
 <li><p><a class="reference external" href="https://towardsdatascience.com/conditional-random-field-tutorial-in-pytorch-ca0d04499463">Conditional Random Field Tutorial in PyTorch</a></p></li>
 <li><p><a class="reference external" href="https://towardsdatascience.com/implementing-a-linear-chain-conditional-random-field-crf-in-pytorch-16b0b9c4b4ea">Implementing a linear-chain Conditional Random Field (CRF) in PyTorch</a></p></li>
 <li><p>.https://homepages.inf.ed.ac.uk/csutton/publications/crftutv2.pdf</p></li>
-<li><p><a class="reference external" href="https://towardsdatascience.com/implementing-a-linear-chain-conditional-random-field-crf-in-pytorch-16b0b9c4b4ea">Implementing a linear-chain Conditional Random Field (CRF) in PyTorch</a></p></li>
-<li><p>http://www.cs.columbia.edu/~mcollins/</p></li>
-<li><p><a class="reference external" href="http://www.cs.columbia.edu/~mcollins/hmms-spring2013.pdf">Tagging Problems, and Hidden Markov Models</a></p></li>
-<li><p>http://www.cs.columbia.edu/~mcollins/crf.pdf</p></li>
-<li><p><a class="reference external" href="http://www.cs.columbia.edu/~mcollins/fb.pdf">The Forward-Backward Algorithm</a></p></li>
-<li><p><a class="reference external" href="http://www.cs.columbia.edu/~mcollins/em.pdf">The Naive Bayes Model, Maximum-Likelihood Estimation, and the EM Algorithm</a></p></li>
 </ul>
 </div>
 </div>
