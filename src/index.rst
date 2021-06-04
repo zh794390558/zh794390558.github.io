@@ -48,14 +48,15 @@ Welcome to Hui Zhang's homepage!
    :caption: Coding 
    :name: sec-coding
 
+   coding/cpp
    coding/algorithm
    coding/tutorials
-   coding/cpp
+   coding/aot/python_to_cpp
    coding/linear_algebra
+   coding/hpc
    coding/eigen
    coding/cuda
-   coding/hpc
-   coding/aot/python_to_cpp
+   coding/simd
 
 
 .. toctree::

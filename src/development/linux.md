@@ -1,6 +1,10 @@
 # Linux
 
-## file encoding 
+## Tmux
+
+* https://gist.github.com/ryerh/14b7c24dfd623ef8edc7
+
+## File Encoding 
 
 ```
 iconv -f utf-8 -t gb18030 trans.utf8 > trans.gb
@@ -17,7 +21,12 @@ enca -L zh_CN -x UTF-8 < file1 > file2 如果不想覆盖原文件可以这样
 除了有检查文件编码的功能以外，”enca”还有一个好处就是如果文件本来就是你要转换的那种编码，它不会报错，还是会print出结果来， 而”iconv”则会报错。这对于脚本编写是比较方便的事情。
 ```
 
+## Ubuntu GCC Update
+
+* https://www.linuxidc.com/Linux/2019-04/158258.htm
+
 ## CentOS 7 gcc update
+
 * https://linuxize.com/post/how-to-install-gcc-compiler-on-centos-7/
 
 `Software Collections`, also known as `SCL` is a community project that allows you to build, install, and use multiple versions of software on the same system, without affecting system default packages.
