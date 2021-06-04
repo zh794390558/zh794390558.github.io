@@ -38,4 +38,3 @@
 ## Image
 
 * [Nude](https://archive.org/download/NudeNet_classifier_dataset_v1/NudeNet_Classifier_train_data_x320.zip)
-

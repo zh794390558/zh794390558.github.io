@@ -1,4 +1,4 @@
-# Develop with Docker 
+# Develop with Docker
 
 ## Install Docker
 
@@ -24,7 +24,7 @@ After the image downloaded, create a container:
 cd /path/to/detla && docker run -it -v $PWD:/delta zh794390558/delta:delta-cpu-py3 /bin/bash
 ```
 
-then develop as usual. 
+then develop as usual.
 
 We recommend using a power machine to develop DELTANN, since it needs to compile
 `Tensorflow` which is time-consuming.

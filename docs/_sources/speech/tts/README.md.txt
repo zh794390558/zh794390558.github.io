@@ -1,6 +1,6 @@
 # TTS
 
-## Text-to-Spectrum 
+## Text-to-Spectrum
 [Char2Wav]()
 [Tacotron](https://arxiv.org/abs/1703.10135)
 [Tacotron2](https://arxiv.org/abs/1712.05884)
@@ -29,7 +29,7 @@
 [Parallel WaveGAN](https://arxiv.org/abs/1910.11480)
 [Multi-band MelGAN](https://arxiv.org/abs/2005.05106)
 
-## End-to-End 
+## End-to-End
 [Parallel Neural Text-to-Speech](https://arxiv.org/abs/1905.08459v1)
 ParaNet + WaveVAE
 
@@ -38,7 +38,7 @@ ParaNet + WaveVAE
 [Deep Voice 2: Multi-Speaker Neural Text-to-Speech](https://arxiv.org/abs/1705.08947v2)
 [Deep Voice 3: 2000-Speaker Neural Text-to-Speech](https://arxiv.org/abs/1710.07654v1)
 
-## Controllable Style 
+## Controllable Style
 [FastSpeech](https://arxiv.org/abs/1905.09263)
 [FastSpeech2](https://arxiv.org/abs/2006.04558v3)
 [DurIAN: Duration Informed Attention Network For Multimodal Synthesis](https://arxiv.org/abs/1909.01700v2)

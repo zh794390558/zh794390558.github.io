@@ -1,7 +1,7 @@
 # TensorRT
 
-The core of TensorRT™ is a C++ library that facilitates high performance inference on NVIDIA graphics processing units (GPUs). 
-It is designed to work in a complementary fashion with training frameworks such as TensorFlow, Caffe, PyTorch, MXNet, etc. 
+The core of TensorRT™ is a C++ library that facilitates high performance inference on NVIDIA graphics processing units (GPUs).
+It is designed to work in a complementary fashion with training frameworks such as TensorFlow, Caffe, PyTorch, MXNet, etc.
 It focuses specifically on running an already trained network quickly and efficiently on a GPU for the purpose of generating a result (a process that is referred to in various places as scoring, detecting, regression, or inference).
 
 ## [Working With TensorFlow](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html#working_tf)

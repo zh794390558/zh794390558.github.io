@@ -84,7 +84,7 @@ pip3 install textgrid
            Interval(1361.89250, 1362.01250, R),
            Interval(1362.01250, 1362.13250, AY1),
            Interval(1362.13250, 1362.16250, T),
-   
+
    ...
            ]
        )

@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>SIMD &mdash; zh794390558.github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TFRT: A New TensorFlow Runtime" href="../development/tfrt.html" />
+    <link rel="prev" title="CUDA" href="cuda.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> zh794390558.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Hui Zhang</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Speech</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../speech/asr/chinese_syllable.html">chinese syllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/asr/alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/decode/decoding.html">Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/lm/ngram_lm.html">Ngram LM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/tts/README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/tts/speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/text_process/crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/text_process/asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/text_process/tts_text_frontend.html">Text Front End</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/vad/vad.html">VAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/spk/README.html">Speaker Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/io/README.html">Speech I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/io/praat_textgrid.html">Praat and TextGrid</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/speech_features.html">Speech Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Coding</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cpp.html">library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm.html">Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Coding Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aot/python_to_cpp.html">Python code to Cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_algebra.html">线性代数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpc.html">HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigen.html">Eigen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigen.html#id11">矩阵和向量的运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigen.html#array">Array类和元素级操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigen.html#id27">块操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigen.html#id32">高级初始化方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigen.html#id37">归约、迭代器和广播</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigen.html#map">原生缓存的接口：Map类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda.html">CUDA</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SIMD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sse-avx-intrinsics">1. SSE/AVX intrinsics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#registers">1.1 Registers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#files-to-include">1.2 Files to include</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#naming-rules">1.3 Naming rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#intrinsics-categories">1.4 Intrinsics categories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-code">1.5 Sample code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#repos">Repos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/tfrt.html">TFRT: A New TensorFlow Runtime </a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/deltann_compile.html">Tensorflow compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/model_optimization.html">Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/ffmpeg.html">FFPMEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/tools.html">Useful Tools</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dataset</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dataset.html">Dataset</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">zh794390558.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>SIMD</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/coding/simd.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="simd">
+<h1>SIMD<a class="headerlink" href="#simd" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>SIMD (and more generally vectorization) is a longstanding topic and a lot has been written about it. But when I had to use it in my own applications, it appeared that most of the articles were theoretical, explaining the principles vectorization lacking practical examples; some of them, however, linked to libraries using vectorization, but extending these libraries for my personal needs was difficult, if not painfull. For this reason, I decided to implement my own library. This series of articles if the result of my work on the matter. I share it there in case someone faces the same problem.</p>
+<p>SIMD stands for Single Instruction, Mutiple Data, a class of parallel computers which can perform the same operation on multiple data points simultaneously. Let’s consider a summation we want to perform on two sets of four floating point numbers. The difference between scalar and SIMD operations is illustrated below:</p>
+<p><img alt="simd_scalar" src="http://johanmabille.github.io/images/simd_scalar.png" /></p>
+<p>Using scalar operation, four add instructions must be executed one after other to obtain the sums, whereas SIMD uses a single instruction to achieve the same result. Thus SIMD operations achieve higher efficiency than scalar operations.</p>
+<p>SIMD instructions were first used in the early 1970s, but only became available in consumer-grade chips in the 90s to allow real-time video processing and advanced computer graphics for video games. Each processor manufacturer has implemented its own SIMD instruction set:</p>
+<ul class="simple">
+<li><p>MMX / SSE / AVX (Intel processors)</p></li>
+<li><p>3DNow! (AMD processors)</p></li>
+<li><p>Altivec (Motorola processors)</p></li>
+<li><p>MDMX (MIPS processors)</p></li>
+</ul>
+<p>Many of these instruction sets still coexist nowadays, and you have to deal with all of them if you want to write portable software. This is a first argument for writing wrappers: capture the abstraction of SIMD operations with nice interfaces, and forget about the implementation you rely on.</p>
+<p>Although you can write assembly code to use the SIMD instructions, compilers usually provide built-in functions so you can use SIMD instructions in C without writing a single line of assembly code. These functions (and more generally functions whose implementation is handled specially by the compiler) are called intrinsic functions, often shortened to intrinsics. Of course the SIMD intrinsics depend on the underlying architecture, and may differ from one compiler to other even for a same SIMD instruction set. Fortunately, compilers tend to standardize intrinsics prototype for a given SIMD instruction set, and we only have to handle the differences between the various SIMD instruction sets.</p>
+</div>
+<div class="section" id="sse-avx-intrinsics">
+<h2>1. SSE/AVX intrinsics<a class="headerlink" href="#sse-avx-intrinsics" title="Permalink to this headline">¶</a></h2>
+<p>Before we start writing any code, we need to take a look at the instrinsics provided with the compiler. Henceforth, I assume we use an Intel processor, recent enough to provide SSE 4 and AVX instruction sets; the compiler can be gcc or MSVC, the instrinsics they provide are almost the same.</p>
+<p>If you already know about SSE / AVX intrinsics you may skip this section.</p>
+<div class="section" id="registers">
+<h3>1.1 Registers<a class="headerlink" href="#registers" title="Permalink to this headline">¶</a></h3>
+<p>SSE uses eight 128 bits registers, from xmm0 to xmm7; Intel and AMD 64 bits extensions adds eight more registers, from xmm8 to xmm15; thus SSE intrinsics can perform on 4 packed float, 2 packed double, 4 32-bits integers, etc …</p>
+<p>With AVX, the width of the SIMD registers is increased from 128 to 256 bits; the register are renamed from xmm0-xmm7 to ymm0-ymm7 (and from xmm8-xmm15 to ymm8 to ymm15); however legacy sse instructions still can be used, and xmm registers can still be addressed since they’re the lower part of ymm registers.</p>
+<p>AVX512 will increase the width of the SIMD registers from 256 to 512 bits.</p>
+</div>
+<div class="section" id="files-to-include">
+<h3>1.2 Files to include<a class="headerlink" href="#files-to-include" title="Permalink to this headline">¶</a></h3>
+<p>Intrinsic functions are made available in different header files, based on the version of the SIMD instruction set they belong to:</p>
+<ul class="simple">
+<li><p>&lt;xmmintrin.h&gt; : SSE, operations on 4 single precision floating point numbers (float).</p></li>
+<li><p>&lt;emmintrin.h&gt; : SSE 2, operations on integers and on 2 double precision floating point numbers (double).</p></li>
+<li><p>&lt;pmmintrin.h&gt; : SSE 3, horizontal operations on SIMD registers.</p></li>
+<li><p>&lt;tmmintrin.h&gt; : SSSE 3, additional instructions.</p></li>
+<li><p>&lt;smmintrin.h&gt; : SSE 4.1, dot product and many operations on integers</p></li>
+<li><p>&lt;nmmintrin.h&gt; : SSE 4.2, additional instructions.</p></li>
+<li><p>&lt;immintrin.h&gt; : AVX, operations on integers, 8 float or 4 double.</p></li>
+</ul>
+<p>Each of these files includes the previous one, so you only have to include the one matching the highest version of the SIMD instruction set available in your processor. Later we will see how to detect at compile time which version on SIMD instruction set is available and thus which file to include. For now, just assume we’re able to include the right file each time we need it.</p>
+</div>
+<div class="section" id="naming-rules">
+<h3>1.3 Naming rules<a class="headerlink" href="#naming-rules" title="Permalink to this headline">¶</a></h3>
+<p>Now if you take a look at these files, you will notice provided data and functions follow some naming rules :</p>
+<ul class="simple">
+<li><p>data vectors are named  <strong>__mXXX(T)</strong> , where :</p>
+<ul>
+<li><p>XXX is the number of bits of the vector (128 for SSE, 256 for AVX)</p></li>
+<li><p>is T a character for the type of the data; T is omitted for float, i fot integers and d for double; thus __m128d is the data vector to use when performing SSE instructions on double.</p></li>
+</ul>
+</li>
+<li><p>intrinsic functions operating on floating point numbers are usually named <strong>_mm(XXX)_NAME_PT</strong>, where :</p>
+<ul>
+<li><p>XXX is the number of bits of the SIMD registers; it is omitted for 128 bits registers</p></li>
+<li><p>NAME is the short name of the function (add, sub, cmp, …)</p></li>
+<li><p>P indicates whether the functions operates on a packed data vector (p) or on a scalar only (s)</p></li>
+<li><p>T indicates the type of the floating point numbers : s for single precision, d for double precision</p></li>
+</ul>
+</li>
+<li><p>intrinsic functions operating on integers are usually named <strong>_mm(XXX)_NAME_EPSYY</strong>, where :</p>
+<ul>
+<li><p>XXX is the number of bits of the SIMD registers; it is omitted for 128 bits registers</p></li>
+<li><p>NAME is the short name of the function (add, sub, cmp)</p></li>
+<li><p>S indicates whether the integers are signed (i) or unsigned (u)</p></li>
+<li><p>YY is the number of bits of the integer</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="intrinsics-categories">
+<h3>1.4 Intrinsics categories<a class="headerlink" href="#intrinsics-categories" title="Permalink to this headline">¶</a></h3>
+<p>Intrinsics encompass a wide set of features; we can distinguish the following categories (not exhausive) :</p>
+<ul class="simple">
+<li><p>Arithmetic : _mm_add_xx, _mm_sub_xx, _mm_mul_xx, _mm_div_xx, …</p></li>
+<li><p>Logical : _mm_and_xx, _mm_or_xx, _mm_xor_xx, …</p></li>
+<li><p>Comparison : _mm_cmpeq_xx, _mm_cmpneq_xx, _mm_cmplt_xx, …</p></li>
+<li><p>Conversion : _mm_cvtepixx, …</p></li>
+<li><p>Memory move : _mm_load_xx, _mm_store_xx, …</p></li>
+<li><p>Setting : _mm_set_xx, _mm_setzero_xx, …</p></li>
+</ul>
+<p>I will not provide wrappers for all intrinsics, and some of them will be used only to build higher level functions in the wrappers.</p>
+</div>
+<div class="section" id="sample-code">
+<h3>1.5 Sample code<a class="headerlink" href="#sample-code" title="Permalink to this headline">¶</a></h3>
+<p>Now you know a little more about SSE and AVX intrinsics, you may reconsider the need for wrapping them; indeed, if you don’t need to handle other instructions set, you could think of using SSE/AVX intrinsics directly. I hope this sample code will make you change your mind :</p>
+<p>SSE_sample.cpp</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// computes e = a*b + c*d using SSE where a, b, c, d and e are vector of floats</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kr">__m128</span> <span class="n">val</span> <span class="o">=</span> <span class="n">_mm_add_ps</span><span class="p">(</span><span class="n">_mm_mul_ps</span><span class="p">(</span><span class="n">_mm_load_ps</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="n">_mm_load_ps</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])),</span>
+                            <span class="n">_mm_mul_ps</span><span class="p">(</span><span class="n">_mm_load_ps</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="n">_mm_load_ps</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">])));</span>
+    <span class="n">_mm_store_ps</span><span class="p">(</span><span class="o">&amp;</span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">val</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Quite hard to read, right ? And this is just for two multiplications and one addition; imagine using intrinsics in a huge amount of code, and you will get code really hard to understand and to maintain. What we need is a way to use __m128 with traditional arithmetic operators, as we do with float :</p>
+<p>wrapped_sample.cpp</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// computes e = a*b + c*d using SSE where a, b, c, d and e are vector of floats</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span> <span class="o">+=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kr">__m128</span> <span class="n">val</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="n">load</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="n">load</span><span class="p">(</span><span class="o">&amp;</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="n">load</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="n">store</span><span class="p">(</span><span class="o">&amp;</span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">val</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>That’s the aim of the wrappers we start to write in the next section.</p>
+</div>
+</div>
+<div class="section" id="repos">
+<h2>Repos<a class="headerlink" href="#repos" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>https://github.com/agenium-scale/nsimd</p></li>
+<li><p>https://github.com/xtensor-stack/xsimd</p></li>
+</ul>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>http://johanmabille.github.io/blog/2014/10/09/writing-c-plus-plus-wrappers-for-simd-intrinsics-1/</p></li>
+<li><p>http://johanmabille.github.io/blog/2014/10/10/writing-c-plus-plus-wrappers-for-simd-intrinsics-2/</p></li>
+<li><p>http://johanmabille.github.io/blog/2014/10/10/writing-c-plus-plus-wrappers-for-simd-intrinsics-3/</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../development/tfrt.html" class="btn btn-neutral float-right" title="TFRT: A New TensorFlow Runtime" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cuda.html" class="btn btn-neutral float-left" title="CUDA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Hui Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

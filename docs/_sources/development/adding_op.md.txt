@@ -5,19 +5,19 @@ All `custom-op` are under `delta/layers/ops/` directory.
 
 ## Eigen Tensor
 
-[Eigen Tensor](https://github.com/eigenteam/eigen-git-mirror/blob/master/unsupported/Eigen/CXX11/src/Tensor/README.md) 
-is unsupported eigen package, which is the underlying of 
+[Eigen Tensor](https://github.com/eigenteam/eigen-git-mirror/blob/master/unsupported/Eigen/CXX11/src/Tensor/README.md)
+is unsupported eigen package, which is the underlying of
 [Tensorflow Tensor](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/tensor.h).
 
 
-## Implement Op Kernel 
+## Implement Op Kernel
 
 Implement your op kernel class for underlying computing.
 
 
 ## Create Tensorlow Op Wapper
 
-Wapper the op kernel by Tensorflow Op or Tensorflow Lite Op. 
+Wapper the op kernel by Tensorflow Op or Tensorflow Lite Op.
 
 
 ## Tensorflow
