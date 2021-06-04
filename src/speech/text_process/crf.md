@@ -30,4 +30,3 @@
 * **[Implementing a linear-chain Conditional Random Field (CRF) in PyTorch](https://towardsdatascience.com/implementing-a-linear-chain-conditional-random-field-crf-in-pytorch-16b0b9c4b4ea)**
 
 * https://homepages.inf.ed.ac.uk/csutton/publications/crftutv2.pdf
-

@@ -4,14 +4,14 @@
 
 * https://gist.github.com/ryerh/14b7c24dfd623ef8edc7
 
-## File Encoding 
+## File Encoding
 
 ```
 iconv -f utf-8 -t gb18030 trans.utf8 > trans.gb
 enca -L zh_CN -x utf-8 result.txt
 
 用它不仅可以转换编码，还可以查看文件的原始编码，使用上也比iconv方便一些。
- 
+
 enca -L zh_CN file 检查文件的编码
 
 enca -L zh_CN -x UTF-8 file 将文件编码转换为”UTF-8″编码
@@ -52,7 +52,7 @@ To access GCC version 7, you need to launch a new shell instance using the Softw
 ```bash
 scl enable devtoolset-7 bash
 or
-. /opt/rh/devtoolset-7/enable 
+. /opt/rh/devtoolset-7/enable
 ```
 
 
@@ -133,17 +133,17 @@ vi /etc/nginx/nginx.conf
         # Load configuration files for the default server block.
         include /etc/nginx/default.d/*.conf;
 
-        location / { 
-        }   
+        location / {
+        }  
 
         error_page 404 /404.html;
             location = /40x.html {
-        }   
+        }  
 
         error_page 500 502 503 504 /50x.html;
             location = /50x.html {
-        }   
-    }   
+        }  
+    }  
 ```
 
 * support play `wav` and read multitype raw file as `text/plain`
@@ -153,11 +153,10 @@ vi /etc/nginx/nginx.conf
 ```
 ```
 types {
- 		  #mime type :  file suffix
-			...
-			audio/x-wav                                      wav;
-			...
-			text/plain																		   txt log csv tsv yaml yml trn;
+           #mime type :  file suffix
+            ...
+            audio/x-wav                                      wav;
+            ...
+            text/plain                                                                           txt log csv tsv yaml yml trn;
 }
 ```
-

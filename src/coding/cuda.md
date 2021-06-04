@@ -21,4 +21,3 @@
 ## Books
 
 * https://github.com/sallenkey-wei/cuda-handbook
-

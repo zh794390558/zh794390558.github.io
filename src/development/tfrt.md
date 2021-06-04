@@ -3,7 +3,7 @@
 
 ## Design
 * [TFRT Deep Dive](https://drive.google.com/drive/folders/1fkLJuVP-tIk4GENBu2AgemF3oXYGr2PB)
-* [host runtime design](https://github.com/tensorflow/runtime/blob/master/documents/tfrt_host_runtime_design.md) 
+* [host runtime design](https://github.com/tensorflow/runtime/blob/master/documents/tfrt_host_runtime_design.md)
 
 
 ## Tutorial
@@ -25,5 +25,3 @@ Key concepts:
 - BEF: dataflow graph
 - Kernel: dataflow node
 - AsyncValue: dataflow edge
-
-

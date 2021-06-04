@@ -25,7 +25,7 @@ There were several early attempts applying GANs to audio genera- tion tasks, but
 
    ![pwgan](../../_static/pwgan.png)
 
-   In the proposed method, only a non-autoregressive WaveNet model is trained by optimizing the combi- nation of multi-resolution short-time Fourier transform (STFT) and adversarial loss functions that enable the model to effectively capture the time-frequency distribution of the realistic speech wave- form. 
+   In the proposed method, only a non-autoregressive WaveNet model is trained by optimizing the combi- nation of multi-resolution short-time Fourier transform (STFT) and adversarial loss functions that enable the model to effectively capture the time-frequency distribution of the realistic speech wave- form.
 
    In the STFT-based time-frequency representation of signals, there is a trade-off between time and frequency resolution; e.g., increasing window size gives higher frequency resolution while reducing temporal resolution.
 
@@ -37,7 +37,7 @@ There were several early attempts applying GANs to audio genera- tion tasks, but
 
    Specifically, we improve the original MelGAN by the following aspects. First, we increase the receptive field of the generator, which is proven to be beneficial to speech genera- tion. Second, we substitute the feature matching loss with the multi-resolution STFT loss to better measure the difference between fake and real speech.
 
-   More importantly, we extend MelGAN with multi- band processing: the generator takes mel-spectrograms as in- put and produces sub-band signals which are subsequently summed back to full-band signals as discriminator input. 
+   More importantly, we extend MelGAN with multi- band processing: the generator takes mel-spectrograms as in- put and produces sub-band signals which are subsequently summed back to full-band signals as discriminator input.
 
    <img src="../../_static/mbmelgan.png" alt="drawing" height="500" width="500"/>
 
@@ -47,7 +47,7 @@ There were several early attempts applying GANs to audio genera- tion tasks, but
 
    We propose HiFi-GAN, which achieves both higher computational efficiency and sample quality than AR or flow-based models. As speech audio consists of sinusoidal signals with various periods, modeling the periodic patterns matters to generate realistic speech audio. Therefore, we propose a discriminator which consists of small sub-discriminators, each of which obtains only a specific periodic parts of raw waveforms. This architecture is the very ground of our model successfully synthesizing realistic speech audio. As we extract different parts of audio for the discriminator, we also design a module that places multiple residual blocks each of which observes patterns of various lengths in parallel, and apply it to the generator.
 
-   HiFi-GAN consists of one generator and two discriminators: multi-scale and multi-period discrimina- tors. 
+   HiFi-GAN consists of one generator and two discriminators: multi-scale and multi-period discrimina- tors.
 
    ![hifigan-g](../../_static/hifigan-g.png)
 
@@ -68,4 +68,3 @@ There were several early attempts applying GANs to audio genera- tion tasks, but
 * **MelGAN***: Generative Adversarial Networks for Conditional Waveform Synthesis
 * **MULTI-BAND MELGAN**: FASTERWAVEFORM GENERATION FOR HIGH-QUALITY TEXT-TO-SPEECH
 * **HiFi-GAN**: Generative Adversarial Networks for Efficient and High Fidelity Speech Synthesis
-

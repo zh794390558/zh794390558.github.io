@@ -1,6 +1,6 @@
 # Speaker Recognition
 
-## Metric Learning 
+## Metric Learning
 
 |  Name  | Organization | Year |
 |  ----  | ----  | ---- |

@@ -4,4 +4,3 @@
 * [explainshell](https://explainshell.com/)
 
 * [XOR Calculator](http://xor.pw/)
-

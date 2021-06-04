@@ -33,7 +33,7 @@
 * [fucking-algorithm](https://github.com/labuladong/fucking-algorithm.git)
 * [Tutorial from a Google Engineer](https://github.com/williamfiset/Algorithms)
 
-  
+
 
 
 ## Highlight
@@ -42,22 +42,22 @@
 * 链表是树的子结构，递归便利模式与树类似；树是图的子结构，图的便利模式与树相似；
 
   ```c++
-  void traverse(ListNode* head){	
-  		//线序遍历
-  	  traverse(head->next);
-  	  //后续遍历，回溯
+  void traverse(ListNode* head){
+          //线序遍历
+        traverse(head->next);
+        //后续遍历，回溯
   }
-  
+
   void traverse(Tree *root){
-  		//先序遍历
-  		traverse(root->left);
-  		//中序遍历
-  		traverse(root->right);
-  		//后续遍历，回溯
+          //先序遍历
+          traverse(root->left);
+          //中序遍历
+          traverse(root->right);
+          //后续遍历，回溯
   }
-  
+
   void traverse(Graph *node){
-  		//先序遍历
+          //先序遍历
       for (int i =0; i < node.childrens; i++){
           traverse(node.child(i));
       }
@@ -130,7 +130,7 @@
 
 ###DFS&BFS
 
-* 深度优先遍历: 
+* 深度优先遍历:
 
   主要思路是从图中一个未访问的顶点 V 开始，沿着一条路一直走到底，然后从这条路尽头的节点回退到上一个节点，再从另一条路开始走到底...，不断递归重复此过程，直到所有的顶点都遍历完成，它的特点是不撞南墙不回头，先走完一条路，再换一条路继续走。
 
@@ -140,34 +140,34 @@
   ```c++
   //DFS
   void dfs(i){
-  	 stack<int> s;
-  	 s.push(root);
-  	 while(!s.empty()){
-  	     auto t = s.top();
-  	     s.pop();
-  	     process(t);
-  	     for (int i = 0; i < t.adjs(); i++){
-  	     			s.push(t.adj(i));
-  	     }
-  	 }
+       stack<int> s;
+       s.push(root);
+       while(!s.empty()){
+           auto t = s.top();
+           s.pop();
+           process(t);
+           for (int i = 0; i < t.adjs(); i++){
+                       s.push(t.adj(i));
+           }
+       }
   }
-  
+
   //BFS
   void bfs(i){
-  	 queue<int> s;
-  	 s.push(root);
-  	 while(!s.empty()){
-  	     auto t = s.front();
-  	     s.pop();
-  	     process(t);
-  	     for (int i = 0; i < t.adjs(); i++){
-  	     			s.push(t.adj(i));
-  	     }
-  	 }
+       queue<int> s;
+       s.push(root);
+       while(!s.empty()){
+           auto t = s.front();
+           s.pop();
+           process(t);
+           for (int i = 0; i < t.adjs(); i++){
+                       s.push(t.adj(i));
+           }
+       }
   }
   ```
 
-  
+
 
 * 树的前序遍历,实际上不管是前序遍历，还是中序遍历，亦或是后序遍历，都属于深度优先遍历。
 
@@ -192,28 +192,28 @@
 
 ```python
 class UnionFindSet:
-	def UnionFindSet(n):
-		parents = [0,1...n] # 记录每个元素的parent即根节点 先将它们的父节点设为自己
-		ranks =[0,0...0]    # 记录节点的rank值
-	
+    def UnionFindSet(n):
+        parents = [0,1...n] # 记录每个元素的parent即根节点 先将它们的父节点设为自己
+        ranks =[0,0...0]    # 记录节点的rank值
+
     # 如下图 递归版本 路径压缩(Path Compression)
     # 如果当前的x不是其父节点，就找到当前x的父节点的根节点(find(parents[x])) 并将这个值赋值给x的父节点
-	def find(x):
-		if ( x !=parents[x]): # 注意这里的if
-			parents[x] = find(parents[x])
-		return parents[x]
+    def find(x):
+        if ( x !=parents[x]): # 注意这里的if
+            parents[x] = find(parents[x])
+        return parents[x]
 
-	# 如下图 根据Rank来合并(Union by Rank)
-	def union(x,y):
-		rootX = find(x) # 找到x的根节点rootX
-		rootY = find(y) # 找到y的根节点rootY
+    # 如下图 根据Rank来合并(Union by Rank)
+    def union(x,y):
+        rootX = find(x) # 找到x的根节点rootX
+        rootY = find(y) # 找到y的根节点rootY
         #取rank值小的那个挂到大的那个节点下面，此时两个根节点的rank值并没有发生变化，还是原来的值
-		if(ranks[rootX]>ranks[rootY]): parents[rootY] = rootX 
-		if(ranks[rootX]<ranks[rootY]): parents[rootX] = rootY
-        # 当两个rank值相等时，随便选择一个根节点挂到另外一个跟节点上，但是被挂的那个根节点的rank值需要+1    
-		if(ranks[rootX] == ranks[rootY] ):
-			parents[rootY] = rootX
-			ranks[rootY]++
+        if(ranks[rootX]>ranks[rootY]): parents[rootY] = rootX
+        if(ranks[rootX]<ranks[rootY]): parents[rootX] = rootY
+        # 当两个rank值相等时，随便选择一个根节点挂到另外一个跟节点上，但是被挂的那个根节点的rank值需要+1  
+        if(ranks[rootX] == ranks[rootY] ):
+            parents[rootY] = rootX
+            ranks[rootY]++
 ```
 
 ### Array

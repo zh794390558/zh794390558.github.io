@@ -16,7 +16,7 @@ Eigen只包含头文件，因此它不需要实现编译，只需要你include�
 
 下载后，解压得到文件夹中，Eigen子文件夹便是我们需要的全部；如果你想使用Eigen暂不支持的特性，可以使用unsupported子文件夹。可以把Eigen/unsupported复制到任何你需要的地方。
 
-**方案二** 
+**方案二**
 
 安装改包，其实就是把Eigen/unsupported的内容复制到“/usr/local/include/eigen3”下。在解压的文件夹下，新建build_dir，执行。
 
@@ -122,7 +122,7 @@ int main()
   m = (m + Matrix3d::Constant(1.2)) * 50;
   cout << "m =" << endl << m << endl;
   Vector3d v(1,2,3);
-  
+
   cout << "m * v =" << endl << m * v << endl;
 }
 ```
@@ -697,12 +697,12 @@ Matrix3f m = Matrix3f::Random();
   std::ptrdiff_t i, j;
   float minOfM = m.minCoeff(&i,&j);
   cout << "Here is the matrix m:\n" << m << endl;
-  cout << "Its minimum coefficient (" << minOfM 
+  cout << "Its minimum coefficient (" << minOfM
        << ") is at position (" << i << "," << j << ")\n\n";
   RowVector4i v = RowVector4i::Random();
   int maxOfV = v.maxCoeff(&i);
   cout << "Here is the vector v: " << v << endl;
-  cout << "Its maximum coefficient (" << maxOfV 
+  cout << "Its maximum coefficient (" << maxOfV
        << ") is at position " << i << endl;
 ```
 
@@ -772,18 +772,18 @@ using namespace std;
 int main()
 {
   ArrayXXf  m(2,2);
-  
+
   // assign some values coefficient by coefficient
   m(0,0) = 1.0; m(0,1) = 2.0;
   m(1,0) = 3.0; m(1,1) = m(0,1) + m(1,0);
-  
+
   // print values to standard output
   cout << m << endl << endl;
- 
+
   // using the comma-initializer is also allowed
   m << 1.0,2.0,
        3.0,4.0;
-     
+
   // print values to standard output
   cout << m << endl;
 }
@@ -808,7 +808,7 @@ int main()
   b << 1,2,3,
        1,2,3,
        1,2,3;
-       
+
   // Adding two arrays
   cout << "a + b = " << endl << a + b << endl << endl;
   // Subtracting a scalar from an array
@@ -819,12 +819,12 @@ int main()
 输出
 
 ```
-a + b = 
+a + b =
  2  4  6
  5  7  9
  8 10 12
 
-a - 2 = 
+a - 2 =
 -1  0  1
  2  3  4
  5  6  7
@@ -846,7 +846,7 @@ int main()
   cout << "a * b = " << endl << a * b << endl;
 }
 
-a * b = 
+a * b =
  5 12
 21 32
 ```
@@ -864,13 +864,13 @@ int main()
 {
   ArrayXf a = ArrayXf::Random(5);
   a *= 2;
-  cout << "a =" << endl 
+  cout << "a =" << endl
        << a << endl;
-  cout << "a.abs() =" << endl 
+  cout << "a.abs() =" << endl
        << a.abs() << endl;
-  cout << "a.abs().sqrt() =" << endl 
+  cout << "a.abs().sqrt() =" << endl
        << a.abs().sqrt() << endl;
-  cout << "a.min(a.abs().sqrt()) =" << endl 
+  cout << "a.min(a.abs().sqrt()) =" << endl
        << a.min(a.abs().sqrt()) << endl;
 }
 ```
@@ -1104,7 +1104,7 @@ m.bottomRows<2>() =
  9 10 11 12
 13 14 15 16
 
-After assignment, m = 
+After assignment, m =
  8 12 16  4
  5  6  7  8
  9 10 11 12
@@ -1182,7 +1182,7 @@ std::cout << matB << std::endl;
 Matrix3f m;
 m.row(0) << 1, 2, 3;
 m.block(1,0,2,2) << 4, 5, 7, 8;
-m.col(2).tail(2) << 6, 9;                   
+m.col(2).tail(2) << 6, 9;  
 std::cout << m;
 
 1 2 3
@@ -1357,10 +1357,10 @@ int main()
 {
   VectorXf v(2);
   MatrixXf m(2,2), n(2,2);
-  
+
   v << -1,
        2;
-  
+
   m << 1,-2,
        -3,4;
   cout << "v.squaredNorm() = " << v.squaredNorm() << endl;
@@ -1419,7 +1419,7 @@ using namespace Eigen;
 int main()
 {
   ArrayXXf a(2,2);
-  
+
   a << 1,2,
        3,4;
   cout << "(a > 0).all()   = " << (a > 0).all() << endl;
@@ -1452,7 +1452,7 @@ int main()
 int main()
 {
   Eigen::MatrixXf m(2,2);
-  
+
   m << 1, 2,
        3, 4;
   //get location of maximum
@@ -1481,12 +1481,12 @@ int main()
   Eigen::MatrixXf mat(2,4);
   mat << 1, 2, 6, 9,
          3, 1, 7, 2;
-  
+
   std::cout << "Column's maximum: " << std::endl
    << mat.colwise().maxCoeff() << std::endl;
 }
 
-Column's maximum: 
+Column's maximum:
 3 2 7 9
 ```
 
@@ -1498,12 +1498,12 @@ int main()
   Eigen::MatrixXf mat(2,4);
   mat << 1, 2, 6, 9,
          3, 1, 7, 2;
-  
+
   std::cout << "Row's maximum: " << std::endl
    << mat.rowwise().maxCoeff() << std::endl;
 }
 
-Row's maximum: 
+Row's maximum:
 9
 7
 ```
@@ -1518,10 +1518,10 @@ int main()
   MatrixXf mat(2,4);
   mat << 1, 2, 6, 9,
          3, 1, 7, 2;
-  
+
   MatrixXf::Index   maxIndex;
   float maxNorm = mat.colwise().sum().maxCoeff(&maxIndex);
-  
+
   std::cout << "Maximum sum at position " << maxIndex << std::endl;
   std::cout << "The corresponding vector is: " << std::endl;
   std::cout << mat.col( maxIndex ) << std::endl;
@@ -1533,7 +1533,7 @@ int main()
 
 ```
 Maximum sum at position 2
-The corresponding vector is: 
+The corresponding vector is:
 6
 7
 And its sum is is: 13
@@ -1548,16 +1548,16 @@ int main()
 {
   Eigen::MatrixXf mat(2,4);
   Eigen::VectorXf v(2);
-  
+
   mat << 1, 2, 6, 9,
          3, 1, 7, 2;
-         
+
   v << 0,
        1;
-       
+
   //add v to each column of m
   mat.colwise() += v;
-  
+
   std::cout << "Broadcasting result: " << std::endl;
   std::cout << mat << std::endl;
 }
@@ -1566,7 +1566,7 @@ int main()
 输出
 
 ```
-Broadcasting result: 
+Broadcasting result:
 1 2 6 9
 4 2 8 3
 ```
@@ -1582,10 +1582,10 @@ int main()
 {
   Eigen::MatrixXf m(2,4);
   Eigen::VectorXf v(2);
-  
+
   m << 1, 23, 6, 9,
        3, 11, 7, 2;
-       
+
   v << 2,
        3;
   MatrixXf::Index index;
@@ -1672,7 +1672,7 @@ typedef Matrix<float,1,Dynamic> MatrixType;
 typedef Map<MatrixType> MapType;
 typedef Map<const MatrixType> MapTypeConst;   // a read-only map
 const int n_dims = 5;
-  
+
 MatrixType m1(n_dims), m2(n_dims);
 m1.setRandom();
 m2.setRandom();
@@ -1793,7 +1793,7 @@ Even: 0  2  4  6  8 10 12 14 16 18
 ## 例子
 
 ```
-MatrixXi mat(3,3); 
+MatrixXi mat(3,3);
 mat << 1, 2, 3,   4, 5, 6,   7, 8, 9;
 cout << "Here is the matrix mat:\n" << mat << endl;
 // This assignment shows the aliasing problem
@@ -1808,7 +1808,7 @@ Here is the matrix mat:
 1 2 3
 4 5 6
 7 8 9
-After the assignment, mat = 
+After the assignment, mat =
 1 2 3
 4 1 2
 7 4 1
@@ -1851,7 +1851,7 @@ and the result of the aliasing effect:
 Eigen需要把右值赋值为一个临时matrix/array，然后再将临时值赋值给左值，便可以解决混淆。eval()函数实现了这个功能。
 
 ```
-MatrixXi mat(3,3); 
+MatrixXi mat(3,3);
 mat << 1, 2, 3,   4, 5, 6,   7, 8, 9;
 cout << "Here is the matrix mat:\n" << mat << endl;
 // The eval() solves the aliasing problem
@@ -1866,7 +1866,7 @@ Here is the matrix mat:
 1 2 3
 4 5 6
 7 8 9
-After the assignment, mat = 
+After the assignment, mat =
 1 2 3
 4 1 2
 7 4 5
@@ -1890,7 +1890,7 @@ After the assignment, mat =
 组件级是指整体的操作，比如matrix加法、scalar乘、array乘等，这类操作是安全的，不会出现混淆。
 
 ```
-MatrixXf mat(2,2); 
+MatrixXf mat(2,2);
 mat << 1, 2,  4, 7;
 cout << "Here is the matrix mat:\n" << mat << endl << endl;
 mat = 2 * mat;
@@ -1909,7 +1909,7 @@ Here is the matrix mat:
 1 2
 4 7
 
-After 'mat = 2 * mat', mat = 
+After 'mat = 2 * mat', mat =
  2  4
  8 14
 
@@ -1927,7 +1927,7 @@ After squaring, it becomes
 在Eigen中，矩阵的乘法一般都会出现混淆。除非是方阵（实质是元素级的乘）。
 
 ```
-MatrixXf matA(2,2); 
+MatrixXf matA(2,2);
 matA << 2, 0,  0, 2;
 matA = matA * matA;
 cout << matA;
@@ -1986,7 +1986,7 @@ Acolmajor << 8, 2, 2, 9,
              9, 1, 4, 4,
              3, 5, 4, 5;
 cout << "The matrix A:" << endl;
-cout << Acolmajor << endl << endl; 
+cout << Acolmajor << endl << endl;
 cout << "In memory (column-major):" << endl;
 for (int i = 0; i < Acolmajor.size(); i++)
   cout << *(Acolmajor.data() + i) << "  ";
@@ -2010,7 +2010,7 @@ In memory (column-major):
 8  9  3  2  1  5  2  4  4  9  4  5  
 
 In memory (row-major):
-8  2  2  9  9  1  4  4  3  5  4  5 
+8  2  2  9  9  1  4  4  3  5  4  5
 ```
 
 PlainObjectBase::data()函数可以返回矩阵中第一个元素的内存位置。
@@ -2043,4 +2043,3 @@ Matrix类模板中可以设定存储的方向，RowMajor表示行优先，ColMaj
 * https://www.cnblogs.com/houkai/p/6349990.html
 * https://www.cnblogs.com/houkai/p/6349991.html
 * [**Eigen Cheat sheet**](https://gist.github.com/gocarlos/c91237b02c120c6319612e42fa196d77#file-eigen-cheat-sheet)
-
