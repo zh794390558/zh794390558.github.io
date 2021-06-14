@@ -1,0 +1,392 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Speech Processing &mdash; zh794390558.github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> zh794390558.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Hui Zhang</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Speech</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../asr/chinese_syllable.html">chinese syllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/decoding.html">Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text_process/crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text_process/asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text_process/tts_text_frontend.html">Text Front End</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vad/vad.html">VAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/README.html">Speech I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/praat_textgrid.html">Praat and TextGrid</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/training/speech_features.html">Speech Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cpp.html">library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/algorithm.html">Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/tutorials.html">Coding Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/aot/python_to_cpp.html">Python code to Cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/linear_algebra.html">线性代数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/hpc.html">HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html">Eigen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id11">矩阵和向量的运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#array">Array类和元素级操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id27">块操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id32">高级初始化方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id37">归约、迭代器和广播</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#map">原生缓存的接口：Map类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cuda.html">CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/simd.html">SIMD</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tfrt.html">TFRT: A New TensorFlow Runtime </a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/deltann_compile.html">Tensorflow compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/model_optimization.html">Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/ffmpeg.html">FFPMEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tools.html">Useful Tools</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dataset</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataset.html">Dataset</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">zh794390558.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Speech Processing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/speech/front_end/dsp.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="speech-processing">
+<h1>Speech Processing<a class="headerlink" href="#speech-processing" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>https://wiki.aalto.fi/display/ITSP/Introduction+to+Speech+Processing</strong></p></li>
+</ul>
+</div>
+<div class="section" id="basic-representations-and-models">
+<h1><a class="reference external" href="https://wiki.aalto.fi/display/ITSP/Basic+representations+and+models">Basic representations and models</a><a class="headerlink" href="#basic-representations-and-models" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="waveform">
+<h2>1. <a class="reference external" href="https://wiki.aalto.fi/display/ITSP/Waveform">Waveform</a><a class="headerlink" href="#waveform" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pitch">
+<h2>2. Pitch<a class="headerlink" href="#pitch" title="Permalink to this headline">¶</a></h2>
+<p>https://en.wikipedia.org/wiki/Pitch_(music)</p>
+</div>
+<div class="section" id="loudness">
+<h2>3. Loudness<a class="headerlink" href="#loudness" title="Permalink to this headline">¶</a></h2>
+<p>https://en.wikipedia.org/wiki/Loudness</p>
+</div>
+<div class="section" id="fundamental-frequency-f0">
+<h2>4. <a class="reference external" href="https://wiki.aalto.fi/pages/viewpage.action?pageId=149890776">Fundamental frequency (F0)</a><a class="headerlink" href="#fundamental-frequency-f0" title="Permalink to this headline">¶</a></h2>
+<p>The fundamental frequency of a speech signal, often denoted by F0 or F0, refers to the approximate frequency of the (quasi-)periodic structure of voiced speech signals. The oscillation originates from the vocal folds, which oscillate in the airflow when appropriately tensed. The fundamental frequency is defined as the average number of oscillations per second and expressed in Hertz. Since the oscillation originates from an organic structure, it is not exactly periodic but contains significant fluctuations. In particular, amount of variation in period length and amplitude are known respectively as <em>jitter</em> and <em>shimmer</em>. Moreover, the F0 is typically not stationary, but changes constantly within a sentence. In fact, the F0 can be used for expressive purposes to signify, for example, emphasis and questions.</p>
+<p>Typically fundamental frequencies lie roughly in the range <em>80</em> to <em>450 Hz</em>, where males have lower voices than females and children. The F0 of an individual speaker depends primarily on the length of the vocal folds, which is in turn correlated with overall body size. Cultural and stylistic aspects of speech naturally have also a large impact.</p>
+<p><strong>The fundamental frequency is closely related to <em>pitch</em>, which is defined as our perception of fundamental frequency. That is, the F0 describes the actual physical phenomenon, whereas pitch describes how our ears and brains interpret the signal, in terms of periodicity.</strong> For example, a voice signal could have an F0 of 100 Hz. If we then apply a high-pass filter to remove all signal components below 450 Hz, then that would remove the actual fundamental frequency. The lowest remaining periodic component would be 500 Hz, which correspond to the fifth harmonic of the original F0. However, a human listener would then typically still perceive a pitch of 100 Hz, even if it does not exist anymore. The brain somehow reconstructs the fundamental from the upper harmonics. This well-known phenomenon is however still not completely understood.</p>
+<ul class="simple">
+<li><p>https://wiki.aalto.fi/pages/viewpage.action?pageId=149890776</p></li>
+<li><p>https://en.wikipedia.org/wiki/Fundamental_frequency.</p></li>
+</ul>
+</div>
+<div class="section" id="signal-energy-loudness-and-decibel">
+<h2>5. <a class="reference external" href="https://wiki.aalto.fi/display/ITSP/Signal+energy%2C+loudness+and+decibel">Signal energy, loudness and decibel</a><a class="headerlink" href="#signal-energy-loudness-and-decibel" title="Permalink to this headline">¶</a></h2>
+<p>In practically all uses of acoustic data, we need to normalize the sounds such that they have approximately the same volume or at least a known volume. For example, consider a television program and advertisements. Most would feel that it is very annoying if the advertisements are much louder than the main program (see also <a class="reference external" href="https://en.wikipedia.org/wiki/Loudness_war">loudness wars</a>). We thus need to normalize the advertisement to match volume of the main program. Normalizing the average energy of the advertisement to match that of the main program is one crude way of doing that. Observe however that perception of energy is different across frequency ranges such that energy and the perceived loudness are not the same thing. To measure loudness we therefore need to model subjective perception. This is an involved subject and not discussed further here. Practical applications however still need some normalization to avoid fundamental problems such as clipping.</p>
+<p>The energy measures decibel to overload, <em>dBov</em> and decibel to full-scale, <em>dBFS,</em> are related to the dynamic range of a signal storage or transmission format. Suppose for example that the maximum amplitude that a digital representation in which a signal is represented is <em>xov</em>. If we would try to represent a larger amplitude than that, then the signal would be clipped (distorted). dBov is a measure of how much below the maximum amplitude (how much below clipping) a signal is. Suppose <em>P0</em> is the energy of the maximum-amplitude square wave. Then the dBov of a signal with energy <em>P</em> is defined as</p>
+<p><em>L</em>ov=10log10(<em>P**P</em>0).</p>
+<p>Since the energy of a sinusoid with maximum amplitude is 12‾‾√ of the maximum-amplitude square wave, then its dBov is -3.01. Observe that dBov values are always negative. dBFS is a similar</p>
+<p>In typical cases, input speech signals are normalized to -26 dBov such that moderate processing of the signal is unlikely to cause clipping.</p>
+</div>
+<div class="section" id="window-function">
+<h2>6. Window Function<a class="headerlink" href="#window-function" title="Permalink to this headline">¶</a></h2>
+<p>https://en.wikipedia.org/wiki/Window_function</p>
+</div>
+<div class="section" id="pre-emphasis">
+<h2>7. <a class="reference external" href="https://wiki.aalto.fi/display/ITSP/Pre-emphasis">Pre-emphasis</a><a class="headerlink" href="#pre-emphasis" title="Permalink to this headline">¶</a></h2>
+<p>A common pre-processing tool used to compensate for the average spectral shape is <em>pre-emphasis</em>, which emphasises higher frequencies.</p>
+</div>
+<div class="section" id="mel-scale">
+<h2>8. Mel Scale<a class="headerlink" href="#mel-scale" title="Permalink to this headline">¶</a></h2>
+<p>https://en.wikipedia.org/wiki/Mel_scale</p>
+</div>
+<div class="section" id="dft">
+<h2>9. DFT<a class="headerlink" href="#dft" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>http://practicalcryptography.com/miscellaneous/machine-learning/intuitive-guide-discrete-fourier-transform/</p></li>
+</ul>
+</div>
+<div class="section" id="cepstrum-and-mfcc">
+<h2>10. <a class="reference external" href="https://wiki.aalto.fi/display/ITSP/Cepstrum+and+MFCC">Cepstrum and MFCC</a><a class="headerlink" href="#cepstrum-and-mfcc" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>http://www.practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/</p></li>
+<li><p>https://en.wikipedia.org/wiki/Mel-frequency_cepstrum</p></li>
+</ul>
+</div>
+<div class="section" id="dct">
+<h2>11. DCT<a class="headerlink" href="#dct" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>https://en.wikipedia.org/wiki/Discrete_cosine_transform#DCT-II</p></li>
+<li><p>https://pytorch.org/audio/stable/_modules/torchaudio/functional/functional.html#create_dct</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_dct</span><span class="p">(</span>
+        <span class="n">n_mfcc</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">n_mels</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">norm</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Create a DCT transformation matrix with shape (``n_mels``, ``n_mfcc``),</span>
+<span class="sd">    normalized depending on norm.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        n_mfcc (int): Number of mfc coefficients to retain</span>
+<span class="sd">        n_mels (int): Number of mel filterbanks</span>
+<span class="sd">        norm (str or None): Norm to use (either &#39;ortho&#39; or None)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Tensor: The transformation matrix, to be right-multiplied to</span>
+<span class="sd">        row-wise data of size (``n_mels``, ``n_mfcc``).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># http://en.wikipedia.org/wiki/Discrete_cosine_transform#DCT-II</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">n_mels</span><span class="p">))</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">n_mfcc</span><span class="p">))</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dct</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_mels</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">k</span><span class="p">)</span>  <span class="c1"># size (n_mfcc, n_mels)</span>
+    <span class="k">if</span> <span class="n">norm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dct</span> <span class="o">*=</span> <span class="mf">2.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">norm</span> <span class="o">==</span> <span class="s2">&quot;ortho&quot;</span>
+        <span class="n">dct</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+        <span class="n">dct</span> <span class="o">*=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_mels</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">dct</span><span class="o">.</span><span class="n">t</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="cepstrum-and-lpccs">
+<h2>12. Cepstrum and LPCCs<a class="headerlink" href="#cepstrum-and-lpccs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>http://practicalcryptography.com/miscellaneous/machine-learning/tutorial-cepstrum-and-lpccs/</p></li>
+</ul>
+</div>
+<div class="section" id="neural-network-based-audio-processing">
+<h2>Neural Network-based Audio processing<a class="headerlink" href="#neural-network-based-audio-processing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nnaudio">
+<h3>nnAudio<a class="headerlink" href="#nnaudio" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>https://github.com/KinWaiCheuk/nnAudio</p></li>
+<li><p>https://arxiv.org/abs/1912.12055</p></li>
+<li><p>https://kinwaicheuk.github.io/nnAudio/index.html</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="torch-fft">
+<h2>Torch FFT<a class="headerlink" href="#torch-fft" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>https://github.com/locuslab/pytorch_fft</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Hui Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
