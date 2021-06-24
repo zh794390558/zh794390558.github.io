@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Linux &mdash; zh794390558.github.io 1.0 documentation</title>
+  <title>Tmux &mdash; zh794390558.github.io 1.0 documentation</title>
   
 
   
@@ -144,20 +144,17 @@
 <li class="toctree-l1"><a class="reference internal" href="model_optimization.html">Model Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="version.html">Version</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#tmux">Tmux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#file-encoding">File Encoding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ubuntu-gcc-update">Ubuntu GCC Update</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#centos-7-gcc-update">CentOS 7 gcc update</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nfs-mount">NFS Mount</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#install">Install</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#exporting-directories-on-the-server">Exporting Directories on the Server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mounting-the-nfs-shares-on-the-client">Mounting the NFS Shares on the Client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#file-encoding">File Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#ubuntu-gcc-update">Ubuntu GCC Update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#centos-7-gcc-update">CentOS 7 gcc update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#nfs-mount">NFS Mount</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exporting-directories-on-the-server">Exporting Directories on the Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mounting-the-nfs-shares-on-the-client">Mounting the NFS Shares on the Client</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#nginx">Nginx</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="#nginx">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ffmpeg.html">FFPMEG</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">Useful Tools</a></li>
 </ul>
@@ -216,7 +213,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Linux</li>
+      <li>Tmux</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -235,16 +232,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="linux">
-<h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
+  <p>Linux</p>
 <div class="section" id="tmux">
-<h2>Tmux<a class="headerlink" href="#tmux" title="Permalink to this headline">¶</a></h2>
+<h1>Tmux<a class="headerlink" href="#tmux" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>https://gist.github.com/ryerh/14b7c24dfd623ef8edc7</p></li>
 </ul>
 </div>
 <div class="section" id="file-encoding">
-<h2>File Encoding<a class="headerlink" href="#file-encoding" title="Permalink to this headline">¶</a></h2>
+<h1>File Encoding<a class="headerlink" href="#file-encoding" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>iconv -f utf-8 -t gb18030 trans.utf8 &gt; trans.gb
 enca -L zh_CN -x utf-8 result.txt
 
@@ -261,13 +257,13 @@ enca -L zh_CN -x UTF-8 &lt; file1 &gt; file2 如果不想覆盖原文件可以�
 </div>
 </div>
 <div class="section" id="ubuntu-gcc-update">
-<h2>Ubuntu GCC Update<a class="headerlink" href="#ubuntu-gcc-update" title="Permalink to this headline">¶</a></h2>
+<h1>Ubuntu GCC Update<a class="headerlink" href="#ubuntu-gcc-update" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>https://www.linuxidc.com/Linux/2019-04/158258.htm</p></li>
 </ul>
 </div>
 <div class="section" id="centos-7-gcc-update">
-<h2>CentOS 7 gcc update<a class="headerlink" href="#centos-7-gcc-update" title="Permalink to this headline">¶</a></h2>
+<h1>CentOS 7 gcc update<a class="headerlink" href="#centos-7-gcc-update" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>https://linuxize.com/post/how-to-install-gcc-compiler-on-centos-7/</p></li>
 </ul>
@@ -294,12 +290,12 @@ or
 </div>
 </div>
 <div class="section" id="nfs-mount">
-<h2>NFS Mount<a class="headerlink" href="#nfs-mount" title="Permalink to this headline">¶</a></h2>
+<h1>NFS Mount<a class="headerlink" href="#nfs-mount" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>https://www.howtoforge.com/tutorial/setting-up-an-nfs-server-and-client-on-centos-7/</p></li>
 </ul>
 <div class="section" id="install">
-<h3>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h3>
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>server</p></li>
 </ul>
@@ -319,7 +315,7 @@ systemctl start nfs-server.service
 </div>
 </div>
 <div class="section" id="exporting-directories-on-the-server">
-<h3>Exporting Directories on the Server<a class="headerlink" href="#exporting-directories-on-the-server" title="Permalink to this headline">¶</a></h3>
+<h2>Exporting Directories on the Server<a class="headerlink" href="#exporting-directories-on-the-server" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>server</p></li>
 </ul>
@@ -339,7 +335,7 @@ Whenever we modify /etc/exports, we must run:</p>
 <p>afterwards, to make the changes effective.</p>
 </div>
 <div class="section" id="mounting-the-nfs-shares-on-the-client">
-<h3>Mounting the NFS Shares on the Client<a class="headerlink" href="#mounting-the-nfs-shares-on-the-client" title="Permalink to this headline">¶</a></h3>
+<h2>Mounting the NFS Shares on the Client<a class="headerlink" href="#mounting-the-nfs-shares-on-the-client" title="Permalink to this headline">¶</a></h2>
 <p>show mountable points on <code class="docutils literal notranslate"><span class="pre">192.168.1.101</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>showmount -e <span class="m">192</span>.168.1.101
 </pre></div>
@@ -360,38 +356,43 @@ mount <span class="m">192</span>.168.1.100:/var/nfs /mnt/nfs/var/nfs
 </div>
 </div>
 <div class="section" id="nginx">
-<h2>Nginx<a class="headerlink" href="#nginx" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>file server</p></li>
-</ul>
+<h1>Nginx<a class="headerlink" href="#nginx" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>file server</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">nginx</span><span class="o">.</span><span class="n">conf</span>
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    autoindex on;# 显示目录
-    autoindex_exact_size on;# 显示文件大小
-    autoindex_localtime on;# 显示文件时间
-    server {
-        listen       8011 default_server;
-        server_name  fileserver;
-        root         /home/name;
-        charset      UTF-8;#enable charset HTTP-header
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">{</span>
+		<span class="o">...</span>
 
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
+		<span class="n">autoindex</span> <span class="n">on</span><span class="p">;</span><span class="c1"># 显示目录</span>
+    <span class="n">autoindex_exact_size</span> <span class="n">on</span><span class="p">;</span><span class="c1"># 显示文件大小</span>
+    <span class="n">autoindex_localtime</span> <span class="n">on</span><span class="p">;</span><span class="c1"># 显示文件时间</span>
+    <span class="n">server</span> <span class="p">{</span>
+        <span class="n">listen</span>       <span class="mi">8011</span> <span class="n">default_server</span><span class="p">;</span>
+        <span class="n">server_name</span>  <span class="n">fileserver</span><span class="p">;</span>
+        <span class="n">root</span>         <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">name</span><span class="p">;</span>
+        <span class="n">charset</span>      <span class="n">UTF</span><span class="o">-</span><span class="mi">8</span><span class="p">;</span><span class="c1">#enable charset HTTP-header</span>
 
-        location / {
-        }  
+        <span class="c1"># Load configuration files for the default server block.</span>
+        <span class="n">include</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">default</span><span class="o">.</span><span class="n">d</span><span class="o">/*.</span><span class="n">conf</span><span class="p">;</span>
 
-        error_page 404 /404.html;
-            location = /40x.html {
-        }  
+        <span class="n">location</span> <span class="o">/</span> <span class="p">{</span>
+        <span class="p">}</span>  
 
-        error_page 500 502 503 504 /50x.html;
-            location = /50x.html {
-        }  
-    }  
+        <span class="n">error_page</span> <span class="mi">404</span> <span class="o">/</span><span class="mf">404.</span><span class="n">html</span><span class="p">;</span>
+            <span class="n">location</span> <span class="o">=</span> <span class="o">/</span><span class="mi">40</span><span class="n">x</span><span class="o">.</span><span class="n">html</span> <span class="p">{</span>
+        <span class="p">}</span>  
+
+        <span class="n">error_page</span> <span class="mi">500</span> <span class="mi">502</span> <span class="mi">503</span> <span class="mi">504</span> <span class="o">/</span><span class="mi">50</span><span class="n">x</span><span class="o">.</span><span class="n">html</span><span class="p">;</span>
+            <span class="n">location</span> <span class="o">=</span> <span class="o">/</span><span class="mi">50</span><span class="n">x</span><span class="o">.</span><span class="n">html</span> <span class="p">{</span>
+        <span class="p">}</span>  
+    <span class="p">}</span>  
+<span class="p">}</span>
 </pre></div>
 </div>
+</li>
+</ul>
 <ul class="simple">
 <li><p>support play <code class="docutils literal notranslate"><span class="pre">wav</span></code> and read multitype raw file as <code class="docutils literal notranslate"><span class="pre">text/plain</span></code></p></li>
 </ul>
@@ -407,6 +408,14 @@ mount <span class="m">192</span>.168.1.100:/var/nfs /mnt/nfs/var/nfs
 <span class="p">}</span>
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>start nginx server</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nginx</span> <span class="o">-</span><span class="n">t</span>
+<span class="n">nginx</span> <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">nginx</span><span class="o">.</span><span class="n">conf</span>
+<span class="n">nginx</span> <span class="o">-</span><span class="n">s</span> <span class="n">reload</span>
+<span class="n">netstat</span>  <span class="o">-</span><span class="n">nalt</span>  <span class="o">|</span> <span class="n">grep</span> <span class="mi">8022</span>
+</pre></div>
 </div>
 </div>
 

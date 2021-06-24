@@ -1,6 +1,7 @@
 # Speech Processing
 
 * **https://wiki.aalto.fi/display/ITSP/Introduction+to+Speech+Processing**
+* [nnAudio : An on-the-fly GPU Audio to Spectrogram Conversion Toolbox Using 1D Convolutional Neural Networks](https://arxiv.org/abs/1912.12055)
 
 # [Basic representations and models](https://wiki.aalto.fi/display/ITSP/Basic+representations+and+models)
 

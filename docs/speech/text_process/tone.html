@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Tone &mdash; zh794390558.github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> zh794390558.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Hui Zhang</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Speech</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../asr/chinese_syllable.html">chinese syllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/decoding.html">Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tts_text_frontend.html">Text Front End</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vad/vad.html">VAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/README.html">Speech I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/praat_textgrid.html">Praat and TextGrid</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/training/speech_features.html">Speech Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cpp.html">library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/algorithm.html">Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/tutorials.html">Coding Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/aot/python_to_cpp.html">Python code to Cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/linear_algebra.html">线性代数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/hpc.html">HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html">Eigen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id11">矩阵和向量的运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#array">Array类和元素级操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id27">块操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id32">高级初始化方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id37">归约、迭代器和广播</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#map">原生缓存的接口：Map类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cuda.html">CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/simd.html">SIMD</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tfrt.html">TFRT: A New TensorFlow Runtime </a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/deltann_compile.html">Tensorflow compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/model_optimization.html">Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html">Tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#file-encoding">File Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#ubuntu-gcc-update">Ubuntu GCC Update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#centos-7-gcc-update">CentOS 7 gcc update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#nfs-mount">NFS Mount</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#nginx">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/ffmpeg.html">FFPMEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tools.html">Useful Tools</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dataset</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataset.html">Dataset</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">zh794390558.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Tone</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/speech/text_process/tone.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tone">
+<h1>Tone<a class="headerlink" href="#tone" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="chinese-tone-course">
+<h2><a class="reference external" href="https://chinesefor.us/courses/learn-chinese-tones-pinyin-drills-course/#down_course_navigation">Chinese Tone Course</a><a class="headerlink" href="#chinese-tone-course" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Guide of Chinese Tone System</p>
+<p>Tones in Mandarin are called 声调(shēngdiào). <strong>Tones</strong> are a relatively <strong>fixed range of pitch change</strong>. Chinese is a tonal language, different tones of a syllable have different meanings.The chart below shows you the difference that Tones function in a tonal-language and non-tonal language.</p>
+</li>
+</ul>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th></th>
+<th><strong>A TONAL LANGUAGE</strong></th>
+<th><strong>A NON-TONAL LANGUAGE</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TONE</strong> (a range of pitch change)</td>
+<td>Affect meanings</td>
+<td>Affect emotions and attitudes</td>
+</tr>
+</tbody>
+</table><ul>
+<li><p>How to Pronounce the Four Tones in Mandarin</p>
+<p>There are four Tones in Mandarin Chinese Tone system, along with a special Neutral Tone. <strong>Sometimes when speaking, Tones get modified or changed</strong>.</p>
+<p><a class="reference external" href="https://chinesefor.us/lessons/mandarin-pinyin-first-tone-pairs/"><strong>The First Tone</strong></a>: It starts high and maintains high the whole process.
+<a class="reference external" href="https://chinesefor.us/lessons/mandarin-pinyin-second-tone-rising/"><strong>The Second Tone</strong></a>: It starts medium high and goes up.
+<a class="reference external" href="https://chinesefor.us/lessons/mandarin-pinyin-chinese-third-tone-full/"><strong>The Third Tone</strong></a>: It starts medium high, dips down and then up again.
+<a class="reference external" href="https://chinesefor.us/lessons/mandarin-pinyin-chinese-fourth-tone/"><strong>The Fourth Tone</strong></a>: It starts high and then immediately goes down.
+<a class="reference external" href="https://chinesefor.us/lessons/mandarin-chinese-neutral-tone-exercises/"><strong>The Neutral Tone</strong></a>: It is not a real tone, it is a way of pronunciation that is light, vague and short.</p>
+<p>And we put the mark on <strong><a class="reference external" href="https://chinesefor.us/lessons/chinese-pinyin-compound-finals-quiz/">the main vowel of the Final</a></strong> - whichever comes first in this list: a o e i u ü. And if the Final is <strong>iu</strong> or <strong>ui</strong>, the mark falls on the last letter.</p>
+</li>
+<li><p>Why Is It Important to Speak Chinese with Tones Correctly</p>
+<p>Tones in Chinese can affect the meaning of a character or a word, this means that with different Tones, the same exact syllable can mean two different things. That's why getting the Tones correctly is important to communicate with people.</p>
+</li>
+<li><p>The 5-Line Chinese Tone Graph</p>
+<p>The 5-line Chinese Tone Graph is the proven best way for Chinese Tone practice. This is not how to write Chinese Tone marks. Instead, we use the 5 lines to represent the pitch of our voice, 5 is the highest and 1 is the lowest.</p>
+<p>But please pay attention that the <strong>&quot;5&quot; or &quot;1&quot; here is not a fixed pitch</strong>, because everyone has different voice range. Some people higher and some people lower.</p>
+</li>
+<li><p>Lengths of Mandarin Chinese Tones</p>
+<p>With the same syllable is pronounced in different Tones, some Tones lasts longer than the others. Generally, the Third Tone lasts the longest, the Fourth Tone is the shortest. The First Tone and the Second Tone are not too long and not to short.</p>
+</li>
+<li><p>Mandarin Pinyin First Tone</p>
+<p>Mandarin Pinyin First Tone is called 一声 (yī shēng) in Chinese, literally meaning &quot;the first sound&quot;. It starts high and maintain the same high pitch the whole process. So it sounds high and flat. That is why it is also known as &quot;The High Level Tone&quot;.</p>
+</li>
+<li><p>Why Do We Practice With Mandarin Chinese Tone Pairs</p>
+<p>In Chinese, the vast majority of words are 2-syllable words, which we could also call, 2-character words, 双音节词(shuāng yīn jié cí).</p>
+</li>
+<li><p>Mandarin Chinese Tone Pairs Pronunciation Tips</p>
+<p>When we pronounce 2-syllable words, there is no long pause between the two syllables. When you speak with Mandarin Chinese Tone Pairs, speak both syllables in one single breath, using the rest of your breath to say the second syllable.Sometimes in a Chinese word, there can be 3, 4 or even more syllables. No matter how many Chinese tones in combination, we usually try to speak them with one single breath.</p>
+</li>
+<li><p>How to Pronounce Mandarin Pinyin Second Tone</p>
+<p>It starts semi-high and goes up. And because of this, it is also called &quot;The Middle Rising Tone&quot;.</p>
+</li>
+<li><p>How to Pronounce the Chinese Fourth Tone</p>
+<p>The Mandarin Pinyin Fourth Tone starts high, and then immediately goes down. To pronounce it, we need to allow our pitch to drop quickly. That is why the Chinese Fourth Tone is also known as &quot;the High Falling Tone&quot;. Don't be afraid that it might sound &quot;angry&quot; this way, it is just how it is supposed to be.</p>
+</li>
+<li><p>How to Pronounce Chinese Third Tone - <strong>Original Full Third Tone</strong></p>
+<p>As shown in the picture below, you start semi-high pitch, dips down, and then go up again. When speaking, if you finish the whole process of going down and then up again, you are pronouncing an Original Full Third Tone.</p>
+</li>
+<li><p>How to Pronounce &quot;Two Third Tones Together&quot;</p>
+<p>When there are two Third Tones together, the first one changes into the Second Tone. This is probably one of the most important Chinese Tone changes, and also the first one we will learn. But one thing to be careful is that, <strong>Chinese Tone changes only happens while speaking</strong>. When we write the Pinyin for Mandarin two Third Tones, <strong>we will still write both of them in the Third Tone</strong>.</p>
+</li>
+<li><p>Why Do We Have Chinese Tone Changes</p>
+<p>When people talk in real-life, they tend to talk fast and relaxed. It is difficult and not realistic to pronounce each Tone in the 100% standard way. This is why we have Chinese Tone changes. The Third Tone <strong><a class="reference external" href="https://chinesefor.us/lessons/mandarin-chinese-tones-lesson-practice/">takes the longest time to pronounce out of all four Tones</a></strong>. To pronounce it, we need to dip down and then go up again. So when there are two Third Tones together, people tend to avoid the difficulty and change the first one into the Second Tone. This is also why it's better to practice with Pinyin Tone pairs, groups and sentences, instead of individual syllables. Because when Tones are together, they compromise and compensate for each other.</p>
+</li>
+<li><p>Chinese Tone Sandhi: <strong>Mandarin Three Third Tones in A Row</strong></p>
+<p>Chinese Tone Sandhi refers to the situation where the Tone of a syllable gets changed or modified because of its neighboring syllables. So in Chinese Tone Sandhi are basically the commonly shared Chinese Tone change rules. However, the Tone <strong>only changes when speaking, we will still write it as the original Tone</strong>.</p>
+<p>Mandarin Three Third Tones in a row is one of the many Chinese Tone change rules, and probably deserves the most attention. It is crucial if you want to sound native.</p>
+</li>
+<li><p>How to Pronounce &quot;Mandarin Three Tones in A Row&quot;</p>
+<p><strong>Two Chinese Tone Change Rules</strong></p>
+<p>There are only two ways to pronounce Mandarin Three Tones in A Row. The two pictures below display the two Chinese Tone change rules:</p>
+<p><img alt="three_third_tones_sandhi_one" src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l7p1-mandarin-three-third-tones-change-sandhi.png" /></p>
+<p><img alt="three_third_tones_sandhi_two" src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l7p2-mandarin-three-third-tones-change-sandhi.png" /></p>
+<p><strong>Three Types of Three Third Tones Structure</strong></p>
+<p>There are three different ways for three Third-Tone syllables to be put together, as shown in the chart below. We need some vocabulary and grammar skills to analyze the structure and decide the Chinese Tone change rules here. But nothing too advanced.</p>
+</li>
+</ul>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">I</th>
+<th align="center">II</th>
+<th align="center">III</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">A B C</td>
+<td align="center">(A B) + C</td>
+<td align="center">A + (B C)</td>
+</tr>
+<tr>
+<td align="center">jiǔ jiǔ jiǔ</td>
+<td align="center">yǎn jiǎng gǎo</td>
+<td align="center">xiǎo lǎo hǔ</td>
+</tr>
+<tr>
+<td align="center">九九九</td>
+<td align="center">演讲稿</td>
+<td align="center">小老虎</td>
+</tr>
+<tr>
+<td align="center">nine nine nine</td>
+<td align="center">speech paper</td>
+<td align="center">little tiger</td>
+</tr>
+<tr>
+<td align="center">jiú jiú jiǔ</td>
+<td align="center">yán jiáng gǎo</td>
+<td align="center">xiǎo láo hǔ</td>
+</tr>
+</tbody>
+</table><p><strong>In Situation I, three number &quot;nine&quot; are equally put together, the first two syllables both change into the Second Tone.</strong>
+<strong>In Situation II, (syllable A + B) is a word, and it modifies syllable C. Both (syllable A + B) change into the Second Tone.</strong>
+<strong>In Situation III, syllable A is a word, and it modifies (syllable B + C). Only syllable B changes into the Second Tone. Also, syllable A in this situation is actually pronounced in the Half Third Tone, which we'll discuss in the next lesson.</strong></p>
+<p>https://chinesefor.us/lessons/mandarin-three-third-tones-change-sandhi/</p>
+<ul>
+<li><p>Mandarin Chinese Third Tone: Three Pronunciations</p>
+<p>So far we've learned the Original Full Third Tone, the Third Tone changed into the Second Tone, and today's lesson is about <strong>Half Third Tone</strong>. The way to pronounce them is shown in the picture below:</p>
+<p><img alt="A video on Half Third Tone - Mandarin Low Tone, one of the ways to pronounce Chinese Pinyin Third Tone and one of the major Mandarin Chinese Tone rules." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l8p1-mandarin-chinese-pinyin-rules-half-third-tone-1024x341.png" />The Three Ways to Pronounce Chinese Pinyin Third Tone</p>
+<p><strong>No.1</strong> - The Original Full Third Tone: starts semi-high, dips down and then goes up again.
+<strong>No.2</strong> - Third Tone becomes Second Tone: it becomes the Second Tone.
+<strong>No.3</strong> - Half Third Tone: the second half of the Full Third Tone is not pronounced. It's short and low, but you can still hear a little dipping down.</p>
+</li>
+<li><p>Why Do We Have the Half Third Tone</p>
+<p>Just like all other Mandarin Chinese Tone rules, we have the Half Third Tone <strong>to avoid difficult pronunciation</strong>. And just like two Third Tones are difficult to pronounce, when the Third Tone goes before other Tones, it is just as challenging. So when the Third Tone goes before the First, the Second or the Fourth Tone, we don't pronounce the second half of the Third Tone. Instead, we start semi-high, and just dip down. When you hear it, the Half Third Tone is very low and short, but not as light or vague as the <a class="reference external" href="https://chinesefor.us/lessons/mandarin-chinese-neutral-tone-exercises/"><strong>Neutral Tone</strong></a>. That is why the <strong>Half Third Tone is also called the Mandarin Low Tone.</strong></p>
+<p><img alt="A video on Half Third Tone - Mandarin Low Tone, one of the ways to pronounce Chinese Pinyin Third Tone and one of the major Mandarin Chinese Tone rules." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l8p2-mandarin-chinese-pinyin-rules-half-third-tone-1024x341.jpg" /><strong>Half Third Tone: When Chinese Pinyin Third Tone goes before the First, the Second or the Fourth Tone</strong></p>
+</li>
+<li><p>Original Full Third Tone VS. Half Third Tone</p>
+<p>We already know that for 2-syllable words, when the Third Tone is the last syllable, we pronounce it as the Full Third Tone. And when it's the first syllable, there are two situations: (1) if syllable 2 is the Third Tone, the first Third Tone changes into the Second Tone; (2) if syllable 2 is the First, the Second or the Fourth Tone, the first Third Tones is pronounced as a Half Third Tone.</p>
+<p>So when we have a 3-syllable word. With the Tones like below, the syllable marked in <strong>red and underlined</strong> is pronounced as Half Third Tone.</p>
+</li>
+</ul>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">TONE COMBINATION</th>
+<th align="center">3rd + 1st +3rd</th>
+<th align="center">3rd + 2nd +3rd</th>
+<th align="center">3rd + 4th +3rd</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">EXAMPLE</td>
+<td align="center">nǎ gēn nǎ</td>
+<td align="center">zǒu méi zǒu</td>
+<td align="center">hǎo bù hǎo</td>
+</tr>
+<tr>
+<td align="center">TONE CHANGE</td>
+<td align="center">Half 3rd + 1st + Full 3rd</td>
+<td align="center">Half 3rd + 2nd + Full 3rd</td>
+<td align="center">Half 3rd + 4th + Full 3rd</td>
+</tr>
+</tbody>
+</table><ul>
+<li><p>How to Pronounce Chinese Two Fourth Tones Together</p>
+<p>When to pronounce the Fourth Tone, we start very high, and then immediately drop down. The original Fourth Tone sounds very quick and firm, to the point that some learners might even feel that it sounds angry. As shown in the picture, the Fourth Tone drops from 5 to 1. If there are two Fourth Tones together, to pronounce the second one we need to jump from the lowest all the way to the highest. This is not the most relaxed pronunciation to do, so people tend to compensate and make the first one a Half Fourth Tone, which does not drop all the way down but stops semi-high in the middle.</p>
+<p><img alt="&quot;Chinese two Fourth Tones together&quot; is an important Mandarin Pinyin Tone change rule to sound native. Watch and learn how to master this Pinyin Tone Sandhi." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l10p1-chinese-two-fourth-tones-half-change-rule.jpg" />Chinese Two Fourth Tones Together</p>
+</li>
+<li><p>Half Fourth Tone VS. Original Full Fourth Tone</p>
+<p>In a 2-syllable word, when there are two Fourth Tones together, syllable 1 becomes a Half Fourth Tone and syllable 2 stays as the Original Full Fourth Tone. This Pinyin Tone change rule might not be as much discussed as Two Third Tones together or the Neutral Tone. But if you want to sound more natural and native, some practice on this Pinyin Tone Sandhi is beneficial.</p>
+<p><img alt="&quot;Chinese two Fourth Tones together&quot; is an important Mandarin Pinyin Tone change rule to sound native. Watch and learn how to master this Pinyin Tone Sandhi." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l10p2-chinese-two-fourth-tones-half-change-rule-600x450.png" />Chinese Two Fourth Tones Together: Half Fouth Tone vs. Full Fourth Tone</p>
+</li>
+<li><p>How to Pronounce Chinese Without Tones?</p>
+<p>When we see characters in Chinese without Tones, we will pronounce them in the Neutral Tone. The Mandarin Neutral Tone sounds a light, vague and short. And the Neutral Tone doesn't have any tone marks on it, we will just write the Final by itself.</p>
+</li>
+<li><p>Mandarin Chinese Neutral Tone Is Not The Pinyin Fifth Tone</p>
+<p>There are only Four Tones in Chinese, and the Neutral Tone is not a real Tone, so there is no Pinyin Fifth Tone. There are two reasons:</p>
+<p><strong>(1) Characters in Chinese without Tones all have their original Tones.</strong> A syllable is pronounced in the Neutral Tone because its original Tone gets modified or changed sometimes. The chart below shows you some examples. They are 2-syllable words with both syllables made of the same characters. In each word, the first character is pronounced in its original Tone while the second character is pronounced in the Neutral Tone.</p>
+</li>
+</ul>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center"><strong>PINYIN</strong></th>
+<th align="center"><strong>CHINESE</strong></th>
+<th align="center"><strong>ENGLISH</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">bà ba</td>
+<td align="center">爸爸</td>
+<td align="center">dad</td>
+</tr>
+<tr>
+<td align="center">mā ma</td>
+<td align="center">妈妈</td>
+<td align="center">mom</td>
+</tr>
+<tr>
+<td align="center">gē ge</td>
+<td align="center">哥哥</td>
+<td align="center">big brother</td>
+</tr>
+<tr>
+<td align="center">jiě jie</td>
+<td align="center">姐姐</td>
+<td align="center">big sister</td>
+</tr>
+<tr>
+<td align="center">dì di</td>
+<td align="center">弟弟</td>
+<td align="center">little brother</td>
+</tr>
+<tr>
+<td align="center">mèi mei</td>
+<td align="center">妹妹</td>
+<td align="center">little sister</td>
+</tr>
+</tbody>
+</table><p><strong>(2) The Mandarin Chinese Neutral Tone does not have a fixed pitch or pitch range</strong>. The pitch of a Neutral-tone syllable is decided by the syllable in front of it. The Neutral Tone after the Fourth Tone has the lowest pitch, while the Neutral Tone after the Third Tone has the highest pitch.  Each red dot in the picture below shows the pitch of the Neutral Tone after the First, the Second or the Fourth Tone.</p>
+<p><img alt="Why is Mandarin Chinese Neutral Tone not a real Pinyin Fifth Tone? Find the answer in this video lesson and practice it with Chinese Tone Exercises." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l11p1-mandarin-chinese-neutral-tone-exercises.png" />Mandarin Chinese Neutral Tone has not have a fixed pitch or pitch range.</p>
+<ul class="simple">
+<li><p>Chinese Tone Exercises: The Neutral Tone</p></li>
+</ul>
+<p><img alt="Why is Mandarin Chinese Neutral Tone not a real Pinyin Fifth Tone? Find the answer in this video lesson and practice it with Chinese Tone Exercises." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l11p2-mandarin-chinese-neutral-tone-exercises.png" />First Tone + Neutral Tone</p>
+<p><img alt="Why is Mandarin Chinese Neutral Tone not a real Pinyin Fifth Tone? Find the answer in this video lesson and practice it with Chinese Tone Exercises." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l11p3-mandarin-chinese-neutral-tone-exercises.png" />Second Tone + Neutral Tone</p>
+<p><img alt="Why is Mandarin Chinese Neutral Tone not a real Pinyin Fifth Tone? Find the answer in this video lesson and practice it with Chinese Tone Exercises." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l11p4-mandarin-chinese-neutral-tone-exercises.png" />Third Tone + Neutral Tone</p>
+<p><img alt="Why is Mandarin Chinese Neutral Tone not a real Pinyin Fifth Tone? Find the answer in this video lesson and practice it with Chinese Tone Exercises." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l11p5-mandarin-chinese-neutral-tone-exercises.png" />Fourth Tone +Neutral Tone</p>
+<ul>
+<li><p>Three Ways to Pronounce The Third Tone</p>
+<p>There are three ways in total to pronounce the Third Tone. As shown in the picture, <strong>(1)</strong> The original Full Third Tone <strong>(2)</strong> Third Tone becomes Second Tone <strong>(3)</strong> The Half Third Tone.</p>
+<p><img alt="In this lesson we will practice more about the Neutral Tone: The Third Tone + The Neutral Tone. Watch the video and learn!" src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l12p1-mandarin-chinese-third-neutral-tone.png" /></p>
+</li>
+<li><p>The Third Tone in Front of The Neutral Tone</p>
+<p>Remember the Neutral-tone syllable already has an Original Tone that gets neutralized in certain situation? Its original Tone decides the pronunciation of the Third Tone in front of it. There are only two situations, as shown in the picture below. <strong>No.1</strong> When the original Tone of the Neutral-tone syllable is the Third Tone, the Third Tone in front of it becomes the Second Tone; <strong>No.2</strong> When the Neutral-tone syllable is originally in the First, the Second or the Fourth Tone, the Third Tone in front of it is pronounced in the Half Third Tone.</p>
+</li>
+</ul>
+<p><img alt="In this lesson we will practice more about the Neutral Tone: The Third Tone + The Neutral Tone. Watch the video and learn!" src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l12p2-mandarin-chinese-third-neutral-tone-1024x576.png" />Third Tone + Neutral Tone No.1</p>
+<p><img alt="In this lesson we will practice more about the Neutral Tone: The Third Tone + The Neutral Tone. Watch the video and learn!" src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l12p3-mandarin-chinese-third-neutral-tone-1024x576.png" />Third Tone + Neutral Tone No.2</p>
+<ul>
+<li><p>Chinese Character bu 不 Tone Sandhi</p>
+<p>When the character 不 is by itself, it is pronounced in the Fourth Tone, <strong>bù</strong>. This is its original Tone. But its pronunciation changes when it is in different Mandarin Tone combinations. There are only two ways of pronunciation for Chinese character bu 不 Tone Sandhi. (1) Character bu 不 is in the Fourth Tone &quot;bù&quot; before <a class="reference external" href="https://chinesefor.us/lessons/mandarin-pinyin-first-tone-pairs/"><strong>the First</strong></a>, <a class="reference external" href="https://chinesefor.us/lessons/mandarin-pinyin-second-tone-rising/"><strong>the Second</strong></a>, or <strong><a class="reference external" href="https://chinesefor.us/lessons/mandarin-pinyin-chinese-third-tone-full/">the Third Tone</a></strong>(which is really a <a class="reference external" href="https://chinesefor.us/lessons/mandarin-chinese-pinyin-rules-half-third-tone/"><strong>Half Third Tone</strong></a> here). (2) Character bu 不 is in the Second Tone &quot;bú&quot; before <a class="reference external" href="https://chinesefor.us/lessons/mandarin-pinyin-chinese-fourth-tone/"><strong>the Fourth Tone</strong></a>.</p>
+<p><img alt="A Mandarin Tone help video on Chinese character bu 不 Tone Sandhi. We'll learn and practice this Pinyin Tone change rule with Mandarin Tone combinations." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l13p1-mandarin-chinese-pinyin-tone-change-bu-video-600x518.png" />Bu 不 in <strong>the Fourth Tone</strong> before the First Tone</p>
+<p><img alt="A Mandarin Tone help video on Chinese character bu 不 Tone Sandhi. We'll learn and practice this Pinyin Tone change rule with Mandarin Tone combinations." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l13p2-mandarin-chinese-pinyin-tone-change-bu-video-600x518.png" />Bu 不 in <strong>the Fourth Tone</strong> before the Second Tone</p>
+<p><img alt="A Mandarin Tone help video on Chinese character bu 不 Tone Sandhi. We'll learn and practice this Pinyin Tone change rule with Mandarin Tone combinations." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l13p3-mandarin-chinese-pinyin-tone-change-bu-video-600x518.png" />Bu 不 in <strong>the Fourth Tone</strong> before the Third Tone</p>
+<p><img alt="A Mandarin Tone help video on Chinese character bu 不 Tone Sandhi. We'll learn and practice this Pinyin Tone change rule with Mandarin Tone combinations." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l13p4-mandarin-chinese-pinyin-tone-change-bu-video-600x518.png" />Bu 不 in <strong>the Second Tone</strong> before the Fourth Tone</p>
+</li>
+<li><p>How to Write Chinese Character Bu 不 Tone Sandhi</p>
+<p>As shown in the pictures above, when we write the Tone of character bu 不, we will write it the same Tone as we pronounce it. This is because the Pinyin Tone change here is not a change of the syllable, but a change of the character itself. We can see the character bu written in <strong>不 (bù)</strong> and also <strong>不 (bú)</strong>. <strong>The same rule applies for the Character Yi 一 Tone Sandhi.</strong></p>
+</li>
+<li><p>Mandarin Chinese Character Yi 一 Tone Change</p>
+<p>There are three ways to pronounce Chinese character Yi 一.</p>
+<p><strong>(1)</strong> When 一 is by itself, meaning &quot;the mathematical number one&quot;, it is pronounced in <strong>the First Tone</strong> &quot;<strong>yī</strong>&quot;.</p>
+<p><img alt="In this video lesson we'll learn and practice the Mandarin Chinese Character Yi 一 Tone Change. There are three ways of pronunciations for the character Yi." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l14p1-mandarin-chinese-character-yi-tone-change-600x451.png" />Character Yi 一 By Itself</p>
+<p><strong>(2)</strong> When Character Yi 一 goes before the First, the Second and the Third Tone, it is pronounced in <strong>the Fourth Tone</strong> &quot;<strong>yì</strong>&quot;; <strong>(3)</strong> When Character Yi 一 goes before the Fourth Tone, it is pronounced in <strong>the Second Tone</strong> &quot;<strong>yí</strong>&quot;.</p>
+<p><img alt="In this video lesson we'll learn and practice the Mandarin Chinese Character Yi 一 Tone Change. There are three ways of pronunciations for the character Yi." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l14p2-mandarin-chinese-character-yi-tone-change-600x451.png" />Character Yi 一 in the Fourth Tone before the First Tone</p>
+<p><img alt="In this video lesson we'll learn and practice the Mandarin Chinese Character Yi 一 Tone Change. There are three ways of pronunciations for the character Yi." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l14p3-mandarin-chinese-character-yi-tone-change-600x451.png" />Character Yi 一 in the Fourth Tone before the Second Tone</p>
+<p><img alt="In this video lesson we'll learn and practice the Mandarin Chinese Character Yi 一 Tone Change. There are three ways of pronunciations for the character Yi." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l14p4-mandarin-chinese-character-yi-tone-change-600x451.png" />Character Yi 一 in the Fourth Tone before the Third Tone</p>
+<p><img alt="In this video lesson we'll learn and practice the Mandarin Chinese Character Yi 一 Tone Change. There are three ways of pronunciations for the character Yi." src="https://chinesefor.us/wp-content/uploads/2017/01/chinesefor.us-pronunciation-tone-drills-l14p5-mandarin-chinese-character-yi-tone-change-600x451.png" />Character Yi 一 in the Second Tone before the Fourth Tone</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Hui Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,6 +1,7 @@
 # HPC
 
 ## MPI or OpenMP
+
 * https://www.rookiehpc.com/
 
 ## GEMM

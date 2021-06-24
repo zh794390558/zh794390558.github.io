@@ -131,7 +131,13 @@
 <li class="toctree-l1"><a class="reference internal" href="eigen.html#id37">归约、迭代器和广播</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eigen.html#map">原生缓存的接口：Map类</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">CUDA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#docs">Docs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#books">Books</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#blogs">Blogs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#memory-bandwidth">Memory Bandwidth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computational-throughput">Computational Throughput</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="simd.html">SIMD</a></li>
@@ -147,7 +153,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../development/model_optimization.html">Model Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/contributing.html">Contributing Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/version.html">Version</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../development/linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/linux.html">Tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/linux.html#file-encoding">File Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/linux.html#ubuntu-gcc-update">Ubuntu GCC Update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/linux.html#centos-7-gcc-update">CentOS 7 gcc update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/linux.html#nfs-mount">NFS Mount</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/linux.html#nginx">Nginx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/ffmpeg.html">FFPMEG</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development/tools.html">Useful Tools</a></li>
 </ul>
@@ -227,6 +238,25 @@
             
   <div class="section" id="cuda">
 <h1>CUDA<a class="headerlink" href="#cuda" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="docs">
+<h2>Docs<a class="headerlink" href="#docs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.nvidia.com/cuda/index.html">CUDA Toolkit Documentation v11.3.1</a></p></li>
+<li><p><a class="reference external" href="https://docs.nvidia.com/cuda/profiler-users-guide/index.html#abstract">Profiler User's Guide</a></p></li>
+<li><p><a class="reference external" href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#abstract">CUDA C++ Programming Guide</a></p></li>
+<li><p><a class="reference external" href="https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#abstract">CUDA C++ Best Practices Guide</a></p></li>
+</ul>
+</div>
+<div class="section" id="books">
+<h2>Books<a class="headerlink" href="#books" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>https://github.com/sallenkey-wei/cuda-handbook</p></li>
+<li><p><a class="reference external" href="https://www3.nd.edu/~zxu2/acms60212-40212/Lec-11-GPU.pdf">Programming on GPUs part1</a></p></li>
+<li><p><a class="reference external" href="https://www.bu.edu/tech/files/2016/02/Introduction_to_CUDA_C.pptx">Standard Introduction to CUDA C Programming</a></p></li>
+</ul>
+</div>
+<div class="section" id="blogs">
+<h2>Blogs<a class="headerlink" href="#blogs" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p><a class="reference external" href="https://www.huaweicloud.com/articles/cf0f3711f2ae444bbf103cd6c89ada84.html">cuda线程束原语 __shfl_xor、__shfl、__shfl_up()、__shfl_down()</a></p>
 <p>在CC3.0以上，支持了shuffle指令，允许thread直接读其他thread的寄存器值，只要两个thread在 同一个warp中，这种比通过shared Memory进行thread间的通讯效果更好，latency更低，同时也不消耗额外的内存资源来执行数据交换。</p>
@@ -241,12 +271,134 @@
 <li><p>https://people.maths.ox.ac.uk/gilesm/cuda/2019/lecture_04.pdf</p></li>
 </ul>
 </li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/blog/even-easier-introduction-cuda/">An Even Easier Introduction to CUDA</a></p>
+<p>CUDA C++ provides keywords that let kernels get the indices of the running threads. Specifically, <code class="docutils literal notranslate"><span class="pre">threadIdx.x</span></code> contains the index of the current thread within its block, and <code class="docutils literal notranslate"><span class="pre">blockDim.x</span></code> contains the number of threads in the block.</p>
+<p><strong>Out of the Blocks</strong></p>
+<p>CUDA GPUs have many parallel processors grouped into Streaming Multiprocessors, or SMs. Each SM can run multiple concurrent thread blocks. As an example, a Tesla P100 GPU based on the <a class="reference external" href="https://developer.nvidia.com/blog/parallelforall/inside-pascal/">Pascal GPU Architecture</a> has 56 SMs, each capable of supporting up to 2048 active threads. To take full advantage of all these threads, I should launch the kernel with multiple thread blocks.</p>
+<p>By now you may have guessed that the first parameter of the execution configuration specifies the number of thread blocks. Together, the blocks of parallel threads make up what is known as the <em>grid</em>. Since I have <code class="docutils literal notranslate"><span class="pre">N</span></code> elements to process, and 256 threads per block, I just need to calculate the number of blocks to get at least N threads. I simply divide <code class="docutils literal notranslate"><span class="pre">N</span></code> by the block size (being careful to round up in case <code class="docutils literal notranslate"><span class="pre">N</span></code> is not a multiple of <code class="docutils literal notranslate"><span class="pre">blockSize</span></code>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">blockSize</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">numBlocks</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="n">blockSize</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">blockSize</span><span class="p">;</span>
+<span class="n">add</span><span class="o">&lt;&lt;&lt;</span><span class="n">numBlocks</span><span class="p">,</span> <span class="n">blockSize</span><span class="o">&gt;&gt;&gt;</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="blocks" src="https://developer-blogs.nvidia.com/wp-content/uploads/2017/01/cuda_indexing.png" /></p>
+<p>I also need to update the kernel code to take into account the entire grid of thread blocks. CUDA provides <code class="docutils literal notranslate"><span class="pre">gridDim.x</span></code>, which contains the number of blocks in the grid, and <code class="docutils literal notranslate"><span class="pre">blockIdx.x</span></code>, which contains the index of the current thread block in the grid. Figure 1 illustrates the the approach to indexing into an array (one-dimensional) in CUDA using <code class="docutils literal notranslate"><span class="pre">blockDim.x</span></code>, <code class="docutils literal notranslate"><span class="pre">gridDim.x</span></code>, and <code class="docutils literal notranslate"><span class="pre">threadIdx.x</span></code>. The idea is that each thread gets its index by computing the offset to the beginning of its block (the block index times the block size: <code class="docutils literal notranslate"><span class="pre">blockIdx.x</span> <span class="pre">*</span> <span class="pre">blockDim.x</span></code>) and adding the thread’s index within the block (<code class="docutils literal notranslate"><span class="pre">threadIdx.x</span></code>). The code <code class="docutils literal notranslate"><span class="pre">blockIdx.x</span> <span class="pre">*</span> <span class="pre">blockDim.x</span> <span class="pre">+</span> <span class="pre">threadIdx.x</span></code> is idiomatic CUDA.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__global__</span>
+<span class="n">void</span> <span class="n">add</span><span class="p">(</span><span class="nb">int</span> <span class="n">n</span><span class="p">,</span> <span class="nb">float</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="nb">float</span> <span class="o">*</span><span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nb">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">blockDim</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">stride</span> <span class="o">=</span> <span class="n">blockDim</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">gridDim</span><span class="o">.</span><span class="n">x</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">index</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">stride</span><span class="p">)</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The updated kernel also sets <code class="docutils literal notranslate"><span class="pre">stride</span></code> to the total number of threads in the grid (<code class="docutils literal notranslate"><span class="pre">blockDim.x</span> <span class="pre">*</span> <span class="pre">gridDim.x</span></code>). This type of loop in a CUDA kernel is often called a <a class="reference external" href="https://developer.nvidia.com/blog/parallelforall/cuda-pro-tip-write-flexible-kernels-grid-stride-loops/"><em>grid-stride loop</em></a>.</p>
+</li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/blog/easy-introduction-cuda-c-and-c/">An Easy Introduction to CUDA C and C++</a></p>
+<p>The information between the triple chevrons is the <em>execution configuration</em>, which dictates how many device threads execute the kernel in parallel. In CUDA there is a hierarchy of threads in software which mimics how thread processors are grouped on the GPU. In the CUDA programming model we speak of launching a kernel with a <em>grid</em> of <em>thread blocks</em>. The first argument in the execution configuration specifies the number of thread blocks in the grid, and the second specifies the number of threads in a thread block.</p>
+<p>Thread blocks and grids can be made one-, two- or three-dimensional by passing dim3 (a simple struct defined by CUDA with <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code> members) values for these arguments, but for this simple example we only need one dimension so we pass integers instead.</p>
+<p>For cases where the number of elements in the arrays is not evenly divisible by the thread block size, the kernel code must check for out-of-bounds memory accesses.</p>
+<p>To issue a kernel to a non-default stream we specify the stream identifier as a fourth execution configuration parameter (the third execution configuration parameter allocates shared device memory, which we’ll talk about later; use 0 for now).</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">increment</span><span class="o">&lt;&lt;&lt;</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">stream1</span><span class="o">&gt;&gt;&gt;</span><span class="p">(</span><span class="n">d_a</span><span class="p">)</span>
+
+<span class="n">kernel</span><span class="o">&lt;&lt;&lt;</span><span class="n">nthreadblocks_in_grid</span><span class="p">,</span><span class="n">nthreads_in_threadblock</span><span class="p">,</span><span class="n">device_shared_mem_per_thread_block_in_bytes</span><span class="p">,</span><span class="n">stream_id</span><span class="o">&gt;&gt;&gt;</span><span class="p">(</span><span class="n">param0</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="p">...,</span> <span class="n">paramN</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As mentioned earlier, the kernel is executed by multiple threads in parallel. If we want each thread to process an element of the resultant array, then we need a means of distinguishing and identifying each thread. CUDA defines the variables <code class="docutils literal notranslate"><span class="pre">blockDim</span></code>, <code class="docutils literal notranslate"><span class="pre">blockIdx</span></code>, and <code class="docutils literal notranslate"><span class="pre">threadIdx</span></code>. These predefined variables are of type <code class="docutils literal notranslate"><span class="pre">dim3</span></code>, analogous to the execution configuration parameters in host code. The predefined variable <code class="docutils literal notranslate"><span class="pre">blockDim</span></code> contains the dimensions of each thread block as specified in the second execution configuration parameter for the kernel launch. The predefined variables <code class="docutils literal notranslate"><span class="pre">threadIdx</span></code> and <code class="docutils literal notranslate"><span class="pre">blockIdx</span></code> contain the index of the thread within its thread block and the thread block within the grid, respectively. The expression:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">blockDim</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">blockIdx</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">threadIdx</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+<p>generates a global index that is used to access elements of the arrays. We didn’t use it in this example, but there is also <code class="docutils literal notranslate"><span class="pre">gridDim</span></code> which contains the dimensions of the grid as specified in the first execution configuration parameter to the launch.</p>
+<p>Before this index is used to access array elements, its value is checked against the number of elements, <code class="docutils literal notranslate"><span class="pre">n</span></code>, to ensure there are no out-of-bounds memory accesses. This check is required for cases where the number of elements in an array is not evenly divisible by the thread block size, and as a result the number of threads launched by the kernel is larger than the array size.</p>
+</li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/blog/how-implement-performance-metrics-cuda-cc/">How to Implement Performance Metrics in CUDA C/C++</a></p></li>
 </ul>
-<div class="section" id="books">
-<h2>Books<a class="headerlink" href="#books" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>https://github.com/sallenkey-wei/cuda-handbook</p></li>
+<div class="section" id="memory-bandwidth">
+<h3>Memory Bandwidth<a class="headerlink" href="#memory-bandwidth" title="Permalink to this headline">¶</a></h3>
+<p><strong>Theoretical Bandwidth</strong></p>
+<p>Theoretical bandwidth can be calculated using hardware specifications available in the product literature. For example, the NVIDIA Tesla M2050 GPU uses DDR (double data rate) RAM with a memory clock rate of 1,546 MHz and a 384-bit wide memory interface. Using these data items, the peak theoretical memory bandwidth of the NVIDIA Tesla M2050 is 148 GB/sec, as computed in the following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">BW</span><span class="o">*</span><span class="n">_Theoretical</span> <span class="o">=</span> <span class="mi">1546</span> <span class="o">*</span> <span class="mi">106</span> <span class="o">*</span> <span class="p">(</span><span class="mi">384</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">10</span><span class="o">^</span><span class="mi">9</span> <span class="o">=</span> <span class="mi">148</span> <span class="n">GB</span><span class="o">/</span><span class="n">s</span>
+</pre></div>
+</div>
+<p>In this calculation, we convert the memory clock rate to Hz, multiply it by the interface width (divided by 8, to convert bits to bytes) and multiply by 2 due to the double data rate. Finally, we divide by 109 to convert the result to GB/s.</p>
+<p><strong>Effective Bandwidth</strong></p>
+<p>We calculate effective bandwidth by timing specific program activities and by knowing how our program accesses data. We use the following equation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">BW</span><span class="o">*</span><span class="n">_Effective</span> <span class="o">=</span> <span class="p">(</span><span class="n">R_B</span> <span class="o">+</span> <span class="n">W_B</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, <em>BW</em>Effective is the effective bandwidth in units of GB/s, <em>R</em>B is the number of bytes read per kernel, <em>W</em>B is the number of bytes written per kernel, and <em>t</em> is the elapsed time given in seconds.</p>
+</div>
+<div class="section" id="computational-throughput">
+<h3>Computational Throughput<a class="headerlink" href="#computational-throughput" title="Permalink to this headline">¶</a></h3>
+<p>A common measure of computational throughput is GFLOP/s, which stands for “Giga-FLoating-point OPerations per second”, where <em>Giga</em> is that prefix for 10^9.</p>
+<p>For our SAXPY computation, measuring effective throughput is simple: each SAXPY element does a multiply-add operation, which is typically measured as two FLOPs, so we have</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">GFLOP</span><span class="o">/</span><span class="n">s</span><span class="o">*</span> <span class="n">Effective</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">N</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="mi">10</span><span class="o">^</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>N</em> is the number of elements in our SAXPY operation, and <em>t</em> is the elapsed time in seconds.</p>
+<p>Theoretical peak GFLOP/s can be gleaned from the product literature (but calculating it can be a bit tricky because it is very architecture-dependent). For example, the Tesla M2050 GPU has a theoretical peak single-precision floating point throughput of 1030 GFLOP/s, and a theoretical peak double-precision throughput of 515 GFLOP/s.</p>
+<p>SAXPY reads 12 bytes per element computed, but performs only a single multiply-add instruction (2 FLOPs), so it’s pretty clear that it will be bandwidth bound, and so in this case (in fact in many cases), bandwidth is the most important metric to measure and optimize. In more sophisticated computations, measuring performance at the level of FLOPs can be very difficult. Therefore it’s more common to use profiling tools to get an idea of whether computational throughput is a bottleneck. Applications often provide throughput metrics that are problem-specific (rather than architecture specific) and therefore more useful to the user. For example, “Billion Interactions per Second” for astronomical n-body problems, or “nanoseconds per day” for molecular dynamic simulations.</p>
+<p>A large percentage of kernels are memory bandwidth bound, so calculation of the effective bandwidth is a good first step in performance optimization.</p>
+</div>
+<li><p><a class="reference external" href="https://developer.nvidia.com/blog/how-optimize-data-transfers-cuda-cc/">How to Optimize Data Transfers in CUDA C/C++</a></p></li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/blog/how-overlap-data-transfers-cuda-cc/">How to Overlap Data Transfers in CUDA C/C++</a></p></li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/blog/how-access-global-memory-efficiently-cuda-c-kernels/">How to Access Global Memory Efficiently in CUDA C/C++ Kernels</a></p>
+<p>There are several kinds of memory on a CUDA device, each with different scope, lifetime, and caching behavior. So far in this series we have used <em>global memory</em>, which resides in device DRAM, for transfers between the host and device as well as for the data input to and output from kernels. The name <em>global</em> here refers to scope, as it can be accessed and modified from both the host and the device. Global memory can be declared in global (variable) scope using the <code class="docutils literal notranslate"><span class="pre">__device__</span></code> declaration specifier as in the first line of the following code snippet, or dynamically allocated using <a class="reference external" href="http://docs.nvidia.com/cuda/cuda-runtime-api/index.html#group__CUDART__MEMORY_1g16a37ee003fcd9374ac8e6a5d4dee29e"><code class="docutils literal notranslate"><span class="pre">cudaMalloc()</span></code></a> and assigned to a regular C pointer variable as in line 7. Global memory allocations can persist for the lifetime of the application. Depending on the <a class="reference external" href="https://developer.nvidia.com/blog/parallelforall/how-query-device-properties-and-handle-errors-cuda-cc/">compute capability</a> of the device, global memory may or may not be cached on the chip.</p>
+<p>Before we go into global memory access performance, we need to refine our understanding of the CUDA execution model. We have discussed how <a class="reference external" href="https://developer.nvidia.com/blog/parallelforall/easy-introduction-cuda-c-and-c/">threads are grouped into thread blocks</a>, which are assigned to multiprocessors on the device. During execution there is a finer grouping of threads into <em>warps</em>. Multiprocessors on the GPU execute instructions for each <strong>warp</strong> in SIMD (<a class="reference external" href="http://en.wikipedia.org/wiki/SIMD">Single Instruction Multiple Data</a>) fashion. The warp size (effectively the SIMD width) of all current CUDA-capable GPUs is 32 threads.</p>
+<p><strong>Global Memory Coalescing</strong></p>
+<p>Grouping of threads into warps is not only relevant to computation, but also to global memory accesses. The device <em>coalesces</em> global memory loads and stores issued by threads of a warp into as few transactions as possible to minimize DRAM bandwidth (on older hardware of compute capability less than 2.0, transactions are coalesced within half warps of 16 threads rather than whole warps).</p>
+<ul>
+<li><p>Misaligned Data Accesses</p>
+<p>Arrays allocated in device memory are aligned to 256-byte memory segments by the CUDA driver. The device can access global memory via 32-, 64-, or 128-byte transactions that are aligned to their size.</p>
+<p>For the C870 or any other device with a compute capability of 1.0, any misaligned access by a half warp of threads (or aligned access where the threads of the half warp do not access memory in sequence) results in 16 separate 32-byte transactions</p>
+</li>
+<li><p>Strided Memory Access</p>
+<p>This should not be surprising: when concurrent threads simultaneously access memory addresses that are very far apart in physical memory, then there is no chance for the hardware to combine the accesses.</p>
+<p>When accessing multidimensional arrays it is often necessary for threads to index the higher dimensions of the array, so strided access is simply unavoidable. We can handle these cases by using a type of CUDA memory called <em>shared memory</em>. Shared memory is an on-chip memory shared by all threads in a thread block. One use of shared memory is to extract a 2D tile of a multidimensional array from global memory in a coalesced fashion into shared memory, and then have contiguous threads stride through the shared memory tile. Unlike global memory, there is no penalty for strided access of shared memory.</p>
+</li>
 </ul>
+</li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/blog/using-shared-memory-cuda-cc/">Using Shared Memory in CUDA C/C++</a></p>
+<p>In the <a class="reference external" href="https://developer.nvidia.com/blog/parallelforall/how-access-global-memory-efficiently-cuda-c-kernels/">previous post</a>, I looked at how global memory accesses by a group of threads can be coalesced into a single transaction, and how alignment and stride affect coalescing for various generations of CUDA hardware. For recent versions of CUDA hardware, misaligned data accesses are not a big issue. However, striding through global memory is problematic regardless of the generation of the CUDA hardware, and would seem to be unavoidable in many cases, such as when accessing elements in a multidimensional array along the second and higher dimensions. However, it is possible to coalesce memory access in such cases if we use shared memory.</p>
+<p><strong>Shared Memory</strong></p>
+<p>Because it is on-chip, shared memory is much faster than local and global memory. In fact, shared memory latency is roughly 100x lower than uncached global memory latency(provided that there are no bank conflicts between the threads, which we will examine later in this post).Shared memory is allocated per thread block, so all threads in the block have access to the same shared memory. Threads can access data in shared memory loaded from global memory by other threads within the same thread block. This capability (combined with thread synchronization) has a number of uses, such as user-managed data caches, high-performance cooperative parallel algorithms (parallel reductions, for example), and to facilitate global memory coalescing in cases where it would otherwise not be possible.</p>
+<p><strong>Thread Synchronization</strong></p>
+<p>When sharing data between threads, we need to be careful to avoid race conditions, because while threads in a block run <em>logically</em> in parallel, not all threads can execute <em>physically</em> at the same time.Let’s say that two threads A and B each load a data element from global memory and store it to shared memory. Then, thread A wants to read B’s element from shared memory, and vice versa. Let’s assume that A and B are threads in two different warps. If B has not finished writing its element before A tries to read it, we have a race condition, which can lead to undefined behavior and incorrect results.</p>
+<p>To ensure correct results when parallel threads cooperate, we must synchronize the threads. CUDA provides a simple barrier synchronization primitive, <code class="docutils literal notranslate"><span class="pre">__syncthreads()</span></code>. A thread’s execution can only proceed past a <code class="docutils literal notranslate"><span class="pre">__syncthreads()</span></code> after all threads in its block have executed the <code class="docutils literal notranslate"><span class="pre">__syncthreads()</span></code>. Thus, we can avoid the race condition described above by calling <code class="docutils literal notranslate"><span class="pre">__syncthreads()</span></code> after the store to shared memory and before any threads load from shared memory. It’s important to be aware that calling <code class="docutils literal notranslate"><span class="pre">__syncthreads()</span></code> in divergent code is undefined and can lead to deadlock—all threads within a thread block must call <code class="docutils literal notranslate"><span class="pre">__syncthreads()</span></code> at the same point.</p>
+<p>Dynamic Shared Memory</p>
+<p>The other three kernels in this example use dynamically allocated shared memory, which can be used when the amount of shared memory is not known at compile time. In this case the shared memory allocation size per thread block must be specified (in bytes) using an optional third execution configuration parameter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dynamicReverse</span><span class="o">&lt;&lt;&lt;</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">*</span><span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">&gt;&gt;&gt;</span><span class="p">(</span><span class="n">d_d</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The dynamic shared memory kernel, <code class="docutils literal notranslate"><span class="pre">dynamicReverse()</span></code>, declares the shared memory array using an unsized extern array syntax, <code class="docutils literal notranslate"><span class="pre">extern</span> <span class="pre">**shared**</span> <span class="pre">int</span> <span class="pre">s[]</span></code> (note the empty brackets and use of the extern specifier). The size is implicitly determined from the third execution configuration parameter when the kernel is launched.</p>
+<p>What if you need multiple dynamically sized arrays in a single kernel? You must declare a single <code class="docutils literal notranslate"><span class="pre">extern</span></code> unsized array as before, and use pointers into it to divide it into multiple arrays, as in the following excerpt.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extern</span> <span class="n">__shared__</span> <span class="nb">int</span> <span class="n">s</span><span class="p">[];</span>
+<span class="nb">int</span> <span class="o">*</span><span class="n">integerData</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>                        <span class="o">//</span> <span class="n">nI</span> <span class="n">ints</span>
+<span class="nb">float</span> <span class="o">*</span><span class="n">floatData</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">integerData</span><span class="p">[</span><span class="n">nI</span><span class="p">];</span> <span class="o">//</span> <span class="n">nF</span> <span class="n">floats</span>
+<span class="n">char</span> <span class="o">*</span><span class="n">charData</span> <span class="o">=</span> <span class="p">(</span><span class="n">char</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">floatData</span><span class="p">[</span><span class="n">nF</span><span class="p">];</span>      <span class="o">//</span> <span class="n">nC</span> <span class="n">chars</span>
+</pre></div>
+</div>
+<p>In the kernel launch, specify the total shared memory needed, as in the following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myKernel</span><span class="o">&lt;&lt;&lt;</span><span class="n">gridSize</span><span class="p">,</span> <span class="n">blockSize</span><span class="p">,</span> <span class="n">nI</span><span class="o">*</span><span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">+</span><span class="n">nF</span><span class="o">*</span><span class="n">sizeof</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">+</span><span class="n">nC</span><span class="o">*</span><span class="n">sizeof</span><span class="p">(</span><span class="n">char</span><span class="p">)</span><span class="o">&gt;&gt;&gt;</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Shared memory bank conflicts</p>
+<p>To achieve high memory bandwidth for concurrent accesses, shared memory is divided into equally sized memory modules (banks) that can be accessed simultaneously. Therefore, any memory load or store of <em>n</em> addresses that spans <em>b</em> distinct memory banks can be serviced simultaneously, yielding an effective bandwidth that is <em>b</em> times as high as the bandwidth of a single bank.</p>
+<p>However, if multiple threads’ requested addresses map to the same memory bank, the accesses are serialized. The hardware splits a conflicting memory request into as many separate conflict-free requests as necessary, decreasing the effective bandwidth by a factor equal to the number of colliding memory requests. An exception is the case where all threads in a warp address the same shared memory address, resulting in a broadcast. Devices of compute capability 2.0 and higher have the additional ability to multicast shared memory accesses, meaning that multiple accesses to the same location by any number of threads within a warp are served simultaneously.</p>
+<p>To minimize bank conflicts, it is important to understand how memory addresses map to memory banks. Shared memory banks are organized such that successive 32-bit words are assigned to successive banks and the bandwidth is 32 bits per bank per clock cycle. For devices of compute capability 1.x, the warp size is 32 threads and the number of banks is 16. A shared memory request for a warp is split into one request for the first half of the warp and one request for the second half of the warp. Note that no bank conflict occurs if only one memory location per bank is accessed by a half warp of threads.</p>
+<p>For devices of compute capability 2.0, the warp size is 32 threads and the number of banks is also 32. A shared memory request for a warp is not split as with devices of compute capability 1.x, meaning that bank conflicts can occur between threads in the first half of a warp and threads in the second half of the same warp.</p>
+<p>Devices of compute capability 3.x have configurable bank size, which can be set using <a class="reference external" href="http://docs.nvidia.com/cuda/cuda-runtime-api/index.html#group__CUDART__DEVICE_1g1a4789fb687cc36dccc98f25c96f0cd8">cudaDeviceSetSharedMemConfig</a>() to either four bytes (cudaSharedMemBankSizeFourByte, the default) or eight bytes (<code class="docutils literal notranslate"><span class="pre">cudaSharedMemBankSizeEightByte)</span></code>. Setting the bank size to eight bytes can help avoid shared memory bank conflicts when accessing double precision data.</p>
+<p>Summary</p>
+<p>Shared memory is a powerful feature for writing well optimized CUDA code. Access to shared memory is much faster than global memory access because it is located on chip. Because shared memory is shared by threads in a thread block, it provides a mechanism for threads to cooperate.</p>
+</li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/blog/efficient-matrix-transpose-cuda-cc/">An Efficient Matrix Transpose in CUDA C/C++</a></p></li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/blog/how-query-device-properties-and-handle-errors-cuda-cc/">How to Query Device Properties and Handle Errors in CUDA C/C++</a></p></li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/blog/gpu-pro-tip-cuda-7-streams-simplify-concurrency/">GPU Pro Tip: CUDA 7 Streams Simplify Concurrency</a></p></li>
+<li><p><a class="reference external" href="https://developer.download.nvidia.cn/CUDA/training/StreamsAndConcurrencyWebinar.pdf">CUDA C/C++ Streams and Concurrency</a></p></li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/blog/unified-memory-in-cuda-6/">Unified Memory in CUDA 6</a></p></li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/blog/beyond-gpu-memory-limits-unified-memory-pascal/">Beyond GPU Memory Limits with Unified Memory on Pascal</a></p></li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/blog/cuda-pro-tip-write-flexible-kernels-grid-stride-loops/">CUDA Pro Tip: Write Flexible Kernels with Grid-Stride Loops</a></p></li>
 </div>
 </div>
 
