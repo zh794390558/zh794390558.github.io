@@ -27,7 +27,7 @@ Therefore, procedures like stemming and lemmatization are not useful for Chinese
 
 These “tags” label the part of speech. There are 24 part of speech tags and 4 proper name category labels in the `**jieba**` package’s existing dictionary.
 
-<img src="../images/jieba_tags.png" width=650>
+<img src="../../_static/jieba_tags.png" width=650>
 
 ### Stop Words
 
@@ -163,7 +163,7 @@ LP -> LO -> L1(#1) -> L2(#2) -> L3(#3) -> L4(#4) -> L5 -> L6 -> L7
 
 常用方法使用的是级联CRF，首先预测如果是PW，再继续预测是否是PPH，再预测是否是IPH
 
-<img src="../images/prosody.jpeg" width=450>
+<img src="../../_static/prosody.jpeg" width=450>
 
 论文: 2015 .Ding Et al. - Automatic Prosody Prediction For Chinese Speech Synthesis Using BLSTM-RNN and Embedding Features
 

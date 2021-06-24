@@ -1,4 +1,4 @@
-# Linux
+Linux
 
 ## Tmux
 
@@ -116,36 +116,40 @@ mount 192.168.1.100:/var/nfs /mnt/nfs/var/nfs
 
 ## Nginx
 - file server
-```
-vi /etc/nginx/nginx.conf
-```
 
-```text
-    autoindex on;# 显示目录
-    autoindex_exact_size on;# 显示文件大小
-    autoindex_localtime on;# 显示文件时间
-    server {
-        listen       8011 default_server;
-        server_name  fileserver;
-        root         /home/name;
-        charset      UTF-8;#enable charset HTTP-header
+  ```
+  vi /etc/nginx/nginx.conf
+  ```
 
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
+  ```
+  http{
+  		...
 
-        location / {
-        }  
+  		autoindex on;# 显示目录
+      autoindex_exact_size on;# 显示文件大小
+      autoindex_localtime on;# 显示文件时间
+      server {
+          listen       8011 default_server;
+          server_name  fileserver;
+          root         /home/name;
+          charset      UTF-8;#enable charset HTTP-header
 
-        error_page 404 /404.html;
-            location = /40x.html {
-        }  
+          # Load configuration files for the default server block.
+          include /etc/nginx/default.d/*.conf;
 
-        error_page 500 502 503 504 /50x.html;
-            location = /50x.html {
-        }  
-    }  
-```
+          location / {
+          }  
 
+          error_page 404 /404.html;
+              location = /40x.html {
+          }  
+
+          error_page 500 502 503 504 /50x.html;
+              location = /50x.html {
+          }  
+      }  
+  }
+  ```
 * support play `wav` and read multitype raw file as `text/plain`
 
 ```
@@ -159,4 +163,13 @@ types {
             ...
             text/plain                                                                           txt log csv tsv yaml yml trn;
 }
+```
+
+* start nginx server
+
+```
+nginx -t
+nginx -c /etc/nginx/nginx.conf
+nginx -s reload
+netstat  -nalt  | grep 8022
 ```
