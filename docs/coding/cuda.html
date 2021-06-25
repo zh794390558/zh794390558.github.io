@@ -132,6 +132,7 @@
 <li class="toctree-l1"><a class="reference internal" href="eigen.html#map">原生缓存的接口：Map类</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">CUDA</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#docs">Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#profiling">Profiling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#books">Books</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#blogs">Blogs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#memory-bandwidth">Memory Bandwidth</a></li>
@@ -240,11 +241,40 @@
 <h1>CUDA<a class="headerlink" href="#cuda" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="docs">
 <h2>Docs<a class="headerlink" href="#docs" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
+<ul>
 <li><p><a class="reference external" href="https://docs.nvidia.com/cuda/index.html">CUDA Toolkit Documentation v11.3.1</a></p></li>
+<li><p><a class="reference external" href="https://docs.nvidia.com/cuda/cupti/index.html">CUDA Profiling Tools Interface (CUPTI)</a></p></li>
 <li><p><a class="reference external" href="https://docs.nvidia.com/cuda/profiler-users-guide/index.html#abstract">Profiler User's Guide</a></p></li>
 <li><p><a class="reference external" href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#abstract">CUDA C++ Programming Guide</a></p></li>
-<li><p><a class="reference external" href="https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#abstract">CUDA C++ Best Practices Guide</a></p></li>
+<li><p><a class="reference external" href="https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#abstract">CUDA C++ Best Practices Guide</a></p>
+<p>https://docs.nvidia.com/cuda/pdf/CUDA_C_Best_Practices_Guide.pdf</p>
+</li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/sites/default/files/akamai/cuda/files/Misc/mygpu.pdf">Matrix computations on the GPU CUBLAS, CUSOLVER and MAGMA by example</a></p></li>
+</ul>
+</div>
+<div class="section" id="profiling">
+<h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p><a class="reference external" href="https://docs.nvidia.com/nsight-systems/#nsight-systems">Nsight Systems</a></p>
+<ul class="simple">
+<li><p>Nsight Systems supports CUDA 10.0, 10.1, 10.2, and 11.0 for most platforms</p></li>
+</ul>
+<ul class="simple">
+<li><p>https://www.adityaagrawal.net/blog/dnn/dcgan</p></li>
+<li><p>Download - https://developer.nvidia.com/nsight-systems</p></li>
+<li><p><a class="reference external" href="https://indico.cern.ch/event/962112/contributions/4047370/attachments/2159916/3643963/Nsight%20Systems%20-%20x86%20Introduction%20-%20CERN.pdf">Introduction</a></p></li>
+<li><p><a class="reference external" href="https://docs.nvidia.com/gameworks/content/gameworkslibrary/nvtx/nsight-systems-nvtx-trace.htm">Tracing NVTX Events with NVIDIA Nsight Systems</a></p></li>
+<li><p><a class="reference external" href="https://docs.nvidia.com/gameworks/content/gameworkslibrary/nvtx/nvidia_tools_extension_library_nvtx.htm#gameworkslibrary/nvtx/nvidia_tools_extension_library_nvtx.htm">NVIDIA Tools Extension (NVTX)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://docs.nvidia.com/deeplearning/frameworks/dlprof-user-guide/">NVIDIA Deep Learning Profiler (DLProf)</a></p></li>
+</ul>
+<p>DLProf can help data scientists, engineers, and researchers understand and improve performance of their models by analyzing text reports or visualizing the reports in a web browser with the DLProf Viewer.</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/NVIDIA/PyProf">PyProf - PyTorch Profiling tool</a></p>
+<p>Note that different GPUs will have slightly different kernel names e.g. <code class="docutils literal notranslate"><span class="pre">volta_*</span></code> as opposed to <code class="docutils literal notranslate"><span class="pre">turing_*</span></code>.</p>
+<p>Note that the first convolution layer requires only a weight gradient and not a data gradient.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="books">
@@ -399,6 +429,8 @@
 <li><p><a class="reference external" href="https://developer.nvidia.com/blog/unified-memory-in-cuda-6/">Unified Memory in CUDA 6</a></p></li>
 <li><p><a class="reference external" href="https://developer.nvidia.com/blog/beyond-gpu-memory-limits-unified-memory-pascal/">Beyond GPU Memory Limits with Unified Memory on Pascal</a></p></li>
 <li><p><a class="reference external" href="https://developer.nvidia.com/blog/cuda-pro-tip-write-flexible-kernels-grid-stride-loops/">CUDA Pro Tip: Write Flexible Kernels with Grid-Stride Loops</a></p></li>
+<li><p><a class="reference external" href="https://www.quantstart.com/articles/Matrix-Matrix-Multiplication-on-the-GPU-with-Nvidia-CUDA/">Matrix-Matrix Multiplication on the GPU with Nvidia CUDA</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/analytics-vidhya/matrix-multiplication-in-cuda-a-simple-guide-bab44bc1f8ab">Matrix Multiplication in CUDA — A Simple Guide</a></p></li>
 </div>
 </div>
 

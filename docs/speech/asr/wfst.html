@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Alignment &mdash; zh794390558.github.io 1.0 documentation</title>
+  <title>wfst &mdash; zh794390558.github.io 1.0 documentation</title>
   
 
   
@@ -40,9 +40,7 @@
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="ASR Edit-distance as objective function" href="edit-distance-papers/README.html" />
-    <link rel="prev" title="chinese syllable" href="chinese_syllable.html" /> 
+    <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -92,14 +90,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Hui Zhang</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Speech</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="chinese_syllable.html">chinese syllable</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Alignment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#mfa">MFA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ctc-alignment">CTC Alignment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="alignment.html">Alignment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../decode/decoding.html">Decoding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
@@ -213,13 +206,13 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Alignment</li>
+      <li>wfst</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../_sources/speech/asr/alignment.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/speech/asr/wfst.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -232,70 +225,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="alignment">
-<h1>Alignment<a class="headerlink" href="#alignment" title="Permalink to this headline">¶</a></h1>
-<p>我们首先从建模的角度理解一下对齐。语音识别任务，需要对输入音频序列 X = [x1，x2，x3...，xt...，xT] （通常是 fbank 或 mfcc 等音频特征）和输出的标注数据文本序列 Y = [y1，y2，y3...，yu...，yU] 关系进行建模，其中 X 的长度一般大于 Y 的长度。如果能够知道yu和xt的对应关系，就可以将这类任务变成语音帧级别上的分类任务，即对每个时刻 xt 进行分类得到 yu。</p>
+  <div class="section" id="wfst">
+<h1>wfst<a class="headerlink" href="#wfst" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://eleanorchodroff.com/tutorial/index.html">Corpus Phonetics Tutorial</a></p></li>
+<li><p><a class="reference external" href="#">Speech Recognition Algorithms Using Weighted Finite-State Transducers</a></p></li>
+<li><p><a class="reference external" href="#">SPEECH RECOGNITIONWITHWEIGHTED FINITE-STATE TRANSDUCERS</a></p></li>
+<li><p><a class="reference external" href="https://repository.upenn.edu/cgi/viewcontent.cgi?article=1010&amp;%3Bcontext=cis_papers">Weighted Finite-State Transducers in Speech Recognition</a></p></li>
 </ul>
-<div class="section" id="mfa">
-<h2><a class="reference external" href="https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner">MFA</a><a class="headerlink" href="#mfa" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<thead>
-<tr>
-<th>Feature</th>
-<th>Linux support</th>
-<th>Windows support</th>
-<th>MacOS support</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Alignment</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>G2P</td>
-<td>Yes</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Transcribe</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Train LM</td>
-<td>Yes</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Train dictionary</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-</tbody>
-</table><ul class="simple">
-<li><p><a class="reference external" href="https://montreal-forced-aligner.readthedocs.io/en/latest/index.html">doc</a></p></li>
-<li><p><a class="reference external" href="https://montreal-forced-aligner.readthedocs.io/en/latest/example.html#example-3-train-mandarin-g2p-model">Examples</a></p></li>
-</ul>
-</div>
-<div class="section" id="ctc-alignment">
-<h2>CTC Alignment<a class="headerlink" href="#ctc-alignment" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://mp.weixin.qq.com/s/4aGehNN7PpIvCh03qTT5oA">ctc alignment</a></p></li>
-<li><p><a class="reference external" href="https://mp.weixin.qq.com/s?__biz=MzU2NjUwMTgxOQ==&amp;mid=2247483956&amp;idx=1&amp;sn=80ce595238d84155d50f08c0d52267d3&amp;chksm=fcaacae0cbdd43f62b1da60c8e8671a9e0bb2aeee94f58751839b03a1c45b9a3889b96705080&amp;scene=21#wechat_redirect">时间戳和N-Best</a></p></li>
-</ul>
-</div>
 </div>
 
 
@@ -303,10 +239,6 @@
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="edit-distance-papers/README.html" class="btn btn-neutral float-right" title="ASR Edit-distance as objective function" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="chinese_syllable.html" class="btn btn-neutral float-left" title="chinese syllable" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

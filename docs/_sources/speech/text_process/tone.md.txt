@@ -1,5 +1,7 @@
 # Tone
 
+## [普通话的三声连读变调](https://zhuanlan.zhihu.com/p/70629035)
+
 ## [Chinese Tone Course](https://chinesefor.us/courses/learn-chinese-tones-pinyin-drills-course/#down_course_navigation)
 
 * Guide of Chinese Tone System

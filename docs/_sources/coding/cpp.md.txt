@@ -24,7 +24,7 @@
 * [best](https://github.com/boostorg/beast)
 http, websocket based on asio
 * [crow](https://github.com/zh794390558/crow.git)
-http, https, websoket, based on asio, like flask
+  http, https, websoket, based on asio, like flask
   - https://github.com/mrozigor/crow
 * [evpp](https://github.com/Qihoo360/evpp.git)
 tcp/udp/http, like flask
@@ -37,3 +37,9 @@ http/https/ws
 * https://github.com/lzpong/threadpool
 * https://github.com/ugovaretto/syncqueue.git
 * https://github.com/bangerlee/mempool.git
+
+## ADT
+
+* [Left-Right - A Concurrency Control Technique with Wait-Free Population Oblivious Reads](https://hal.archives-ouvertes.fr/hal-01207881/document)
+
+* [flat_hash_map](https://github.com/skarupke/flat_hash_map)

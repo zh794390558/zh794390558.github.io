@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Regular Expression &mdash; zh794390558.github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> zh794390558.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Hui Zhang</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Speech</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../speech/asr/chinese_syllable.html">chinese syllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/asr/alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/decode/decoding.html">Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/lm/ngram_lm.html">Ngram LM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/tts/README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/tts/speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/text_process/crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/text_process/asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/text_process/tts_text_frontend.html">Text Front End</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/vad/vad.html">VAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/spk/README.html">Speaker Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/io/README.html">Speech I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../speech/io/praat_textgrid.html">Praat and TextGrid</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/training/speech_features.html">Speech Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cpp.html">library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm.html">Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Coding Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aot/python_to_cpp.html">Python code to Cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_algebra.html">线性代数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hpc.html">HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigen.html">Eigen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigen.html#id11">矩阵和向量的运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigen.html#array">Array类和元素级操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigen.html#id27">块操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigen.html#id32">高级初始化方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigen.html#id37">归约、迭代器和广播</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigen.html#map">原生缓存的接口：Map类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda.html">CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simd.html">SIMD</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/tfrt.html">TFRT: A New TensorFlow Runtime </a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/deltann_compile.html">Tensorflow compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/model_optimization.html">Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/linux.html">Tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/linux.html#file-encoding">File Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/linux.html#ubuntu-gcc-update">Ubuntu GCC Update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/linux.html#centos-7-gcc-update">CentOS 7 gcc update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/linux.html#nfs-mount">NFS Mount</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/linux.html#nginx">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/ffmpeg.html">FFPMEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/tools.html">Useful Tools</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dataset</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dataset.html">Dataset</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">zh794390558.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Regular Expression</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/coding/re.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="regular-expression">
+<h1>Regular Expression<a class="headerlink" href="#regular-expression" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="regular-expression-matcher">
+<h2>Regular Expression Matcher<a class="headerlink" href="#regular-expression-matcher" title="Permalink to this headline">¶</a></h2>
+<p>All regular expression engines use FSAs—either <a class="reference external" href="http://github.com/google/re2">explicitly</a> or <a class="reference external" href="http://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html">implicitly</a>—for matching.</p>
+<ul>
+<li><p>How to get superior text processing in Python with Pynini</p>
+<p>Regular expressions are the standard for string processing, but did you know you can often get better text untangling with Pynini's finite-state transducers?</p>
+<p>https://www.oreilly.com/content/how-to-get-superior-text-processing-in-python-with-pynini/</p>
+</li>
+<li><p>https://github.com/google/re2</p></li>
+<li><p><a class="reference external" href="https://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html">A Regular Expression Matcher</a></p></li>
+</ul>
+<div class="section" id="from-state-machines-to-regular-expressions">
+<h3>From state machines to regular expressions<a class="headerlink" href="#from-state-machines-to-regular-expressions" title="Permalink to this headline">¶</a></h3>
+<p>A regular expression matcher can also be thought of as a state machine. Consider the regular expression <code class="docutils literal notranslate"><span class="pre">/ba+/</span></code>, which matches <code class="docutils literal notranslate"><span class="pre">ba</span></code>, <code class="docutils literal notranslate"><span class="pre">baa</span></code>, <code class="docutils literal notranslate"><span class="pre">baaa</span></code>, and so on. It is described by the following state machine:</p>
+<p><img alt="img" src="https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/figure_2-5b73569aad86ae00c17c02e745bb21e7.png" />Figure 2. A state machine for “matching” the regular expression <code class="docutils literal notranslate"><span class="pre">/ba+/</span></code>; the thick circle on the 0 state indicates the start state, and the double circle on the 2 state indicates the final state. Image credit: Kyle Gorman</p>
+<p>We say that a string matches the regular expression if and only if it corresponds to a <em>path</em> through the corresponding state machine. To define a path, we must first define the following properties:</p>
+<ul class="simple">
+<li><p>At least one state must be designated as a <em>start</em> state (indicated in the diagram with a thick border)</p></li>
+<li><p>At least one state must be designated as a <em>final</em> state (indicated in the diagram with a double border)</p></li>
+<li><p>Each transition must be associated with a <em>label</em>, here a character like b (indicated in the diagram by labels along the arrows)</p></li>
+</ul>
+<p>Then, a path through the state machine is a set of transitions beginning at a start state and ending at a final state. By concatenating the transition labels, we also obtain the matched string. For instance, if the string is <code class="docutils literal notranslate"><span class="pre">baa</span></code>, then we take the following transitions:</p>
+<ul class="simple">
+<li><p>State 0 to state 1 with label b</p></li>
+<li><p>State 1 to state 2 with label a</p></li>
+<li><p>State 2 to state 2 with label a</p></li>
+</ul>
+<p>Since 0 is a start state and 2 is a final state, this string is a match for the regular expression. However, <code class="docutils literal notranslate"><span class="pre">b</span></code> does not correspond to a valid path because the path would terminate at state 1, which is not a final state; and, <code class="docutils literal notranslate"><span class="pre">moo</span></code> does not correspond to a valid path simply because there is no transition labeled <code class="docutils literal notranslate"><span class="pre">m</span></code> or <code class="docutils literal notranslate"><span class="pre">o</span></code>.</p>
+<p>This type of state machine is known as a <em>finite-state acceptor</em> (or FSA) because it has a finite number of states and it either “accepts” (matches) or “rejects” a string. And all regular expression engines use FSAs—either <a class="reference external" href="http://github.com/google/re2">explicitly</a> or <a class="reference external" href="http://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html">implicitly</a>—for matching.</p>
+</div>
+<div class="section" id="from-regular-expressions-to-finite-state-transducers">
+<h3>From regular expressions to finite-state transducers<a class="headerlink" href="#from-regular-expressions-to-finite-state-transducers" title="Permalink to this headline">¶</a></h3>
+<p><em>Finite-state transducers</em> (FSTs) are a generalization of FSAs, where each transition is associated with a pair of labels. Then each pair forms part of not one string but two, an input string and an output string. As a result, transducers model relations between pairs of strings. FSAs can be thought of as a special case in which every transition has the same input and output label.</p>
+<p>Thanks to decades of computer science research, there are many efficient algorithms for compiling, combining, optimizing, and searching FSTs, much of this developed for speech recognition, but here we show how FSTs are simple and efficient tools for annotating, and generating natural language.</p>
+<div class="section" id="application-1-string-tagging">
+<h4>Application 1: String tagging<a class="headerlink" href="#application-1-string-tagging" title="Permalink to this headline">¶</a></h4>
+<p>Imagine that we have a collection of texts and we wish to place XML-style tags around any mention of a various types of fine cheese. So, for instance, given a string like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">input_string</span> <span class="o">=</span> <span class="s2">&quot;Do you have Camembert or Edam?&quot;</span>
+</pre></div>
+</div>
+<p>and a list of fine cheeses,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cheeses</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Boursin&quot;</span><span class="p">,</span> <span class="s2">&quot;Camembert&quot;</span><span class="p">,</span> <span class="s2">&quot;Cheddar&quot;</span><span class="p">,</span> <span class="s2">&quot;Edam&quot;</span><span class="p">,</span> <span class="s2">&quot;Gruyere&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;Ilchester&quot;</span><span class="p">,</span> <span class="s2">&quot;Jarlsberg&quot;</span><span class="p">,</span> <span class="s2">&quot;Red Leicester&quot;</span><span class="p">,</span> <span class="s2">&quot;Stilton&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>we would produce</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output_string</span> <span class="o">=</span> <span class="s2">&quot;Do you have &lt;cheese&gt;Camembert&lt;/cheese&gt; or &lt;cheese&gt;Edam&lt;/cheese&gt;&quot;</span>
+</pre></div>
+</div>
+<p>Now, we could simply compile this list directly into a regular expression using Python’s re library:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re_target</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">cheeses</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>However, the resulting regular expression will have an unpleasant property—<em>non-determinism</em>—leading to inefficient matching. As a result, the <code class="docutils literal notranslate"><span class="pre">re</span></code> module (and many other regular expression engines) is forced to fall back to a “back-tracking” strategy with <a class="reference external" href="http://stackstatus.net/post/147710624694/outage-postmortem-july-20-2016">catastrophic worst-case behavior</a>.</p>
+</div>
+</div>
+<div class="section" id="fsa-for-efficient-matching-vs-regular-expressions">
+<h3>FSA for efficient matching vs. regular expressions<a class="headerlink" href="#fsa-for-efficient-matching-vs-regular-expressions" title="Permalink to this headline">¶</a></h3>
+<p>However, it is easy to construct a deterministic FSA using <a class="reference external" href="http://pynini.opengrm.org/">Pynini</a>, one of several open-source finite-state transducer libraries developed at Google.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fst_target</span> <span class="o">=</span> <span class="n">pynini</span><span class="o">.</span><span class="n">string_map</span><span class="p">(</span><span class="n">cheeses</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function constructs an FSA with a <em>prefix tree</em> (or <a class="reference external" href="http://en.wikipedia.org/wiki/Trie">trie</a>) topology, guaranteeing that the resulting FSA will be deterministic.</p>
+<p>Now, how do we use this object to insert brackets? With Python’s <code class="docutils literal notranslate"><span class="pre">re</span></code> objects, we have several options, including a single pass of string substitution with <code class="docutils literal notranslate"><span class="pre">re.sub</span></code> and a back-reference. With our deterministic FSA <code class="docutils literal notranslate"><span class="pre">fst_target</span></code>, the simplest solution is to create an FST which represents the substitution as a string-to-string rewrite relation, as follows. First, we construct transducers which insert the left and right tags; i.e., they literally map from the empty string to the tag.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ltag</span> <span class="o">=</span> <span class="n">pynini</span><span class="o">.</span><span class="n">transducer</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;cheese&gt;&quot;</span><span class="p">)</span>
+<span class="n">rtag</span> <span class="o">=</span> <span class="n">pynini</span><span class="o">.</span><span class="n">transducer</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;/cheese&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We then build the substitution transducer by concatenating these transducers to the left and right of the deterministic FSA we are trying to match (note that + is overloaded to perform FST concatenation).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">substitution</span> <span class="o">=</span> <span class="n">ltag</span> <span class="o">+</span> <span class="n">fst_target</span> <span class="o">+</span> <span class="n">rtag</span>
+</pre></div>
+</div>
+<p>Now, this transducer represents the tag insertion relation itself. But as written, we cannot apply it to arbitrary strings, for it does not match any part of a string which is not part of a cheese name. To complete the task, we need an FST which passes through any part of a string which does not match. For this we use <code class="docutils literal notranslate"><span class="pre">cdrewrite</span></code> (short for “context-dependent rewrite”). This function takes (minimally) four arguments:</p>
+<ol class="simple">
+<li><p>The substitution transducer,</p></li>
+<li><p>A left context for the substitution (cf. lookbehind assertions),</p></li>
+<li><p>A right context for the substitution (cf. lookahead assertions), and</p></li>
+<li><p>an FSA representing the alphabet of characters we expect to find in the input</p></li>
+</ol>
+<p>We have already constructed (1), and as there are no restrictions on where the context rule applies, we provide empty strings for (2–3). For (4), we use all valid bytes—except the null byte <code class="docutils literal notranslate"><span class="pre">\0</span></code> —and escape the reserved characters <code class="docutils literal notranslate"><span class="pre">[</span></code>, <code class="docutils literal notranslate"><span class="pre">\</span></code>, and <code class="docutils literal notranslate"><span class="pre">]</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chars</span> <span class="o">=</span> <span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">91</span><span class="p">)]</span> <span class="o">+</span>
+         <span class="p">[</span><span class="s2">&quot;\[&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;\]&quot;</span><span class="p">]</span> <span class="o">+</span>
+         <span class="p">[</span><span class="nb">chr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">94</span><span class="p">,</span> <span class="mi">256</span><span class="p">)])</span>
+<span class="n">sigma_star</span> <span class="o">=</span> <span class="n">pynini</span><span class="o">.</span><span class="n">string_map</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span><span class="o">.</span><span class="n">closure</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Finally, we construct the tagger transducer itself.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rewrite</span> <span class="o">=</span> <span class="n">pynini</span><span class="o">.</span><span class="n">cdrewrite</span><span class="p">(</span><span class="n">substitution</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">sigma_star</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then, all that remains is to apply this to a string. The simplest way to do so is to <em>compose</em> a string and the rewrite transducer, then convert the resulting path back into a string.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">pynini</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">input_string</span><span class="p">,</span> <span class="n">rewrite</span><span class="p">)</span><span class="o">.</span><span class="n">stringify</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="application-2-plural-rules">
+<h4>Application 2: Plural rules<a class="headerlink" href="#application-2-plural-rules" title="Permalink to this headline">¶</a></h4>
+<p>Consider an application where one is generating text such as, “The current temperature in New York is 25 degrees”. Typically one would do this from a template such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">current</span> <span class="n">temperature</span> <span class="ow">in</span> <span class="n">__</span> <span class="ow">is</span> <span class="n">__</span> <span class="n">degrees</span>
+</pre></div>
+</div>
+<p>This works fine if one fills in the first blank with the name of a location and the second blank with a number. But what if it’s really cold in New York and the thermometer shows 1° (Fahrenheit)? One does <strong>not</strong> want this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">current</span> <span class="n">temperature</span> <span class="ow">in</span> <span class="n">New</span> <span class="n">York</span> <span class="ow">is</span> <span class="mi">1</span> <span class="n">degrees</span>
+</pre></div>
+</div>
+<p>So one needs to have rules that know how to <em>inflect</em> the unit appropriately given the context. The Unicode Consortium has some <a class="reference external" href="http://www.unicode.org/cldr/charts/29/supplemental/language_plural_rules.html">guidelines</a> for this; they primarily specify how many “plural” forms different languages have and in which circumstances one uses each. From a linguistic point of view the specifications are sometimes nonsensical, but they are widely used and are useful for adding support for new languages.</p>
+<p>For handling degrees, we can assume that the default is the plural form, in which case we must <em>singularize</em> the plural form in certain contexts. For the word <em>degrees</em> and many other cases, it’s just a matter of stripping off the final <em>s</em>, but for a word ending in <em>-ches</em> (such as <em>inches</em>) one would want to strip off the <em>es</em>, and for <em>feet</em> and <em>pence</em> the necessary changes are irregular (<em>foot</em>, <em>penny</em>).</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Hui Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
