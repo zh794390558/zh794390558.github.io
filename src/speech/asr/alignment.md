@@ -2,9 +2,20 @@
 
 我们首先从建模的角度理解一下对齐。语音识别任务，需要对输入音频序列 X = [x1，x2，x3...，xt...，xT] （通常是 fbank 或 mfcc 等音频特征）和输出的标注数据文本序列 Y = [y1，y2，y3...，yu...，yU] 关系进行建模，其中 X 的长度一般大于 Y 的长度。如果能够知道yu和xt的对应关系，就可以将这类任务变成语音帧级别上的分类任务，即对每个时刻 xt 进行分类得到 yu。
 
-## MFA
+* [Corpus Phonetics Tutorial](https://eleanorchodroff.com/tutorial/index.html)
 
+## [MFA](https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner)
 
+| Feature          | Linux support | Windows support | MacOS support |
+| ---------------- | ------------- | --------------- | ------------- |
+| Alignment        | Yes           | Yes             | Yes           |
+| G2P              | Yes           | No              | Yes           |
+| Transcribe       | Yes           | Yes             | Yes           |
+| Train LM         | Yes           | No              | Yes           |
+| Train dictionary | Yes           | Yes             | Yes           |
+
+* [doc](https://montreal-forced-aligner.readthedocs.io/en/latest/index.html)
+* [Examples](https://montreal-forced-aligner.readthedocs.io/en/latest/example.html#example-3-train-mandarin-g2p-model)
 
 
 

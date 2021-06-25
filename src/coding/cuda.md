@@ -3,9 +3,40 @@
 ## Docs
 
 * [CUDA Toolkit Documentation v11.3.1](https://docs.nvidia.com/cuda/index.html)
+
+* [CUDA Profiling Tools Interface (CUPTI)](https://docs.nvidia.com/cuda/cupti/index.html)
+
 * [Profiler User's Guide](https://docs.nvidia.com/cuda/profiler-users-guide/index.html#abstract)
+
 * [CUDA C++ Programming Guide](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#abstract)
+
 * [CUDA C++ Best Practices Guide](https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#abstract)
+
+  https://docs.nvidia.com/cuda/pdf/CUDA_C_Best_Practices_Guide.pdf
+
+* [Matrix computations on the GPU CUBLAS, CUSOLVER and MAGMA by example](https://developer.nvidia.com/sites/default/files/akamai/cuda/files/Misc/mygpu.pdf)
+
+## Profiling
+
+* [Nsight Systems](https://docs.nvidia.com/nsight-systems/#nsight-systems)
+
+  - Nsight Systems supports CUDA 10.0, 10.1, 10.2, and 11.0 for most platforms
+
+  * https://www.adityaagrawal.net/blog/dnn/dcgan
+  * Download - https://developer.nvidia.com/nsight-systems
+  * [Introduction](https://indico.cern.ch/event/962112/contributions/4047370/attachments/2159916/3643963/Nsight%20Systems%20-%20x86%20Introduction%20-%20CERN.pdf)
+  * [Tracing NVTX Events with NVIDIA Nsight Systems](https://docs.nvidia.com/gameworks/content/gameworkslibrary/nvtx/nsight-systems-nvtx-trace.htm)
+  * [NVIDIA Tools Extension (NVTX)](https://docs.nvidia.com/gameworks/content/gameworkslibrary/nvtx/nvidia_tools_extension_library_nvtx.htm#gameworkslibrary/nvtx/nvidia_tools_extension_library_nvtx.htm)
+
+*  [NVIDIA Deep Learning Profiler (DLProf)](https://docs.nvidia.com/deeplearning/frameworks/dlprof-user-guide/)
+
+  DLProf can help data scientists, engineers, and researchers understand and improve performance of their models by analyzing text reports or visualizing the reports in a web browser with the DLProf Viewer.
+
+* [PyProf - PyTorch Profiling tool](https://github.com/NVIDIA/PyProf)
+
+  Note that different GPUs will have slightly different kernel names e.g. `volta_*` as opposed to `turing_*`.
+
+  Note that the first convolution layer requires only a weight gradient and not a data gradient.
 
 ## Books
 
@@ -220,6 +251,13 @@
 * [GPU Pro Tip: CUDA 7 Streams Simplify Concurrency](https://developer.nvidia.com/blog/gpu-pro-tip-cuda-7-streams-simplify-concurrency/)
 
 * [CUDA C/C++ Streams and Concurrency](https://developer.download.nvidia.cn/CUDA/training/StreamsAndConcurrencyWebinar.pdf)
+
 * [Unified Memory in CUDA 6](https://developer.nvidia.com/blog/unified-memory-in-cuda-6/)
+
 * [Beyond GPU Memory Limits with Unified Memory on Pascal](https://developer.nvidia.com/blog/beyond-gpu-memory-limits-unified-memory-pascal/)
+
 * [CUDA Pro Tip: Write Flexible Kernels with Grid-Stride Loops](https://developer.nvidia.com/blog/cuda-pro-tip-write-flexible-kernels-grid-stride-loops/)
+
+* [Matrix-Matrix Multiplication on the GPU with Nvidia CUDA](https://www.quantstart.com/articles/Matrix-Matrix-Multiplication-on-the-GPU-with-Nvidia-CUDA/)
+
+* [Matrix Multiplication in CUDA — A Simple Guide](https://medium.com/analytics-vidhya/matrix-multiplication-in-cuda-a-simple-guide-bab44bc1f8ab)
