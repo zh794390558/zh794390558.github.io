@@ -14,6 +14,12 @@
 
   **Tatoeba is a collection of sentences and translations.** It's collaborative, open, free and even addictive. An open data initiative aimed at translation and speech recognition.
 
+* [academictorrents](https://academictorrents.com/)
+
+  We've designed a distributed system for sharing enormous datasets - for researchers, by researchers. The result is a scalable, secure, and fault-tolerant repository for data, with blazing fast download speeds.
+
+* [语料库语言学在线](https://www.corpus4u.org/)
+
 ### TTS
 
 | Corpus   | Length                | LANG | URL                                                          |
@@ -29,9 +35,29 @@
 
   MuST-C is a multilingual speech translation corpus whose size and quality facilitates the training of end-to-end systems for speech translation from English into several languages. For each target language, MuST-C comprises several hundred hours of audio recordings from English [TED Talks](https://www.ted.com/talks), which are automatically aligned at the sentence level with their manual transcriptions and translations.
 
-### ASR Noise
+### ASR
 
 * [asr-noises](https://github.com/speechio/asr-noises)
+
+* https://blog.ailemon.net/2018/11/21/free-open-source-chinese-speech-datasets/
+
+* https://zhuanlan.zhihu.com/p/267372288
+
+* https://github.com/coqui-ai/open-speech-corpora
+
+* OpenSLR: http://www.openslr.org/resources.php
+
+* https://www.cnblogs.com/yanqiang/p/13535371.html
+
+*  http://shujujishi.com/dataset/9d81bd0d-7afa-4301-9984-221a1033a02a.html
+
+  https://academictorrents.com/docs/downloading.html
+
+  https://academictorrents.com/details/34e2b78745138186976cbc27939b1b34d18bd5b3
+
+* 数据集市 http://shujujishi.com/dataset.html?orderby=TIME&category=15
+
+* FMA https://academictorrents.com/details/dba20c45d4d6fa6453a4e99d2f8a4817893cfb94
 
 
 

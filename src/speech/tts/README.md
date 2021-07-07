@@ -1,6 +1,10 @@
 # TTS
 
+* https://github.com/tts-tutorial/survey
+* http://simple4all.org/
+
 ## Text-to-Spectrum
+
 [Char2Wav]()
 [Tacotron](https://arxiv.org/abs/1703.10135)
 [Tacotron2](https://arxiv.org/abs/1712.05884)

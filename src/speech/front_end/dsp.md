@@ -2,6 +2,7 @@
 
 * **https://wiki.aalto.fi/display/ITSP/Introduction+to+Speech+Processing**
 * [nnAudio : An on-the-fly GPU Audio to Spectrogram Conversion Toolbox Using 1D Convolutional Neural Networks](https://arxiv.org/abs/1912.12055)
+* https://www.fon.hum.uva.nl/praat/manual/Types_of_objects.html
 
 # [Basic representations and models](https://wiki.aalto.fi/display/ITSP/Basic+representations+and+models)
 
@@ -73,12 +74,12 @@ https://en.wikipedia.org/wiki/Mel_scale
   ) -> Tensor:
       r"""Create a DCT transformation matrix with shape (``n_mels``, ``n_mfcc``),
       normalized depending on norm.
-
+  
       Args:
           n_mfcc (int): Number of mfc coefficients to retain
           n_mels (int): Number of mel filterbanks
           norm (str or None): Norm to use (either 'ortho' or None)
-
+  
       Returns:
           Tensor: The transformation matrix, to be right-multiplied to
           row-wise data of size (``n_mels``, ``n_mfcc``).
@@ -102,14 +103,26 @@ https://en.wikipedia.org/wiki/Mel_scale
 
 
 
-## Neural Network-based Audio processing
+### 13. LPC
 
-### nnAudio
+* https://en.wikipedia.org/wiki/Linear_predictive_coding
 
-* https://github.com/KinWaiCheuk/nnAudio
-* https://arxiv.org/abs/1912.12055
-* https://kinwaicheuk.github.io/nnAudio/index.html
 
-## Torch FFT
 
-* https://github.com/locuslab/pytorch_fft
+### 14. Source-Filter Model
+
+* https://en.wikipedia.org/wiki/Source%E2%80%93filter_model
+
+
+
+### 15. [Jitter, Shimmer and HNR (Harmonic to Noise Ratio)](https://pdf.sciencedirectassets.com/282073/1-s2.0-S2212017313X00040/1-s2.0-S2212017313002788/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFsaCXVzLWVhc3QtMSJGMEQCIA4n44zjZeFTKMt6DXEKQSb4%2Fhn2OXuACgn5tBG9VcfgAiB3NsTVBaV9rUd9Ncg2CJzgoGiBTGRUQW%2Bw1Dkg%2FK0t2yr6AwhEEAQaDDA1OTAwMzU0Njg2NSIMXHuKA3Z2Ro8wGA9jKtcDWFqX9MbPzjzYP%2F70iWLc9nc4XZXqV8euIIps1BptfU%2FuumNgifJX1uDBpVG5BdzkPeoGkzALRsamp7udB39nwtV4%2BgzinVqg3AaKH4MrzTd38UOFicPO9OAgSgUqT13qDjYBmeO02LfOyn97st%2F7ZI7ywBFOW1s8dOs8nh1n0DN4fGu5dbqQXW0prWa6ATa9pkLoIZOqzRAx7XouFy1m%2BVvCjFjPjbSVXzlzAlYSEFNPLoWq4YJ4eck%2FeDvQwXIGumxRHiw7OXdw7JJ5%2FnoIP0HfqU8NDAY3Auw8U0c8CJF4icWf7ok3rb5hB9ZuskmopBXiq%2BJ1aI%2F3d6gG3%2B92DLbq%2FnluF1vCQAgq%2BZA8lx8AdO7n3VEZt3JMWJ4s9CeyYOJmziq45JjEoDAJsaqKItgnX8gIm3DxaRfjr2C3lP8jLlzLRWUKv%2FPjp4iIDWR546AZKSxzDBcuPHc5eW8%2Fw5IRwKMALE9%2BgvIa%2FlRklM%2BygXbl9r286W9OUz0GNzuqymb3QnBFuYTN%2Fr3UW0cjrdjLZgdXZXnFOnT7nv8zuWPAWxPD7W4236WgGioaEqYl8lxM3dkkx6mh4Lex2y9dAFnQdztCYfWpVIZ5jqQ3m5twKLdMrT11MLXukIcGOqYBlDmVthxgKe4s3WfIL4obgC6sV87aRkOabaZit8pbtJD3M0v6654GtAfNqPCWsisqFni3ts2U%2FSdRB0yz8mU7V%2FCzoObSeXG81hTxKTdVzf%2BrCO0sq2mWYwvjXPE7eqDOMPsOSMQHHwE%2FvnEfjfBO8J1qPLu7YM3CItgjWxq%2BlROxJxF7%2FUdh3Lqmrp%2B0OzUXBTgR%2Ban114dRkud8YQEuYPUhaBC8vw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20210706T115200Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTY7HFIMI5B%2F20210706%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=af8287d985eae940605a85d8f3f90e9f4da55ba9b7e97fc5bbb5fd31f5885bdf&hash=1f560f1fdb057e026247519b09f10a8cb4b08c69f300f2e98ca78ce01653cfc4&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S2212017313002788&tid=spdf-5f2ea002-69f1-40f1-b243-68cf45f9c6d6&sid=b85a4ad11928754d041a52a30babec8bb271gxrqa&type=client)
+
+* https://www.fon.hum.uva.nl/praat/manual/Harmonicity.html
+
+  
+
+### 16. SNR
+
+* https://en.m.wikipedia.org/wiki/Signal-to-noise_ratio
+* https://gist.github.com/johnmeade/d8d2c67b87cda95cd253f55c21387e75
+* https://www.ee.columbia.edu/~dpwe/LabROSA/projects/snreval/
