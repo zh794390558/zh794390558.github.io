@@ -25,6 +25,30 @@ enca -L zh_CN -x UTF-8 < file1 > file2 如果不想覆盖原文件可以这样
 
 * https://www.linuxidc.com/Linux/2019-04/158258.htm
 
+* ubuntu 16.04
+
+  ```shell
+  sudo apt-get install -y software-properties-common
+  
+  # fix python vertion to `#!/usr/bin/python3.5`
+  vi /usr/bin/add-apt-repository
+  vi /usr/bin/lsb_release
+  
+  sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+  sudo apt update
+  sudo apt install g++-7 gcc-7 g++-8 gcc-8 -y
+  
+  
+  sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70
+  sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 70
+  sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 80
+  sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 80
+  
+  sudo update-alternatives --config gcc
+  ```
+
+  https://gist.github.com/jlblancoc/99521194aba975286c80f93e47966dc5
+
 ## CentOS 7 gcc update
 
 * https://linuxize.com/post/how-to-install-gcc-compiler-on-centos-7/
@@ -124,7 +148,7 @@ mount 192.168.1.100:/var/nfs /mnt/nfs/var/nfs
   ```
   http{
   		...
-
+  
   		autoindex on;# 显示目录
       autoindex_exact_size on;# 显示文件大小
       autoindex_localtime on;# 显示文件时间
@@ -133,17 +157,17 @@ mount 192.168.1.100:/var/nfs /mnt/nfs/var/nfs
           server_name  fileserver;
           root         /home/name;
           charset      UTF-8;#enable charset HTTP-header
-
+  
           # Load configuration files for the default server block.
           include /etc/nginx/default.d/*.conf;
-
+  
           location / {
           }  
-
+  
           error_page 404 /404.html;
               location = /40x.html {
           }  
-
+  
           error_page 500 502 503 504 /50x.html;
               location = /50x.html {
           }  

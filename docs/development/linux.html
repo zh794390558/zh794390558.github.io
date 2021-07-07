@@ -258,8 +258,30 @@ enca -L zh_CN -x UTF-8 &lt; file1 &gt; file2 如果不想覆盖原文件可以�
 </div>
 <div class="section" id="ubuntu-gcc-update">
 <h1>Ubuntu GCC Update<a class="headerlink" href="#ubuntu-gcc-update" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
+<ul>
 <li><p>https://www.linuxidc.com/Linux/2019-04/158258.htm</p></li>
+<li><p>ubuntu 16.04</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y software-properties-common
+
+<span class="c1"># fix python vertion to `#!/usr/bin/python3.5`</span>
+vi /usr/bin/add-apt-repository
+vi /usr/bin/lsb_release
+
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update
+sudo apt install g++-7 gcc-7 g++-8 gcc-8 -y
+
+
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 <span class="m">70</span>
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 <span class="m">70</span>
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 <span class="m">80</span>
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 <span class="m">80</span>
+
+sudo update-alternatives --config gcc
+</pre></div>
+</div>
+<p>https://gist.github.com/jlblancoc/99521194aba975286c80f93e47966dc5</p>
+</li>
 </ul>
 </div>
 <div class="section" id="centos-7-gcc-update">

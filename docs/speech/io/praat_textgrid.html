@@ -115,9 +115,15 @@
 <li class="toctree-l3"><a class="reference internal" href="#id1">TextGrid文件结构</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">安装</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tobi-to-annotate-speech-prosody">ToBI to annotate speech prosody</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#annotation-of-tones">Annotation of tones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#annotation-of-breaks">Annotation of breaks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">reference</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -239,9 +245,15 @@
             
   <div class="section" id="praat-and-textgrid">
 <h1>Praat and TextGrid<a class="headerlink" href="#praat-and-textgrid" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
+<ul>
 <li><p><a class="reference external" href="https://www.fon.hum.uva.nl/praat/"><strong>Praat: doing phonetics by computer</strong></a></p></li>
 <li><p><a class="reference external" href="https://github.com/kylebgorman/textgrid">TextGrid</a></p></li>
+<li><p><a class="reference external" href="https://github.com/feelins/Praat_Scripts">Praat_Scripts</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/shaopengfei">语音处理小站</a></p></li>
+<li><p><a class="reference external" href="https://github.com/monikaUPF/PyToBI">ToBI</a></p>
+<p>A Toolkit for ToBI Labeling with Python Data Structures</p>
+<p>https://github.com/monikaUPF/PyToBI/blob/master/dominguez2019_publication.pdf</p>
+</li>
 </ul>
 <div class="section" id="praat">
 <h2>Praat<a class="headerlink" href="#praat" title="Permalink to this headline">¶</a></h2>
@@ -450,13 +462,49 @@ MLF('xxx.mlf')
 </li>
 </ol>
 </div>
-</div>
 <div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>https://zh.wikipedia.org/wiki/Praat%E8%AF%AD%E9%9F%B3%E5%AD%A6%E8%BD%AF%E4%BB%B6</p></li>
 <li><p>https://blog.csdn.net/duxin_csdn/article/details/88966295</p></li>
 </ul>
+</div>
+</div>
+<div class="section" id="tobi-to-annotate-speech-prosody">
+<h2>ToBI to annotate speech prosody<a class="headerlink" href="#tobi-to-annotate-speech-prosody" title="Permalink to this headline">¶</a></h2>
+<p>PyToBI is introduced as a user-friendly toolkit for the automatic annotation of intonation contours using the Tones and Breaks Indexes convention, known as ToBI.</p>
+<p><img alt="ToBI" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/tobi.png" /></p>
+<p>Praat needs to be installed locally in the PyToBI folder to perform the second step of the processing pipeline. The latest version of Praat can be downloaded from the original website http://www.fon.hum.uva.nl/praat/ . PyToBI includes a bash file to call Praat and four Praat scripts included in the toolkit. These scripts perform different processes under Praat, namely:</p>
+<ol class="simple">
+<li><p>Annotation of silences and intensity peaks.</p></li>
+<li><p>Annotation of intensity valleys.</p></li>
+<li><p>Word and phone export and annotation of prosodic parameters as features.</p></li>
+</ol>
+<p>The next step of the pipeline is fully run in Python. The following functionalities are provided:</p>
+<ol class="simple">
+<li><p>Python data structures created from TextGrid input.</p></li>
+<li><p>Annotation of tones.</p></li>
+<li><p>Annotation of breaks.</p></li>
+<li><p>Conversion of the output structure to TextGrid format.</p></li>
+</ol>
+<div class="section" id="annotation-of-tones">
+<h3>Annotation of tones<a class="headerlink" href="#annotation-of-tones" title="Permalink to this headline">¶</a></h3>
+<p><img alt="tobi_tone" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/tobi_tone.png" /></p>
+</div>
+<div class="section" id="annotation-of-breaks">
+<h3>Annotation of breaks<a class="headerlink" href="#annotation-of-breaks" title="Permalink to this headline">¶</a></h3>
+<p>PyToBI detects breaks3 from 1 to 4 and, in case a break type 3 or 4 is detected, the corresponding boundary tone is labeled in the tone tier. Phonemic information is used in this module to detect whether the last phoneme belongs to the subgroup of either fricatives or unvoiced consonants. Such information is relevant for the detection of breaks of type 2.</p>
+<p><a class="reference external" href="../text_process/tts_text_frontend#Prosody">Prosody(韵律预测)</a></p>
+</div>
+<div class="section" id="id4">
+<h3>reference<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>http://sprosig.org/sp2002/pdf/aijun.pdf</p></li>
+<li><p>https://www.researchgate.net/publication/221484679_Duration_modeling_for_Chinese_synthesis_from_C-toBI_labeled_corpus/link/54d499750cf25013d0299868/download</p></li>
+<li><p>https://www.corpus4u.org/threads/384/</p></li>
+<li><p>https://wenku.baidu.com/view/d3d03e7685868762caaedd3383c4bb4cf6ecb7f9.html?re=view</p></li>
+</ul>
+</div>
 </div>
 </div>
 

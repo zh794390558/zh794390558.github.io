@@ -141,7 +141,9 @@ e/叹词 o/拟声词 g/语素 w/标点 x/其它
 
 
 
-## Prosody(韵律预测)
+## Prosody
+
+(韵律预测) 
 
 ToBI(an abbreviation of tones and break indices) is a set of conventions for transcribing and annotating the prosody of speech. 中文主要关注break。
 

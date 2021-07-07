@@ -120,7 +120,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#part-of-speech">Part of Speech(词性预测)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#g2p">G2P(注音)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#prosody">Prosody(韵律预测)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prosody">Prosody</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#polyphone">Polyphone(多音字)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#linguistic-features">Linguistic Features(语言学特征)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">基于神经网络的前端文本分析模型</a></li>
@@ -368,7 +368,8 @@ stopwords([&quot;zh&quot;])  # Chinese
 </ul>
 </div>
 <div class="section" id="prosody">
-<h2>Prosody(韵律预测)<a class="headerlink" href="#prosody" title="Permalink to this headline">¶</a></h2>
+<h2>Prosody<a class="headerlink" href="#prosody" title="Permalink to this headline">¶</a></h2>
+<p>(韵律预测)</p>
 <p>ToBI(an abbreviation of tones and break indices) is a set of conventions for transcribing and annotating the prosody of speech. 中文主要关注break。</p>
 <p>韵律等级结构:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">音素</span> <span class="o">-&gt;</span> <span class="n">音节</span> <span class="o">-&gt;</span> <span class="n">韵律词</span><span class="p">(</span><span class="n">Prosody</span> <span class="n">Word</span><span class="p">,</span> <span class="n">PW</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">韵律短语</span><span class="p">(</span><span class="n">prosody</span> <span class="n">phrase</span><span class="p">,</span> <span class="n">PPH</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">语调短句</span><span class="p">(</span><span class="n">intonational</span> <span class="n">phrase</span><span class="p">,</span> <span class="n">IPH</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">子句子</span> <span class="o">-&gt;</span> <span class="n">主句子</span> <span class="o">-&gt;</span> <span class="n">段落</span> <span class="o">-&gt;</span> <span class="n">篇章</span>  

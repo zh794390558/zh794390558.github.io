@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>OpenGrm Libraries &mdash; zh794390558.github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> zh794390558.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Hui Zhang</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Speech</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../asr/chinese_syllable.html">chinese syllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decoding.html">Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text_process/crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text_process/asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text_process/tts_text_frontend.html">Text Front End</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vad/vad.html">VAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/README.html">Speech I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/praat_textgrid.html">Praat and TextGrid</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/training/speech_features.html">Speech Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cpp.html">library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/algorithm.html">Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/tutorials.html">Coding Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/aot/python_to_cpp.html">Python code to Cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/linear_algebra.html">线性代数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/hpc.html">HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html">Eigen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id11">矩阵和向量的运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#array">Array类和元素级操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id27">块操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id32">高级初始化方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id37">归约、迭代器和广播</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#map">原生缓存的接口：Map类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cuda.html">CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/simd.html">SIMD</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tfrt.html">TFRT: A New TensorFlow Runtime </a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/deltann_compile.html">Tensorflow compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/model_optimization.html">Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html">Tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#file-encoding">File Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#ubuntu-gcc-update">Ubuntu GCC Update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#centos-7-gcc-update">CentOS 7 gcc update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#nfs-mount">NFS Mount</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#nginx">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/ffmpeg.html">FFPMEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tools.html">Useful Tools</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dataset</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataset.html">Dataset</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">zh794390558.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>OpenGrm Libraries</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/speech/decode/opengrm.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="opengrm-libraries">
+<h1>OpenGrm Libraries<a class="headerlink" href="#opengrm-libraries" title="Permalink to this headline">¶</a></h1>
+<p><em>OpenGrm</em> is a collection of open-source libraries for constructing, combining, applying and searching formal grammars and related representations including:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.openfst.org/twiki/bin/view/GRM/NGramLibrary">NGram Library</a>: makes and modifies n-gram language models encoded as weighted finite-state transducers (FSTs),</p></li>
+<li><p><a class="reference external" href="http://www.openfst.org/twiki/bin/view/GRM/Thrax">Thrax Grammar Compiler</a>: compiles grammars expressed as regular expressions and context-dependent rewrite rules into weighted finite-state transducers.</p></li>
+<li><p><a class="reference external" href="http://www.openfst.org/twiki/bin/view/GRM/Pynini">Pynini Grammar Compiler</a>: compiles Thrax-like grammars from within Python.</p></li>
+<li><p><a class="reference external" href="http://www.openfst.org/twiki/bin/view/GRM/SFstLibrary">SFst Library</a>: operations to normalize, sample, combine, and approximate <em>stochastic</em> finite-state transducers.</p></li>
+<li><p><a class="reference external" href="http://www.openfst.org/twiki/bin/view/GRM/BaumWelch">Baum-Welch Library</a>: performs Baum-Welch and Viterbi training on weighted transducers.</p></li>
+</ul>
+<p>These libraries use the <a class="reference external" href="http://www.openfst.org/">OpenFst library</a> for their underlying finite-state models.</p>
+<div class="section" id="ngram">
+<h2>NGram<a class="headerlink" href="#ngram" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>OpenGrm NGram Library Quick Tour</th>
+<th>http://www.openfst.org/twiki/bin/view/GRM/NGramQuickTour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NGram Model Format</td>
+<td>http://www.openfst.org/twiki/bin/view/GRM/NGramModelFormat</td>
+</tr>
+</tbody>
+</table><div class="section" id="available-operations">
+<h3>Available Operations<a class="headerlink" href="#available-operations" title="Permalink to this headline">¶</a></h3>
+<p>Click on operation name for additional information.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramQuickTour?sortcol=0;table=1;up=0#sorted_table">Operation</a></th>
+<th><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramQuickTour?sortcol=1;table=1;up=0#sorted_table">Usage</a></th>
+<th><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramQuickTour?sortcol=2;table=1;up=0#sorted_table">Description</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramApply">NGramApply</a></td>
+<td>ngramapply [--bo_arc_type] ngram.fst [in.far [out.far]]</td>
+<td>Intersect n-gram model with fst archive</td>
+</tr>
+<tr>
+<td><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramCount">NGramCount</a></td>
+<td>ngramcount [--order] [in.far [out.fst]]</td>
+<td>count n-grams from fst archive</td>
+</tr>
+<tr>
+<td></td>
+<td>NGramCounter(order);</td>
+<td>--- n-gram counter</td>
+</tr>
+<tr>
+<td><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramInfo">NGramInfo</a></td>
+<td>ngraminfo [in.mod]</td>
+<td>print various information about an n-gram model</td>
+</tr>
+<tr>
+<td><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramMake">NGramMake</a></td>
+<td>ngrammake [--method] [--backoff] [--bins] [--witten_bell_k] [--discount_D] [in.fst [out.fst]]</td>
+<td>n-gram model smoothing and normalization</td>
+</tr>
+<tr>
+<td></td>
+<td>NGramAbsolute(&amp;CountFst);</td>
+<td>--- Absolute Discount smoothing</td>
+</tr>
+<tr>
+<td></td>
+<td>NGramKatz(&amp;CountFst);</td>
+<td>--- Katz smoothing</td>
+</tr>
+<tr>
+<td></td>
+<td>NGramKneserNey(&amp;CountFst);</td>
+<td>--- Kneser Ney smoothing</td>
+</tr>
+<tr>
+<td></td>
+<td>NGramUnsmoothed(&amp;CountFst);</td>
+<td>--- no smoothing</td>
+</tr>
+<tr>
+<td></td>
+<td>NGramWittenBell(&amp;CountFst);</td>
+<td>--- Witten-Bell smoothing</td>
+</tr>
+<tr>
+<td><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramMarginal">NGramMarginal</a></td>
+<td>ngrammarginalize [--iterations] [--max_bo_updates] [--output_each_iteration] [--steady_state_file] [in.mod [out.mod]]</td>
+<td>impose marginalization constraints on input model</td>
+</tr>
+<tr>
+<td></td>
+<td>NGramMarginal(&amp;M);</td>
+<td>--- n-gram marginalization constraint class</td>
+</tr>
+<tr>
+<td><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramMerge">NGramMerge</a></td>
+<td>ngrammerge [--alpha] [--beta] [--use_smoothing] [--normalize] in1.fst in2.fst [out.fst]</td>
+<td>merge two count or model FSTs</td>
+</tr>
+<tr>
+<td></td>
+<td>NGramMerge(&amp;M1, &amp;M2, alpha, beta);</td>
+<td>--- n-gram merge class</td>
+</tr>
+<tr>
+<td><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramPerplexity">NGramPerplexity</a></td>
+<td>ngramperplexity [--OOV_symbol] [--OOV_class_size] [--OOV_probability] ngram.fst [in.far [out.txt]]</td>
+<td>calculate perplexity of input corpus from model</td>
+</tr>
+<tr>
+<td><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramPrint">NGramPrint</a></td>
+<td>ngramprint [--ARPA] [--backoff] [--integers] [--negativelogs] [in.fst [out.txt]]</td>
+<td>print n-gram model to text file</td>
+</tr>
+<tr>
+<td><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramRandGen">NGramRandgen</a></td>
+<td>ngramrandgen [--max_sents] [--max_length] [--seed] [in.mod [out.far]]</td>
+<td>randomly sample sentences from an n-gram model</td>
+</tr>
+<tr>
+<td><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramRead">NGramRead</a></td>
+<td>ngramread [--ARPA] [--epsilon_symbol] [--OOV_symbol] [in.txt [out.fst]]</td>
+<td>read n-gram counts or model from file</td>
+</tr>
+<tr>
+<td><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramShrink">NGramShrink</a></td>
+<td>ngramshrink [--method=count,relative_entropy,seymore] [-count_pattern] [-theta] [in.mod [out.mod]]</td>
+<td>n-gram model pruning</td>
+</tr>
+<tr>
+<td></td>
+<td>NGramCountPrune(&amp;M, count_pattern);</td>
+<td>--- count-based model pruning</td>
+</tr>
+<tr>
+<td></td>
+<td>NGramRelativeEntropy(&amp;M, theta);</td>
+<td>--- relative-entropy-based model pruning</td>
+</tr>
+<tr>
+<td></td>
+<td>NGramSeymoreShrink(&amp;M, theta);</td>
+<td>--- Seymore/Rosenfeld-based model pruning</td>
+</tr>
+<tr>
+<td><a href="http://www.openfst.org/twiki/bin/view/GRM/NGramSymbols">NGramSymbols</a></td>
+<td>ngramsymbols [--epsilon_symbol] [--OOV_symbol] [in.txt [out.txt]]</td>
+<td>create symbol table from corpus</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="convenience-script">
+<h3>Convenience Script<a class="headerlink" href="#convenience-script" title="Permalink to this headline">¶</a></h3>
+<p>The shell script <code class="docutils literal notranslate"><span class="pre">ngramdisttrain.sh</span></code> is provided to run some common OpenGrm NGram pipelines of commands and to provide some rudimentary <a class="reference external" href="http://www.openfst.org/twiki/bin/view/GRM/NGramAdvancedUsage#DistributedComputation">distributed computation support</a>. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ngramdisttrain.sh --itype=text_sents --otype=pruned_lm --ifile=in.txt --ofile=lm.fst --symbols=in.syms --order=5 --smooth_method=katz --shrink_method=relative_entropy --theta=.00015
+</pre></div>
+</div>
+<p>will read a text corpus in the format accepted by <code class="docutils literal notranslate"><span class="pre">farcompilestrings</span></code> and output a backoff 5-gram LM pruned with a relative entropy threshold of .00015. See <code class="docutils literal notranslate"><span class="pre">ngramdisttrain.sh</span> <span class="pre">--help</span></code> for available options and values and see <a class="reference external" href="http://www.openfst.org/twiki/bin/view/GRM/NGramAdvancedUsage#DistributedComputation">here</a> for a discussion of the distributed computation support.</p>
+</div>
+<div class="section" id="distributed-computation">
+<h3>Distributed Computation<a class="headerlink" href="#distributed-computation" title="Permalink to this headline">¶</a></h3>
+<p>The C++ operations in OpenGrm offer extensive distributed computation support. N-gram counting can readily be parallelized by <em>sharding</em> the data and producing a <a class="reference external" href="http://www.openfst.org/twiki/bin/view/GRM/NGramCount">count FST</a> <em>Md</em> for each data shard <em>d</em>. These can then be <a class="reference external" href="http://www.openfst.org/twiki/bin/view/GRM/NGramMerge">count-merged</a> to produce a single count FST. Alternatively and with more parallelism, each <em>Md</em> can be further split by <em>context</em> <em>c</em>, which restricts each sub-model <em>Md,c</em> to a specific range of n-grams. The <em>Md,c</em> in the same context <em>c</em> can then be count-merged to produce one model <em>Mc</em> for each context. The <em>Mc</em> are constructed to be in proper <a class="reference external" href="http://www.openfst.org/twiki/bin/view/GRM/NGramModelFormat">n-gram model format</a> and so can be processed in parallel by the estimation and pruning operations and then the pruned model components can be <a class="reference external" href="http://www.openfst.org/twiki/bin/view/GRM/NGramMerge">model-merged</a> into a single model at the end of this pipeline.</p>
+<p>We have implemented a complete distributed version of OpenGrm NGram in <a class="reference external" href="http://dl.acm.org/citation.cfm?id=1806638">C++ Flume<img alt="img" src="http://www.openfst.org/twiki/pub/TWiki/TWikiDocGraphics/external-link.gif" /></a>, however this system is currently not released. Instead, we provide here some added functionality to our convenience script, <a class="reference external" href="http://www.openfst.org/twiki/bin/view/GRM/NGramQuickTour#ConvenienceScript">ngramdisttrain.sh</a>. While this does not perform parallel computation, it can construct a pruned model as described above using data and context sharding. This allows processing corpora that would otherwise exceed available memory provided adequate disk space (under <code class="docutils literal notranslate"><span class="pre">$TMPDIR</span></code>) and computation time are provided. The script also could serve as a starting point for a fully distributed implementation by parallelizing the calls internal to the script, which should linearly speed up the pipeline with the degree of parallelism. An implementation that didn't use the file system for all data sharing/transfer like <code class="docutils literal notranslate"><span class="pre">ngram.sh</span></code> would also help greatly.</p>
+<p>Multiple data shards are supported by specifying multiple input files to <code class="docutils literal notranslate"><span class="pre">ngramdisttrain.sh</span></code> with <code class="docutils literal notranslate"><span class="pre">--ifile=&quot;in.txt[0-9]&quot;</span></code>. Multiple contexts are supported by specifying a context file with <code class="docutils literal notranslate"><span class="pre">--contexts=context.txt</span></code>. The best way to create a context file with, say, ten contexts balanced in size is with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ngramcontext</span> <span class="o">--</span><span class="n">context</span><span class="o">=</span><span class="mi">10</span> <span class="n">lm</span><span class="o">.</span><span class="n">fst</span> <span class="n">context</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">lm.fst</span></code> is a n-gram LM that was built on a sample of the corpus (e..g, small enough to build unshared). Note you must provide a context file (even if it only has one context) if you want to use data sharding. If you wish the shared context models to be merged when the pipeline finishes, you should provide the <code class="docutils literal notranslate"><span class="pre">--merge_contexts</span></code> flag, otherwise the component models will be returned.</p>
+</div>
+</div>
+<div class="section" id="pynini">
+<h2>Pynini<a class="headerlink" href="#pynini" title="Permalink to this headline">¶</a></h2>
+<p><em>OpenGrm</em> <em>Pynini</em>, like <a class="reference external" href="http://www.openfst.org/twiki/bin/view/GRM/Thrax">Thrax</a>, compiles grammars expressed as strings, regular expressions, and context-dependent rewrite rules into weighted finite-state transducers. It uses the <a class="reference external" href="http://www.openfst.org/">OpenFst library</a> and its <a class="reference external" href="http://www.python.openfst.org/">Python extension<img alt="img" src="http://www.openfst.org/twiki/pub/TWiki/TWikiDocGraphics/external-link.gif" /></a> to create, access and manipulate compiled grammars. Pynini is embedded in a <a class="reference external" href="https://www.python.org/">Python<img alt="img" src="http://www.openfst.org/twiki/pub/TWiki/TWikiDocGraphics/external-link.gif" /></a> module, allowing users to write Thrax-like grammars using Python's flexible syntax (including imperative programming constructs not available in Thrax) and powerful toolchain, including an <a class="reference external" href="http://ipython.org/">interactive development<img alt="img" src="http://www.openfst.org/twiki/pub/TWiki/TWikiDocGraphics/external-link.gif" /></a> (&quot;REPL&quot;) environment.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>How to get superior text processing in Python with Pynini</th>
+<th>https://www.oreilly.com/content/how-to-get-superior-text-processing-in-python-with-pynini/</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>paper</td>
+<td>https://aclanthology.org/W16-2409.pdf</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="baum-welch">
+<h2>Baum-Welch<a class="headerlink" href="#baum-welch" title="Permalink to this headline">¶</a></h2>
+<p><em>OpenGrm</em> <em>Baum-Welch</em> is a C++ library (including associated binaries) which allows the user to estimate the parameters of a discrete hidden Markov model (HMM) using the Baum-Welch algorithm (a special case of the expectation maximization meta-algorithm). It uses <a class="reference external" href="http://www.openfst.org/">OpenFst library</a> finite-state transducers (FSTs) and FST archives (FARs) as inputs and outputs</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Hui Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>wfst &mdash; zh794390558.github.io 1.0 documentation</title>
+  <title>TTS Engine &mdash; zh794390558.github.io 1.0 documentation</title>
   
 
   
@@ -91,15 +91,15 @@
 </ul>
 <p class="caption"><span class="caption-text">Speech</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="chinese_syllable.html">chinese syllable</a></li>
-<li class="toctree-l1"><a class="reference internal" href="alignment.html">Alignment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/chinese_syllable.html">chinese syllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../decode/decoding.html">Decoding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/speech_synthesis.html">Speech Synthesis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TTS-papers/README.html">TTS papers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../text_process/crf.html">CRF(Conditional Random Fields)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../text_process/asr_text_backend.html">ASR Text Backend</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../text_process/tts_text_frontend.html">Text Front End</a></li>
@@ -206,13 +206,13 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>wfst</li>
+      <li>TTS Engine</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../_sources/speech/asr/wfst.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/speech/tts/engine.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -225,12 +225,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="wfst">
-<h1>wfst<a class="headerlink" href="#wfst" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="#">Speech Recognition Algorithms Using Weighted Finite-State Transducers</a></p></li>
-<li><p><a class="reference external" href="#">SPEECH RECOGNITIONWITHWEIGHTED FINITE-STATE TRANSDUCERS</a></p></li>
-<li><p><a class="reference external" href="https://repository.upenn.edu/cgi/viewcontent.cgi?article=1010&amp;%3Bcontext=cis_papers">Weighted Finite-State Transducers in Speech Recognition</a></p></li>
+  <div class="section" id="tts-engine">
+<h1>TTS Engine<a class="headerlink" href="#tts-engine" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p><a class="reference external" href="https://github.com/thuhcsi/Crystal">Crystal</a></p>
+<p>C++ implementation of Crystal Text-to-Speech (TTS) engine.</p>
+<p>The Crystal TTS engine provides an implementation of a unified framework for multilingual TTS synthesis engine – Crystal. The unified framework defines the common TTS modules for different languages and/or dialects. The interfaces between consecutive modules conform to Speech Synthesis Markup Language (SSML) specification for standardization, in-teroperability, multilinguality, and extensibility.</p>
+<p><img alt="crystal_tts_engine" src="https://github.com/thuhcsi/Crystal/raw/master/document/docs/architecture.svg" /></p>
+<p><img alt="crystal_tts_framework" src="https://github.com/thuhcsi/Crystal/blob/master/document/docs/interface.png" /></p>
+</li>
+<li><p><a class="reference external" href="https://github.com/google/sparrowhawk">Sparrowhawk</a> is an open-source implementation of Google's Kestrel text-to-speech
+text normalization system.</p></li>
 </ul>
 </div>
 

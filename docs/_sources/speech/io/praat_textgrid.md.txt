@@ -1,7 +1,18 @@
 # Praat and TextGrid
 
 * [**Praat: doing phonetics by computer**](https://www.fon.hum.uva.nl/praat/)
+
 * [TextGrid](https://github.com/kylebgorman/textgrid)
+
+* [Praat_Scripts](https://github.com/feelins/Praat_Scripts)
+
+* [语音处理小站](https://blog.csdn.net/shaopengfei)
+
+* [ToBI](https://github.com/monikaUPF/PyToBI)
+
+  A Toolkit for ToBI Labeling with Python Data Structures
+
+  https://github.com/monikaUPF/PyToBI/blob/master/dominguez2019_publication.pdf
 
 ## Praat
 
@@ -84,7 +95,7 @@ pip3 install textgrid
            Interval(1361.89250, 1362.01250, R),
            Interval(1362.01250, 1362.13250, AY1),
            Interval(1362.13250, 1362.16250, T),
-
+   
    ...
            ]
        )
@@ -250,7 +261,46 @@ pip3 install textgrid
 
 
 
-## Reference
+### Reference
 
 * https://zh.wikipedia.org/wiki/Praat%E8%AF%AD%E9%9F%B3%E5%AD%A6%E8%BD%AF%E4%BB%B6
 * https://blog.csdn.net/duxin_csdn/article/details/88966295
+
+
+
+## ToBI to annotate speech prosody
+
+PyToBI is introduced as a user-friendly toolkit for the automatic annotation of intonation contours using the Tones and Breaks Indexes convention, known as ToBI.
+
+![ToBI](/Users/zhanghui41/workspace/zh794390558.github.io/src/_static/tobi.png)
+
+Praat needs to be installed locally in the PyToBI folder to perform the second step of the processing pipeline. The latest version of Praat can be downloaded from the original website http://www.fon.hum.uva.nl/praat/ . PyToBI includes a bash file to call Praat and four Praat scripts included in the toolkit. These scripts perform different processes under Praat, namely: 
+
+1. Annotation of silences and intensity peaks. 
+2.  Annotation of intensity valleys. 
+3.  Word and phone export and annotation of prosodic parameters as features. 
+
+The next step of the pipeline is fully run in Python. The following functionalities are provided: 
+
+1. Python data structures created from TextGrid input. 
+2. Annotation of tones. 
+3. Annotation of breaks. 
+4. Conversion of the output structure to TextGrid format.
+
+### Annotation of tones
+
+![tobi_tone](/Users/zhanghui41/workspace/zh794390558.github.io/src/_static/tobi_tone.png)
+
+### Annotation of breaks
+
+PyToBI detects breaks3 from 1 to 4 and, in case a break type 3 or 4 is detected, the corresponding boundary tone is labeled in the tone tier. Phonemic information is used in this module to detect whether the last phoneme belongs to the subgroup of either fricatives or unvoiced consonants. Such information is relevant for the detection of breaks of type 2.
+
+[Prosody(韵律预测)](../text_process/tts_text_frontend#Prosody)
+
+### reference
+
+* http://sprosig.org/sp2002/pdf/aijun.pdf
+* https://www.researchgate.net/publication/221484679_Duration_modeling_for_Chinese_synthesis_from_C-toBI_labeled_corpus/link/54d499750cf25013d0299868/download
+* https://www.corpus4u.org/threads/384/
+* https://wenku.baidu.com/view/d3d03e7685868762caaedd3383c4bb4cf6ecb7f9.html?re=view
+

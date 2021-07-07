@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Decoding &mdash; zh794390558.github.io 1.0 documentation</title>
+  <title>wfst &mdash; zh794390558.github.io 1.0 documentation</title>
   
 
   
@@ -40,9 +40,7 @@
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="语言模型评价指标Perplexity" href="../lm/ppl.html" />
-    <link rel="prev" title="ASR Edit-distance as objective function" href="../asr/edit-distance-papers/README.html" /> 
+    <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -92,15 +90,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Hui Zhang</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Speech</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../asr/chinese_syllable.html">chinese syllable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../asr/alignment.html">Alignment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Decoding</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ctc-beam-search">CTC Beam Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="decoding.html">Decoding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
@@ -212,13 +206,13 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Decoding</li>
+      <li>wfst</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../_sources/speech/decode/decoding.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/speech/decode/wfst.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -231,24 +225,88 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="decoding">
-<h1>Decoding<a class="headerlink" href="#decoding" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="wfst">
+<h1>wfst<a class="headerlink" href="#wfst" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="papers">
+<h2>Papers<a class="headerlink" href="#papers" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>https://sujayskumar.com/2018/12/19/asr-part4/</p></li>
-</ul>
-<div class="section" id="ctc-beam-search">
-<h2>CTC Beam Search<a class="headerlink" href="#ctc-beam-search" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://towardsdatascience.com/word-beam-search-a-ctc-decoding-algorithm-b051d28f3d2e"><strong>Word Beam Search: A CTC Decoding Algorithm</strong></a></p></li>
-<li><p><a class="reference external" href="https://towardsdatascience.com/beam-search-decoding-in-ctc-trained-neural-networks-5a889a3d85a7"><strong>Beam Search Decoding in CTC-trained Neural Networks</strong></a></p></li>
+<li><p><a class="reference external" href="#">Speech Recognition Algorithms Using Weighted Finite-State Transducers</a></p></li>
+<li><p><a class="reference external" href="#">SPEECH RECOGNITIONWITHWEIGHTED FINITE-STATE TRANSDUCERS</a></p></li>
+<li><p><a class="reference external" href="http://www.openfst.org/twiki/pub/FST/FstBackground/csl01.pdf">Weighted Finite-State Transducers in Speech Recognition</a></p></li>
+<li><p><a class="reference external" href="http://www.openfst.org/twiki/bin/view/FST/FstSltTutorial">SLT 2010 Tutorial</a></p></li>
+<li><p><a class="reference external" href="http://www.openfst.org/twiki/bin/view/FST/FstHltTutorial">OpenFst Tutorial</a></p></li>
 </ul>
 </div>
-<div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="blogs">
+<h2>Blogs<a class="headerlink" href="#blogs" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://mp.weixin.qq.com/s?__biz=MzU2NjUwMTgxOQ==&amp;mid=2247483956&amp;idx=1&amp;sn=80ce595238d84155d50f08c0d52267d3&amp;chksm=fcaacae0cbdd43f62b1da60c8e8671a9e0bb2aeee94f58751839b03a1c45b9a3889b96705080&amp;scene=21#wechat_redirect">时间戳和N-Best</a></p></li>
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Viterbi_algorithm">Viterbi algorithm</a></p></li>
-<li><p><a class="reference external" href="https://www.zhihu.com/question/20136144">如何通俗地讲解 viterbi 算法</a></p></li>
+<li><p>https://robin1001.github.io/2019/07/23/fst/</p></li>
+<li><p>https://zhuanlan.zhihu.com/p/210975288</p></li>
+<li><p>http://www5.informatik.uni-erlangen.de/Forschung/Publikationen/2016/Horndasch16-HTA-talk.pdf</p></li>
+<li><p>https://arxiv.org/pdf/1909.00556v1.pdf</p></li>
+<li><p>https://arxiv.org/pdf/1812.02142.pdf</p></li>
+<li><p>https://arxiv.org/pdf/1910.10670v1.pdf</p></li>
+<li><p>http://www.interspeech2020.org/uploadfile/pdf/Thu-2-8-3.pdf</p></li>
+</ul>
+</div>
+<div class="section" id="tools">
+<h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>python wrapper</td>
+<td>https://github.com/jpuigcerver/openfst-python.git</td>
+</tr>
+<tr>
+<td>python wrapper</td>
+<td>https://github.com/beer-asr/pywrapfst</td>
+</tr>
+<tr>
+<td>ASR TLG graph</td>
+<td>https://github.com/athena-team/athena-decoder.git</td>
+</tr>
+<tr>
+<td>Openfst</td>
+<td>http://www.openfst.org/twiki/bin/view/FST/WebHome</td>
+</tr>
+<tr>
+<td>OpenFst Python extension</td>
+<td>http://www.openfst.org/twiki/bin/view/FST/PythonExtension</td>
+</tr>
+<tr>
+<td>OpenFst Background Material</td>
+<td>http://www.openfst.org/twiki/bin/view/FST/FstBackground</td>
+</tr>
+<tr>
+<td>OpenFst Extensions</td>
+<td>http://www.openfst.org/twiki/bin/view/FST/FstExtensions</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">openfst</span><span class="o">=</span>openfst-1.8.1
+<span class="nb">test</span> -e <span class="si">${</span><span class="nv">openfst</span><span class="si">}</span>.tar.gz <span class="o">||</span> wget http://www.openfst.org/twiki/pub/FST/FstDownload/<span class="si">${</span><span class="nv">openfst</span><span class="si">}</span>.tar.gz
+<span class="nb">test</span> -d <span class="si">${</span><span class="nv">openfst</span><span class="si">}</span> <span class="o">||</span> tar -xvf <span class="si">${</span><span class="nv">openfst</span><span class="si">}</span>.tar.gz <span class="o">&amp;&amp;</span> chown -R root:root <span class="si">${</span><span class="nv">openfst</span><span class="si">}</span>
+
+mkdir -p output
+<span class="nb">pushd</span> <span class="si">${</span><span class="nv">openfst</span><span class="si">}</span> <span class="o">&amp;&amp;</span> ./configure --enable-static --enable-compact-fsts  --enable-compress   --enable-const-fsts   --enable-far    --enable-linear-fsts   --enable-lookahead-fsts  --enable-mpdt  --enable-ngram-fsts   --enable-pdt    --enable-python   --enable-special  --enable-bin  --enable-grm --prefix <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/output <span class="o">&amp;&amp;</span> <span class="nb">popd</span>
+
+<span class="nb">pushd</span> <span class="si">${</span><span class="nv">openfst</span><span class="si">}</span> <span class="o">&amp;&amp;</span> make -j <span class="o">&amp;&amp;</span>  make install <span class="o">&amp;&amp;</span> <span class="nb">popd</span>
+cp output/pywrapfst.* <span class="k">$(</span>python3 -c <span class="s1">&#39;import sysconfig; print(sysconfig.get_paths()[&quot;purelib&quot;])&#39;</span><span class="k">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="demos">
+<h2># Demos<a class="headerlink" href="#demos" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>https://ysk24ok.github.io/2020/11/23/passing_pywrapfst_objects_to_cpp_using_cython.html</p></li>
 </ul>
 </div>
 </div>
@@ -258,10 +316,6 @@
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../lm/ppl.html" class="btn btn-neutral float-right" title="语言模型评价指标Perplexity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../asr/edit-distance-papers/README.html" class="btn btn-neutral float-left" title="ASR Edit-distance as objective function" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 
