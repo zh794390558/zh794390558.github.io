@@ -20,4 +20,3 @@
 <img src="https://pythonawesome.com/content/images/2021/06/model_1-1.png" alt="wavegrad2-1" style="zoom:30%;" />
 
 <img src="https://pythonawesome.com/content/images/2021/06/model_2.png" alt="wavgrad2-2" style="zoom:30%;" />
-

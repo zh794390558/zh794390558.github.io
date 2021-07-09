@@ -29,7 +29,7 @@ A CRF-based prosodic boundary prediction approach was used as baseline and bound
    ```
    Tokens: 那些 庄稼 田园 在 果果 眼里 感觉 太 亲切 了 ！
    POS: r n nr p n s n d a ul x
-   Tags: #1 #1 #2 #1 #1 #2 #1 #0 #0 #4 #0 
+   Tags: #1 #1 #2 #1 #1 #2 #1 #0 #0 #4 #0
    ```
 
 3. Extracting features
@@ -69,7 +69,7 @@ A CRF-based prosodic boundary prediction approach was used as baseline and bound
 
    输入单个词的特征，输出词的韵律标记（#0，#1，#2，#3，#4）
 
-   模型使用随机森林：RandomForestClassifier 
+   模型使用随机森林：RandomForestClassifier
 
    **X** **{array-like, sparse matrix} of shape (n_samples, n_features)**
 
@@ -81,7 +81,7 @@ A CRF-based prosodic boundary prediction approach was used as baseline and bound
 
    输入词序列特征，输出词序列韵律标记
 
-   模型使用随机森林：RandomForestClassifier 
+   模型使用随机森林：RandomForestClassifier
 
    先训练好基于词的RandomForestClassifier，之后再用CRF在词序列 RandomForestClassifier.predict_proba的结果score作为emit score上做finetune。
 
@@ -93,7 +93,7 @@ A CRF-based prosodic boundary prediction approach was used as baseline and bound
 
 ![img](/Users/zhanghui41/workspace/zh794390558.github.io/src/_static/blstm-prosody.png)
 
-To model the tag dependency and infer the tag sequence glob- ally, given a set of tags G = {B,NB, O}, a transition score 
+To model the tag dependency and infer the tag sequence glob- ally, given a set of tags G = {B,NB, O}, a transition score
 
 ![img](/Users/zhanghui41/workspace/zh794390558.github.io/src/_static/crf-loss.png)
 
@@ -105,4 +105,3 @@ In the experiments, PW, PPH and IPH were predicted separately. That is to say, t
 
 * https://prosodylab.cs.mcgill.ca/lab/
 * AUTOMATIC PROSODY PREDICTION FOR CHINESE SPEECH SYNTHESIS USING BLSTM-RNN AND EMBEDDING FEATURES
-

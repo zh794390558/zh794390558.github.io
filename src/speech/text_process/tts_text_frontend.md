@@ -147,7 +147,7 @@ e/叹词 o/拟声词 g/语素 w/标点 x/其它
 
 ## Prosody
 
-(韵律预测) 
+(韵律预测)
 
 ToBI(an abbreviation of tones and break indices) is a set of conventions for transcribing and annotating the prosody of speech. 中文主要关注break。
 
@@ -243,4 +243,3 @@ TN: 基于规则的方法
 * [Beginner’s Guide to Sentiment Analysis for Simplified Chinese using SnowNLP](https://towardsdatascience.com/beginners-guide-to-sentiment-analysis-for-simplified-chinese-using-snownlp-ce88a8407efb)
 * https://www.cnblogs.com/mengnan/p/13200062.html
 * Unified Mandarin TTS Front-end Based on Distilled BERT Model
-

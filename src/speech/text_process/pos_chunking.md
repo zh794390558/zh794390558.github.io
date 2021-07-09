@@ -41,7 +41,7 @@ There are different techniques for POS Tagging:
 
 **Probabilistic Methods —** This method assigns the POS tags based on the probability of a particular tag sequence occurring. Conditional Random Fields (CRFs) and Hidden Markov Models (HMMs) are probabilistic approaches to assign a POS Tag.
 
-**Deep Learning Methods —** Recurrent Neural Networks can also be used for POS tagging. 
+**Deep Learning Methods —** Recurrent Neural Networks can also be used for POS tagging.
 
 ## **What is Chunking (shallow parsing) ?**
 
@@ -85,4 +85,3 @@ Simple Regular Expression Based NP Chunker : nltk.org
 * https://en.wikipedia.org/wiki/Part_of_speech
 * [**NLP: POS (Part of speech) Tagging & Chunking**](https://suneelpatel-in.medium.com/nlp-pos-part-of-speech-tagging-chunking-f72178cc7385)
 * [Learning POS Tagging & Chunking in NLP](https://medium.com/greyatom/learning-pos-tagging-chunking-in-nlp-85f7f811a8cb)
-

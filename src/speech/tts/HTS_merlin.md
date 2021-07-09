@@ -6,7 +6,7 @@
 
 * [HTS](http://hts.sp.nitech.ac.jp/)
 
-* [indicTTS](https://www.iitm.ac.in/donlab/tts/synthDocs.php) 
+* [indicTTS](https://www.iitm.ac.in/donlab/tts/synthDocs.php)
 
   The documentation contains major steps for building a HTS voice (version 2.2), namely, Hybrid Segmentation for segmenting speech into accurate phonetic units, Pruning for improving the quality of segmentation, HTS voice building and HTS with STRAIGHT vocoder voice building steps. The TBT toolkit covers all steps required to build TTS from start to end. It also provides the synthesis framework. "HTS 2.3 Synthesis Using a Built Voice Model" details how to synthesize Indian language text using an already built HTS 2.3 voice model.
 
@@ -45,4 +45,3 @@
   [MTTS Merlin/Mandarin Text-to-Speech Document](https://mtts.readthedocs.io/zh_CN/latest/)
 
   https://github.com/Jackiexiao/MTTS
-

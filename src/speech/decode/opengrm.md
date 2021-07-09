@@ -95,4 +95,3 @@ where `lm.fst` is a n-gram LM that was built on a sample of the corpus (e..g, sm
 ## Baum-Welch
 
 *OpenGrm* *Baum-Welch* is a C++ library (including associated binaries) which allows the user to estimate the parameters of a discrete hidden Markov model (HMM) using the Baum-Welch algorithm (a special case of the expectation maximization meta-algorithm). It uses [OpenFst library](http://www.openfst.org/) finite-state transducers (FSTs) and FST archives (FARs) as inputs and outputs
-
