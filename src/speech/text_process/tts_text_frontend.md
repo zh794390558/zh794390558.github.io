@@ -1,5 +1,9 @@
 # Text Front End
 
+```
+TN->CWS->POS->G2P->Prosody
+```
+
 
 
 ## Text Segmentation
@@ -211,7 +215,32 @@ TN: 基于规则的方法
 
 
 
+## 常用词
+
+文本正则化(Text Normalization, TN)
+
+非标准词(Non-Standard Words, NSW)
+
+话语词(Spoken-Form Words, SFW)
+
+中文分词(Chinese Word Segment, CWS)
+
+词性标注(POS[part of speech] tagging)
+
+文本转音素(Grapheme-to-Phoneme, G2P)
+
+韵律词(Prosody Word, PW)
+
+韵律短语(Prosody Phrase, PP)
+
+语调短语(Intonation Phrase, IP)
+
+
+
 ## Reference
 * [Text Front End](https://slyne.github.io/%E5%85%AC%E5%BC%80%E8%AF%BE/2020/10/03/TTS1/)
 * [Chinese Natural Language (Pre)processing: An Introduction](https://towardsdatascience.com/chinese-natural-language-pre-processing-an-introduction-995d16c2705f)
 * [Beginner’s Guide to Sentiment Analysis for Simplified Chinese using SnowNLP](https://towardsdatascience.com/beginners-guide-to-sentiment-analysis-for-simplified-chinese-using-snownlp-ce88a8407efb)
+* https://www.cnblogs.com/mengnan/p/13200062.html
+* Unified Mandarin TTS Front-end Based on Distilled BERT Model
+
