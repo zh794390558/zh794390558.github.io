@@ -22,12 +22,21 @@
 
 ### TTS
 
-| Corpus   | Length                | LANG | URL                                                          |
-| -------- | --------------------- | ---- | ------------------------------------------------------------ |
-| LJSpeech | 24H                   | En   | https://keithito.com/LJ-Speech-Dataset/                      |
-| VCTK     | 109 SPK, 400 UTTS/SPK | En   | http://homepages.inf.ed.ac.uk/jyamagis/page3/page58/page58.html |
-| CSMSC    | 12H                   | ZN   | https://www.data-baker.com/open_source.html                  |
-| VCC2020  | ...                   | ...  | http://www.vc-challenge.org/                                 |
+| Corpus              | Length                | LANG | URL                                                          |
+| ------------------- | --------------------- | ---- | ------------------------------------------------------------ |
+| LJSpeech            | 24H                   | En   | https://keithito.com/LJ-Speech-Dataset/                      |
+| VCTK                | 109 SPK, 400 UTTS/SPK | En   | http://homepages.inf.ed.ac.uk/jyamagis/page3/page58/page58.html |
+| CSMSC               | 12H                   | ZN   | https://www.data-baker.com/open_source.html                  |
+| VCC2020             | ...                   | ...  | http://www.vc-challenge.org/                                 |
+| CSS10               |                       |      | https://github.com/Kyubyong/css10                            |
+| zhvoice             |                       |      | https://github.com/KuangDD/zhvoice                           |
+| 低调奋进            |                       |      | http://yqli.tech/page/data.html                              |
+| Open Speech Corpora |                       |      | https://github.com/coqui-ai/open-speech-corpora              |
+| OpenSLR             |                       |      | http://www.openslr.org/resources.php                         |
+| asr-noises          |                       |      | https://github.com/speechio/asr-noises                       |
+| 数据集市            |                       |      | http://shujujishi.com/dataset.html?orderby=TIME&category=15  |
+| LibriTTS            |                       |      | https://www.openslr.org/60/                                  |
+| **HI-Fi TTS**       |                       |      | https://www.openslr.org/109/                                 |
 
 ### ST
 
@@ -37,15 +46,9 @@
 
 ### ASR
 
-* [asr-noises](https://github.com/speechio/asr-noises)
-
 * https://blog.ailemon.net/2018/11/21/free-open-source-chinese-speech-datasets/
 
 * https://zhuanlan.zhihu.com/p/267372288
-
-* https://github.com/coqui-ai/open-speech-corpora
-
-* OpenSLR: http://www.openslr.org/resources.php
 
 * https://www.cnblogs.com/yanqiang/p/13535371.html
 
@@ -54,8 +57,6 @@
   https://academictorrents.com/docs/downloading.html
 
   https://academictorrents.com/details/34e2b78745138186976cbc27939b1b34d18bd5b3
-
-* 数据集市 http://shujujishi.com/dataset.html?orderby=TIME&category=15
 
 * FMA https://academictorrents.com/details/dba20c45d4d6fa6453a4e99d2f8a4817893cfb94
 

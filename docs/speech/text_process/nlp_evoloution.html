@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NLP Evoloution &mdash; zh794390558.github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> zh794390558.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Hui Zhang</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Speech</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../asr/chinese_syllable.html">chinese syllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/decoding.html">Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tts_text_frontend.html">Text Front End</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vad/vad.html">VAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/README.html">Speech I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/praat_textgrid.html">Praat and TextGrid</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/training/speech_features.html">Speech Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cpp.html">library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/algorithm.html">Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/tutorials.html">Coding Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/aot/python_to_cpp.html">Python code to Cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/linear_algebra.html">线性代数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/hpc.html">HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html">Eigen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id11">矩阵和向量的运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#array">Array类和元素级操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id27">块操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id32">高级初始化方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id37">归约、迭代器和广播</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#map">原生缓存的接口：Map类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cuda.html">CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/simd.html">SIMD</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tfrt.html">TFRT: A New TensorFlow Runtime </a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/deltann_compile.html">Tensorflow compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/model_optimization.html">Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html">Tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#file-encoding">File Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#ubuntu-gcc-update">Ubuntu GCC Update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#centos-7-gcc-update">CentOS 7 gcc update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#nfs-mount">NFS Mount</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#nginx">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/ffmpeg.html">FFPMEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tools.html">Useful Tools</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dataset</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataset.html">Dataset</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">zh794390558.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>NLP Evoloution</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/speech/text_process/nlp_evoloution.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nlp-evoloution">
+<h1>NLP Evoloution<a class="headerlink" href="#nlp-evoloution" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-natural-language-processing-nlp">
+<h2><strong>What is Natural Language Processing (NLP)?</strong><a class="headerlink" href="#what-is-natural-language-processing-nlp" title="Permalink to this headline">¶</a></h2>
+<p><strong>As per Wikipedia:</strong></p>
+<p><strong>Natural Language Processing</strong> (<strong>NLP</strong>) is an area of computer science and artificial intelligence concerned with the interactions between computers and human (natural) languages, in particular how to program computers to fruitfully process large amounts of natural language (text and speech) data.</p>
+<p>Before diving deeper into NLP, Let’s understand how communication happens in the human language and how NLP originated?</p>
+<p><img alt="img" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/human-comunication-computer.png" /></p>
+</div>
+<div class="section" id="lets-check-out-how-nlp-works-and-the-major-evolution-in-nlp">
+<h2><strong>Let’s check out how NLP works and the major evolution in NLP....</strong><a class="headerlink" href="#lets-check-out-how-nlp-works-and-the-major-evolution-in-nlp" title="Permalink to this headline">¶</a></h2>
+<p><strong>Levels of NLP:</strong> NLP includes a wide set of syntax, semantics, discourse, and speech tasks. The following chart broadly shows these points.</p>
+<p><img alt="img" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/nlp-levels.png" /></p>
+<p>Don’t get confused by these new terms such as Phonology, Pragmatics, Morphology, Syntax, and Semantics. Let’s explore these in a very brief manner -</p>
+<p><strong>Phonology</strong> — This science helps to deal with patterns present in the sound and speeches related to the sound as a physical entity. It’s the smallest unit of sound in a language.</p>
+<p><strong>Morphology</strong> — This science deals with the structure of the words and the systematic relations between them. It’s the smallest unit of meaning in language.</p>
+<p><strong>Syntax</strong> — This science deals with the structure of the sentences where we know how words and sentences are constructed from these two building blocks.</p>
+<p><strong>Semantics</strong> — This science deals with the literal meaning of the words, phrases as well as sentences.</p>
+<p><strong>Discourse</strong> — Semantics in context. Conversation, persuasive writing, etc.</p>
+</div>
+<div class="section" id="natural-language-processing-nlp-text-vs-speech">
+<h2><strong>Natural Language Processing (NLP):</strong> <strong>Text</strong> Vs <strong>Speech</strong><a class="headerlink" href="#natural-language-processing-nlp-text-vs-speech" title="Permalink to this headline">¶</a></h2>
+<p>Natural Language can refer to Text or Speech. Goal of both is the same: translate raw data (text or speech) into underlying concepts (NLU) then possibly into the other form (NLG).</p>
+<p><img alt="img" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/text-speech.png" /></p>
+<p>The area of Natural Language Processing is divided into sub-areas, i.e., Natural Language Generation and Natural Language Understanding which are as the name suggests associated with the generation and understanding the message (text or speech).</p>
+<div class="section" id="natural-language-understanding">
+<h3><strong>Natural Language Understanding</strong><a class="headerlink" href="#natural-language-understanding" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>NLU is an artificial intelligence language that uses computer software to recognize text or speech sentences.</p></li>
+<li><p>The NLU provides a direct human-computer interaction. The NLU allows human languages to be understood statically by the computer without the use of if / else.</p></li>
+<li><p>Goal is to derive meaning from natural language.</p></li>
+<li><p>Imagine a Concept (aka Semantic or Representation) space</p></li>
+<li><p>In it, an idea/word/concept has a unique computer representation</p></li>
+<li><p>Usually via a vector space</p></li>
+<li><p>NLU Mapping language into this space</p></li>
+</ul>
+<p><strong>NLU Applications:</strong></p>
+<ul class="simple">
+<li><p>ML on Text (Classification, Regression, Clustering)</p></li>
+<li><p>Document Recommendation</p></li>
+<li><p>Language Identification</p></li>
+<li><p>Natural Language Search</p></li>
+<li><p>Sentiment Analysis</p></li>
+<li><p>Text Summarization</p></li>
+<li><p>Extracting Word/Document Meaning (vectors)</p></li>
+<li><p>Relationship Extraction</p></li>
+<li><p>Topic Modelling</p></li>
+</ul>
+<p><strong>Relationship between NLP and NLU</strong></p>
+<p><img alt="img" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/nlp-vs-nlu.png" /></p>
+</div>
+<div class="section" id="natural-language-generation-nlg">
+<h3>**Natural Language Generation (NLG) **<a class="headerlink" href="#natural-language-generation-nlg" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Natural-language generation (NLG) is a software process that transforms structured data into natural language (or written narrative).</p></li>
+<li><p>Mapping from computer representation space to language space</p></li>
+<li><p>Opposite direction of NLU</p></li>
+<li><p>Usually need NLU to perform NLG!</p></li>
+</ul>
+<p><strong>NLG Applications:</strong></p>
+<ul class="simple">
+<li><p>Image Captioning</p></li>
+<li><p>(Better) Text Summarization</p></li>
+<li><p>Machine Translation</p></li>
+<li><p>Question Answering (QA)/Chatbots</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="major-evolutions-in-nlp">
+<h2><strong>Major evolutions in NLP…</strong><a class="headerlink" href="#major-evolutions-in-nlp" title="Permalink to this headline">¶</a></h2>
+<p>The following is a list of some of the most commonly researched tasks in NLP.</p>
+<p><img alt="img" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/nlp-researched-task.png" /></p>
+</div>
+<div class="section" id="refrences">
+<h2>Refrences<a class="headerlink" href="#refrences" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://suneelpatel-in.medium.com/nlp-guide-101-nlp-evolution-past-present-and-future-fcc573629da3"><strong>NLP Guide 101: NLP Evolution — Past, Present and Future.…</strong></a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Hui Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

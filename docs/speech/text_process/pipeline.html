@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NLP Pipeline &mdash; zh794390558.github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> zh794390558.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Hui Zhang</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Speech</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../asr/chinese_syllable.html">chinese syllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/decoding.html">Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tts_text_frontend.html">Text Front End</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vad/vad.html">VAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/README.html">Speech I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/praat_textgrid.html">Praat and TextGrid</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/training/speech_features.html">Speech Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cpp.html">library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/algorithm.html">Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/tutorials.html">Coding Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/aot/python_to_cpp.html">Python code to Cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/linear_algebra.html">线性代数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/hpc.html">HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html">Eigen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id11">矩阵和向量的运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#array">Array类和元素级操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id27">块操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id32">高级初始化方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id37">归约、迭代器和广播</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#map">原生缓存的接口：Map类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cuda.html">CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/simd.html">SIMD</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tfrt.html">TFRT: A New TensorFlow Runtime </a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/deltann_compile.html">Tensorflow compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/model_optimization.html">Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html">Tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#file-encoding">File Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#ubuntu-gcc-update">Ubuntu GCC Update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#centos-7-gcc-update">CentOS 7 gcc update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#nfs-mount">NFS Mount</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#nginx">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/ffmpeg.html">FFPMEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tools.html">Useful Tools</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dataset</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataset.html">Dataset</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">zh794390558.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>NLP Pipeline</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/speech/text_process/pipeline.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nlp-pipeline">
+<h1>NLP Pipeline<a class="headerlink" href="#nlp-pipeline" title="Permalink to this headline">¶</a></h1>
+<img src="/Users/zhanghui41/workspace/zh794390558.github.io/src/_static/nlp-pipeline-overview.png" alt="nlp-pipeline" style="zoom:67%;" /><div class="section" id="sentence-hierarchy">
+<h2><strong>Sentence Hierarchy:</strong><a class="headerlink" href="#sentence-hierarchy" title="Permalink to this headline">¶</a></h2>
+<p>A sentence typically follows a hierarchical structure consisting of the following components:</p>
+<p><img alt="img" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/sentence-hierarchy.jpeg" /></p>
+</div>
+<div class="section" id="standard-nlp-workflow">
+<h2><strong>Standard NLP Workflow</strong><a class="headerlink" href="#standard-nlp-workflow" title="Permalink to this headline">¶</a></h2>
+<p>Typically, any NLP-based problem can be solved by a methodical workflow that has a sequence of steps. The major steps are depicted in the following figure.</p>
+<p><img alt="img" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/nlp-workflow.png" /></p>
+<p>We usually start with a corpus of text documents and follow standard processes of text wrangling and pre-processing, parsing, and basic exploratory data analysis. Based on the initial insights, we usually represent the text using relevant feature engineering techniques. Depending on the problem at hand, we either focus on building predictive supervised models or unsupervised models, which usually focus more on pattern mining and grouping. Finally, we evaluate the model and the overall success criteria with relevant stakeholders or customers and deploy the final model for future usage.</p>
+</div>
+<div class="section" id="id1">
+<h2><strong>NLP Pipeline:</strong><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><img alt="img" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/nlp-pipeline.png" /></p>
+<p>Above mentioned steps are used in a typical NLP pipeline, but you will skip steps or re-order steps depending on what you want to do and how your NLP library is implemented. For example, some libraries like spaCy do sentence segmentation much later in the pipeline using the results of the dependency parse.</p>
+</div>
+<div class="section" id="blogs">
+<h2>Blogs<a class="headerlink" href="#blogs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://suneelpatel-in.medium.com/nlp-pipeline-building-an-nlp-pipeline-step-by-step-7f0576e11d08"><strong>NLP Pipeline: Building an NLP Pipeline, Step-by-Step</strong></a></p></li>
+<li><p><a class="reference external" href="https://helloyubo.com/how-does-nlp-work-a-detailed-guide-to-make-an-nlp-pipeline/">How does NLP work: A detailed Guide to make an NLP Pipeline</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Hui Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

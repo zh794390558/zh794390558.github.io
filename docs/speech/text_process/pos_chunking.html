@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>POS Tagging and Chunking &mdash; zh794390558.github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> zh794390558.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Hui Zhang</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Speech</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../asr/chinese_syllable.html">chinese syllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/decoding.html">Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tts_text_frontend.html">Text Front End</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vad/vad.html">VAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/README.html">Speech I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/praat_textgrid.html">Praat and TextGrid</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/training/speech_features.html">Speech Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cpp.html">library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/algorithm.html">Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/tutorials.html">Coding Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/aot/python_to_cpp.html">Python code to Cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/linear_algebra.html">线性代数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/hpc.html">HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html">Eigen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id11">矩阵和向量的运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#array">Array类和元素级操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id27">块操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id32">高级初始化方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id37">归约、迭代器和广播</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#map">原生缓存的接口：Map类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cuda.html">CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/simd.html">SIMD</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tfrt.html">TFRT: A New TensorFlow Runtime </a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/deltann_compile.html">Tensorflow compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/model_optimization.html">Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html">Tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#file-encoding">File Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#ubuntu-gcc-update">Ubuntu GCC Update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#centos-7-gcc-update">CentOS 7 gcc update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#nfs-mount">NFS Mount</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#nginx">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/ffmpeg.html">FFPMEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tools.html">Useful Tools</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dataset</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataset.html">Dataset</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">zh794390558.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>POS Tagging and Chunking</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/speech/text_process/pos_chunking.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pos-tagging-and-chunking">
+<h1>POS Tagging and Chunking<a class="headerlink" href="#pos-tagging-and-chunking" title="Permalink to this headline">¶</a></h1>
+<p>There are eight parts of speech in the English language: noun, pronoun, verb, adjective, adverb, preposition, conjunction, and interjection.</p>
+<ul class="simple">
+<li><p><strong>Noun (N)</strong> — John, London, Table, Teacher, Pen, City, Happiness, Hope</p></li>
+<li><p><strong>Pronoun(PRO)</strong> — I, We, They, You, He, She, It, Me, Us, Them, Him, Her, This, That</p></li>
+<li><p><strong>Verb (V)</strong> — Read, Eat, Go, Speak, Run, Play, Live, Have, Like, Are, Is</p></li>
+<li><p><strong>Adverb(ADV)</strong> — Slowly, Quietly, Very, Always, Never, Too, Well, Tomorrow</p></li>
+<li><p><strong>Adjective(ADJ)</strong> — Big, Happy, Green, Young, Fun, Crazy, Three</p></li>
+<li><p><strong>Preposition (P)</strong> — At, On, In, From, With, Near, Between, About, Under</p></li>
+<li><p><strong>Conjunction (CON)</strong> — And, Or,But, Because, So, Yet, Unless, Since, If</p></li>
+<li><p><strong>Interjection (INT)</strong> — Ouch! Wow! Great! Help! Oh! Hey! Hi!</p></li>
+</ul>
+<img src="/Users/zhanghui41/workspace/zh794390558.github.io/src/_static/pos-tag.jpeg" alt="pos-tag" style="zoom:50%;" /><div class="section" id="pipeline">
+<h2>Pipeline<a class="headerlink" href="#pipeline" title="Permalink to this headline">¶</a></h2>
+<p>As per the NLP Pipeline, we start POS Tagging with text normalization after obtaining a text from the source. Text normalization includes:</p>
+<ul class="simple">
+<li><p>Converting Text (all letters) into lower case</p></li>
+<li><p>Removing HTML tags</p></li>
+<li><p>Expanding contractions</p></li>
+<li><p>Converting numbers into words or removing numbers</p></li>
+<li><p>Removing special character (punctuations, accent marks and other diacritics)</p></li>
+<li><p>Removing white spaces</p></li>
+<li><p>Word Tokenization</p></li>
+<li><p>Stemming and Lemmatization</p></li>
+<li><p>Removing stop words, sparse terms, and particular words</p></li>
+</ul>
+</div>
+<div class="section" id="tools">
+<h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<p>There are many tools containing POS taggers including NLTK, TextBlob, spaCy, Pattern, Stanford CoreNLP, Memory-Based Shallow Parser (MBSP), Apache OpenNLP, Apache Lucene, General Architecture for Text Engineering (GATE), FreeLing, Illinois Part of Speech Tagger, and DKPro Core.</p>
+</div>
+<div class="section" id="the-different-pos-tagging-techniques">
+<h2><strong>The Different POS Tagging Techniques</strong><a class="headerlink" href="#the-different-pos-tagging-techniques" title="Permalink to this headline">¶</a></h2>
+<p>There are different techniques for POS Tagging:</p>
+<p><strong>Lexical Based Methods —</strong> Assigns the POS tag the most frequently occurring with a word in the training corpus.</p>
+<p><strong>Rule-Based Methods —</strong> Assigns POS tags based on rules. For example, we can have a rule that says, words ending with “ed” or “ing” must be assigned to a verb. Rule-Based Techniques can be used along with Lexical Based approaches to allow POS Tagging of words that are not present in the training corpus but are there in the testing data.</p>
+<p><strong>Probabilistic Methods —</strong> This method assigns the POS tags based on the probability of a particular tag sequence occurring. Conditional Random Fields (CRFs) and Hidden Markov Models (HMMs) are probabilistic approaches to assign a POS Tag.</p>
+<p><strong>Deep Learning Methods —</strong> Recurrent Neural Networks can also be used for POS tagging.</p>
+</div>
+<div class="section" id="what-is-chunking-shallow-parsing">
+<h2><strong>What is Chunking (shallow parsing) ?</strong><a class="headerlink" href="#what-is-chunking-shallow-parsing" title="Permalink to this headline">¶</a></h2>
+<p>Before understanding chunking let us discuss what is <strong>chunk</strong>?</p>
+<p>A chunk is a collection of basic familiar units that have been grouped together and stored in a person’s memory. In natural language, chunks are collective higher order units that have discrete grammatical meanings (noun groups or phrases, verb groups, etc.)</p>
+<p><strong>Chunking</strong> is a process of extracting phrases (chunks) from unstructured text. Instead of using a single word which may not represent the actual meaning of the text, it’s recommended to use chunk or phrase.</p>
+<p>The basic technique we will use for entity detection is <strong>chunking,</strong> which segments and labels multi-token sequences as illustrated below:</p>
+<p><img alt="img" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/pos-chunk.png" /></p>
+<p>Segmentation and Labeling at both the Token and Chunk Levels : NLTK.org</p>
+<p><strong>Chunking tools:</strong> NLTK, TreeTagger chunker, Apache OpenNLP, General Architecture for Text Engineering (GATE), FreeLing.</p>
+<p>There are a lot of libraries which give phrases out-of-box such as Spacy or TextBlob. NLTK just provides a mechanism using regular expressions to generate chunks.</p>
+<p>Let us discuss a standard set of Chunk tags:</p>
+<ul class="simple">
+<li><p>Noun Phrase(NP)</p></li>
+<li><p>Verb Phrase (VP)</p></li>
+</ul>
+<p><strong>Noun Phrase:</strong> Noun phrase chunking, or NP-chunking, where we search for chunks corresponding to individual noun phrases.</p>
+<p>In order to create an NP-chunk, we will first define a <strong>chunk grammar</strong> using POS tags**,** consisting of rules that indicate how sentences should be chunked. We will define this using a single regular expression rule.</p>
+<p>In this case, we will define a simple grammar with a single regular-expression rule. This rule says that an NP chunk should be formed whenever the chunker finds an optional determiner (DT) followed by any number of adjectives (JJ) and then a noun (NN) then the Noun Phrase(NP) chunk should be formed.</p>
+<p>The result is a tree, which we can either print or display graphically.</p>
+<p><img alt="img" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/pos-np-chunk.png" /></p>
+<p>Simple Regular Expression Based NP Chunker : nltk.org</p>
+</div>
+<div class="section" id="blogs">
+<h2>Blogs<a class="headerlink" href="#blogs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.englishclub.com/grammar/parts-of-speech.htm">Parts of Speech</a></p></li>
+<li><p>https://en.wikipedia.org/wiki/Part_of_speech</p></li>
+<li><p><a class="reference external" href="https://suneelpatel-in.medium.com/nlp-pos-part-of-speech-tagging-chunking-f72178cc7385"><strong>NLP: POS (Part of speech) Tagging &amp; Chunking</strong></a></p></li>
+<li><p><a class="reference external" href="https://medium.com/greyatom/learning-pos-tagging-chunking-in-nlp-85f7f811a8cb">Learning POS Tagging &amp; Chunking in NLP</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Hui Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

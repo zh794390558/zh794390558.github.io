@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Text Normalization &mdash; zh794390558.github.io 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> zh794390558.github.io
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Hui Zhang</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Speech</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../asr/chinese_syllable.html">chinese syllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/alignment.html">Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../asr/edit-distance-papers/README.html">ASR Edit-distance as objective function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decode/decoding.html">Decoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ppl.html"><strong>语言模型评价指标Perplexity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lm/ngram_lm.html">Ngram LM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/README.html">TTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/speech_synthesis.html">Speech Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tts/TTS-papers/README.html">TTS papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crf.html">CRF(Conditional Random Fields)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="asr_text_backend.html">ASR Text Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tts_text_frontend.html">Text Front End</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vad/vad.html">VAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spk/README.html">Speaker Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../separation/README.html">Speech Separation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/README.html">Speech I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../io/praat_textgrid.html">Praat and TextGrid</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/training/speech_features.html">Speech Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cpp.html">library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/algorithm.html">Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/tutorials.html">Coding Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/aot/python_to_cpp.html">Python code to Cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/linear_algebra.html">线性代数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/hpc.html">HPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html">Eigen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id11">矩阵和向量的运算</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#array">Array类和元素级操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id27">块操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id32">高级初始化方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#id37">归约、迭代器和广播</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/eigen.html#map">原生缓存的接口：Map类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/cuda.html">CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../coding/simd.html">SIMD</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tfrt.html">TFRT: A New TensorFlow Runtime </a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/docker.html">Develop with Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/deltann_compile.html">Tensorflow compile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/adding_op.html">Adding Tensorflow Op</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/serving.html">Serving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tensorrt.html">TensorRT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/model_optimization.html">Model Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/version.html">Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html">Tmux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#file-encoding">File Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#ubuntu-gcc-update">Ubuntu GCC Update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#centos-7-gcc-update">CentOS 7 gcc update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#nfs-mount">NFS Mount</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/linux.html#nginx">Nginx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/ffmpeg.html">FFPMEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development/tools.html">Useful Tools</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../product/product_value.html">用户体验、用户价值和产品价值</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dataset</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataset.html">Dataset</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">zh794390558.github.io</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Text Normalization</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/speech/text_process/tn.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="text-normalization">
+<h1>Text Normalization<a class="headerlink" href="#text-normalization" title="Permalink to this headline">¶</a></h1>
+<p>Text normalization includes:</p>
+<ul class="simple">
+<li><p>Converting Text (all letters) into lower case</p></li>
+<li><p>Removing HTML tags</p></li>
+<li><p>Expanding contractions</p></li>
+<li><p>Converting numbers into words or removing numbers</p></li>
+<li><p>Removing special character (punctuations, accent marks and other diacritics)</p></li>
+<li><p>Removing white spaces</p></li>
+<li><p>Word Tokenization</p></li>
+<li><p>Stemming and Lemmatization</p></li>
+<li><p>Removing stop words, sparse terms, and particular words</p></li>
+</ul>
+<div class="section" id="nlp-pipeline-step-by-step">
+<h2><strong>NLP Pipeline: Step-by-step</strong><a class="headerlink" href="#nlp-pipeline-step-by-step" title="Permalink to this headline">¶</a></h2>
+<p><strong>Converting text to lowercase:</strong></p>
+<p>In-text normalization process, very first step to convert all text data into lowercase which makes all <strong>text</strong> on a level playing field. With this step, we are able to cover each and every word available in text data.</p>
+<p><strong>Removing HTML Tags:</strong></p>
+<p>HTML tags are typically one of these components which don’t add much value towards understanding and analyzing text. When we used text data collected using techniques like web scraping or screen scraping, it contained a lot of noise. We can remove unnecessary HTML tags and retain the useful textual information for further process.</p>
+<p><strong>Remove HTML Tags using Regular Expression (Regex)</strong></p>
+<p>In [01]:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraryimport reTAG_RE = re.compile(r&#39;&lt;[^&gt;]+&gt;&#39;)def remove_tags(text): #define remove tag funtion</span>
+    <span class="k">return</span> <span class="n">TAG_RE</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In [02]:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;div&gt; &lt;h1&gt;Title&lt;/h1&gt; &lt;p&gt;A long text........ &lt;/p&gt; &lt;a href=&quot;&quot;&gt; a link &lt;/a&gt; &lt;/div&gt;&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>In [03]:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">remove_tags</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="n">text</span>
+</pre></div>
+</div>
+<p>Out[04]:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39; Title A long text........   a link</span>
+</pre></div>
+</div>
+<p><strong>Removing accented characters</strong></p>
+<p>Usually, in any text corpus, you might be dealing with accented characters/letters, especially if you only want to analyze the English language. Hence, we need to make sure that these characters are converted and standardized into ASCII characters. A simple example — converting é to e.</p>
+<p><strong>Expanding Contractions</strong></p>
+<p>Contractions are words or combinations of words that are shortened by dropping letters and replacing them by an apostrophe. Let’s have a look at some examples:</p>
+<p>we’re = we are; we’ve = we have; I’d = I would</p>
+<p>We can say that contractions are shortened versions of words or syllables. Or simply, a contraction is an abbreviation for a sequence of words.</p>
+<p>In NLP, we can deal with constraints by converting each contraction to its expanded, original form helps with text standardization.</p>
+<p><strong>Removing Special Characters</strong></p>
+<p>Special characters and symbols are usually non-alphanumeric characters or even occasionally numeric characters (depending on the problem), which adds to the extra noise in unstructured text. Usually, simple regular expressions (regexes) can be used to remove them.</p>
+<p><strong>Stemming</strong></p>
+<p>To understand the stemming, we have to gain some knowledge about the word stem. <strong>Word stems</strong> are also known as the base form of a word, and we can create new words by attaching affixes to them in a process known as inflection.</p>
+<p>You can add affixes to it and form new words like JUMPS, JUMPED, and JUMPING. In this case, the base word JUMP is the word stem.</p>
+<p><img alt="img" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/word-stem.jpeg" /></p>
+<p>The figure shows how the word stem is present in all its inflections since it forms the base on which each inflection is built upon using affixes. The reverse process of obtaining the base form of a word from its inflected form is known as stemming. Stemming helps us in standardizing words to their base or root stem, irrespective of their inflections, which helps many applications like classifying or clustering text, and even in information retrieval.</p>
+<p>Different types of stemmers in NLTK are PorterStemmer, LancasterStemmer, SnowballStemmer.</p>
+<p><strong>Lemmatization:</strong></p>
+<p>In NLP, lemmatization is the process of figuring out the root form or root word (most basic form) or lemma of each word in the sentence. Lemmatization is very similar to stemming, where we remove word affixes to get to the base form of a word. The difference is that the root word is always a lexicographically correct word (present in the dictionary), but the root stem may not be so. Thus, the root word, also known as the lemma, will always be present in the dictionary. It uses a knowledge base called WordNet. Because of knowledge, lemmatization can even convert words that are different and cant be solved by stemmers, for example converting “came” to “come”.</p>
+<p><strong>StopWords</strong></p>
+<p>Words which have little or no significance, especially when constructing meaningful features from text, are known as stopwords or stop words. These are usually words that end up having the maximum frequency if you do a simple term or word frequency in a corpus. Consider words like <strong>a, an, the, be</strong> etc. These words don’t add any extra information in a sentence.</p>
+</div>
+<div class="section" id="blogs">
+<h2>Blogs<a class="headerlink" href="#blogs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>https://suneelpatel-in.medium.com/nlp-pipeline-building-an-nlp-pipeline-step-by-step-7f0576e11d08</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Hui Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
