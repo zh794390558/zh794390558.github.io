@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#linguistic-features">Linguistic Features(语言学特征)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">基于神经网络的前端文本分析模型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">常用词</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
@@ -252,6 +253,9 @@
             
   <div class="section" id="text-front-end">
 <h1>Text Front End<a class="headerlink" href="#text-front-end" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TN</span><span class="o">-&gt;</span><span class="n">CWS</span><span class="o">-&gt;</span><span class="n">POS</span><span class="o">-&gt;</span><span class="n">G2P</span><span class="o">-&gt;</span><span class="n">Prosody</span>
+</pre></div>
+</div>
 <div class="section" id="text-segmentation">
 <h2>Text Segmentation<a class="headerlink" href="#text-segmentation" title="Permalink to this headline">¶</a></h2>
 <p>There are various libraries including some of the most popular ones like NLTK, Spacy, Stanford CoreNLP that that provide excellent, easy to use functions for sentence segmentation.</p>
@@ -430,12 +434,26 @@ stopwords([&quot;zh&quot;])  # Chinese
 <p>韵律: CRF/BLSTM + CRF/ BERT</p>
 <p>考虑到分词，注音，韵律都是基于序列标注任务，所以理论上来说可以通过一个模型搞定。</p>
 </div>
+<div class="section" id="id3">
+<h2>常用词<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>文本正则化(Text Normalization, TN)</p>
+<p>非标准词(Non-Standard Words, NSW)</p>
+<p>话语词(Spoken-Form Words, SFW)</p>
+<p>中文分词(Chinese Word Segment, CWS)</p>
+<p>词性标注(POS[part of speech] tagging)</p>
+<p>文本转音素(Grapheme-to-Phoneme, G2P)</p>
+<p>韵律词(Prosody Word, PW)</p>
+<p>韵律短语(Prosody Phrase, PP)</p>
+<p>语调短语(Intonation Phrase, IP)</p>
+</div>
 <div class="section" id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://slyne.github.io/%E5%85%AC%E5%BC%80%E8%AF%BE/2020/10/03/TTS1/">Text Front End</a></p></li>
 <li><p><a class="reference external" href="https://towardsdatascience.com/chinese-natural-language-pre-processing-an-introduction-995d16c2705f">Chinese Natural Language (Pre)processing: An Introduction</a></p></li>
 <li><p><a class="reference external" href="https://towardsdatascience.com/beginners-guide-to-sentiment-analysis-for-simplified-chinese-using-snownlp-ce88a8407efb">Beginner’s Guide to Sentiment Analysis for Simplified Chinese using SnowNLP</a></p></li>
+<li><p>https://www.cnblogs.com/mengnan/p/13200062.html</p></li>
+<li><p>Unified Mandarin TTS Front-end Based on Distilled BERT Model</p></li>
 </ul>
 </div>
 </div>

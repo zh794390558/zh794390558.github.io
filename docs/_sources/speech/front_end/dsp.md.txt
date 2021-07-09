@@ -74,12 +74,12 @@ https://en.wikipedia.org/wiki/Mel_scale
   ) -> Tensor:
       r"""Create a DCT transformation matrix with shape (``n_mels``, ``n_mfcc``),
       normalized depending on norm.
-  
+
       Args:
           n_mfcc (int): Number of mfc coefficients to retain
           n_mels (int): Number of mel filterbanks
           norm (str or None): Norm to use (either 'ortho' or None)
-  
+
       Returns:
           Tensor: The transformation matrix, to be right-multiplied to
           row-wise data of size (``n_mels``, ``n_mfcc``).
@@ -119,7 +119,7 @@ https://en.wikipedia.org/wiki/Mel_scale
 
 * https://www.fon.hum.uva.nl/praat/manual/Harmonicity.html
 
-  
+
 
 ### 16. SNR
 

@@ -227,6 +227,9 @@
             
   <div class="section" id="prosody">
 <h1>Prosody<a class="headerlink" href="#prosody" title="Permalink to this headline">¶</a></h1>
+<p>Prosody refers to the rhythm, stress and intonation of speech, including variations in duration, loudness and pitch.</p>
+<p>In Chinese speech synthesis systems, typical prosody bound- ary labels consist of prosodic word (PW), prosodic phrase (PPH) and intonational phrase (IPH), which construct a three- layer prosody structure tree [Jingwei Sun,Chinese prosody structure prediction based on conditional random field].The leaf nodes of tree structure are lexical words that can be derived from a lexical-based word segmentation module.Whether the prosody labels are properly predicted will directly affect the naturalness and intelligibility of the synthesized speech.</p>
+<p><img alt="img" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/prosody-sctructure-tree.png" /></p>
 <div class="section" id="repos">
 <h2>Repos<a class="headerlink" href="#repos" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -235,11 +238,83 @@
 <li><p>https://github.com/Zeqiang-Lai/Prosody_Prediction</p></li>
 </ul>
 </div>
+<div class="section" id="decision-tree-crf">
+<h2>Decision Tree &amp; CRF<a class="headerlink" href="#decision-tree-crf" title="Permalink to this headline">¶</a></h2>
+<p>Some syntactic cues like part-of-speech (POS), syllable identity, syllable stress and their contextual counterparts are commonly used for prosody boundary prediction [3,4,5].</p>
+<p>A CRF-based prosodic boundary prediction approach was used as baseline and boundary prediction (B, NB and O) was <strong>operated at word level</strong>. Atomic features in the CRF approach include <strong>word identity, POS tags, the length of word and the predicted tag from the previous boundary level.</strong> A linear statistical model was applied to optimize the feature templates. Parameters grid search was adopted to achieve the best perfor- mance of the CRF model. The CRF++ toolkit2 was used for the CRF-based prosodic boundary prediction.</p>
+<ol>
+<li><p>Input Text</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>那些庄稼田园在果果眼里感觉太亲切了！
+</pre></div>
+</div>
+</li>
+<li><p>Tokenize and POS</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Tokens: 那些 庄稼 田园 在 果果 眼里 感觉 太 亲切 了 ！
+POS: r n nr p n s n d a ul x
+Tags: #1 #1 #2 #1 #1 #2 #1 #0 #0 #4 #0
+</pre></div>
+</div>
+</li>
+<li><p>Extracting features</p>
+<p>feature colums:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num_left</span><span class="p">,</span> <span class="n">num_right</span><span class="p">,</span> <span class="n">size_left</span><span class="p">,</span> <span class="n">size_right</span><span class="p">,</span> <span class="n">len_left</span><span class="p">,</span> <span class="n">len_right</span><span class="p">,</span> <span class="n">pos_left_2</span><span class="p">,</span> <span class="n">pos_left</span><span class="p">,</span> <span class="n">pos_right</span><span class="p">,</span> <span class="n">pos_right_2</span><span class="p">,</span> <span class="n">tone_left</span><span class="p">,</span> <span class="n">tone_right</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>token_len=num tokens exclude punctation
+cur_index=current token index, cur_index is belong to left part
+# Numeric features
+num_left=num tokens less equal than `cur_index`
+num_right=num tokens greater than `cur_index`
+size_left=num charactors in cur token in `cur_index`
+size_righ=num charactors in cur token in `cur_index+1`
+len_left=num charactors of tokens less equal than `cur_index`
+len_right=num charactors of tokens greater than `cur_index`
+# Categorical features
+## Pos Info
+pos_left_2 = pos of `cur_index - 1` if cur_index &gt; 0 else &#39;BEG&#39;
+pos_right_2 = pos of `cur_index + 2] if index &lt; num_cut -1 else &#39;END&#39;
+pos_left = pos of `cur_index`
+pos_right = pos of `cur_index + 1`
+## Pinyin Info
+tone_left=tone of last charactor of `cur_index` token
+tone_right=tone of first charactor of `cur_index + 1` token
+</pre></div>
+</div>
+</li>
+<li><p>特征编码</p>
+<p>数值型保持不变，类别型做onthot编码。</p>
+</li>
+<li><p>单个词训练</p>
+<p>输入单个词的特征，输出词的韵律标记（#0，#1，#2，#3，#4）</p>
+<p>模型使用随机森林：RandomForestClassifier</p>
+<p><strong>X</strong> <strong>{array-like, sparse matrix} of shape (n_samples, n_features)</strong></p>
+<p>**y ** <strong>array-like of shape (n_samples,) or (n_samples, n_outputs)</strong></p>
+<p><strong>p</strong> <strong>ndarray of shape (n_samples, n_classes), or a list of n_outputs</strong></p>
+</li>
+<li><p>词序列训练</p>
+<p>输入词序列特征，输出词序列韵律标记</p>
+<p>模型使用随机森林：RandomForestClassifier</p>
+<p>先训练好基于词的RandomForestClassifier，之后再用CRF在词序列 RandomForestClassifier.predict_proba的结果score作为emit score上做finetune。</p>
+</li>
+<li><p>解码</p>
+<p>词序列提取特征并编码，RandomForestClassifier结算proba scores。使用CRF时，使用 Viterbi 解码；否则，使用greedy search取每个词的最大概率class。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="blstm-prosody-prediction">
+<h2>BLSTM Prosody Prediction<a class="headerlink" href="#blstm-prosody-prediction" title="Permalink to this headline">¶</a></h2>
+<p><img alt="img" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/blstm-prosody.png" /></p>
+<p>To model the tag dependency and infer the tag sequence glob- ally, given a set of tags G = {B,NB, O}, a transition score</p>
+<p><img alt="img" src="Users/zhanghui41/workspace/zh794390558.github.io/src/_static/crf-loss.png" /></p>
+<p>Totally <strong>48210</strong> sentences randomly selected from People’s Daily were used in our experiments. Prosodic boundaries (PW, PPH and IPH) were labelled by professional annotators with corresponding speech and labeling consistency is en- sured. Word segmentation and POS tagging were carried out by a front-end preprocessing tool. The accuracy of word seg- mentation is 97% and the accuracy of POS tagging is 96%. The corpus was partitioned into three parts: a training set with <strong>43390</strong> utterances, a validation set with 2410 utterances for pa- rameter tuning and a testing set with another 2410 utterances. A character dictionary D of size 4030 was extracted from the training set. A large set of raw texts was also collected from People’s Daily for unsupervised embedding feature learning. All texts were preprocessed with text normalization.</p>
+<p>In the experiments, PW, PPH and IPH were predicted separately. That is to say, three separate neural network models were trained independently for PW, PPH and IPH. Each character in a sentence was assigned to one of the following three boundary tags: <strong>B for a prosodic boundary, NB for a non-boundary, and O for other symbols such as punctuation.</strong> Precision (P), recall (R) and F-score (F) were calculated as standard objective evaluation criteria.</p>
+</div>
 </div>
 <div class="section" id="blogs">
 <h1>Blogs<a class="headerlink" href="#blogs" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>https://prosodylab.cs.mcgill.ca/lab/</p></li>
+<li><p>AUTOMATIC PROSODY PREDICTION FOR CHINESE SPEECH SYNTHESIS USING BLSTM-RNN AND EMBEDDING FEATURES</p></li>
 </ul>
 </div>
 

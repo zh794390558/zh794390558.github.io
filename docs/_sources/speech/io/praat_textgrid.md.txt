@@ -95,7 +95,7 @@ pip3 install textgrid
            Interval(1361.89250, 1362.01250, R),
            Interval(1362.01250, 1362.13250, AY1),
            Interval(1362.13250, 1362.16250, T),
-   
+
    ...
            ]
        )
@@ -139,7 +139,7 @@ pip3 install textgrid
      表示tg[0] 中包含1362时间点的是 下标为1的 Interval 对象
      intervalContaining(): 传入时间或Point对象, 返回包含该时间的Interval对象
    例如
-   	print(tg[0].intervalContaining(1362))  -->  Interval(1361.89250, 1362.01250, R)
+       print(tg[0].intervalContaining(1362))  -->  Interval(1361.89250, 1362.01250, R)
    read(f): f是文件对象, 读一个TextGrid文件
    write(f): f是文件对象, 写一个TextGrid文件
    fromFile(f_path): f_path是文件路径, 从一个文件读
@@ -274,17 +274,17 @@ PyToBI is introduced as a user-friendly toolkit for the automatic annotation of 
 
 ![ToBI](/Users/zhanghui41/workspace/zh794390558.github.io/src/_static/tobi.png)
 
-Praat needs to be installed locally in the PyToBI folder to perform the second step of the processing pipeline. The latest version of Praat can be downloaded from the original website http://www.fon.hum.uva.nl/praat/ . PyToBI includes a bash file to call Praat and four Praat scripts included in the toolkit. These scripts perform different processes under Praat, namely: 
+Praat needs to be installed locally in the PyToBI folder to perform the second step of the processing pipeline. The latest version of Praat can be downloaded from the original website http://www.fon.hum.uva.nl/praat/ . PyToBI includes a bash file to call Praat and four Praat scripts included in the toolkit. These scripts perform different processes under Praat, namely:
 
-1. Annotation of silences and intensity peaks. 
-2.  Annotation of intensity valleys. 
-3.  Word and phone export and annotation of prosodic parameters as features. 
+1. Annotation of silences and intensity peaks.
+2.  Annotation of intensity valleys.
+3.  Word and phone export and annotation of prosodic parameters as features.
 
-The next step of the pipeline is fully run in Python. The following functionalities are provided: 
+The next step of the pipeline is fully run in Python. The following functionalities are provided:
 
-1. Python data structures created from TextGrid input. 
-2. Annotation of tones. 
-3. Annotation of breaks. 
+1. Python data structures created from TextGrid input.
+2. Annotation of tones.
+3. Annotation of breaks.
 4. Conversion of the output structure to TextGrid format.
 
 ### Annotation of tones
@@ -303,4 +303,3 @@ PyToBI detects breaks3 from 1 to 4 and, in case a break type 3 or 4 is detected,
 * https://www.researchgate.net/publication/221484679_Duration_modeling_for_Chinese_synthesis_from_C-toBI_labeled_corpus/link/54d499750cf25013d0299868/download
 * https://www.corpus4u.org/threads/384/
 * https://wenku.baidu.com/view/d3d03e7685868762caaedd3383c4bb4cf6ecb7f9.html?re=view
-

@@ -12,4 +12,3 @@
 
 * [Sparrowhawk](https://github.com/google/sparrowhawk) is an open-source implementation of Google's Kestrel text-to-speech
   text normalization system.  
-

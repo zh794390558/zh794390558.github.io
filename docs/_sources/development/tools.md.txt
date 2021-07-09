@@ -6,4 +6,3 @@
 * [XOR Calculator](http://xor.pw/)
 
 * [github star history](https://star-history.t9t.io/)
-

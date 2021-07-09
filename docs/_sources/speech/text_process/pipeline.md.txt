@@ -26,4 +26,3 @@ Above mentioned steps are used in a typical NLP pipeline, but you will skip step
 
 * [**NLP Pipeline: Building an NLP Pipeline, Step-by-Step**](https://suneelpatel-in.medium.com/nlp-pipeline-building-an-nlp-pipeline-step-by-step-7f0576e11d08)
 * [How does NLP work: A detailed Guide to make an NLP Pipeline](https://helloyubo.com/how-does-nlp-work-a-detailed-guide-to-make-an-nlp-pipeline/)
-

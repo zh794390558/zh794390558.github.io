@@ -39,4 +39,3 @@ Syntax : tokenize.RegexpTokenizer()
 
 * [**NLP Guide 101: Tokenization and Methods to Perform Tokenization**](https://suneelpatel-in.medium.com/nlp-guide-101-tokenization-and-methods-to-perform-tokenization-8e4e34d74805)
 * [How to Get Started with NLP – 6 Unique Methods to Perform Tokenization](https://www.analyticsvidhya.com/blog/2019/07/how-get-started-nlp-6-unique-ways-perform-tokenization/)
-

@@ -85,4 +85,3 @@ The following is a list of some of the most commonly researched tasks in NLP.
 ## Refrences
 
 * [**NLP Guide 101: NLP Evolution — Past, Present and Future.…**](https://suneelpatel-in.medium.com/nlp-guide-101-nlp-evolution-past-present-and-future-fcc573629da3)
-
