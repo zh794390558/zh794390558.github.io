@@ -1,10 +1,11 @@
 # TTS Train with HTS/Merlin
 
 * http://simple4all.org/
+* http://www.sp.nitech.ac.jp/~tokuda/tokuda_iscslp2006.pdf
 
 ## Tools
 
-* [HTS](http://hts.sp.nitech.ac.jp/)
+* **[HTS](http://hts.sp.nitech.ac.jp/)**
 
 * [indicTTS](https://www.iitm.ac.in/donlab/tts/synthDocs.php)
 
@@ -26,22 +27,32 @@
 
 * **[Ossian](https://github.com/CSTR-Edinburgh/Ossian) ** is a collection of Python code for building text-to-speech (TTS) systems, with an emphasis on easing research into building TTS systems with minimal expert supervision
 
+  * https://gist.github.com/candlewill/8141bbe9d6c4c6224be8d3b4c07723eb
+
 * [Preparing Data for Training an HTS Voice](http://www.cs.columbia.edu/~ecooper/tts/data.html)
 
 * [Festival](https://github.com/festvox/festival)  Speech Synthesis System
 
 * [Festvox](http://festvox.org/) This project is part of the work at [Carnegie Mellon University's speech group](http://www.speech.cs.cmu.edu/) aimed at advancing the state of Speech Synthesis.
 
-  http://festvox.org/bsv/book1.html
+  * **http://festvox.org/bsv/book1.html**
+
+  * **http://festvox.org/bsv/bsv.pdf**
 
 * [Carnegie Mellon University](http://www.speech.cs.cmu.edu/)
 
 * [nnmnkwii](https://github.com/r9y9/nnmnkwii)  [nnmnkwii_gallery](https://github.com/r9y9/nnmnkwii_gallery)
 
-* [merlin]()
+### FrontEnd
 
-  https://mtts.readthedocs.io/_/downloads/zh_CN/latest/pdf/
+* festival
+* festvox
+* hts
+* htk
 
-  [MTTS Merlin/Mandarin Text-to-Speech Document](https://mtts.readthedocs.io/zh_CN/latest/)
+### Vocoder
 
-  https://github.com/Jackiexiao/MTTS
+* [WORLD](https://github.com/mmorise/World)
+* SPTK
+* MagPhase
+* STRIGHT

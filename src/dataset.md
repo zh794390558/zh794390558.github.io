@@ -37,6 +37,7 @@
 | 数据集市            |                       |      | http://shujujishi.com/dataset.html?orderby=TIME&category=15  |
 | LibriTTS            |                       |      | https://www.openslr.org/60/                                  |
 | **HI-Fi TTS**       |                       |      | https://www.openslr.org/109/                                 |
+| slt_arctic          |                       |      | http://104.131.174.95/slt_arctic_full_data.zip               |
 
 ### ST
 
