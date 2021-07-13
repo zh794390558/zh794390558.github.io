@@ -6,6 +6,26 @@ In Chinese speech synthesis systems, typical prosody bound- ary labels consist o
 
 ![img](/Users/zhanghui41/workspace/zh794390558.github.io/src/_static/prosody-sctructure-tree.png)
 
+## **韵律的标记格式**
+
+韵律分成四级，分别用#4，#3，#2， #1表示。
+
+- #4 ：
+
+  （1）一个完整语意的句子，切除前后可以独立成为一个句子，从听感上调形是完全降下来的，有明显的停顿。 （2）如果是以二声词结尾的短句，这个二声的词被拖长音，且与后面是转折的关系的，有明显的停顿。
+
+- #3 ：
+
+  通常标在一个韵律短语后面，有时会是一个词，从听感上调形是降下来的，但不够完全，不能独立成为一个语意完整的句子。
+
+- #2 ：
+
+  （1）表示被‘重读’的词或单个字(为了强调后面)，有停顿，调形上有小的变化, 有‘骤停’的感觉。 （对于单音节词如果是被‘拖长音’，给#1；如果是‘骤停’要给#2 ） （2）并列关系的词如果被强调重读，给#2；如果是很平滑的，给#1。
+
+- #1 ：
+
+  只是韵律词的边界，通常没有停顿
+
 ## Repos
 
 * https://github.com/BoragoCode/AttentionBasedProsodyPrediction

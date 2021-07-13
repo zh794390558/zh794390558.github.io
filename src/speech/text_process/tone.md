@@ -1,6 +1,16 @@
 # Tone
 
+## **声调的标记格式**
+
+采用数字1、2、3、4、5,代替《汉语拼音方案》中声调阴平（ˉ），阳平（ˊ），上声（ˇ），去声（ˋ），轻声（不标调）这几个标调符号
+
+* https://mtts.readthedocs.io/zh_CN/latest/corpus.html
+
+
+
 ## [普通话的三声连读变调](https://zhuanlan.zhihu.com/p/70629035)
+
+
 
 ## [Chinese Tone Course](https://chinesefor.us/courses/learn-chinese-tones-pinyin-drills-course/#down_course_navigation)
 

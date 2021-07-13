@@ -20,7 +20,7 @@
 
 * [语料库语言学在线](https://www.corpus4u.org/)
 
-### TTS
+
 
 | Corpus              | Length                | LANG | URL                                                          |
 | ------------------- | --------------------- | ---- | ------------------------------------------------------------ |
@@ -38,6 +38,15 @@
 | LibriTTS            |                       |      | https://www.openslr.org/60/                                  |
 | **HI-Fi TTS**       |                       |      | https://www.openslr.org/109/                                 |
 | slt_arctic          |                       |      | http://104.131.174.95/slt_arctic_full_data.zip               |
+| CMU Audio           |                       |      | http://www.speech.cs.cmu.edu/databases/                      |
+
+
+
+### TTS
+
+### **中文语料库**
+
+目前网络上尚未有免费的语料库，需要自行构建语料库或者是购买公司或者大学的语料库。对于自行构建语料库来说，除了韵律部分需要人工标记之外，其他部分实际上可以通过工具实现标注，例如字音转换，分词，词性标注，音素发音时长。
 
 ### ST
 

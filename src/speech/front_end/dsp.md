@@ -26,6 +26,7 @@ Typically fundamental frequencies lie roughly in the range *80* to *450 Hz*, whe
 
 * https://wiki.aalto.fi/pages/viewpage.action?pageId=149890776
 * https://en.wikipedia.org/wiki/Fundamental_frequency.
+* https://blog.csdn.net/xmdxcsj/article/details/72419854
 
 ### 5. [Signal energy, loudness and decibel](https://wiki.aalto.fi/display/ITSP/Signal+energy%2C+loudness+and+decibel)
 
@@ -74,12 +75,12 @@ https://en.wikipedia.org/wiki/Mel_scale
   ) -> Tensor:
       r"""Create a DCT transformation matrix with shape (``n_mels``, ``n_mfcc``),
       normalized depending on norm.
-
+  
       Args:
           n_mfcc (int): Number of mfc coefficients to retain
           n_mels (int): Number of mel filterbanks
           norm (str or None): Norm to use (either 'ortho' or None)
-
+  
       Returns:
           Tensor: The transformation matrix, to be right-multiplied to
           row-wise data of size (``n_mels``, ``n_mfcc``).
@@ -126,3 +127,16 @@ https://en.wikipedia.org/wiki/Mel_scale
 * https://en.m.wikipedia.org/wiki/Signal-to-noise_ratio
 * https://gist.github.com/johnmeade/d8d2c67b87cda95cd253f55c21387e75
 * https://www.ee.columbia.edu/~dpwe/LabROSA/projects/snreval/
+
+
+
+## 17.  bap(band aperiodicity)
+
+* https://blog.csdn.net/xmdxcsj/article/details/72420051
+
+
+
+## 18. spectral envelope
+
+* https://blog.csdn.net/xmdxcsj/article/details/72419948
+
